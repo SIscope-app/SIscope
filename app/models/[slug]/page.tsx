@@ -1,0 +1,362 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Avatar, OpenTag, VariantChip } from "@/components/Avatar";
+import { HistoryChart, Radar, RankChart } from "@/components/charts";
+import { CoverageDots, coverageOf, coverageText } from "@/components/Coverage";
+import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
+import { CatBars } from "@/components/CatBars";
+import { JsonLd } from "@/components/JsonLd";
+import { EPOCH_BENCHMARKS, allModels, modelBySlug, siRanked, sourceById, type Enriched } from "@/lib/data";
+import { fmtCtx, fmtDate, fmtInt, fmtPrice } from "@/lib/format";
+import { orgName } from "@/lib/orgs";
+import { CATEGORIES, COVERAGE_GATE } from "@/lib/score";
+import { SITE, og } from "@/lib/site";
+
+export function generateStaticParams() {
+  return allModels().map((m) => ({ slug: m.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps<"/models/[slug]">): Promise<Metadata> {
+  const { slug } = await params;
+  const m = modelBySlug(slug);
+  if (!m) return {};
+  const bits = [m.si != null ? `SIscope score ${m.si.toFixed(0)}/100` : null, m.price ? `${fmtPrice(m.price.blended_per_m)} per 1M tokens` : null].filter(Boolean).join(", ");
+  return {
+    title: `${m.name}: scores, price and verdict`,
+    description: `Is ${m.name} by ${orgName(m.org)} any good? ${bits ? bits + ". " : ""}Human-vote rankings, independent benchmark runs and price in plain words.`,
+    alternates: { canonical: `/models/${m.slug}` }, openGraph: og(`/models/${m.slug}`),
+  };
+}
+
+const BOARDS = [
+  { k: "text", label: "Text arena", what: "Everyday chat, blind human votes" },
+  { k: "webdev", label: "WebDev arena", what: "Building web apps, blind human votes" },
+  { k: "vision", label: "Vision arena", what: "Questions about images, blind human votes" },
+  { k: "agent", label: "Agent arena", what: "Real multi-step agent sessions" },
+] as const;
+
+function verdict(m: Enriched, total: number, pricedShare: number | null) {
+  const known = CATEGORIES.filter((c) => m.cats[c.id] != null).map((c) => ({ c, v: m.cats[c.id]! }));
+  const parts: string[] = [];
+  if (m.si != null && m.siRank) {
+    const tier = m.siRank <= 5 ? "one of the very best models right now" : m.siRank <= 20 ? "a top-tier model" : m.si >= 75 ? "a strong all-rounder" : m.si >= 50 ? "a solid mid-pack model" : "behind the leaders";
+    parts.push(`${m.base} is ${tier}: #${m.siRank} of ${total} by SIscope score.`);
+  } else {
+    parts.push(`${m.base} doesn't have enough test coverage for an overall SIscope score yet.`);
+  }
+  if (known.length >= 2) {
+    const s = [...known].sort((a, b) => b.v - a.v);
+    const top = s[0].c.label.toLowerCase(),
+      low = s[s.length - 1];
+    if (low.v >= 85) parts.push(`Strong at everything it's been tested on, especially ${top}.`);
+    else if (s[0].v - low.v >= 8) parts.push(`Strongest at ${top}, weaker at ${low.c.label.toLowerCase()}.`);
+    else parts.push(`Even across the board, with no weak spot in what's been tested.`);
+  }
+  if (m.price && pricedShare != null) {
+    const p = Math.round(pricedShare * 100);
+    parts.push(p >= 60 ? `Cheaper than ${p}% of priced models.` : p <= 25 ? `On the pricey side: costs more than ${100 - p}% of priced models.` : `Mid-range on price.`);
+  }
+  if (m.open) parts.push("Weights are open, so you can run it yourself.");
+  return parts.join(" ");
+}
+
+export default async function ModelPage({ params }: PageProps<"/models/[slug]">) {
+  const { slug } = await params;
+  const m = modelBySlug(slug);
+  if (!m) notFound();
+  const ranked = siRanked();
+  const priced = allModels().filter((x) => x.price);
+  const pricedShare = m.price ? priced.filter((x) => x.price!.blended_per_m > m.price!.blended_per_m).length / priced.length : null;
+  const color = m.open ? "var(--c-open)" : "var(--c-closed)";
+  const siblings = allModels().filter((x) => x.base === m.base && x.slug !== m.slug);
+  const rival = ranked.find((x) => x.slug !== m.slug && x.open !== m.open) ?? ranked.find((x) => x.slug !== m.slug);
+  const arenaSrc = sourceById("arena");
+  const epochSrc = sourceById("epoch");
+  const orSrc = sourceById("openrouter");
+  const cov = coverageOf(m.cats);
+  const asOf = m.arena.text?.date ?? m.arena.webdev?.date ?? m.price?.as_of ?? arenaSrc.as_of;
+
+  return (
+    <div className="wrap">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Leaderboard", item: `${SITE.url}/leaderboard` },
+                { "@type": "ListItem", position: 2, name: m.name, item: `${SITE.url}/models/${m.slug}` },
+              ],
+            },
+            {
+              "@type": "Dataset",
+              name: `${m.name} scores and price`,
+              description: `Human-vote rankings, independent benchmark results and list price for ${m.name}.`,
+              url: `${SITE.url}/models/${m.slug}`,
+              creator: { "@type": "Organization", name: "SIscope" },
+              isBasedOn: [arenaSrc.home, epochSrc.home, orSrc.home],
+              license: "https://creativecommons.org/licenses/by/4.0/",
+              dateModified: m.arena.text?.date ?? arenaSrc.as_of,
+            },
+          ],
+        }}
+      />
+      <div className="page-head">
+        <div className="crumbs">
+          <Link href="/leaderboard">Leaderboard</Link> / {orgName(m.org)}
+        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+          <Avatar org={m.org} size={48} />
+          <div style={{ minWidth: 0 }}>
+            <h1 className="h1" style={{ margin: 0 }}>{m.base}</h1>
+            <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", marginTop: 6, color: "var(--muted)", fontSize: 15 }}>
+              {orgName(m.org)} <VariantChip v={m.variant} /> <OpenTag open={m.open} showClosed /> <span className="chip">{m.model_license}</span>
+            </div>
+          </div>
+        </div>
+        <div className="kf" role="list" aria-label="Key facts">
+          <div className="card stat lead" role="listitem">
+            <div className="k">SIscope score</div>
+            <div className="v">{m.si != null ? <>{m.si.toFixed(0)}<small>/100</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
+            <div className="d">{m.si != null ? `#${m.siRank} of ${ranked.length} ranked` : `${Math.round(m.coverage * 100)}% coverage, needs ${COVERAGE_GATE * 100}%`}</div>
+          </div>
+          {(["text", "webdev"] as const).map((b) => {
+            const a = m.arena[b];
+            return (
+              <div key={b} className="card stat" role="listitem">
+                <div className="k">{b === "text" ? "Arena text rank" : "Arena WebDev rank"}</div>
+                <div className="v">{a ? `#${a.rank}` : <span className="nodata" style={{ fontSize: 17 }}>Not on board</span>}</div>
+                <div className="d">{a ? `of ${a.board_size} · score ${Math.round(a.rating!)}` : b === "text" ? "Blind chat votes" : "Blind web-app votes"}</div>
+              </div>
+            );
+          })}
+          <div className="card stat" role="listitem">
+            <div className="k">Price, blended</div>
+            <div className="v">{m.price ? <>{fmtPrice(m.price.blended_per_m)}<small>/1M</small></> : <span className="nodata" style={{ fontSize: 17 }}>No price yet</span>}</div>
+            <div className="d">{m.price ? `${fmtPrice(m.price.input_per_m)} in · ${fmtPrice(m.price.output_per_m)} out` : "Not listed on OpenRouter"}</div>
+          </div>
+          <div className="card stat" role="listitem">
+            <div className="k">Context window</div>
+            <div className="v">{m.price?.context_length ? fmtCtx(m.price.context_length) : <span className="nodata" style={{ fontSize: 17 }}>No data yet</span>}</div>
+            <div className="d">{m.price?.context_length ? `${fmtInt(m.price.context_length)} tokens` : "From OpenRouter listing"}</div>
+          </div>
+          <div className="card stat" role="listitem">
+            <div className="k">Access</div>
+            <div className="v" style={{ color: m.open ? "var(--open-ink)" : undefined }}>{m.open ? "Open" : "Closed"}</div>
+            <div className="d" title={m.model_license}>{m.open ? `Weights: ${m.model_license}` : "API or app only"}</div>
+          </div>
+          <div className="card stat" role="listitem">
+            <div className="k">Coverage</div>
+            <div className="v">{cov.n}<small>/{cov.total}</small><CoverageDots cats={m.cats} /></div>
+            <div className="d" title={coverageText(m.cats)}>{cov.missing.length ? `Missing: ${cov.missing.join(", ")}` : "Every category has data"}</div>
+          </div>
+          <div className="card stat" role="listitem">
+            <div className="k">Data as of</div>
+            <div className="v" style={{ fontSize: 20, paddingBlock: 4 }}>{fmtDate(asOf)}</div>
+            <div className="d">{m.arena.text || m.arena.webdev ? "Latest Arena update" : "Latest price check"}</div>
+          </div>
+        </div>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 14 }}>
+          {rival && (
+            <Link className="btn primary" href={`/compare?m=${m.slug},${rival.slug}`}>
+              Compare with {rival.base} →
+            </Link>
+          )}
+          <Link className="btn" href={`/compare?m=${m.slug}`}>
+            Compare with any model
+          </Link>
+          {m.price && (
+            <Link className="btn" href={`/tools/cost?m=${m.slug}`}>
+              Monthly cost
+            </Link>
+          )}
+        </div>
+        {siblings.length > 0 && (
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 14, alignItems: "center", fontSize: 14, color: "var(--muted)" }}>
+            Other settings:
+            {siblings.slice(0, 6).map((s) => (
+              <Link key={s.slug} href={`/models/${s.slug}`} className="src">
+                {s.variant ?? "Default"}
+                {s.si != null ? ` · ${s.si.toFixed(0)}` : ""}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="card verdict">
+        <div className="eyebrow" style={{ marginBottom: 6 }}>Verdict</div>
+        <p style={{ margin: 0, fontSize: 18, lineHeight: 1.5 }}>{verdict(m, ranked.length, pricedShare)}</p>
+      </div>
+
+      <section className="section">
+        <div className="grid2" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
+          <div className="card" style={{ padding: 20 }}>
+            <h2 className="h2">Shape</h2>
+            <p className="sub">Each spoke is a category, 0 at the centre, 100 at the edge.</p>
+            <div style={{ marginTop: 10 }}>
+              <Radar series={[{ label: m.name, cats: m.cats, color }]} />
+            </div>
+          </div>
+          <div className="card" style={{ padding: 20 }}>
+            <h2 className="h2">Category scores</h2>
+            <p className="sub" style={{ marginBottom: 10 }}>Percentiles: 90 means better than about 90% of tested models.</p>
+            <CatBars cats={m.cats} open={m.open} />
+            <p className="note">
+              <Link className="link" href="/methodology">What goes into each category</Link> ·{" "}
+              {rival && (
+                <Link className="link" href={`/compare?m=${m.slug},${rival.slug}`}>
+                  Compare with {rival.base}
+                </Link>
+              )}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {(m.history.text || m.history.webdev) && (
+        <section className="section">
+          <div className="grid2" style={{ gridTemplateColumns: m.history.text && m.history.webdev ? "1fr 1fr" : "1fr" }}>
+            {m.history.text && (
+              <div className="card" style={{ padding: 20 }}>
+                <h2 className="h2">Text arena over time</h2>
+                <p className="sub">Rating (solid) and rank (dashed) at each Arena update we have: {m.history.text.length} of 16 snapshots.</p>
+                <HistoryChart points={m.history.text} color={color} wide={!m.history.webdev} />
+                <RankChart points={m.history.text} color={color} label="Text arena rank over time" />
+                <p className="note"><a className="link" href={ARENA_BOARD_URL.text} rel="noopener">Text arena on Arena ↗</a></p>
+              </div>
+            )}
+            {m.history.webdev && (
+              <div className="card" style={{ padding: 20 }}>
+                <h2 className="h2">WebDev arena over time</h2>
+                <p className="sub">Rating (solid) and rank (dashed) at each Arena update we have: {m.history.webdev.length} of 16 snapshots.</p>
+                <HistoryChart points={m.history.webdev} color={color} wide={!m.history.text} />
+                <RankChart points={m.history.webdev} color={color} label="WebDev arena rank over time" />
+                <p className="note"><a className="link" href={ARENA_BOARD_URL.webdev} rel="noopener">WebDev arena on Arena ↗</a></p>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      <section className="section">
+        <h2 className="h2">Independent test runs</h2>
+        <p className="sub" style={{ marginBottom: 14 }}>Run by Epoch AI on the same harness for every model. Bars show the share of questions answered correctly.</p>
+        {m.epoch.length === 0 ? (
+          <div className="card nodata" style={{ padding: 20 }}>No Epoch AI runs for this model yet.</div>
+        ) : (
+          <div className="grid3">
+            {m.epoch.map((e) => {
+              const b = EPOCH_BENCHMARKS[e.benchmark];
+              return (
+                <div key={e.benchmark} className="card" style={{ padding: 18, display: "grid", gap: 8 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", gap: 8 }}>
+                    <a href={epochBenchUrl(e.benchmark)} rel="noopener" style={{ fontWeight: 700 }} title={`${b?.label ?? e.benchmark} on Epoch AI`}>{b?.label ?? e.benchmark}</a>
+                    <span className="tnum" style={{ fontWeight: 750, fontSize: 20 }}>{Math.round(e.score * 100)}%</span>
+                  </div>
+                  <span className="barw">
+                    <span className={`bar ${m.open ? "open" : ""}`} style={{ width: `${Math.max(2, e.score * 100)}%` }} />
+                  </span>
+                  <div style={{ fontSize: 13.5, color: "var(--muted)" }}>{b?.description}</div>
+                  <div style={{ fontSize: 13, color: "var(--faint)" }}>
+                    {e.pct != null && e.tested_models ? `Better than ${Math.round(e.pct)}% of ${e.tested_models} tested models. ` : ""}
+                    {e.approx ? `Tested with a different setting (${e.tested_as}). ` : ""}
+                    {e.run_date ? `Run ${fmtDate(e.run_date)}.` : ""}
+                  </div>
+                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                    <a className="src" href={epochBenchUrl(e.benchmark)} rel="noopener">Epoch AI results ↗</a>
+                    {e.log_url && (
+                      <a className="src" href={e.log_url} rel="noopener nofollow">
+                        Run log ↗
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </section>
+
+      <section className="section">
+        <h2 className="h2">Human-vote arenas</h2>
+        <p className="sub" style={{ marginBottom: 14 }}>People compare two anonymous answers and pick the better one. Scores work like chess ratings.</p>
+        <div className="card scroll-x">
+          <table className="tbl">
+            <thead>
+              <tr>
+                <th>Arena</th>
+                <th>Rank</th>
+                <th>Score</th>
+                <th>Range (95%)</th>
+                <th>Votes</th>
+                <th>Updated</th>
+              </tr>
+            </thead>
+            <tbody>
+              {BOARDS.map((b) => {
+                const a = m.arena[b.k];
+                return (
+                  <tr key={b.k}>
+                    <td>
+                      <a href={ARENA_BOARD_URL[b.k]} rel="noopener" style={{ fontWeight: 600 }} className="link">{b.label} ↗</a>
+                      <div style={{ fontSize: 12.5, color: "var(--faint)" }}>{b.what}</div>
+                    </td>
+                    {a ? (
+                      <>
+                        <td className="tnum">#{a.rank} of {a.board_size}</td>
+                        <td className="tnum">{b.k === "agent" ? `${((a.score ?? 0) * 100).toFixed(1)}%` : Math.round(a.rating!)}</td>
+                        <td className="tnum" style={{ color: "var(--muted)" }}>{b.k === "agent" ? `${(a.lo * 100).toFixed(1)}–${(a.hi * 100).toFixed(1)}%` : `${Math.round(a.lo)}–${Math.round(a.hi)}`}</td>
+                        <td className="tnum" style={{ color: "var(--muted)" }}>{fmtInt(a.votes ?? a.sessions)}</td>
+                        <td style={{ color: "var(--muted)" }}>{fmtDate(a.date)}</td>
+                      </>
+                    ) : (
+                      <td colSpan={5} className="nodata">Not on this board yet</td>
+                    )}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <p className="note">
+          Source: <a className="link" href={arenaSrc.home} rel="noopener">{arenaSrc.name}</a>, {arenaSrc.license}. Fetched {fmtDate(arenaSrc.fetched_at)}.
+        </p>
+      </section>
+
+      <section className="section">
+        <h2 className="h2">Price</h2>
+        {m.price ? (
+          <div>
+            <div className="price-grid">
+              {([
+                ["Input", fmtPrice(m.price.input_per_m), "per 1M tokens"],
+                ["Output", fmtPrice(m.price.output_per_m), "per 1M tokens"],
+                ["Blended", fmtPrice(m.price.blended_per_m), "3 in : 1 out, per 1M"],
+                ["Context window", fmtCtx(m.price.context_length), "max tokens per request"],
+              ] as const).map(([k, v, d]) => (
+                <div key={k} className="card stat">
+                  <div className="k">{k}</div>
+                  <div className="v">{v}</div>
+                  <div className="d">{d}</div>
+                </div>
+              ))}
+              <div className="card stat">
+                <div className="k">Speed</div>
+                <div className="v"><span className="soon">Coming soon</span></div>
+                <div className="d">our own tests</div>
+              </div>
+            </div>
+            <p className="note">
+              List price from the OpenRouter models API, {fmtDate(m.price.as_of)}: <a className="link" href={openrouterUrl(m.price.openrouter_id)} rel="noopener">{m.price.openrouter_id} on OpenRouter ↗</a>. Providers can charge differently.
+            </p>
+          </div>
+        ) : (
+          <div className="card nodata" style={{ padding: 20 }}>No public list price yet. We only show prices from the OpenRouter models API, and this model isn&apos;t listed there under a matching name.</div>
+        )}
+      </section>
+    </div>
+  );
+}

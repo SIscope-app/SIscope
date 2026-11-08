@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "siscope",
+  "account_id": "1a40fb3dd8ef0adf514e4e54fc23ffca",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    // Self-reference binding used by OpenNext; must match "name".
+    { "binding": "WORKER_SELF_REFERENCE", "service": "siscope" }
+  ],
+  // Custom domains: Cloudflare creates the DNS records and certificates.
+  // The old Hostinger parking A record (2.57.91.91) on the apex/www must be removed first.
+  // MX / SPF / DKIM / DMARC records for Hostinger email are untouched.
+  "routes": [
+    { "pattern": "siscope.app", "custom_domain": true },
+    { "pattern": "www.siscope.app", "custom_domain": true }
+  ],
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": true },
+  "vars": { "NEXT_PUBLIC_SITE_URL": "https://siscope.app" }
+}
