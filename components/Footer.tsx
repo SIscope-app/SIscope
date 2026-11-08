@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { SOURCES } from "@/lib/data";
-import { fmtDate } from "@/lib/format";
+import { PUBLISH, SOURCES } from "@/lib/data";
+import { fmtDate, fmtDateTime } from "@/lib/format";
 import { SCORE_VERSION } from "@/lib/score";
 import { LogoMark } from "./Logo";
 import { Donations } from "./Donations";
@@ -38,6 +38,9 @@ export function Footer() {
         </div>
         <div>
           <div style={{ color: "var(--text)", fontWeight: 650, marginBottom: 6 }}>Data sources and licences</div>
+          <p style={{ margin: "0 0 8px" }}>
+            Last successful update <time dateTime={PUBLISH.last_success_at}>{fmtDateTime(PUBLISH.last_success_at)}</time>. The dates below are each source&apos;s own data-as-of, not that update.
+          </p>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 6 }}>
             {SOURCES.sources.map((s) => (
               <li key={s.id}>

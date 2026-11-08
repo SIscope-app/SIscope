@@ -9,6 +9,8 @@ import datetime as dt
 import json
 import os
 import re
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -23,6 +25,47 @@ UA = "SIscope-data-pipeline/0.1 (+https://siscope.app/about)"
 # Hard block list. Any record whose origin mentions these is dropped.
 BLOCKED_ORIGINS = ("artificial_analysis", "artificial-analysis", "artificialanalysis", "artificial analysis")
 
+# Retry only blips. Auth failures, missing files, and blocked-content errors are not retried.
+TRANSIENT_HTTP = frozenset({408, 429, 500, 502, 503, 504})
+RETRY_ATTEMPTS = 3
+
+
+def is_transient_http(code: int) -> bool:
+    return code in TRANSIENT_HTTP
+
+
+def _retry_pause(failed_attempts: int) -> None:
+    raw = os.environ.get("SISCOPE_RETRY_SLEEP_S")
+    if raw is not None and raw != "":
+        time.sleep(float(raw))
+        return
+    time.sleep(min(2 ** failed_attempts, 16))
+
+
+def read_url(url: str, timeout: float = 120, attempts: int = RETRY_ATTEMPTS) -> bytes:
+    """GET a URL. Retries a bounded number of times, and only for transient failures."""
+    last: Exception | None = None
+    for i in range(attempts):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            last = e
+            if not is_transient_http(e.code):
+                raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            last = e
+        if i + 1 == attempts:
+            break
+        print(f"transient fetch failure ({i + 1}/{attempts}) {url}: {last}", flush=True)
+        _retry_pause(i)
+    raise SystemExit(f"download failed after {attempts} attempts: {url}: {last}")
+
+
+def read_json_url(url: str, timeout: float = 60):
+    return json.loads(read_url(url, timeout=timeout))
+
 
 def now_iso() -> str:
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -30,18 +73,41 @@ def now_iso() -> str:
 
 def download(url: str, dest: Path, max_age_h: float = 6) -> Path:
     """Download url to dest unless a fresh copy is cached. SISCOPE_CACHE_H=0 forces a fresh download,
-    so `fetched_at` always means what it says on a real refresh."""
+    so `fetched_at` always means what it says on a real refresh.
+
+    A failed attempt never leaves a partial file in place. Only transient HTTP and
+    network errors are retried, at most RETRY_ATTEMPTS times.
+    """
     max_age_h = float(os.environ.get("SISCOPE_CACHE_H", max_age_h))
     if dest.exists() and (dt.datetime.now().timestamp() - dest.stat().st_mtime) < max_age_h * 3600:
         return dest
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=120) as r, open(dest, "wb") as f:
-        while True:
-            chunk = r.read(1 << 20)
-            if not chunk:
-                break
-            f.write(chunk)
-    return dest
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    tmp = dest.with_name(dest.name + ".part")
+    last: Exception | None = None
+    for i in range(RETRY_ATTEMPTS):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            with urllib.request.urlopen(req, timeout=120) as r, open(tmp, "wb") as f:
+                while True:
+                    chunk = r.read(1 << 20)
+                    if not chunk:
+                        break
+                    f.write(chunk)
+            tmp.replace(dest)
+            return dest
+        except urllib.error.HTTPError as e:
+            last = e
+            tmp.unlink(missing_ok=True)
+            if not is_transient_http(e.code):
+                raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+            last = e
+            tmp.unlink(missing_ok=True)
+        if i + 1 == RETRY_ATTEMPTS:
+            break
+        print(f"transient download failure ({i + 1}/{RETRY_ATTEMPTS}) {url}: {last}", flush=True)
+        _retry_pause(i)
+    raise SystemExit(f"download failed after {RETRY_ATTEMPTS} attempts: {url}: {last}")
 
 
 def write_json(name: str, obj) -> None:

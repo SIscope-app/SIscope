@@ -109,6 +109,9 @@ export default function Page() {
         </ul>
 
         <h2>Sources and licences</h2>
+        <p>
+          The time at the top of every page is the last refresh that finished deploying and checking the public site. A failed refresh does not move it. The dates in the table are when each source&apos;s own data was current, which can be earlier.
+        </p>
       </section>
       <div className="card scroll-x">
         <table className="tbl">

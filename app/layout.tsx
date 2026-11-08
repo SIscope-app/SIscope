@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { BottomNav, Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Freshness } from "@/components/Freshness";
 import { SITE, og } from "@/lib/site";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -39,7 +40,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
         <Header />
-        <main id="main">{children}</main>
+        <main id="main">
+          <Freshness />
+          {children}
+        </main>
         <Footer />
         <BottomNav />
       </body>

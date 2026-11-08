@@ -1,6 +1,7 @@
 import modelsJson from "@/data/models.json";
 import changesJson from "@/data/changes.json";
 import sourcesJson from "@/data/sources.json";
+import publishJson from "@/data/publish.json";
 import agentsJson from "@/data/agents.json";
 import type { EpochBenchmark, Model } from "./types";
 import { prettyName, prettyParts } from "./names";
@@ -26,6 +27,8 @@ export function displayName(ref: string): string {
 }
 
 export const BUILT_AT = raw.built_at;
+/** Last refresh that was deployed and checked. Not a source dataset's as-of date. */
+export const PUBLISH = publishJson as { last_success_at: string };
 export const EPOCH_BENCHMARKS = raw.epoch_benchmarks;
 export const SOURCES = sourcesJson as unknown as {
   built_at: string;

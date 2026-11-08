@@ -46,3 +46,8 @@ public/api/
 .wrangler/
 .dev.vars*
 public/search.json
+
+# refresh logs
+/logs/
+__pycache__/
+*.pyc

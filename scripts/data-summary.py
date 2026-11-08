@@ -23,7 +23,9 @@ for s in set(nm) & set(om):
 top = lambda d: min((m for m in d["models"] if m.get("arena", {}).get("text")), key=lambda m: m["arena"]["text"]["rank"], default=None)
 t_old, t_new = top(old), top(new)
 
-print(f"Built at: {old.get('built_at')} -> {new.get('built_at')}")
+pub = json.loads((site / "data/publish.json").read_text())
+print(f"Last successful update (changes only after a checked deploy): {pub.get('last_success_at')}")
+print(f"Dataset built at: {old.get('built_at')} -> {new.get('built_at')}")
 print(f"Models: {len(om)} -> {len(nm)} (+{len(added)} / -{len(removed)})")
 if added: print("  Added:", ", ".join(nm[s]["name"] for s in added[:15]) + (" ..." if len(added) > 15 else ""))
 if removed: print("  Removed:", ", ".join(om[s]["name"] for s in removed[:15]) + (" ..." if len(removed) > 15 else ""))

@@ -96,7 +96,7 @@ export default function Home() {
         line="Closed leads in votes"
         sub={`${gapDelta > 0 ? "▲ " : gapDelta < 0 ? "▼ " : ""}${gapDelta === 0 ? "Same as" : `${Math.abs(gapDelta)} pts ${gapDelta > 0 ? "wider" : "narrower"} than`} ${fmtDate(g0.d, { year: false })}`}
       />
-      <KeyTile href="/leaderboard" icon="list" label="Models tracked" value={String(allModels().length)} line={`${ranked.length} fully scored`} sub={`Data as of ${fmtDate(lastDate)}`} live />
+      <KeyTile href="/leaderboard" icon="list" label="Models tracked" value={String(allModels().length)} line={`${ranked.length} fully scored`} sub={`Arena history through ${fmtDate(lastDate)}`} live />
     </div>
   );
 

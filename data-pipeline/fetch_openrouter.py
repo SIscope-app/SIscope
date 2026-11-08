@@ -5,10 +5,7 @@ We keep ONLY identity, context length and pricing fields. The response also
 contains a `benchmarks` object that relays third-party indexes (including
 Artificial Analysis); it is dropped here and never stored.
 """
-import json
-import urllib.request
-
-from common import UA, assert_no_blocked, now_iso, write_json
+from common import assert_no_blocked, now_iso, read_json_url, write_json
 
 URL = "https://openrouter.ai/api/v1/models"
 KEEP = ("id", "canonical_slug", "name", "created", "context_length", "hugging_face_id")
@@ -16,7 +13,7 @@ KEEP = ("id", "canonical_slug", "name", "created", "context_length", "hugging_fa
 
 def main():
     fetched_at = now_iso()
-    raw = json.load(urllib.request.urlopen(urllib.request.Request(URL, headers={"User-Agent": UA}), timeout=60))
+    raw = read_json_url(URL, timeout=60)
     rows = []
     for m in raw["data"]:
         mid = m["id"]

@@ -3,12 +3,9 @@
 Dataset: https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset
 License: CC BY 4.0 (dataset card). Per-row `license` is the *model's* license.
 """
-import json
-import urllib.request
-
 import pandas as pd
 
-from common import CACHE, UA, download, now_iso, split_name, write_json
+from common import CACHE, download, now_iso, read_json_url, split_name, write_json
 
 DS = "lmarena-ai/leaderboard-dataset"
 BASE = f"https://huggingface.co/datasets/{DS}/resolve/main"
@@ -23,7 +20,7 @@ HISTORY = {"text": "overall", "webdev": "overall"}
 
 def main():
     fetched_at = now_iso()
-    meta = json.load(urllib.request.urlopen(urllib.request.Request(f"https://huggingface.co/api/datasets/{DS}", headers={"User-Agent": UA}), timeout=60))
+    meta = read_json_url(f"https://huggingface.co/api/datasets/{DS}", timeout=60)
     license_ = (meta.get("cardData") or {}).get("license", "cc-by-4.0")
     out = {
         "source": "arena",

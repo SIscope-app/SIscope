@@ -2,19 +2,16 @@
 
 Dataset: https://huggingface.co/datasets/Exgentic/results
 """
-import json
-import urllib.request
-
 import pandas as pd
 
-from common import CACHE, UA, download, now_iso, write_json
+from common import CACHE, download, now_iso, read_json_url, write_json
 
 DS = "Exgentic/results"
 
 
 def main():
     fetched_at = now_iso()
-    meta = json.load(urllib.request.urlopen(urllib.request.Request(f"https://huggingface.co/api/datasets/{DS}", headers={"User-Agent": UA}), timeout=60))
+    meta = read_json_url(f"https://huggingface.co/api/datasets/{DS}", timeout=60)
     p = download(f"https://huggingface.co/datasets/{DS}/resolve/main/data/train-00000-of-00001.parquet", CACHE / "exgentic_results.parquet")
     df = pd.read_parquet(p)
     rows = []
