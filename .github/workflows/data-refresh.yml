@@ -1,0 +1,98 @@
+# Ordinary scheduled GitHub Actions job. It does not call a model or an agent.
+# Once a day around 6:00 AM America/Chicago, including weekends, plus manual dispatch.
+# The public success time advances only when scripts/data-refresh.sh deploys and the live checks pass.
+#
+# Repository secrets, set in Settings → Secrets and variables → Actions (names only, never commit values):
+#   CLOUDFLARE_API_TOKEN  — Workers Editor on the existing siscope worker
+#   CLOUDFLARE_ACCOUNT_ID — account that owns that worker (same id as wrangler.jsonc)
+# Do not add a push trigger. Snapshot commits use the workflow token and [skip ci].
+
+name: Daily data refresh
+
+on:
+  schedule:
+    # 11:00 UTC is 6:00 AM CDT. 12:00 UTC is 6:00 AM CST. The gate runs only the matching slot.
+    - cron: "0 11 * * *"
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: siscope-data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Keep the once-daily Chicago slot
+        id: gate
+        if: github.event_name == 'schedule'
+        run: |
+          set -euo pipefail
+          export CHICAGO_HOUR="$(TZ=America/Chicago date +%H)"
+          export CHICAGO_OFFSET="$(TZ=America/Chicago date +%z)"
+          export GITHUB_EVENT_SCHEDULE="${{ github.event.schedule }}"
+          export GITHUB_EVENT_NAME=schedule
+          echo "America/Chicago hour ${CHICAGO_HOUR} offset ${CHICAGO_OFFSET} cron [${GITHUB_EVENT_SCHEDULE}]"
+          if node scripts/schedule-gate.mjs; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            code=$?
+            if [ "$code" = "10" ]; then
+              echo "run=false" >> "$GITHUB_OUTPUT"
+            else
+              exit "$code"
+            fi
+          fi
+
+      - name: Production branch only
+        if: steps.gate.outputs.run != 'false'
+        run: |
+          set -euo pipefail
+          if [ "${GITHUB_REF}" != "refs/heads/main" ]; then
+            echo "Refusing to deploy production from ${GITHUB_REF}. Run this workflow on main."
+            exit 1
+          fi
+
+      - name: Python
+        if: steps.gate.outputs.run != 'false'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: data-pipeline/requirements.txt
+
+      - name: Install Python dependencies
+        if: steps.gate.outputs.run != 'false'
+        run: python -m pip install -r data-pipeline/requirements.txt
+
+      - name: Install Node dependencies
+        if: steps.gate.outputs.run != 'false'
+        run: npm ci
+
+      - name: Test
+        if: steps.gate.outputs.run != 'false'
+        run: npm test
+
+      - name: Refresh, build, deploy, verify
+        if: steps.gate.outputs.run != 'false'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: "false"
+        run: npm run data:refresh

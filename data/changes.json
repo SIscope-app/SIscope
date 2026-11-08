@@ -1,0 +1,213 @@
+{
+ "built_at": "2026-11-05T12:01:21Z",
+ "week_to": "2026-10-28",
+ "prev": "2026-10-22",
+ "changes": [
+  {
+   "kind": "new_leader",
+   "board": "text",
+   "model": "Gemini 4 Carbon (High)",
+   "text": "Gemini 4 Carbon takes #1",
+   "sub": "New #1 in the text arena, ahead of Gemini 4 Argon",
+   "date": "2026-10-28",
+   "org": "google",
+   "slug": "gemini-4-carbon-high",
+   "source": "arena"
+  },
+  {
+   "kind": "up",
+   "board": "text",
+   "model": "Claude Fable 5 (High)",
+   "text": "Claude Fable 5 climbs 1 place",
+   "sub": "Now #11 in text arena",
+   "date": "2026-10-28",
+   "org": "anthropic",
+   "slug": "claude-fable-5-high",
+   "source": "arena"
+  },
+  {
+   "kind": "down",
+   "board": "text",
+   "model": "Muse Spark 1.3 (Max)",
+   "text": "Muse Spark 1.3 slips 3 places",
+   "sub": "Now #13 in text arena",
+   "date": "2026-10-28",
+   "org": "meta",
+   "slug": "muse-spark-1-3-max",
+   "source": "arena"
+  },
+  {
+   "kind": "gap",
+   "board": "text",
+   "text": "Open models 49 points behind",
+   "sub": "Gap between best closed and best open was 35 at the previous update",
+   "date": "2026-10-28",
+   "source": "arena"
+  },
+  {
+   "kind": "new_entry",
+   "board": "webdev",
+   "model": "Gemini 4 Carbon (High)",
+   "text": "Gemini 4 Carbon joins the coding board at #4",
+   "sub": "WebDev arena (building web apps)",
+   "date": "2026-10-28",
+   "org": "google",
+   "slug": "gemini-4-carbon-high",
+   "source": "arena"
+  },
+  {
+   "kind": "price_new",
+   "board": "price",
+   "model": "Hy4",
+   "text": "Hy4 gets a public price",
+   "sub": "$0.417 in, $1.2505 out per 1M tokens on OpenRouter",
+   "date": "2026-11-04",
+   "org": "tencent",
+   "slug": "hy4",
+   "source": "openrouter"
+  },
+  {
+   "kind": "price_new",
+   "board": "price",
+   "model": "GPT-6.1 Terra (Max)",
+   "text": "GPT-6.1 Terra gets a public price",
+   "sub": "$1 in, $5 out per 1M tokens on OpenRouter",
+   "date": "2026-10-26",
+   "org": "openai",
+   "slug": "gpt-6-1-terra-max",
+   "source": "openrouter"
+  }
+ ],
+ "gap": [
+  {
+   "d": "2026-08-19",
+   "closed": 1505.1,
+   "closed_name": "claude-opus-5-high",
+   "open": 1476.9,
+   "open_name": "kimi-k3-max"
+  },
+  {
+   "d": "2026-08-21",
+   "closed": 1504.2,
+   "closed_name": "claude-opus-5-high",
+   "open": 1476.9,
+   "open_name": "glm-5.3-max"
+  },
+  {
+   "d": "2026-08-27",
+   "closed": 1504.7,
+   "closed_name": "claude-opus-5-max",
+   "open": 1476.1,
+   "open_name": "kimi-k3-max"
+  },
+  {
+   "d": "2026-09-01",
+   "closed": 1505.0,
+   "closed_name": "claude-opus-5-max",
+   "open": 1476.3,
+   "open_name": "kimi-k3-max"
+  },
+  {
+   "d": "2026-09-02",
+   "closed": 1513.7,
+   "closed_name": "claude-fable-5.1-max",
+   "open": 1476.0,
+   "open_name": "kimi-k3-max"
+  },
+  {
+   "d": "2026-09-11",
+   "closed": 1510.5,
+   "closed_name": "claude-fable-5.1-max",
+   "open": 1477.5,
+   "open_name": "glm-5.3-max"
+  },
+  {
+   "d": "2026-09-13",
+   "closed": 1507.6,
+   "closed_name": "claude-fable-5.1-max",
+   "open": 1475.1,
+   "open_name": "glm-5.3-max"
+  },
+  {
+   "d": "2026-09-25",
+   "closed": 1517.8,
+   "closed_name": "claude-opus-5.5-high",
+   "open": 1490.7,
+   "open_name": "mimo-v2.6-pro"
+  },
+  {
+   "d": "2026-09-30",
+   "closed": 1533.1,
+   "closed_name": "gemini-4-argon-high",
+   "open": 1490.5,
+   "open_name": "mimo-v2.6-pro"
+  },
+  {
+   "d": "2026-10-02",
+   "closed": 1533.5,
+   "closed_name": "gemini-4-argon-high",
+   "open": 1491.0,
+   "open_name": "mimo-v2.6-pro"
+  },
+  {
+   "d": "2026-10-08",
+   "closed": 1533.9,
+   "closed_name": "gemini-4-argon-high",
+   "open": 1491.7,
+   "open_name": "mimo-v2.6-pro"
+  },
+  {
+   "d": "2026-10-13",
+   "closed": 1533.2,
+   "closed_name": "gemini-4-argon-high",
+   "open": 1490.3,
+   "open_name": "mimo-v2.6-pro"
+  },
+  {
+   "d": "2026-10-15",
+   "closed": 1532.3,
+   "closed_name": "Gemini 4 Argon (High)",
+   "open": 1490.7,
+   "open_name": "mimo-v2.6-pro"
+  },
+  {
+   "d": "2026-10-20",
+   "closed": 1532.3,
+   "closed_name": "Gemini 4 Argon (High)",
+   "open": 1491.1,
+   "open_name": "MiMo-V2.6-Pro"
+  },
+  {
+   "d": "2026-10-22",
+   "closed": 1525.7,
+   "closed_name": "Gemini 4 Argon (High)",
+   "open": 1491.1,
+   "open_name": "MiMo-V2.6-Pro"
+  },
+  {
+   "d": "2026-10-28",
+   "closed": 1540.0,
+   "closed_name": "Gemini 4 Carbon (High)",
+   "open": 1491.4,
+   "open_name": "MiMo-V2.6-Pro"
+  }
+ ],
+ "webdev_dates": [
+  "2026-09-23",
+  "2026-09-24",
+  "2026-09-25",
+  "2026-09-29",
+  "2026-09-30",
+  "2026-10-01",
+  "2026-10-06",
+  "2026-10-08",
+  "2026-10-13",
+  "2026-10-16",
+  "2026-10-18",
+  "2026-10-19",
+  "2026-10-22",
+  "2026-10-23",
+  "2026-10-27",
+  "2026-10-28"
+ ]
+}

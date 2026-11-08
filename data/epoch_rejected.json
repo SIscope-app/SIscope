@@ -1,0 +1,1386 @@
+{
+ "built_at": "2026-11-05T12:01:21Z",
+ "count": 230,
+ "rows": [
+  {
+   "model": "Claude 3.5 Sonnet (20240620)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-5-sonnet-20241022",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "Claude 3.5 Sonnet (20241022)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-5-sonnet-20240620",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "Claude 3.7 Sonnet (20250219)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-7-sonnet-20250219_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude 3.7 Sonnet (20250219)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-7-sonnet-20250219_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude 3.7 Sonnet (20250219)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-7-sonnet-20250219_64K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude 3.7 Sonnet (Thinking 32K, 20250219)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-7-sonnet-20250219",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude 3.7 Sonnet (Thinking 32K, 20250219)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-7-sonnet-20250219_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude 3.7 Sonnet (Thinking 32K, 20250219)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-3-7-sonnet-20250219_64K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Fable 5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-fable-5_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Fable 5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-fable-5_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Fable 5 (High)",
+   "benchmark": "simpleqa_verified",
+   "epoch_version": "claude-fable-5_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Haiku 4.5 (20251001)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-haiku-4-5-20251001_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Haiku 5.5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-haiku-5-5_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Haiku 5.5 (High)",
+   "benchmark": "otis_mock_aime",
+   "epoch_version": "claude-haiku-5-5_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 4 (20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-20250514_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4 (20250514)",
+   "benchmark": "otis_mock_aime",
+   "epoch_version": "claude-opus-4-20250514_27K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4 (Thinking 16K, 20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-20250514",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4 (Thinking 16K, 20250514)",
+   "benchmark": "otis_mock_aime",
+   "epoch_version": "claude-opus-4-20250514_27K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.1 (20250805)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-1-20250805_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.1 (20250805)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-1-20250805_27K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.1 (20250805)",
+   "benchmark": "frontiermath",
+   "epoch_version": "claude-opus-4-1-20250805_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.1 (Thinking 16K, 20250805)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-1-20250805",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.1 (Thinking 16K, 20250805)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-1-20250805_27K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.1 (Thinking 16K, 20250805)",
+   "benchmark": "frontiermath",
+   "epoch_version": "claude-opus-4-1-20250805_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.5 (20251101)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-5-20251101_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.5 (20251101)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-5-20251101_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.5 (High, 32K, 20251101)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-5-20251101",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.5 (High, 32K, 20251101)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-5-20251101_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.6",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-6_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.6",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-6_64K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.6",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-6_max",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Opus 4.6 (High)",
+   "benchmark": "swe_bench_verified",
+   "epoch_version": "claude-opus-4-6",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 4.6 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-6_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.6 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-6_64K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Opus 4.6 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-6_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 4.7",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-7_max",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Opus 4.7",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-7_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Opus 4.7 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-7_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 4.7 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-7_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 4.8",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-8_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Opus 4.8",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-8_max",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Opus 4.8 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-8_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 4.8 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-8_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 4.8 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-4-8_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-5",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-5_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-5_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 5 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-5",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 5 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-5_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Opus 5.5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-opus-5-5_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Sonnet 4 (20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-20250514_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4 (20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-20250514_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4 (20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-20250514_59K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4 (Thinking 32K, 20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-20250514",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4 (Thinking 32K, 20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-20250514_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4 (Thinking 32K, 20250514)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-20250514_59K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.5 (20250929)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-5-20250929_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.5 (20250929)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-5-20250929_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.5 (20250929)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-5-20250929_59K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.5 (High, 32K, 20250929)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-5-20250929",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.5 (High, 32K, 20250929)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-5-20250929_16K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.5 (High, 32K, 20250929)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-5-20250929_59K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.6",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-6_32K",
+   "reason": "different or missing thinking budget"
+  },
+  {
+   "model": "Claude Sonnet 4.6",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-6_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Sonnet 4.6",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-6_max",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Sonnet 4.6",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-4-6_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Claude Sonnet 5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-5_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Sonnet 5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-5_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Sonnet 5.5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-5-5_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Claude Sonnet 5.5 (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "claude-sonnet-5-5_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "DeepSeek-R1 (0528)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "DeepSeek-R1",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "DeepSeek-V3 (0324)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "DeepSeek-V3",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "DeepSeek-V4-Pro",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "deepseek-v4-pro_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "DeepSeek-V4-Pro",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "deepseek-v4-pro_max",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "DeepSeek-V4-Pro (High, 20260813)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "deepseek-v4-pro_high",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "DeepSeek-V4-Pro (High, 20260813)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "deepseek-v4-pro_max",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "DeepSeek-V4-Pro (High, 20260813)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "deepseek-v4-pro_none",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "DeepSeek-V4.1-Flash-20260910 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "deepseek-v4.1-flash_max",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "DeepSeek-V4.1-Flash-20261017 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "deepseek-v4.1-flash_max",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "GLM-4.7-Flash",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "glm-4.7-flash_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "GLM-5.1",
+   "benchmark": "frontiermath",
+   "epoch_version": "glm-5.1_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "GLM-5.2 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "glm-5.2_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GLM-5.2 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "glm-5.2_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GLM-5.3-Flash",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "glm-5.3-flash_max",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-4o (2024-05-13)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-4o-2024-08-06",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "GPT-4o (2024-05-13)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-4o-2024-11-20",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "GPT-4o (2024-08-06)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-4o-2024-05-13",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "GPT-4o (2024-08-06)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-4o-2024-11-20",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "GPT-5 (High)",
+   "benchmark": "frontiermath",
+   "epoch_version": "gpt-5-2025-08-07_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-2025-08-07_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-2025-08-07_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-2025-08-07_high",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 (Medium)",
+   "benchmark": "frontiermath",
+   "epoch_version": "gpt-5-2025-08-07_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-2025-08-07_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 mini (High)",
+   "benchmark": "frontiermath",
+   "epoch_version": "gpt-5-mini-2025-08-07_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 mini (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-mini-2025-08-07_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 mini (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-mini-2025-08-07_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 nano (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-nano-2025-08-07_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 nano (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-nano-2025-08-07_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5 nano (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5-nano-2025-08-07_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.1",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.1-2025-11-13_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.1",
+   "benchmark": "otis_mock_aime",
+   "epoch_version": "gpt-5.1-2025-11-13_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.1",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.1-2025-11-13_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.1 (High)",
+   "benchmark": "otis_mock_aime",
+   "epoch_version": "gpt-5.1-2025-11-13_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.1 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.1-2025-11-13_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.1 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.1-2025-11-13_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.1 (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.1-2025-11-13_high",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.1 (Medium)",
+   "benchmark": "otis_mock_aime",
+   "epoch_version": "gpt-5.1-2025-11-13_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.1 (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.1-2025-11-13_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.2",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.2",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.2",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.2",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.2 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.2 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.2 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.2 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.2-2025-12-11_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.3-Codex (Codex Harness)",
+   "benchmark": "swe_bench_verified",
+   "epoch_version": "gpt-5.3-codex_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.4",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.4",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.4",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.4",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.4 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (High, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (High, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (High, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (High, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (Medium, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_high",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (Medium, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (Medium, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 (Medium, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-2026-03-05_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 mini (High)",
+   "benchmark": "frontiermath",
+   "epoch_version": "gpt-5.4-mini-2026-03-17_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 mini (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-mini-2026-03-17_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 mini (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-mini-2026-03-17_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 nano (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-nano-2026-03-17_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.4 nano (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.4-nano-2026-03-17_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.5",
+   "benchmark": "simpleqa_verified",
+   "epoch_version": "gpt-5.5_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.5 (Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.5 (Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_none",
+   "reason": "agent harness sets its own effort"
+  },
+  {
+   "model": "GPT-5.5 (Codex Harness)",
+   "benchmark": "simpleqa_verified",
+   "epoch_version": "gpt-5.5_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "GPT-5.5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5 (High)",
+   "benchmark": "simpleqa_verified",
+   "epoch_version": "gpt-5.5_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5 (High, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5 (High, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5 (High, Codex Harness)",
+   "benchmark": "simpleqa_verified",
+   "epoch_version": "gpt-5.5_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5 (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.5 (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.5_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Luna (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-luna_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Luna (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-luna_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Luna (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-luna_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Luna (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-luna_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Luna (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-luna_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Luna (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-luna_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Sol (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-sol_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Sol (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-sol_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Sol (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-sol_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Sol (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-sol_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Sol (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-sol_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Sol (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-sol_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Terra (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-terra_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Terra (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-terra_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Terra (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-terra_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Terra (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-terra_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Terra (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-terra_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-5.6 Terra (xHigh, Codex Harness)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-5.6-terra_none",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-6 Luna (Low)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-6-luna_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-6 Luna (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-6-luna_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 3.1 Pro Preview",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.1-pro-preview_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Gemini 3.5 Flash (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 3.5 Flash (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 3.5 Flash (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash_high",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 3.5 Flash (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 3.5 Flash (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 3.5 Flash-Lite",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash-lite_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Gemini 3.5 Flash-Lite",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash-lite_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Gemini 3.5 Flash-Lite",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.5-flash-lite_minimal",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Gemini 3.6 Flash (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.6-flash_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 3.6 Flash (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-3.6-flash_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "Grok 3 Mini Beta",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "grok-3-mini-beta_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Grok 3 Mini Beta",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "grok-3-mini-beta_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Grok 4.3",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "grok-4.3_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Grok 4.5",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "grok-4.5_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Grok 4.6 (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "grok-4.6_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "Grok 4.6 (xHigh)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "grok-4.6_high",
+   "reason": "different effort"
+  },
+  {
+   "model": "Inkling",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "Inkling_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Inkling-Small",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "inkling-small_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Kimi K2.5 (Instant)",
+   "benchmark": "simpleqa_verified",
+   "epoch_version": "kimi-k2.5",
+   "reason": "thinking on/off not stated by Epoch"
+  },
+  {
+   "model": "Kimi K2.5 (Thinking)",
+   "benchmark": "simpleqa_verified",
+   "epoch_version": "kimi-k2.5",
+   "reason": "thinking on/off not stated by Epoch"
+  },
+  {
+   "model": "Kimi K3 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "kimi-k3_high",
+   "reason": "different effort"
+  },
+  {
+   "model": "Kimi K3 (Max)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "kimi-k3_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "MiniMax-M3",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "MiniMax-M3_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Muse Spark 1.3 (Max)",
+   "benchmark": "otis_mock_aime",
+   "epoch_version": "muse-spark-1.3_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "Muse Spark 1.3 (xHigh)",
+   "benchmark": "frontiermath",
+   "epoch_version": "muse-spark-1.3_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "Qwen-Max (0919)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen-max-2025-01-25",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "Qwen3-235B-A22B (Non-Thinking)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen3-235b-a22b",
+   "reason": "thinking on/off not stated by Epoch"
+  },
+  {
+   "model": "Qwen3-30B-A3B",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "Qwen3-30B-A3B_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Qwen3-32B",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "Qwen3-32B_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Qwen3.5-35B-A3B",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen3.5-35b-a3b_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Qwen3.5-397B-A17B",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen3.5-397b-a17b_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Qwen3.5-Flash",
+   "benchmark": "frontiermath",
+   "epoch_version": "qwen3.5-flash_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Qwen3.6-Plus",
+   "benchmark": "frontiermath",
+   "epoch_version": "qwen3.6-plus_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Qwen3.7-Max (20260517)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen3.7-max",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "Qwen3.7-Plus",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen3.7-plus_none",
+   "reason": "Epoch has both default and no-reasoning runs"
+  },
+  {
+   "model": "Qwen3.8-Max",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen3.8-max_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Qwen3.8-Max (0902)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "qwen3.8-max_xhigh",
+   "reason": "Arena entry is one dated snapshot; Epoch run is undated"
+  },
+  {
+   "model": "gpt-oss-120b",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "openai/gpt-oss-120b_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "gpt-oss-20b",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-oss-20b_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "gpt-oss-20b",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-oss-20b_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "gpt-oss-20b",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-oss-20b_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o1 (2024-12-17)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o1-2024-12-17_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o1 (2024-12-17)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o1-2024-12-17_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o1 (2024-12-17)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o1-2024-12-17_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o1-mini",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o1-mini-2024-09-12_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o1-mini",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o1-mini-2024-09-12_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o3 (2025-04-16)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-2025-04-16_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o3 (2025-04-16)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-2025-04-16_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o3 (2025-04-16)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-2025-04-16_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o3-mini",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-mini-2025-01-31_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o3-mini",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-mini-2025-01-31_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o3-mini",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-mini-2025-01-31_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o3-mini (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-mini-2025-01-31_low",
+   "reason": "different effort"
+  },
+  {
+   "model": "o3-mini (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o3-mini-2025-01-31_medium",
+   "reason": "different effort"
+  },
+  {
+   "model": "o4-mini (2025-04-16)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o4-mini-2025-04-16_high",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o4-mini (2025-04-16)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o4-mini-2025-04-16_low",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "o4-mini (2025-04-16)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "o4-mini-2025-04-16_medium",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  }
+ ]
+}

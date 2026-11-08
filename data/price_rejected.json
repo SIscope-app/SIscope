@@ -1,0 +1,61 @@
+{
+ "built_at": "2026-11-05T12:01:21Z",
+ "count": 11,
+ "rows": [
+  {
+   "model": "Qwen3.8-Max",
+   "openrouter_id": "qwen/qwen3.8-max-0902",
+   "reason": "price is for a dated snapshot; Arena entry is undated"
+  },
+  {
+   "model": "DeepSeek-V4.1-Flash-20260910 (Max)",
+   "openrouter_id": "deepseek/deepseek-v4.1-flash",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  },
+  {
+   "model": "DeepSeek-V3 (0324)",
+   "openrouter_id": "deepseek/deepseek-chat",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  },
+  {
+   "model": "GPT-4o (2024-05-13)",
+   "openrouter_id": "openai/gpt-4o",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  },
+  {
+   "model": "GPT-4o (2024-08-06)",
+   "openrouter_id": "openai/gpt-4o",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  },
+  {
+   "model": "GPT-4 (0314)",
+   "openrouter_id": "openai/gpt-4",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  },
+  {
+   "model": "GPT-4 (0613)",
+   "openrouter_id": "openai/gpt-4",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  },
+  {
+   "model": "GPT-3.5 Turbo (0125)",
+   "openrouter_id": "openai/gpt-3.5-turbo-0613",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "GPT-3.5 Turbo (1106)",
+   "openrouter_id": "openai/gpt-3.5-turbo-0613",
+   "reason": "different snapshot date"
+  },
+  {
+   "model": "DeepSeek-V4.1-Flash-20261017 (Max)",
+   "openrouter_id": "deepseek/deepseek-v4.1-flash",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  },
+  {
+   "model": "Qwen3.7-Max (20260517)",
+   "openrouter_id": "qwen/qwen3.7-max",
+   "reason": "Arena lists several snapshots; price endpoint is undated"
+  }
+ ]
+}

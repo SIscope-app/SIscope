@@ -1,0 +1,14 @@
+import Link from "next/link";
+
+export default function NotFound() {
+  return (
+    <div className="wrap page-head" style={{ minHeight: "50vh" }}>
+      <title>Page not found · SIscope</title>
+      <div className="eyebrow">404</div>
+      <h1 className="h1" style={{ marginTop: 8 }}>We couldn&apos;t find that page</h1>
+      <p className="lede">
+        Try the <Link className="link" href="/leaderboard">leaderboard</Link> or go <Link className="link" href="/">home</Link>.
+      </p>
+    </div>
+  );
+}
