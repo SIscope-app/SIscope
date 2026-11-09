@@ -1,58 +1,69 @@
 {
- "built_at": "2026-11-05T12:01:21Z",
- "week_to": "2026-10-28",
- "prev": "2026-10-22",
+ "built_at": "2026-11-09T22:18:11Z",
+ "week_to": "2026-11-08",
+ "prev": "2026-11-06",
  "changes": [
   {
-   "kind": "new_leader",
+   "kind": "holds_leader",
    "board": "text",
    "model": "Gemini 4 Carbon (High)",
-   "text": "Gemini 4 Carbon takes #1",
-   "sub": "New #1 in the text arena, ahead of Gemini 4 Argon",
-   "date": "2026-10-28",
+   "text": "Gemini 4 Carbon holds #1",
+   "sub": "Text arena · #1 in 3 of the last 16 updates",
+   "date": "2026-11-08",
    "org": "google",
    "slug": "gemini-4-carbon-high",
+   "source": "arena"
+  },
+  {
+   "kind": "new_entry",
+   "board": "text",
+   "model": "Inkling 2 Small",
+   "text": "Inkling 2 Small debuts at #153",
+   "sub": "New on the text arena",
+   "date": "2026-11-08",
+   "org": "thinky",
+   "slug": "inkling-2-small",
    "source": "arena"
   },
   {
    "kind": "up",
    "board": "text",
-   "model": "Claude Fable 5 (High)",
-   "text": "Claude Fable 5 climbs 1 place",
+   "model": "Qwen3.7-Max-Preview",
+   "text": "Qwen3.7-Max-Preview climbs 1 place",
+   "sub": "Now #26 in text arena",
+   "date": "2026-11-08",
+   "org": "alibaba",
+   "slug": "qwen3-7-max-preview",
+   "source": "arena"
+  },
+  {
+   "kind": "up",
+   "board": "text",
+   "model": "MiMo-V2.6-Pro",
+   "text": "MiMo-V2.6-Pro climbs 1 place",
    "sub": "Now #11 in text arena",
-   "date": "2026-10-28",
-   "org": "anthropic",
-   "slug": "claude-fable-5-high",
+   "date": "2026-11-08",
+   "org": "xiaomi",
+   "slug": "mimo-v2-6-pro",
    "source": "arena"
   },
   {
    "kind": "down",
    "board": "text",
-   "model": "Muse Spark 1.3 (Max)",
-   "text": "Muse Spark 1.3 slips 3 places",
-   "sub": "Now #13 in text arena",
-   "date": "2026-10-28",
-   "org": "meta",
-   "slug": "muse-spark-1-3-max",
+   "model": "Claude Fable 5 (High)",
+   "text": "Claude Fable 5 slips 1 place",
+   "sub": "Now #12 in text arena",
+   "date": "2026-11-08",
+   "org": "anthropic",
+   "slug": "claude-fable-5-high",
    "source": "arena"
   },
   {
    "kind": "gap",
    "board": "text",
-   "text": "Open models 49 points behind",
-   "sub": "Gap between best closed and best open was 35 at the previous update",
-   "date": "2026-10-28",
-   "source": "arena"
-  },
-  {
-   "kind": "new_entry",
-   "board": "webdev",
-   "model": "Gemini 4 Carbon (High)",
-   "text": "Gemini 4 Carbon joins the coding board at #4",
-   "sub": "WebDev arena (building web apps)",
-   "date": "2026-10-28",
-   "org": "google",
-   "slug": "gemini-4-carbon-high",
+   "text": "Open models 47 points behind",
+   "sub": "Gap between best closed and best open was 48 at the previous update",
+   "date": "2026-11-08",
    "source": "arena"
   },
   {
@@ -65,34 +76,9 @@
    "org": "tencent",
    "slug": "hy4",
    "source": "openrouter"
-  },
-  {
-   "kind": "price_new",
-   "board": "price",
-   "model": "GPT-6.1 Terra (Max)",
-   "text": "GPT-6.1 Terra gets a public price",
-   "sub": "$1 in, $5 out per 1M tokens on OpenRouter",
-   "date": "2026-10-26",
-   "org": "openai",
-   "slug": "gpt-6-1-terra-max",
-   "source": "openrouter"
   }
  ],
  "gap": [
-  {
-   "d": "2026-08-19",
-   "closed": 1505.1,
-   "closed_name": "claude-opus-5-high",
-   "open": 1476.9,
-   "open_name": "kimi-k3-max"
-  },
-  {
-   "d": "2026-08-21",
-   "closed": 1504.2,
-   "closed_name": "claude-opus-5-high",
-   "open": 1476.9,
-   "open_name": "glm-5.3-max"
-  },
   {
    "d": "2026-08-27",
    "closed": 1504.7,
@@ -190,11 +176,23 @@
    "closed_name": "Gemini 4 Carbon (High)",
    "open": 1491.4,
    "open_name": "MiMo-V2.6-Pro"
+  },
+  {
+   "d": "2026-11-06",
+   "closed": 1539.1,
+   "closed_name": "Gemini 4 Carbon (High)",
+   "open": 1491.0,
+   "open_name": "MiMo-V2.6-Pro"
+  },
+  {
+   "d": "2026-11-08",
+   "closed": 1538.9,
+   "closed_name": "Gemini 4 Carbon (High)",
+   "open": 1491.7,
+   "open_name": "MiMo-V2.6-Pro"
   }
  ],
  "webdev_dates": [
-  "2026-09-23",
-  "2026-09-24",
   "2026-09-25",
   "2026-09-29",
   "2026-09-30",
@@ -208,6 +206,8 @@
   "2026-10-22",
   "2026-10-23",
   "2026-10-27",
-  "2026-10-28"
+  "2026-10-28",
+  "2026-11-06",
+  "2026-11-08"
  ]
 }
