@@ -7,8 +7,8 @@ import { SITE, og } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "AI model leaderboard",
-  description: "Every major AI model ranked by SIscope score, human votes, coding, math, reasoning, agents and price. Filter open vs closed and by provider, or set your own weights.",
+  title: "Model ranking",
+  description: "Rank models by SIscope score, Arena place, category, list price or context window. Filter by open weights, provider and price, then share the link.",
   alternates: { canonical: "/leaderboard" }, openGraph: og("/leaderboard"),
 };
 
@@ -32,9 +32,9 @@ export default function Page() {
       />
       <div className="page-head">
         <div className="eyebrow">Leaderboard</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>Every model, ranked</h1>
+        <h1 className="h1" style={{ marginTop: 8 }}>The full ranking</h1>
         <p className="lede">
-          Filter, reweight, and share the view. Score v{SCORE_VERSION}. <Link className="link" href="/methodology">How it works</Link>.
+          Sort, filter, and keep the link. Score v{SCORE_VERSION}. <Link className="link" href="/methodology">How the score is built</Link>.
         </p>
       </div>
       <Leaderboard models={sorted.map(slim)} orgs={orgs} />

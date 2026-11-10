@@ -136,85 +136,126 @@ export function GapChart({ points, height = 170 }: { points: { d: string; closed
   );
 }
 
-/** Larger line chart with date labels, for model history. */
+/** Vote score over time. The last point is labelled on the line. */
 export function HistoryChart({ points, color = "var(--accent)", wide = false }: { points: [string, number, number][]; color?: string; wide?: boolean }) {
-  if (points.length < 2) return <div className="nodata" style={{ padding: "24px 0" }}>Only one published score so far. A trend appears after the next Arena update.</div>;
+  if (points.length < 2) return <p className="nodata">One published score so far. The line appears after the next update.</p>;
   const W = wide ? 1100 : 640,
     H = wide ? 220 : 200,
-    m = { l: 44, r: 14, t: 14, b: 28 };
+    m = { l: 44, r: 48, t: 16, b: 28 };
   const vals = points.map((p) => p[1]);
   const mn = Math.floor((Math.min(...vals) - 4) / 5) * 5,
     mx = Math.ceil((Math.max(...vals) + 4) / 5) * 5;
   const xs = (i: number) => m.l + (i / (points.length - 1)) * (W - m.l - m.r);
-  const ys = (v: number) => m.t + (1 - (v - mn) / (mx - mn)) * (H - m.t - m.b);
+  const ys = (v: number) => m.t + (1 - (v - mn) / (mx - mn || 1)) * (H - m.t - m.b);
   const d = points.map((p, i) => (i ? "L" : "M") + xs(i).toFixed(1) + " " + ys(p[1]).toFixed(1)).join(" ");
   const ticks = [mn, Math.round((mn + mx) / 2), mx];
   const f = (s: string) => new Date(s + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+  const last = points[points.length - 1];
+  const first = points[0];
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label="Human-vote score over time">
-      {ticks.map((t) => (
-        <g key={t}>
-          <line x1={m.l} x2={W - m.r} y1={ys(t)} y2={ys(t)} stroke="var(--line)" />
-          <text x={m.l - 8} y={ys(t) + 4} textAnchor="end" fontSize={11.5} fill="var(--faint)">
-            {t}
-          </text>
-        </g>
-      ))}
-      <path d={`${d} L${xs(points.length - 1)} ${H - m.b} L${m.l} ${H - m.b}Z`} fill={color} opacity={0.1} />
-      <path d={d} fill="none" stroke={color} strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" />
-      {points.map((p, i) => (
-        <circle key={i} cx={xs(i)} cy={ys(p[1])} r={i === points.length - 1 ? 4.5 : 2.6} fill={color} stroke="var(--card)" strokeWidth={1.5}>
-          <title>{`${f(p[0])}: ${p[1]} (rank #${p[2]})`}</title>
-        </circle>
-      ))}
-      <text x={m.l} y={H - 8} fontSize={11.5} fill="var(--faint)">
-        {f(points[0][0])}
-      </text>
-      <text x={W - m.r} y={H - 8} fontSize={11.5} fill="var(--faint)" textAnchor="end">
-        {f(points[points.length - 1][0])}
-      </text>
-    </svg>
+    <figure className="chart-fig">
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label={`Vote score from ${Math.round(first[1])} to ${Math.round(last[1])}`}>
+        {ticks.map((t) => (
+          <g key={t}>
+            <line x1={m.l} x2={W - m.r} y1={ys(t).toFixed(1)} y2={ys(t).toFixed(1)} stroke="var(--line)" />
+            <text x={m.l - 8} y={(ys(t) + 4).toFixed(1)} textAnchor="end" fontSize={12} fill="var(--faint)">
+              {t}
+            </text>
+          </g>
+        ))}
+        <path d={`${d} L${xs(points.length - 1).toFixed(1)} ${H - m.b} L${m.l} ${H - m.b}Z`} fill={color} opacity={0.1} />
+        <path d={d} fill="none" stroke={color} strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" />
+        {points.map((p, i) => (
+          <circle key={i} cx={xs(i).toFixed(1)} cy={ys(p[1]).toFixed(1)} r={i === points.length - 1 ? 4.5 : 2.6} fill={color} stroke="var(--card)" strokeWidth={1.5}>
+            <title>{`${f(p[0])}: score ${Math.round(p[1])}, rank #${p[2]}`}</title>
+          </circle>
+        ))}
+        <text x={(xs(points.length - 1) + 8).toFixed(1)} y={(ys(last[1]) + 4).toFixed(1)} fontSize={13} fontWeight={700} fill="var(--text)">
+          {Math.round(last[1])}
+        </text>
+        <text x={m.l} y={H - 8} fontSize={12} fill="var(--faint)">
+          {f(first[0])}
+        </text>
+        <text x={W - m.r} y={H - 8} fontSize={12} fill="var(--faint)" textAnchor="end">
+          {f(last[0])}
+        </text>
+      </svg>
+      <figcaption className="note">
+        {f(first[0])} score {Math.round(first[1])} · {f(last[0])} score {Math.round(last[1])}
+      </figcaption>
+      <table className="sr-only">
+        <caption>Vote score and rank at each update</caption>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Score</th>
+            <th>Rank</th>
+          </tr>
+        </thead>
+        <tbody>
+          {points.map((p) => (
+            <tr key={p[0]}>
+              <td>{f(p[0])}</td>
+              <td>{Math.round(p[1])}</td>
+              <td>#{p[2]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </figure>
   );
 }
 
 const fmtShort = (s: string) => new Date(s + "T12:00:00Z").toLocaleDateString("en-US", { month: "short", day: "numeric", timeZone: "UTC" });
 
-/** Rank over time for one model: #1 at the top. */
-export function RankChart({ points, color = "var(--accent)", label = "Rank over time" }: { points: [string, number, number][]; color?: string; label?: string }) {
-  if (points.length < 2) return null;
+/** Place on one Arena board over time. Place 1 is the top of the chart. */
+export function RankChart({ points, color = "var(--accent)", label = "Place on the board" }: { points: [string, number, number][]; color?: string; label?: string }) {
+  if (!points.length) return null;
+  if (points.length < 2) {
+    return <p className="nodata">First listing on this board: #{points[0][2]} on {fmtShort(points[0][0])}.</p>;
+  }
   const W = 640,
-    H = 130,
-    m = { l: 44, r: 14, t: 12, b: 26 };
+    H = 148,
+    m = { l: 44, r: 44, t: 14, b: 26 };
   const ranks = points.map((p) => p[2]);
-  const top = 1,
-    bot = Math.max(5, Math.ceil((Math.max(...ranks) + 2) / 5) * 5);
+  const bot = Math.max(5, Math.ceil((Math.max(...ranks) + 2) / 5) * 5);
   const xs = (i: number) => m.l + (i / (points.length - 1)) * (W - m.l - m.r);
-  const ys = (r: number) => m.t + ((r - top) / (bot - top)) * (H - m.t - m.b);
+  const ys = (r: number) => m.t + ((r - 1) / (bot - 1)) * (H - m.t - m.b);
   const d = points.map((p, i) => (i ? "L" : "M") + xs(i).toFixed(1) + " " + ys(p[2]).toFixed(1)).join(" ");
   const ticks = [1, Math.round((1 + bot) / 2), bot];
+  const last = ranks[ranks.length - 1];
+  const first = ranks[0];
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label={`${label}: from #${ranks[0]} to #${ranks[ranks.length - 1]}`}>
-      {ticks.map((t) => (
-        <g key={t}>
-          <line x1={m.l} x2={W - m.r} y1={ys(t)} y2={ys(t)} stroke="var(--line)" />
-          <text x={m.l - 8} y={ys(t) + 4} textAnchor="end" fontSize={11.5} fill="var(--faint)">
-            #{t}
-          </text>
-        </g>
-      ))}
-      <path d={d} fill="none" stroke={color} strokeWidth={2.5} strokeDasharray="5 4" strokeLinejoin="round" strokeLinecap="round" />
-      {points.map((p, i) => (
-        <circle key={i} cx={xs(i)} cy={ys(p[2])} r={i === points.length - 1 ? 4.5 : 2.6} fill={color} stroke="var(--card)" strokeWidth={1.5}>
-          <title>{`${fmtShort(p[0])}: rank #${p[2]}`}</title>
-        </circle>
-      ))}
-      <text x={m.l} y={H - 6} fontSize={11.5} fill="var(--faint)">
-        {fmtShort(points[0][0])}
-      </text>
-      <text x={W - m.r} y={H - 6} fontSize={11.5} fill="var(--faint)" textAnchor="end">
-        {fmtShort(points[points.length - 1][0])}
-      </text>
-    </svg>
+    <figure className="chart-fig">
+      <svg viewBox={`0 0 ${W} ${H}`} width="100%" role="img" aria-label={`${label}: #${first} then #${last}`}>
+        {ticks.map((t) => (
+          <g key={t}>
+            <line x1={m.l} x2={W - m.r} y1={ys(t).toFixed(1)} y2={ys(t).toFixed(1)} stroke="var(--line)" />
+            <text x={m.l - 8} y={(ys(t) + 4).toFixed(1)} textAnchor="end" fontSize={12} fill="var(--faint)">
+              #{t}
+            </text>
+          </g>
+        ))}
+        <path d={d} fill="none" stroke={color} strokeWidth={2.5} strokeLinejoin="round" strokeLinecap="round" />
+        {points.map((p, i) => (
+          <circle key={i} cx={xs(i).toFixed(1)} cy={ys(p[2]).toFixed(1)} r={i === points.length - 1 ? 4.5 : 2.6} fill={color} stroke="var(--card)" strokeWidth={1.5}>
+            <title>{`${fmtShort(p[0])}: #${p[2]}`}</title>
+          </circle>
+        ))}
+        <text x={(xs(points.length - 1) + 8).toFixed(1)} y={(ys(last) + 4).toFixed(1)} fontSize={13} fontWeight={700} fill="var(--text)">
+          #{last}
+        </text>
+        <text x={m.l} y={H - 6} fontSize={12} fill="var(--faint)">
+          {fmtShort(points[0][0])}
+        </text>
+        <text x={W - m.r} y={H - 6} fontSize={12} fill="var(--faint)" textAnchor="end">
+          {fmtShort(points[points.length - 1][0])}
+        </text>
+      </svg>
+      <figcaption className="note">
+        {first === last ? `Held #${last}` : `#${first} on ${fmtShort(points[0][0])}, #${last} on ${fmtShort(points[points.length - 1][0])}`}
+      </figcaption>
+    </figure>
   );
 }
 

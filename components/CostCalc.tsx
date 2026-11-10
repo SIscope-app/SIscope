@@ -95,7 +95,7 @@ export function CostCalc({ models, defaults }: { models: Slim[]; defaults: strin
       <div className="card" style={{ padding: 18, display: "grid", gap: 16 }}>
         <div style={{ display: "grid", gap: 8 }}>
           <label htmlFor="cc-tokens" style={{ fontWeight: 650 }}>
-            Tokens per month <span style={{ color: "var(--muted)", fontWeight: 450 }}>(input + output, in millions)</span>
+            Tokens in a month <span style={{ color: "var(--muted)", fontWeight: 450 }}>(input plus output, in millions)</span>
           </label>
           <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
             <input
@@ -123,7 +123,7 @@ export function CostCalc({ models, defaults }: { models: Slim[]; defaults: strin
         </div>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "end" }}>
           <label style={{ display: "grid", gap: 8, fontWeight: 650 }}>
-            Input : output
+            Input versus output
             <select className="select" value={ratio} onChange={(e) => setRatio(e.target.value)}>
               {RATIOS.map((r) => (
                 <option key={r.id} value={r.id}>
@@ -149,31 +149,31 @@ export function CostCalc({ models, defaults }: { models: Slim[]; defaults: strin
       {cheapest && priciest && rows.length > 1 && (
         <div className="stat-row section" style={{ marginTop: 16 }}>
           <div className="card stat">
-            <div className="k">Cheapest of these</div>
+            <div className="k">Lowest in this list</div>
             <div className="v">{money(cheapest.cost)}</div>
             <div className="d">a month with {cheapest.m.name}</div>
           </div>
           <div className="card stat">
-            <div className="k">Priciest of these</div>
+            <div className="k">Highest in this list</div>
             <div className="v">{money(priciest.cost)}</div>
             <div className="d">a month with {priciest.m.name}</div>
           </div>
           <div className="card stat">
             <div className="k">Spread</div>
             <div className="v">{cheapest.cost > 0 ? `${Math.round(priciest.cost / cheapest.cost).toLocaleString("en-US")}×` : "n/a"}</div>
-            <div className="d">between cheapest and priciest</div>
+            <div className="d">highest divided by lowest</div>
           </div>
         </div>
       )}
 
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, flexWrap: "wrap", marginTop: 18 }}>
-        <h2 className="h2" style={{ margin: 0 }}>Estimated monthly cost</h2>
+        <h2 className="h2" style={{ margin: 0 }}>Estimated cost for the month</h2>
         <div className="seg sm" role="group" aria-label="Sort">
           <button type="button" aria-pressed={sort === "cost"} onClick={() => setSort("cost")}>
-            Cheapest first
+            Lowest price
           </button>
           <button type="button" aria-pressed={sort === "si"} onClick={() => setSort("si")}>
-            Smartest first
+            Highest score
           </button>
         </div>
       </div>

@@ -6,8 +6,8 @@ import { fmtDate } from "@/lib/format";
 import { CATEGORIES, COVERAGE_GATE, SCORE_DATE, SCORE_VERSION } from "@/lib/score";
 
 export const metadata: Metadata = {
-  title: "Methodology: how the SIscope score works",
-  description: `How SIscope ranks AI models: the v${SCORE_VERSION} score, its weights, data sources, licences and what we never do.`,
+  title: "How the score is built",
+  description: `SIscope score v${SCORE_VERSION}: the weights, the sources, the licences, and the results we refuse to invent.`,
   alternates: { canonical: "/methodology" }, openGraph: og("/methodology"),
 };
 
@@ -17,12 +17,12 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Methodology · v{SCORE_VERSION} · {fmtDate(SCORE_DATE)}</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>How we score</h1>
-        <p className="lede">Plain rules, published weights, every number linked to where it came from. If we change the recipe, the version number changes too.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>The score, in the open</h1>
+        <p className="lede">Published weights, a version number, and a source on every input. The version changes when the recipe changes.</p>
       </div>
 
       <section className="section" style={{ marginTop: 8 }}>
-        <h2 className="h2" style={{ marginBottom: 14 }}>The SIscope score, at a glance</h2>
+        <h2 className="h2" style={{ marginBottom: 14 }}>Weight of each category</h2>
         <div className="card" style={{ padding: 20 }}>
           <div style={{ display: "flex", height: 44, borderRadius: 12, overflow: "hidden", gap: 3 }} role="img" aria-label="Weights per category">
             {CATEGORIES.map((c, i) => (

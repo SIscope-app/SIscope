@@ -72,10 +72,10 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
 
       {t.soon ? (
         <div className="card" style={{ padding: 28, borderStyle: "dashed", maxWidth: 720 }}>
-          <span className="soon">Coming soon</span>
-          <h2 className="h2" style={{ marginTop: 12 }}>We&apos;re building our own speed tests</h2>
+          <span className="soon">Not measured yet</span>
+          <h2 className="h2" style={{ marginTop: 12 }}>Speed is not listed yet</h2>
           <p className="sub" style={{ fontSize: 16 }}>
-            We&apos;ll time how quickly each model starts replying and how fast it streams, every hour, from a fixed location. Until then we show no speed numbers, rather than borrow them from someone else.
+            We will time the first token and the stream from one fixed place. Until those runs exist, this page stays empty rather than borrow a number.
           </p>
           <p className="sub" style={{ fontSize: 16 }}>
             Meanwhile, see the <Link className="link" href="/best/cheap">best cheap models</Link>, which are often the quick ones too.
@@ -85,9 +85,9 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
         <>
           <div className="grid3">
             {[
-              { k: "Winner", m: w },
-              { k: "Best open", m: bestOpen },
-              { k: t.slug === "cheap" ? "Runner-up" : "Best under $1", m: t.slug === "cheap" ? top[1]?.m : bestCheap },
+              { k: "Leads this job", m: w },
+              { k: "Leading open weights", m: bestOpen },
+              { k: t.slug === "cheap" ? "Next in line" : "Highest score under $1", m: t.slug === "cheap" ? top[1]?.m : bestCheap },
             ].map(({ k, m }) => (
               <div key={k} className="card" style={{ padding: 18, display: "grid", gap: 8 }}>
                 <div className="eyebrow">{k}</div>
@@ -105,13 +105,13 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
                     </div>
                   </>
                 ) : (
-                  <span className="nodata">No data yet</span>
+                  <span className="nodata">No result yet</span>
                 )}
               </div>
             ))}
           </div>
           <section className="section">
-            <h2 className="h2">Top 10 for {t.label.toLowerCase()}</h2>
+            <h2 className="h2">Ten leading models for {t.label.toLowerCase()}</h2>
             <p className="sub" style={{ marginBottom: 14 }}>
               {t.metric}
               {t.scale === "pct" ? ", 0 to 100 (percentile)" : ", a chess-style rating from blind human votes"}.
@@ -125,7 +125,7 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
       )}
 
       <section className="section">
-        <h2 className="h2" style={{ marginBottom: 12 }}>Other tasks</h2>
+        <h2 className="h2" style={{ marginBottom: 12 }}>Other jobs</h2>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           {others.map((o) => (
             <Link key={o.slug} href={`/best/${o.slug}`} className="pill">

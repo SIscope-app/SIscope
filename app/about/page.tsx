@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "SIscope is a free, independent tracker that shows which AI model is best for what, in plain words.",
+  description: "SIscope ranks AI models from public votes, written tests and list prices. No account and no paid placement.",
   alternates: { canonical: "/about" }, openGraph: og("/about"),
 };
 
@@ -13,28 +13,28 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">About</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>See which AI is best, at a glance</h1>
-        <p className="lede">New AI models come out every week. SIscope tells you which ones are actually good, for what, and what they cost, without the jargon.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>An independent model ranking</h1>
+        <p className="lede">SIscope shows which setting leads, on which job, and what the public list price is.</p>
       </div>
       <div className="prose">
-        <h2>What makes it different</h2>
+        <h2>What you can do here</h2>
         <ul>
-          <li><b>Pictures first.</b> Bars, charts and one clear pick per question, instead of giant tables.</li>
-          <li><b>Honest numbers.</b> Every number comes from public human votes or independent test runs, and links back to its source. If we don&apos;t have it, we say so.</li>
-          <li><b>Open and closed side by side.</b> See how far open-weight models are behind, or ahead.</li>
-          <li><b>Free forever.</b> No sign-up and no paid placements.</li>
+          <li><b>Start from a job.</b> Coding, writing, math, agents, open weights, or a price cap.</li>
+          <li><b>Check the source.</b> Votes, written tests and list prices each link back. A missing result stays missing.</li>
+          <li><b>See open weights beside closed models.</b> The gap is measured, not assumed.</li>
+          <li><b>No account.</b> Nothing on the page is a paid placement.</li>
         </ul>
-        <h2>Where the data comes from</h2>
+        <h2>Where the numbers come from</h2>
         <p>
           Arena (human votes, CC BY 4.0), Epoch AI (benchmark runs, CC BY 4.0), the OpenRouter models API (list prices) and the Exgentic Open Agent Leaderboard (CDLA-Permissive-2.0). Full details on the{" "}
           <Link href="/methodology">methodology page</Link>.
         </p>
-        <h2>Use the data</h2>
+        <h2>Download the snapshot</h2>
         <p>
-          Everything is available as JSON at <a href="/api/v0/models.json">/api/v0/models.json</a>. Please credit SIscope and the original sources.
+          The current snapshot is JSON at <a href="/api/v0/models.json">/api/v0/models.json</a>. Credit SIscope and the original sources.
         </p>
-        <h2>Status</h2>
-        <p>This is an early preview (v0). Speed tests and more categories are on the way.</p>
+        <h2>Not on the site yet</h2>
+        <p>There is no speed or latency number until our own tests are running. We do not fill that gap from another site.</p>
       </div>
     </div>
   );

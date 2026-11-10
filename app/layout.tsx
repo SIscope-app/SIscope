@@ -11,7 +11,7 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "sw
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: "SIscope · See which AI is best, at a glance", template: "%s · SIscope" },
+  title: { default: "SIscope · Pick a model from public scores", template: "%s · SIscope" },
   description: SITE.description,
   applicationName: "SIscope",
   twitter: { card: "summary_large_image" },

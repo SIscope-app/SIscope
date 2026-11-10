@@ -4,33 +4,39 @@ import { useEffect, useMemo, useState } from "react";
 import type { Slim } from "@/lib/data";
 import { CATEGORIES, DEFAULT_WEIGHTS, composite, weightsFromQuery, weightsToQuery, type CategoryId } from "@/lib/score";
 import { orgName } from "@/lib/orgs";
-import { fmtPrice } from "@/lib/format";
+import { fmtCtx, fmtPrice } from "@/lib/format";
 import { Avatar, OpenTag, VariantChip } from "./Avatar";
 import { FilterSeg } from "./HomeShell";
 import { Icon } from "./Icons";
 import { CoverageDots, coverageOf } from "./Coverage";
 
 type F = "all" | "open" | "closed";
-type SortKey = "si" | "text" | "coding" | "agents" | "reasoning" | "math" | "price";
+type SortKey = "si" | "text" | "textRank" | "webdev" | "coding" | "agents" | "reasoning" | "math" | "chat" | "instructions" | "price" | "ctx";
 const SORTS: { id: SortKey; label: string; unit: string }[] = [
   { id: "si", label: "SIscope score", unit: "score" },
-  { id: "text", label: "Human votes (chat)", unit: "arena" },
+  { id: "textRank", label: "Arena text rank", unit: "rank" },
+  { id: "webdev", label: "Arena WebDev rank", unit: "rank" },
+  { id: "text", label: "Arena text score", unit: "arena" },
   { id: "coding", label: "Coding", unit: "score" },
-  { id: "agents", label: "Agents & tools", unit: "score" },
+  { id: "agents", label: "Agents", unit: "score" },
   { id: "reasoning", label: "Reasoning", unit: "score" },
   { id: "math", label: "Math", unit: "score" },
-  { id: "price", label: "Cheapest", unit: "$" },
+  { id: "chat", label: "Chat", unit: "score" },
+  { id: "instructions", label: "Instructions", unit: "score" },
+  { id: "price", label: "List price", unit: "$" },
+  { id: "ctx", label: "Context window", unit: "ctx" },
 ];
+const ASC = new Set<SortKey>(["price", "textRank", "webdev"]);
 const PRESETS: { id: string; label: string; w: Record<CategoryId, number> }[] = [
-  { id: "default", label: "Balanced (default)", w: DEFAULT_WEIGHTS },
-  { id: "coder", label: "Coder", w: { coding: 55, agents: 30, reasoning: 5, math: 5, chat: 0, instructions: 5 } },
-  { id: "thinker", label: "Thinker", w: { coding: 5, agents: 5, reasoning: 45, math: 40, chat: 0, instructions: 5 } },
-  { id: "chat", label: "Everyday chat", w: { coding: 5, agents: 5, reasoning: 20, math: 0, chat: 50, instructions: 20 } },
+  { id: "default", label: "Balanced", w: DEFAULT_WEIGHTS },
+  { id: "coder", label: "Coding", w: { coding: 55, agents: 30, reasoning: 5, math: 5, chat: 0, instructions: 5 } },
+  { id: "thinker", label: "Reasoning", w: { coding: 5, agents: 5, reasoning: 45, math: 40, chat: 0, instructions: 5 } },
+  { id: "chat", label: "Chat", w: { coding: 5, agents: 5, reasoning: 20, math: 0, chat: 50, instructions: 20 } },
 ];
 const PAGE = 40;
 
 const PRICES = [
-  { id: "", label: "Any price" },
+  { id: "", label: "Any list price" },
   { id: "0.5", label: "Under $0.50 per 1M" },
   { id: "1", label: "Under $1 per 1M" },
   { id: "3", label: "Under $3 per 1M" },
@@ -129,7 +135,10 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     const val = (m: Slim): number | null => {
       if (sort === "si") return custom ? composite(m.cats, w).score : m.si;
       if (sort === "text") return m.text;
+      if (sort === "textRank") return m.textRank;
+      if (sort === "webdev") return m.webdevRank;
       if (sort === "price") return m.price;
+      if (sort === "ctx") return m.ctx;
       return m.cats[sort as CategoryId] ?? null;
     };
     const ql = q.trim().toLowerCase();
@@ -149,7 +158,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     );
     const withV = base.map((m) => ({ m, v: val(m) }));
     const has = withV.filter((x): x is { m: Slim; v: number } => x.v != null);
-    has.sort((a, b) => (sort === "price" ? a.v - b.v || (b.m.si ?? 0) - (a.m.si ?? 0) : b.v - a.v));
+    has.sort((a, b) => (ASC.has(sort) ? a.v - b.v || (b.m.si ?? 0) - (a.m.si ?? 0) : b.v - a.v));
     return { has, missing: withV.length - has.length };
   }, [models, f, org, q, sort, w, custom, price, ctx, mod, cov]);
 
@@ -159,9 +168,16 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     lo = sort === "text" ? Math.min(...vals) - 20 : 0;
   const width = (v: number) => {
     if (sort === "price") return Math.max(3, ((Math.log10(v + 0.01) - Math.log10(0.01)) / (Math.log10(hi + 0.01) - Math.log10(0.01))) * 100);
-    return Math.max(3, ((v - lo) / (hi - lo)) * 100);
+    if (sort === "textRank" || sort === "webdev") return Math.max(3, (1 - (v - 1) / Math.max(hi - 1, 1)) * 100);
+    return Math.max(3, ((v - lo) / (hi - lo || 1)) * 100);
   };
-  const disp = (v: number) => (sort === "price" ? fmtPrice(v) : sort === "text" ? Math.round(v).toString() : v.toFixed(0));
+  const disp = (v: number) => {
+    if (sort === "price") return fmtPrice(v);
+    if (sort === "text") return Math.round(v).toString();
+    if (sort === "textRank" || sort === "webdev") return `#${Math.round(v)}`;
+    if (sort === "ctx") return fmtCtx(v);
+    return v.toFixed(0);
+  };
   const wsum = Object.values(w).reduce((a, b) => a + b, 0);
   const reset = () => {
     setF("all");
@@ -302,7 +318,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
             <span>Model</span>
             <span style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
               <span>{S.label}{custom && sort === "si" ? " (your weights)" : ""}</span>
-              <span title="Share of the six categories with data">Coverage · price</span>
+              <span title="How many of the six categories have a result, the Arena text place, the context window, and the list price">Measured · Arena text · context · price</span>
             </span>
           </span>
           <span className="sc" style={{ color: "var(--faint)", fontSize: 13 }}>{S.unit === "$" ? "per 1M" : "Score"}</span>
@@ -317,12 +333,18 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
                 <VariantChip v={m.variant} />
                 <OpenTag open={m.open} />
               </span>
-              <span style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) auto auto", gap: 12, alignItems: "center" }}>
+              <span className="lb-metrics">
                 <span className="barw">
                   <span className={`bar ${m.open ? "open" : ""}`} style={{ width: `${width(v).toFixed(1)}%` }} />
                 </span>
                 <CoverageDots cats={m.cats} />
-                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }} title={sort === "price" ? "SIscope score" : m.price == null ? "Not listed on OpenRouter. Unknown is not free." : m.price === 0 ? "OpenRouter lists this at $0 per 1M tokens." : "Blended OpenRouter list price per 1M tokens"}>
+                <span className="lb-extra tnum" title={m.textRank == null ? "Not on the Arena text board. That is not a last-place rank." : "Place on the Arena text board"}>
+                  {m.textRank != null ? `Text #${m.textRank}` : "No text rank"}
+                </span>
+                <span className="lb-extra tnum" title={m.ctx == null ? "No context length on the OpenRouter listing." : "Most tokens one request can hold, from OpenRouter"}>
+                  {m.ctx != null ? fmtCtx(m.ctx) : "No context"}
+                </span>
+                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }} title={sort === "price" ? "SIscope score" : m.price == null ? "No OpenRouter list price. Unknown is not free." : m.price === 0 ? "OpenRouter lists this at $0 per 1M tokens." : "List price per 1M tokens, three input tokens per output token"}>
                   {sort === "price" ? (m.si != null ? `SI ${m.si.toFixed(0)}` : "No score") : m.price != null ? fmtPrice(m.price) : "No list price"}
                 </span>
               </span>
@@ -332,7 +354,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
         ))}
         {rows.has.length === 0 && (
           <div className="nodata" style={{ padding: 24, textAlign: "center" }}>
-            No models match these filters yet.{" "}
+            Nothing matches these filters.{" "}
             <button type="button" className="btn" style={{ marginLeft: 8 }} onClick={reset}>
               Clear filters
             </button>
@@ -347,12 +369,14 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
         )}
       </div>
       <p className="note">
-        {rows.has.length} models shown.
-        {rows.missing > 0 && ` ${rows.missing} more match your filters but don't have enough data for "${S.label}" yet.`}
-        {(price || ctx || mod) && " Price, context and input-type filters only include models listed on OpenRouter."}
-        {sort === "text" && " Arena scores work like chess ratings, from blind human votes."}
-        {sort === "price" && " Bars use a log scale. Price is OpenRouter's list price, 3 parts input to 1 part output."}
-        {sort !== "text" && sort !== "price" && " Scores are percentiles from 0 to 100."} The green segments show how many of the six categories have data.
+        {rows.has.length} models in this list.
+        {rows.missing > 0 && ` ${rows.missing} match the filters but have no ${S.label} yet. A missing value is not zero.`}
+        {(price || ctx || mod) && " Price, context and input filters only include models with an OpenRouter listing."}
+        {sort === "text" && " Arena text scores work like chess ratings, from votes on chat answers."}
+        {(sort === "textRank" || sort === "webdev") && " Place 1 is the top of that board. Models with no result are left out of the order."}
+        {sort === "price" && " Bars use a log scale. The price is the OpenRouter list price, three input tokens per output token."}
+        {sort === "ctx" && " Context is the longest request the OpenRouter listing allows."}
+        {sort !== "text" && sort !== "textRank" && sort !== "webdev" && sort !== "price" && sort !== "ctx" && " Scores run from 0 to 100."} Green segments show how many of the six categories have a result.
       </p>
     </div>
   );
