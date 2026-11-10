@@ -139,7 +139,11 @@ test("category winners include ties and ignore a single present value", () => {
   assert.deepEqual(lower.win, [false, false, true]);
   assert.equal(lower.tie, false);
   const samePrice = displayedWinners([1.001, 1.004], "lo", fmtPrice);
-  assert.equal(samePrice.tie, true);
+  assert.equal(samePrice.tie, false);
+  assert.equal(fmtPrice(1.001), "$1.001");
+  assert.equal(fmtPrice(1.004), "$1.004");
+  const sameCent = displayedWinners([1, 1], "lo", fmtPrice);
+  assert.equal(sameCent.tie, true);
 });
 
 test("compare summary states ties, supported savings, and unknown prices", () => {
@@ -153,7 +157,7 @@ test("compare summary states ties, supported savings, and unknown prices", () =>
   assert.match(summary, /Opus \(Max\) leads Coding \(100\.0\)/);
   assert.match(summary, /tie on Chat|Chat/);
   assert.match(summary, /only Opus \(Max\) has Agents/);
-  assert.match(summary, /\$0\.5 per 1M/);
+  assert.match(summary, /\$0\.50 per 1M/);
   assert.match(summary, /\$8/);
   assert.match(summary, /16×/);
   assert.equal(limits.length, 1);

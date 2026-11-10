@@ -46,12 +46,14 @@ function TopList({ items }: { items: TopItem[] }) {
                   <VariantChip v={it.variant} />
                   <OpenTag open={it.open} />
                 </span>
-                <span className="barw t10-bar" aria-hidden="true">
-                  <span className={`bar ${it.open ? "open" : ""}`} style={{ width: `${w.toFixed(1)}%` }} />
-                </span>
-                <span className="sc" aria-label={`SIscope score ${it.si.toFixed(0)}`}>{it.si.toFixed(0)}</span>
-                <span className={`t10-p ${it.price ? "" : "t10-unk"}`} title={it.price === "$0" ? "OpenRouter lists this at $0 per 1M tokens." : it.price ? `${it.price} per 1M tokens, blended` : "Not listed on OpenRouter. Unknown is not free."}>
-                  {it.price ?? "No list price"}
+                <span className="t10-track">
+                  <span className="barw t10-bar" aria-hidden="true">
+                    <span className={`bar ${it.open ? "open" : ""}`} style={{ width: `${w.toFixed(1)}%` }} />
+                  </span>
+                  <span className="sc" aria-label={`SIscope score ${it.si.toFixed(0)}`}>{it.si.toFixed(0)}</span>
+                  <span className={`t10-p ${it.price ? "" : "t10-unk"}`} title={it.price === "$0" ? "OpenRouter lists this at $0 per 1M tokens." : it.price ? `${it.price} per 1M tokens, blended` : "Not listed on OpenRouter. Unknown is not free."}>
+                    {it.price ?? "No list price"}
+                  </span>
                 </span>
               </Link>
             </li>

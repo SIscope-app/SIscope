@@ -147,7 +147,7 @@ export function CostCalc({ models, defaults }: { models: Slim[]; defaults: strin
       </div>
 
       {cheapest && priciest && rows.length > 1 && (
-        <div className="stats section" style={{ marginTop: 16, gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
+        <div className="stat-row section" style={{ marginTop: 16 }}>
           <div className="card stat">
             <div className="k">Cheapest of these</div>
             <div className="v">{money(cheapest.cost)}</div>

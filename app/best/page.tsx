@@ -19,7 +19,7 @@ export default function Page() {
         <h1 className="h1" style={{ marginTop: 8 }}>The best AI for what you want to do</h1>
         <p className="lede">One winner per task, plus the runners-up and the best open option.</p>
       </div>
-      <div className="grid3" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))" }}>
+      <div className="task-grid">
         {TASKS.map((t) => {
           const r = taskRanking(t).slice(0, 3);
           return (

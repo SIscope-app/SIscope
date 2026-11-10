@@ -210,7 +210,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
             </span>
           </button>
           <span style={{ flex: 1 }} />
-          <button type="button" className="btn" style={{ height: 36 }} onClick={copy}>
+          <button type="button" className="btn" onClick={copy}>
             {copied ? "Link copied" : "Copy link"}
           </button>
         </div>
@@ -289,7 +289,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
           {sort === "si" && activePreset && activePreset !== "default" ? ` · ${PRESETS.find((p) => p.id === activePreset)!.label} weights` : sort === "si" && custom ? " · your weights" : ""}
         </span>
         {top4.length >= 2 && (
-          <Link className="btn" style={{ height: 36 }} href={`/compare?m=${top4.join(",")}`}>
+          <Link className="btn" href={`/compare?m=${top4.join(",")}`}>
             Compare top {top4.length} →
           </Link>
         )}

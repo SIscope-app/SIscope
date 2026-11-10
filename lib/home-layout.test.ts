@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { buildDecisions } from "./decisions";
+import { fmtPrice } from "./format";
 import { priceChangeCopy, visibleChangeCount } from "./home-layout";
 import { modelBySlug } from "./data";
 
@@ -14,17 +15,30 @@ test("change grids hide a remainder so every row is full", () => {
   assert.equal(visibleChangeCount(0, 3), 0);
 });
 
+test("prices keep cents, including trailing zeros", () => {
+  assert.equal(fmtPrice(0), "$0");
+  assert.equal(fmtPrice(null), "n/a");
+  assert.equal(fmtPrice(0.1), "$0.10");
+  assert.equal(fmtPrice(0.5), "$0.50");
+  assert.equal(fmtPrice(0.54), "$0.54");
+  assert.equal(fmtPrice(0.025), "$0.025");
+  assert.equal(fmtPrice(0.006), "$0.006");
+  assert.equal(fmtPrice(1.2505), "$1.2505");
+  assert.equal(fmtPrice(8), "$8.00");
+  assert.equal(fmtPrice(20), "$20.00");
+});
+
 test("a new OpenRouter listing is a blended price, not a made-up percent", () => {
   const fresh = priceChangeCopy("$0.1 in, $0.5 out per 1M tokens on OpenRouter");
   assert.equal(fresh.mode, "new");
-  assert.equal(fresh.headline, "$0.2 /1M");
-  assert.match(fresh.detail, /\$0\.1 in/);
-  assert.match(fresh.detail, /\$0\.5 out/);
+  assert.equal(fresh.headline, "$0.20 /1M");
+  assert.match(fresh.detail, /\$0\.10 in/);
+  assert.match(fresh.detail, /\$0\.50 out/);
   assert.match(fresh.detail, /new list price/);
   assert.doesNotMatch(`${fresh.headline} ${fresh.detail}`, /%|→/);
   const cut = priceChangeCopy("from $8 to $4 per 1M");
   assert.equal(cut.mode, "changed");
-  assert.equal(cut.headline, "$8 → $4");
+  assert.equal(cut.headline, "$8.00 → $4.00");
   assert.match(cut.detail, /down/);
   assert.match(cut.detail, /-50%/);
 });
