@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Avatar, OpenTag, VariantChip } from "@/components/Avatar";
+import { Avatar, OpenTag } from "@/components/Avatar";
 import { HistoryChart, Radar, RankChart } from "@/components/charts";
 import { CoverageDots, coverageOf, coverageText } from "@/components/Coverage";
 import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
 import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
-import { EPOCH_BENCHMARKS, allModels, modelBySlug, siRanked, sourceById, type Enriched } from "@/lib/data";
+import { EPOCH_BENCHMARKS, allModels, modelBySlug, siRanked, sourceById } from "@/lib/data";
 import { fmtCtx, fmtDate, fmtInt, fmtPrice } from "@/lib/format";
 import { orgName } from "@/lib/orgs";
-import { CATEGORIES, COVERAGE_GATE } from "@/lib/score";
+import { dateFacts, dateSentence, priceStatus, scoreFootnote, settingLabel, verdictParagraph } from "@/lib/present";
+import { COVERAGE_GATE } from "@/lib/score";
 import { SITE, og } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -20,7 +21,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps<"/models/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const m = modelBySlug(slug);
-  if (!m) return {};
+  if (!m) return { title: "Model not found", robots: { index: false, follow: true } };
   const bits = [m.si != null ? `SIscope score ${m.si.toFixed(0)}/100` : null, m.price ? `${fmtPrice(m.price.blended_per_m)} per 1M tokens` : null].filter(Boolean).join(", ");
   return {
     title: `${m.name}: scores, price and verdict`,
@@ -36,34 +37,10 @@ const BOARDS = [
   { k: "agent", label: "Agent arena", what: "Real multi-step agent sessions" },
 ] as const;
 
-function verdict(m: Enriched, total: number, pricedShare: number | null) {
-  const known = CATEGORIES.filter((c) => m.cats[c.id] != null).map((c) => ({ c, v: m.cats[c.id]! }));
-  const parts: string[] = [];
-  if (m.si != null && m.siRank) {
-    const tier = m.siRank <= 5 ? "one of the very best models right now" : m.siRank <= 20 ? "a top-tier model" : m.si >= 75 ? "a strong all-rounder" : m.si >= 50 ? "a solid mid-pack model" : "behind the leaders";
-    parts.push(`${m.base} is ${tier}: #${m.siRank} of ${total} by SIscope score.`);
-  } else {
-    parts.push(`${m.base} doesn't have enough test coverage for an overall SIscope score yet.`);
-  }
-  if (known.length >= 2) {
-    const s = [...known].sort((a, b) => b.v - a.v);
-    const top = s[0].c.label.toLowerCase(),
-      low = s[s.length - 1];
-    if (low.v >= 85) parts.push(`Strong at everything it's been tested on, especially ${top}.`);
-    else if (s[0].v - low.v >= 8) parts.push(`Strongest at ${top}, weaker at ${low.c.label.toLowerCase()}.`);
-    else parts.push(`Even across the board, with no weak spot in what's been tested.`);
-  }
-  if (m.price && pricedShare != null) {
-    const p = Math.round(pricedShare * 100);
-    parts.push(p >= 60 ? `Cheaper than ${p}% of priced models.` : p <= 25 ? `On the pricey side: costs more than ${100 - p}% of priced models.` : `Mid-range on price.`);
-  }
-  if (m.open) parts.push("Weights are open, so you can run it yourself.");
-  return parts.join(" ");
-}
-
 export default async function ModelPage({ params }: PageProps<"/models/[slug]">) {
   const { slug } = await params;
   const m = modelBySlug(slug);
+  // Unknown slugs are not prebuilt. notFound() stops the page before it streams, which keeps a 404 and a noindex tag.
   if (!m) notFound();
   const ranked = siRanked();
   const priced = allModels().filter((x) => x.price);
@@ -75,7 +52,20 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
   const epochSrc = sourceById("epoch");
   const orSrc = sourceById("openrouter");
   const cov = coverageOf(m.cats);
-  const asOf = m.arena.text?.date ?? m.arena.webdev?.date ?? m.price?.as_of ?? arenaSrc.as_of;
+  const dates = dateFacts(m);
+  const when = dateSentence(dates);
+  const price = priceStatus(m.price?.blended_per_m ?? null);
+  const verdict = verdictParagraph({
+    name: settingLabel(m.base, m.variant),
+    si: m.si,
+    siRank: m.siRank,
+    rankedTotal: ranked.length,
+    cats: m.cats,
+    coverage: m.coverage,
+    open: m.open,
+    price: m.price?.blended_per_m ?? null,
+    pricedShare,
+  });
 
   return (
     <div className="wrap">
@@ -110,17 +100,21 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
         <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
           <Avatar org={m.org} size={48} />
           <div style={{ minWidth: 0 }}>
-            <h1 className="h1" style={{ margin: 0 }}>{m.base}</h1>
+            <h1 className="h1 model-title" style={{ margin: 0 }}>
+              <span>{m.base}</span>
+              {m.variant ? <span className="setting">{m.variant}</span> : <span className="setting">Default</span>}
+            </h1>
+            <p className="sub" style={{ marginTop: 6 }}>Exact setting. Other settings of {m.base} are ranked on their own.</p>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", marginTop: 6, color: "var(--muted)", fontSize: 15 }}>
-              {orgName(m.org)} <VariantChip v={m.variant} /> <OpenTag open={m.open} showClosed /> <span className="chip">{m.model_license}</span>
+              {orgName(m.org)} <OpenTag open={m.open} showClosed /> <span className="chip">{m.model_license}</span>
             </div>
           </div>
         </div>
         <div className="kf" role="list" aria-label="Key facts">
           <div className="card stat lead" role="listitem">
-            <div className="k">SIscope score</div>
+            <div className="k">SIscope overall</div>
             <div className="v">{m.si != null ? <>{m.si.toFixed(0)}<small>/100</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
-            <div className="d">{m.si != null ? `#${m.siRank} of ${ranked.length} ranked` : `${Math.round(m.coverage * 100)}% coverage, needs ${COVERAGE_GATE * 100}%`}</div>
+            <div className="d">{m.si != null ? `#${m.siRank} of ${ranked.length} scored` : `${Math.round(m.coverage * 100)}% of the weight, needs ${COVERAGE_GATE * 100}%`}</div>
           </div>
           {(["text", "webdev"] as const).map((b) => {
             const a = m.arena[b];
@@ -128,14 +122,14 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
               <div key={b} className="card stat" role="listitem">
                 <div className="k">{b === "text" ? "Arena text rank" : "Arena WebDev rank"}</div>
                 <div className="v">{a ? `#${a.rank}` : <span className="nodata" style={{ fontSize: 17 }}>Not on board</span>}</div>
-                <div className="d">{a ? `of ${a.board_size} · score ${Math.round(a.rating!)}` : b === "text" ? "Blind chat votes" : "Blind web-app votes"}</div>
+                <div className="d">{a ? `of ${a.board_size} · score ${Math.round(a.rating!)}` : "No result for this setting. Not a zero."}</div>
               </div>
             );
           })}
           <div className="card stat" role="listitem">
             <div className="k">Price, blended</div>
-            <div className="v">{m.price ? <>{fmtPrice(m.price.blended_per_m)}<small>/1M</small></> : <span className="nodata" style={{ fontSize: 17 }}>No price yet</span>}</div>
-            <div className="d">{m.price ? `${fmtPrice(m.price.input_per_m)} in · ${fmtPrice(m.price.output_per_m)} out` : "Not listed on OpenRouter"}</div>
+            <div className="v">{price.kind === "unknown" ? <span className="nodata" style={{ fontSize: 17 }}>{price.short}</span> : <>{price.short}<small>/1M</small></>}</div>
+            <div className="d">{m.price ? `${fmtPrice(m.price.input_per_m)} in · ${fmtPrice(m.price.output_per_m)} out` : "Unknown, not free"}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Context window</div>
@@ -153,15 +147,15 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             <div className="d" title={coverageText(m.cats)}>{cov.missing.length ? `Missing: ${cov.missing.join(", ")}` : "Every category has data"}</div>
           </div>
           <div className="card stat" role="listitem">
-            <div className="k">Data as of</div>
-            <div className="v" style={{ fontSize: 20, paddingBlock: 4 }}>{fmtDate(asOf)}</div>
-            <div className="d">{m.arena.text || m.arena.webdev ? "Latest Arena update" : "Latest price check"}</div>
+            <div className="k">{dates.arenaBoard ? "Arena board date" : dates.epochRuns.length ? "Epoch run" : "Price checked"}</div>
+            <div className="v" style={{ fontSize: 20, paddingBlock: 4 }}>{fmtDate(dates.arenaBoard ?? dates.epochRuns[0] ?? dates.priceAsOf)}</div>
+            <div className="d">{dates.arenaBoard ? `Ranking published${dates.arenaFetched ? ` · fetched ${fmtDate(dates.arenaFetched)}` : ""}` : dates.epochRuns.length ? "When the test was run, not when we fetched it" : "OpenRouter list price"}</div>
           </div>
         </div>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 14 }}>
           {rival && (
             <Link className="btn primary" href={`/compare?m=${m.slug},${rival.slug}`}>
-              Compare with {rival.base} →
+              Compare with {settingLabel(rival.base, rival.variant)} →
             </Link>
           )}
           <Link className="btn" href={`/compare?m=${m.slug}`}>
@@ -184,18 +178,21 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             ))}
           </div>
         )}
+        <p className="score-note">{scoreFootnote(m.cats, m.coverage, m.si)}</p>
+        {when ? <p className="score-note">{when}</p> : null}
+        <p className="score-note">SIscope overall is not an Arena rank. Text, WebDev and agent boards are separate, and a missing board is not a zero.</p>
       </div>
 
       <div className="card verdict">
         <div className="eyebrow" style={{ marginBottom: 6 }}>Verdict</div>
-        <p style={{ margin: 0, fontSize: 18, lineHeight: 1.5 }}>{verdict(m, ranked.length, pricedShare)}</p>
+        <p style={{ margin: 0, fontSize: 18, lineHeight: 1.5 }}>{verdict}</p>
       </div>
 
       <section className="section">
         <div className="grid2" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
           <div className="card" style={{ padding: 20 }}>
             <h2 className="h2">Shape</h2>
-            <p className="sub">Each spoke is a category, 0 at the centre, 100 at the edge.</p>
+            <p className="sub">Each spoke is a category, 0 at the centre, 100 at the edge. A spoke at the centre has no result. That is not a zero.</p>
             <div style={{ marginTop: 10 }}>
               <Radar series={[{ label: m.name, cats: m.cats, color }]} />
             </div>
@@ -208,7 +205,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
               <Link className="link" href="/methodology">What goes into each category</Link> ·{" "}
               {rival && (
                 <Link className="link" href={`/compare?m=${m.slug},${rival.slug}`}>
-                  Compare with {rival.base}
+                  Compare with {settingLabel(rival.base, rival.variant)}
                 </Link>
               )}
             </p>
@@ -245,7 +242,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
         <h2 className="h2">Independent test runs</h2>
         <p className="sub" style={{ marginBottom: 14 }}>Run by Epoch AI on the same harness for every model. Bars show the share of questions answered correctly.</p>
         {m.epoch.length === 0 ? (
-          <div className="card nodata" style={{ padding: 20 }}>No Epoch AI runs for this model yet.</div>
+          <p className="note" style={{ marginTop: 0 }}>No Epoch AI run is attached to this exact setting. A missing run is not a zero.</p>
         ) : (
           <div className="grid3">
             {m.epoch.map((e) => {
@@ -263,7 +260,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
                   <div style={{ fontSize: 13, color: "var(--faint)" }}>
                     {e.pct != null && e.tested_models ? `Better than ${Math.round(e.pct)}% of ${e.tested_models} tested models. ` : ""}
                     {e.approx ? `Tested with a different setting (${e.tested_as}). ` : ""}
-                    {e.run_date ? `Run ${fmtDate(e.run_date)}.` : ""}
+                    {e.run_date ? `Run ${fmtDate(e.run_date)}.` : "Run date not published."} Fetched {fmtDate(e.fetched_at)}.
                   </div>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                     <a className="src" href={epochBenchUrl(e.benchmark)} rel="noopener">Epoch AI results ↗</a>
@@ -322,7 +319,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           </table>
         </div>
         <p className="note">
-          Source: <a className="link" href={arenaSrc.home} rel="noopener">{arenaSrc.name}</a>, {arenaSrc.license}. Fetched {fmtDate(arenaSrc.fetched_at)}.
+          Source: <a className="link" href={arenaSrc.home} rel="noopener">{arenaSrc.name}</a>, {arenaSrc.license}. The date in each row is when Arena published that board. We fetched the dataset {fmtDate(arenaSrc.fetched_at)}. “Not on this board yet” is a missing result, not a zero.
         </p>
       </section>
 
@@ -354,7 +351,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             </p>
           </div>
         ) : (
-          <div className="card nodata" style={{ padding: 20 }}>No public list price yet. We only show prices from the OpenRouter models API, and this model isn&apos;t listed there under a matching name.</div>
+          <p className="note" style={{ marginTop: 0 }}>{price.detail} We only show OpenRouter list prices, matched to this model&apos;s snapshot.</p>
         )}
       </section>
     </div>

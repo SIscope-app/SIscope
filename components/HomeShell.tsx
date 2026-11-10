@@ -50,7 +50,9 @@ function TopList({ items }: { items: TopItem[] }) {
                   <span className={`bar ${it.open ? "open" : ""}`} style={{ width: `${w.toFixed(1)}%` }} />
                 </span>
                 <span className="sc" aria-label={`SIscope score ${it.si.toFixed(0)}`}>{it.si.toFixed(0)}</span>
-                <span className="t10-p" aria-label={it.price ? `${it.price} per million tokens` : "No price yet"}>{it.price ?? "–"}</span>
+                <span className={`t10-p ${it.price ? "" : "t10-unk"}`} title={it.price === "$0" ? "OpenRouter lists this at $0 per 1M tokens." : it.price ? `${it.price} per 1M tokens, blended` : "Not listed on OpenRouter. Unknown is not free."}>
+                  {it.price ?? "No list price"}
+                </span>
               </Link>
             </li>
           );
@@ -62,7 +64,6 @@ function TopList({ items }: { items: TopItem[] }) {
 
 export function HomeShell({
   hero,
-  keyNumbers,
   taskChips,
   gap,
   changes,
@@ -73,7 +74,6 @@ export function HomeShell({
   top,
 }: {
   hero: React.ReactNode;
-  keyNumbers: React.ReactNode;
   taskChips: React.ReactNode;
   gap: React.ReactNode;
   changes: React.ReactNode;
@@ -99,9 +99,8 @@ export function HomeShell({
   const top10 = top.filter((t) => f === "all" || (f === "open" ? t.open : !t.open)).slice(0, 10);
   return (
     <>
-      <section className="hero wrap" aria-label="Key numbers">
+      <section className="hero wrap" aria-label="Best models right now">
         {hero}
-        {keyNumbers}
         {taskChips}
       </section>
       <section className="section wrap" aria-labelledby="top-h">
@@ -110,7 +109,7 @@ export function HomeShell({
             <h2 className="h2" id="top-h">
               {f === "open" ? "Top 10 open models" : f === "closed" ? "Top 10 closed models" : "Top 10 at a glance"}
             </h2>
-            <p className="sub">Ranked by SIscope score (0 to 100), each model at its best setting. Price is blended per 1M tokens.</p>
+            <p className="sub">Ranked by SIscope score (0 to 100). One row per model family, at its best-scoring setting, which is named on the row. Price is the blended OpenRouter list price per 1M tokens. “No list price” means not listed, not free.</p>
           </div>
           <FilterSeg value={f} onChange={set} size="sm" />
         </div>

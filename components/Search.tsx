@@ -28,6 +28,15 @@ function find(idx: Entry[], q: string): Entry[] {
   return hits.sort((a, b) => a.s - b.s).slice(0, 8).map((h) => h.e);
 }
 
+/** Opens the header search from anywhere else on the page. */
+export function SearchLaunch({ className, label }: { className?: string; label: string }) {
+  return (
+    <button type="button" className={className} onClick={() => window.dispatchEvent(new Event("siscope-search"))}>
+      {label}
+    </button>
+  );
+}
+
 export function QuickSearch() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -63,7 +72,11 @@ export function QuickSearch() {
       }
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    window.addEventListener("siscope-search", show);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("siscope-search", show);
+    };
   }, [open, show, hide]);
 
   useEffect(() => {
@@ -146,16 +159,16 @@ export function QuickSearch() {
                     onMouseEnter={() => setSel(i)}
                     onClick={() => go(e)}
                   >
-                    <span className="n">{e[1]}</span>
+                    <span className="n" title={e[1]}>{e[1]}</span>
                     {e[4] ? <span className="tag-open">OPEN</span> : null}
                     <span className="p">{e[2]}</span>
-                    <span className="s">{e[3] != null ? e[3] : "–"}</span>
+                    <span className="s" title={e[3] != null ? `SIscope score ${e[3]}` : "No SIscope score yet"}>{e[3] != null ? e[3] : "n/a"}</span>
                   </div>
                 ))
               )}
             </div>
             <div className="qs-foot">
-              {q ? "↑ ↓ to move, Enter to open" : "Top models by SIscope score. Type to search all of them."}
+              {q ? "↑ ↓ to move, Enter to open. Names include the exact setting." : "Top models by SIscope score, exact setting in the name. n/a means no score yet, not zero."}
             </div>
           </div>
         </div>

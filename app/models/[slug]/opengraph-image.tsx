@@ -21,16 +21,15 @@ export default async function Image({ params }: { params: Promise<{ slug: string
     (
       <OgFrame kicker={m.open ? "Open weights" : orgName(m.org)}>
         <div style={{ display: "flex", flexDirection: "column", marginTop: 36 }}>
-          <div style={{ display: "flex", fontSize: 64, fontWeight: 800, letterSpacing: -2 }}>{m.base}</div>
+          <div style={{ display: "flex", fontSize: m.name.length > 28 ? 46 : 58, fontWeight: 800, letterSpacing: -1.5 }}>{m.name}</div>
           <div style={{ fontSize: 28, color: "#a3afbd", marginTop: 6, display: "flex" }}>
             {orgName(m.org)}
-            {m.variant ? ` · ${m.variant}` : ""}
-            {m.price ? ` · ${fmtPrice(m.price.blended_per_m)} per 1M tokens` : ""}
+            {m.price ? ` · ${fmtPrice(m.price.blended_per_m)} per 1M tokens` : " · No list price"}
           </div>
         </div>
         <div style={{ display: "flex", gap: 48, marginTop: 40, alignItems: "flex-end" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <div style={{ display: "flex", fontSize: 120, fontWeight: 800, lineHeight: 1, color: c }}>{m.si != null ? m.si.toFixed(0) : "–"}</div>
+            <div style={{ display: "flex", fontSize: 120, fontWeight: 800, lineHeight: 1, color: c }}>{m.si != null ? m.si.toFixed(0) : "n/a"}</div>
             <div style={{ display: "flex", fontSize: 24, color: "#a3afbd" }}>{m.si != null ? "SIscope score" : "Score coming"}</div>
           </div>
           <div style={{ display: "flex", flex: 1, gap: 18, alignItems: "flex-end", height: 200 }}>

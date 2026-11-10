@@ -109,7 +109,7 @@ export default function Page() {
                     const t = v == null ? 0 : (v - lo) / (hi - lo || 1);
                     return (
                       <td key={i} style={{ background: v == null ? undefined : `color-mix(in srgb, var(--accent) ${Math.round(8 + t * 52)}%, transparent)`, borderRadius: 8 }}>
-                        {v == null ? <span className="nodata">–</span> : `${Math.round(v * 100)}%`}
+                        {v == null ? <span className="nodata" title="No result. Not a zero.">n/a</span> : `${Math.round(v * 100)}%`}
                       </td>
                     );
                   })}

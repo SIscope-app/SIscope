@@ -1,14 +1,22 @@
 import { orgColor, orgInitial, orgName } from "@/lib/orgs";
 
 export function Avatar({ org, size = 24 }: { org: string; size?: number }) {
+  const name = orgName(org);
+  const color = orgColor(org);
   return (
     <span
       className="av"
-      style={{ background: orgColor(org), width: size, height: size, fontSize: Math.round(size * 0.5), borderRadius: Math.round(size * 0.3) }}
-      title={orgName(org)}
-      aria-hidden="true"
+      style={{
+        width: size,
+        height: size,
+        fontSize: Math.max(9, Math.round(size * 0.42)),
+        background: `color-mix(in srgb, ${color} 24%, var(--card))`,
+        borderColor: `color-mix(in srgb, ${color} 62%, var(--line))`,
+      }}
+      title={name}
     >
-      {orgInitial(org)}
+      <span aria-hidden="true">{orgInitial(org)}</span>
+      <span className="sr-only">{name}</span>
     </span>
   );
 }

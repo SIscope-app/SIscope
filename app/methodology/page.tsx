@@ -68,9 +68,12 @@ export default function Page() {
         <p>
           Arena lists each model with its reasoning setting (for example &quot;High&quot; or &quot;Max&quot;), and we treat each one as its own entry. An Epoch AI result is attached only when it is clearly the same model and the same setting: same reasoning level, same thinking budget, and the same dated snapshot. If Epoch tested a different setting or snapshot, we leave it out rather than guess. A list price attaches only to the same snapshot. It applies to every reasoning setting of that model, because providers charge the same per token; higher settings just use more tokens.
         </p>
+        <p>
+          A SIscope rank and an Arena rank answer different questions. SIscope overall is the weighted score of the categories we measured. Arena text, WebDev and agent are separate vote boards. One setting can lead the SIscope score while another setting of the same model leads WebDev, and neither result is wrong. The board date is when Arena published that ranking. The fetch date is when we copied the dataset. An Epoch run date is when that test was executed. Those are not the same day.
+        </p>
         <h2>Price</h2>
         <p>
-          Prices are list prices in US dollars per 1 million tokens, from the OpenRouter models API. The single &quot;blended&quot; price assumes 3 parts input to 1 part output, a typical chat mix. Free, batch-only and router listings are ignored. Open models are served by several providers on OpenRouter, so their price is OpenRouter&apos;s listed price, not the only one available. If a model isn&apos;t listed, we say &quot;no price yet&quot;.
+          Prices are list prices in US dollars per 1 million tokens, from the OpenRouter models API. The single &quot;blended&quot; price assumes 3 parts input to 1 part output, a typical chat mix. Free, batch-only and router listings are ignored. Open models are served by several providers on OpenRouter, so their price is OpenRouter&apos;s listed price, not the only one available. If a model isn&apos;t listed, we say &quot;No list price&quot;. That means unknown, not free, and we do not guess. A listed $0 stays $0.
         </p>
         <h2>Speed</h2>
         <p>

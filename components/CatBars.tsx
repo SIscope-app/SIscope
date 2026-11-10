@@ -17,7 +17,7 @@ export function CatBars({ cats, open }: { cats: CategoryScores; open?: boolean }
                 <span className={`bar ${open ? "open" : ""}`} style={{ width: `${Math.max(3, v)}%` }} />
               </span>
             )}
-            <span className="v">{v == null ? "–" : Math.round(v)}</span>
+            <span className="v" title={v == null ? "No result yet. Not a zero." : undefined}>{v == null ? "n/a" : Math.round(v)}</span>
           </div>
         );
       })}
