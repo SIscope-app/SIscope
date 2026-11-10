@@ -77,29 +77,30 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const p = new URLSearchParams(window.location.search);
-    const pick = (k: string, opts: { id: string }[]) => (opts.some((o) => o.id === p.get(k)) ? p.get(k)! : "");
-    /* eslint-disable react-hooks/set-state-in-effect */
-    const s = p.get("show");
-    if (s === "open" || s === "closed") setF(s);
-    if (p.get("org")) setOrg(p.get("org")!);
-    if (p.get("q")) setQ(p.get("q")!);
-    const so = p.get("sort") as SortKey | null;
-    if (so && SORTS.some((x) => x.id === so)) setSort(so);
-    const pr = PRESETS.find((x) => x.id === p.get("preset"));
-    const pw = pr ? pr.w : weightsFromQuery(p.get("w"));
-    if (pw) {
-      setW(pw);
-      if (!presetOf(pw)) setPanel(true);
-    }
-    const fp = pick("price", PRICES), fc = pick("ctx", CTXS), fm = pick("mod", MODS), fv = pick("cov", COVS);
-    setPrice(fp);
-    setCtx(fc);
-    setMod(fm);
-    setCov(fv);
-    if (fp || fc || fm || fv) setFilters(true);
-    setReady(true);
-    /* eslint-enable react-hooks/set-state-in-effect */
+    const apply = () => {
+      const p = new URLSearchParams(window.location.search);
+      const pick = (k: string, opts: { id: string }[]) => (opts.some((o) => o.id === p.get(k)) ? p.get(k)! : "");
+      const s = p.get("show");
+      setF(s === "open" || s === "closed" ? s : "all");
+      setOrg(p.get("org") ?? "");
+      setQ(p.get("q") ?? "");
+      const so = p.get("sort") as SortKey | null;
+      setSort(so && SORTS.some((x) => x.id === so) ? so : "si");
+      const pr = PRESETS.find((x) => x.id === p.get("preset"));
+      const pw = pr ? pr.w : weightsFromQuery(p.get("w"));
+      setW(pw ?? DEFAULT_WEIGHTS);
+      if (pw && !presetOf(pw)) setPanel(true);
+      const fp = pick("price", PRICES), fc = pick("ctx", CTXS), fm = pick("mod", MODS), fv = pick("cov", COVS);
+      setPrice(fp);
+      setCtx(fc);
+      setMod(fm);
+      setCov(fv);
+      if (fp || fc || fm || fv) setFilters(true);
+      setReady(true);
+    };
+    apply();
+    window.addEventListener("popstate", apply);
+    return () => window.removeEventListener("popstate", apply);
   }, []);
 
   useEffect(() => {
@@ -321,8 +322,8 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
                   <span className={`bar ${m.open ? "open" : ""}`} style={{ width: `${width(v).toFixed(1)}%` }} />
                 </span>
                 <CoverageDots cats={m.cats} />
-                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }} title="Blended list price per 1M tokens (OpenRouter)">
-                  {sort === "price" ? (m.si != null ? `SI ${m.si.toFixed(0)}` : "") : m.price != null ? fmtPrice(m.price) : "no price"}
+                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }} title={sort === "price" ? "SIscope score" : m.price == null ? "Not listed on OpenRouter. Unknown is not free." : m.price === 0 ? "OpenRouter lists this at $0 per 1M tokens." : "Blended OpenRouter list price per 1M tokens"}>
+                  {sort === "price" ? (m.si != null ? `SI ${m.si.toFixed(0)}` : "No score") : m.price != null ? fmtPrice(m.price) : "No list price"}
                 </span>
               </span>
             </span>

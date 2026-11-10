@@ -99,7 +99,7 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
                     </Link>
                     <div style={{ color: "var(--muted)", fontSize: 14 }}>
                       {t.metric}: <b style={{ color: "var(--text)" }}>{disp(t.get(m)!)}</b>
-                      {m.price ? ` · ${fmtPrice(m.price.blended_per_m)} blended per 1M tokens` : " · no price yet"}
+                      {m.price ? ` · ${fmtPrice(m.price.blended_per_m)} blended per 1M tokens${m.price.blended_per_m === 0 ? " (listed at $0, not unknown)" : ""}` : " · No list price (not free)"}
                     </div>
                   </>
                 ) : (

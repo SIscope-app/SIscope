@@ -16,7 +16,7 @@ export default function Image() {
           {top.map((m, i) => (
             <div key={m.slug} style={{ display: "flex", alignItems: "center", gap: 18, fontSize: 28 }}>
               <div style={{ display: "flex", width: 30, color: i ? "#7d8a9a" : "#7cc4f5", fontWeight: 800 }}>{i + 1}</div>
-              <div style={{ width: 380, fontWeight: 650, display: "flex" }}>{m.base}</div>
+              <div style={{ width: 460, fontWeight: 650, display: "flex" }}>{m.variant ? `${m.base} · ${m.variant}` : m.base}</div>
               <div style={{ display: "flex", flex: 1, height: 18, background: "#223040", borderRadius: 9 }}>
                 <div style={{ display: "flex", width: `${((m.si! - 50) / 50) * 100}%`, background: m.open ? "#e69f00" : "#7cc4f5", borderRadius: 9 }} />
               </div>

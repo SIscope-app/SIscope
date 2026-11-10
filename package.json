@@ -14,7 +14,7 @@
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "data:refresh": "bash scripts/data-refresh.sh",
-    "test": "node --test scripts/schedule-gate.test.mjs && tsx --test lib/freshness.test.ts && python3 -m unittest discover -s data-pipeline -p 'test_*.py' && bash scripts/data-refresh.test.sh && tsx scripts/build-api.ts && node scripts/check-generated-api.mjs"
+    "test": "node --test scripts/schedule-gate.test.mjs && tsx --test lib/freshness.test.ts lib/present.test.ts && python3 -m unittest discover -s data-pipeline -p 'test_*.py' && bash scripts/data-refresh.test.sh && tsx scripts/build-api.ts && node scripts/check-generated-api.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

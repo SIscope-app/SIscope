@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { orgName } from "@/lib/orgs";
 
-export type ScatterPt = { slug: string; name: string; base: string; org: string; open: boolean; x: number; y: number; xin: number; xout: number };
+export type ScatterPt = { slug: string; name: string; base: string; variant?: string | null; org: string; open: boolean; x: number; y: number; xin: number; xout: number };
 
 export function Scatter({ pts, filter, yLabel = "SIscope score" }: { pts: ScatterPt[]; filter: "all" | "open" | "closed"; yLabel?: string }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -106,7 +106,7 @@ export function Scatter({ pts, filter, yLabel = "SIscope score" }: { pts: Scatte
             const below = y < m.t + 24;
             return (
               <text key={"l" + p.slug} x={anchor === "end" ? x - 12 : x + 12} y={below ? y + 18 : y - 10} textAnchor={anchor} fill="var(--text)" fontSize={12.5} fontWeight={620} style={{ pointerEvents: "none", paintOrder: "stroke", stroke: "var(--card)", strokeWidth: 4 }}>
-                {p.base}
+                {labelSet.size > 0 && [...labelSet].filter((s) => pts.find((q) => q.slug === s)?.base === p.base).length > 1 && p.variant ? `${p.base} ${p.variant}` : p.base}
               </text>
             );
           })}

@@ -45,6 +45,7 @@ export function ModelPicker({ models, exclude = [], onPick, placeholder = "Add a
         aria-controls={`${id}-list`}
         aria-autocomplete="list"
         aria-label="Search for a model to add"
+        aria-activedescendant={open && hits[hi] ? `${id}-opt-${hi}` : undefined}
         placeholder={placeholder}
         value={q}
         onFocus={() => setOpen(true)}
@@ -71,7 +72,7 @@ export function ModelPicker({ models, exclude = [], onPick, placeholder = "Add a
         <div className="picker-list" id={`${id}-list`} role="listbox" aria-label="Matching models">
           {hits.length === 0 && <div className="nodata" style={{ padding: 10 }}>No model matches &ldquo;{q}&rdquo;.</div>}
           {hits.map((m, i) => (
-            <button key={m.slug} type="button" role="option" aria-selected={i === hi} className="picker-opt" onMouseEnter={() => setHi(i)} onClick={() => pick(m.slug)}>
+            <button key={m.slug} id={`${id}-opt-${i}`} type="button" role="option" aria-selected={i === hi} className="picker-opt" onMouseEnter={() => setHi(i)} onClick={() => pick(m.slug)}>
               <Avatar org={m.org} size={20} />
               <span className="n">{m.name}</span>
               <span className="sc2">{m.si != null ? `SI ${m.si.toFixed(0)}` : "no score"}</span>

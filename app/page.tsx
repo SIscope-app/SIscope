@@ -1,15 +1,19 @@
 import Link from "next/link";
 import { HomeShell } from "@/components/HomeShell";
+import { SearchLaunch } from "@/components/Search";
 import { GapChart, RankLines, LINE_COLORS } from "@/components/charts";
-import { Avatar } from "@/components/Avatar";
-import { Icon, type IconName } from "@/components/Icons";
+import { Avatar, VariantChip } from "@/components/Avatar";
+import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import type { TopItem } from "@/components/HomeShell";
 import type { ScatterPt } from "@/components/Scatter";
 import { CHANGES, allModels, siRanked, textRanked, type Enriched } from "@/lib/data";
+import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { ARENA_BOARD_URL } from "@/lib/links";
 import { fmtDate, fmtPrice } from "@/lib/format";
-import { TASKS, taskRanking, bestValue } from "@/lib/tasks";
+import { RANK_NOTE } from "@/lib/present";
+import { orgName } from "@/lib/orgs";
+import { TASKS, taskRanking } from "@/lib/tasks";
 import { SITE, og } from "@/lib/site";
 
 export const metadata = { alternates: { canonical: "/" }, openGraph: og("/") };
@@ -18,42 +22,40 @@ function row(m: Enriched): TopItem {
   return { slug: m.slug, name: m.name, base: m.base, variant: m.variant, org: m.org, open: m.open, si: m.si!, price: m.price ? fmtPrice(m.price.blended_per_m) : null };
 }
 
-function KeyTile(p: { href: string; icon: IconName; label: string; value: string; unit?: string; m?: Enriched; line?: string; sub: string; accent?: boolean; live?: boolean }) {
+function Decision({ card }: { card: DecisionCard }) {
   return (
-    <Link href={p.href} className={`card kt ${p.accent ? "kt-accent" : ""}`}>
-      <span className="kt-l">
-        <Icon name={p.icon} /> {p.label}
-      </span>
-      <span className="kt-v">
-        {p.value}
-        {p.unit ? <small>{p.unit}</small> : null}
-      </span>
-      {p.m ? (
-        <span className="kt-m">
-          <Avatar org={p.m.org} size={18} />
-          <span className="n" title={p.m.name}>{p.m.base}</span>
-        </span>
-      ) : (
-        <span className="kt-m">{p.live ? <span className="dot" aria-hidden="true" /> : null}<span className="n">{p.line}</span></span>
-      )}
-      <span className="kt-s">{p.sub}</span>
-    </Link>
+    <article className={`card decide ${card.kind === "overall" ? "decide-lead" : ""}`}>
+      <h2 className="decide-k">
+        <Icon name={card.kind === "coding" ? "code" : card.kind === "value" ? "value" : "star"} /> {card.kicker}
+      </h2>
+      <Link href={card.href} className="decide-name">
+        <span>{card.base}</span>
+        {card.variant ? <span className="setting">{card.variant}</span> : null}
+      </Link>
+      <p className="decide-org">
+        <Avatar org={card.org} size={18} />
+        <span>{orgName(card.org)}</span>
+      </p>
+      <p className="decide-score">
+        <b>{card.score}</b>
+        <small>{card.unit}</small>
+        <span className="decide-kind">{card.rankKind}</span>
+      </p>
+      <p className="decide-why">{card.reason}</p>
+      <p className="decide-limit">{card.limit}</p>
+    </article>
   );
 }
 
 export default function Home() {
   const ranked = siRanked();
-  const smartest = ranked[0];
-  const coding = taskRanking(TASKS.find((t) => t.slug === "coding")!)[0].m;
-  const open = ranked.find((m) => m.open)!;
-  const value = bestValue(ranked, [smartest.base]);
-  const pricedTop = ranked.filter((m) => m.price).slice(0, 10);
-  const topAvg = pricedTop.reduce((a, m) => a + m.price!.blended_per_m, 0) / pricedTop.length;
+  const picks = buildDecisions(ranked);
+  const open = ranked.find((m) => m.slug === picks.open.slug)!;
 
   const scatter: ScatterPt[] = ranked
     .filter((m) => m.price && m.price.blended_per_m > 0)
     .slice(0, 80)
-    .map((m) => ({ slug: m.slug, name: m.name, base: m.base, org: m.org, open: m.open, x: m.price!.blended_per_m, y: m.si!, xin: m.price!.input_per_m, xout: m.price!.output_per_m }));
+    .map((m) => ({ slug: m.slug, name: m.name, base: m.base, variant: m.variant, org: m.org, open: m.open, x: m.price!.blended_per_m, y: m.si!, xin: m.price!.input_per_m, xout: m.price!.output_per_m }));
 
   // One row per model on the home page: keep its best-scoring setting.
   const seen = new Set<string>();
@@ -73,31 +75,34 @@ export default function Home() {
   const hero = (
     <>
       <h1 className="h1 hero-h1">Which AI is best right now?</h1>
-      <p className="lede hero-lede">The numbers that matter, from blind human votes and independent tests. Tap any tile for the detail.</p>
+      <p className="lede hero-lede">Three picks from measured results. Each name is the exact setting that was tested.</p>
+      <div className="decisions">
+        <Decision card={picks.overall} />
+        <Decision card={picks.coding} />
+        {picks.value ? (
+          <Decision card={picks.value} />
+        ) : (
+          <article className="card decide">
+            <h2 className="decide-k">
+              <Icon name="value" /> Best value
+            </h2>
+            <p className="decide-why">No model with a SIscope score of at least 75 is listed at or under $1 per 1M tokens right now.</p>
+            <Link className="more" href="/best/cheap">See cheap models</Link>
+          </article>
+        )}
+      </div>
+      <div className="decide-actions">
+        <Link className="btn primary" href={picks.compareHref}>Compare these picks</Link>
+        <Link className="btn" href="/leaderboard">Full leaderboard</Link>
+        <SearchLaunch className="btn" label="Search models" />
+      </div>
+      <p className="rank-note">{RANK_NOTE}</p>
+      <div className="secondary">
+        <Link href={picks.open.href}>Best open model: {picks.open.name} · SIscope {picks.open.score} · #{picks.open.rank} overall</Link>
+        <a href="#gap-h">Open vs closed: {gapNow} pts in Arena text votes{gapDelta === 0 ? "" : `, ${Math.abs(gapDelta)} pts ${gapDelta > 0 ? "wider" : "narrower"} than ${fmtDate(g0.d, { year: false })}`}</a>
+        <Link href="/leaderboard">{picks.rankedCount} scored · {picks.trackedCount} tracked · Arena history through {fmtDate(lastDate)}</Link>
+      </div>
     </>
-  );
-
-  const keyNumbers = (
-    <div className="kn">
-      <KeyTile href={`/models/${smartest.slug}`} icon="star" label="#1 overall" value={smartest.si!.toFixed(0)} unit="/100" m={smartest} sub={`SIscope score · top of ${ranked.length}`} accent />
-      <KeyTile href="/best/coding" icon="code" label="#1 for coding" value={coding.cats.coding!.toFixed(0)} unit="/100" m={coding} sub={coding.arena.webdev ? `#${coding.arena.webdev.rank} in WebDev arena` : "Coding score"} />
-      {value ? (
-        <KeyTile href={`/models/${value.slug}`} icon="value" label="Best value" value={fmtPrice(value.price!.blended_per_m)} unit="/1M" m={value} sub={`SIscope ${value.si!.toFixed(0)} · ${Math.round(topAvg / value.price!.blended_per_m)}× cheaper than the top 10`} />
-      ) : (
-        <KeyTile href="/best/cheap" icon="value" label="Best value" value="–" sub="No model meets the bar yet" />
-      )}
-      <KeyTile href={`/models/${open.slug}`} icon="open" label="Best open model" value={open.si!.toFixed(0)} unit="/100" m={open} sub={`#${open.siRank} overall · ${open.model_license}`} />
-      <KeyTile
-        href="#gap-h"
-        icon="compare"
-        label="Open vs closed"
-        value={String(gapNow)}
-        unit="pts"
-        line="Closed leads in votes"
-        sub={`${gapDelta > 0 ? "▲ " : gapDelta < 0 ? "▼ " : ""}${gapDelta === 0 ? "Same as" : `${Math.abs(gapDelta)} pts ${gapDelta > 0 ? "wider" : "narrower"} than`} ${fmtDate(g0.d, { year: false })}`}
-      />
-      <KeyTile href="/leaderboard" icon="list" label="Models tracked" value={String(allModels().length)} line={`${ranked.length} fully scored`} sub={`Arena history through ${fmtDate(lastDate)}`} live />
-    </div>
   );
 
   const taskChips = (
@@ -138,7 +143,7 @@ export default function Home() {
       </div>
       <p className="note" style={{ marginTop: "auto" }}>
         Arena text scores work like chess ratings: a 50-point lead means the leader wins roughly 57% of head-to-head votes.
-        {g1.open_name.replace(/ \(.*\)$/, "") !== open.base ? <> Our &ldquo;Best open model&rdquo; pick ({open.base}) uses the full SIscope score, which also counts independent tests.</> : null}
+        {g1.open_name.replace(/ \(.*\)$/, "") !== open.base ? <> Our &ldquo;Best open model&rdquo; pick ({picks.open.name}) uses the full SIscope score, which also counts independent tests. The gap above is Arena text only.</> : null}
       </p>
     </div>
   );
@@ -213,8 +218,9 @@ export default function Home() {
                 <span className="nm" style={{ fontSize: 15 }}>
                   <Avatar org={w.org} size={20} />
                   <span className="n" title={w.name}>{w.base}</span>
+                  <VariantChip v={w.variant} />
                 </span>
-                <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? `${fmtPrice(w.price.blended_per_m)} per 1M tokens` : "Top open-weight pick") : o ? <>Best open: {o.base}</> : "No open model with data yet"}</span>
+                <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? `${fmtPrice(w.price.blended_per_m)} per 1M tokens` : "Top open-weight pick") : o ? <>Best open: {o.base}{o.variant ? ` (${o.variant})` : ""}</> : "No open model with data yet"}</span>
               </>
             ) : (
               <span className="nodata">No data yet</span>
@@ -234,12 +240,12 @@ export default function Home() {
   const histDates = allDates.filter((d) => d >= firstTop);
   const rankChart = (
     <div className="card" style={{ padding: 20 }}>
-      <RankLines dates={histDates} series={top8.map((m, i) => ({ label: m.base, color: LINE_COLORS[i], points: m.history.text ?? [] }))} />
+      <RankLines dates={histDates} series={top8.map((m, i) => ({ label: m.variant ? `${m.base} (${m.variant})` : m.base, color: LINE_COLORS[i], points: m.history.text ?? [] }))} />
       <div className="legend" style={{ marginTop: 8 }}>
         {top8.map((m, i) => (
           <Link key={m.slug} href={`/models/${m.slug}`} className="lg">
             <span style={{ width: 12, height: 12, borderRadius: 4, background: LINE_COLORS[i] }} aria-hidden="true" />
-            #{m.arena.text!.rank} {m.base}
+            Arena text #{m.arena.text!.rank} {m.variant ? `${m.base} (${m.variant})` : m.base}
           </Link>
         ))}
       </div>
@@ -261,7 +267,7 @@ export default function Home() {
           description: SITE.description,
         }}
       />
-      <HomeShell hero={hero} keyNumbers={keyNumbers} taskChips={taskChips} gap={gapCard} changes={changes} changesSub={`${CHANGES.changes.length} changes between the Arena updates of ${fmtDate(CHANGES.prev)} and ${fmtDate(CHANGES.week_to)}, plus new prices.`} rankChart={rankChart} tasks={tasks} scatter={scatter} top={top} />
+      <HomeShell hero={hero} taskChips={taskChips} gap={gapCard} changes={changes} changesSub={`${CHANGES.changes.length} changes between the Arena updates of ${fmtDate(CHANGES.prev)} and ${fmtDate(CHANGES.week_to)}, plus new prices.`} rankChart={rankChart} tasks={tasks} scatter={scatter} top={top} />
     </>
   );
 }
