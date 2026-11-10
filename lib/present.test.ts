@@ -45,8 +45,8 @@ test("homepage picks link to the exact setting and do not swap rank systems", ()
   assert.equal(d.coding.href, `/models/${coding.slug}`);
   assert.equal(d.overall.name, settingLabel(overall.base, overall.variant));
   assert.equal(d.coding.name, settingLabel(coding.base, coding.variant));
-  assert.equal(d.overall.rankKind, "SIscope overall");
-  assert.equal(d.coding.rankKind, "SIscope coding");
+  assert.equal(d.overall.rankKind, "SIscope score");
+  assert.equal(d.coding.rankKind, "Coding score");
   if (overall.variant) assert.match(d.overall.name, new RegExp(overall.variant.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   if (coding.variant) assert.match(d.coding.name, new RegExp(coding.variant.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   if (overall.slug !== coding.slug) assert.notEqual(d.overall.name, d.coding.name);

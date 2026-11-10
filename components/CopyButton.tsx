@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export function CopyButton({ text, label }: { text: string; label: string }) {
+export function CopyButton({ text, label, caption = "Copy" }: { text: string; label: string; caption?: string }) {
   const [done, setDone] = useState(false);
   return (
     <button
@@ -23,7 +23,7 @@ export function CopyButton({ text, label }: { text: string; label: string }) {
         setTimeout(() => setDone(false), 1600);
       }}
     >
-      {done ? "Copied" : "Copy"}
+      {done ? "Copied" : caption}
       <span className="sr-only" aria-live="polite">{done ? `${label} address copied` : ""}</span>
     </button>
   );

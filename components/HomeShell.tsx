@@ -12,7 +12,7 @@ export function FilterSeg({ value, onChange, size }: { value: F; onChange: (f: F
     <div className={`seg ${size ?? ""}`} role="group" aria-label="Show open or closed models">
       {(["all", "open", "closed"] as F[]).map((f) => (
         <button key={f} aria-pressed={value === f} onClick={() => onChange(f)}>
-          {f === "all" ? "All models" : f === "open" ? "Open only" : "Closed only"}
+          {f === "all" ? "All" : f === "open" ? "Open weights" : "Closed"}
         </button>
       ))}
     </div>
@@ -111,27 +111,27 @@ export function HomeShell({
         <div className="sh">
           <div>
             <h2 className="h2" id="top-h">
-              {f === "open" ? "Top 10 open models" : f === "closed" ? "Top 10 closed models" : "Top 10 at a glance"}
+              {f === "open" ? "Ten strongest open-weight scores" : f === "closed" ? "Ten strongest closed scores" : "Ten strongest scores"}
             </h2>
-            <p className="sub">Best setting of each model. “No list price” is unknown, not free.</p>
+            <p className="sub">One setting per model. “No list price” means we have no public price. It does not mean the model is free.</p>
           </div>
           <FilterSeg value={f} onChange={set} size="sm" />
         </div>
         <TopList items={top10} />
         <div className="t10-foot">
-          <span className="note" style={{ margin: 0 }}>Bars start at 50 so the gaps at the top are easy to see.</span>
+          <span className="note" style={{ margin: 0 }}>Bars start at 50 so small gaps near the top stay visible.</span>
           <Link className="btn" href={f === "all" ? "/leaderboard" : `/leaderboard?show=${f}`}>
-            Full leaderboard →
+            See every model
           </Link>
         </div>
         {quiet}
       </section>
       <section className="section wrap" aria-labelledby="task-h">
-        <SectionHead id="task-h" title="Best for…" sub="The winner for each job, plus the best open option." more={{ href: "/best", label: "See all" }} />
+        <SectionHead id="task-h" title="Pick by the job" sub="The leading model for each job, and the leading open-weight option." more={{ href: "/best", label: "All jobs" }} />
         {tasks}
       </section>
       <section className="section wrap" aria-labelledby="chg-h">
-        <SectionHead id="chg-h" title="What changed" sub={changesSub} />
+        <SectionHead id="chg-h" title="Since the last update" sub={changesSub} />
         {changes}
       </section>
       <section className="section wrap">
@@ -139,8 +139,8 @@ export function HomeShell({
           <div className="card" style={{ padding: 20 }}>
             <div className="sh" style={{ marginBottom: 8 }}>
               <div>
-                <h2 className="h2">Smarts vs price</h2>
-                <p className="sub">Up is smarter, left is cheaper. The dashed line links the best deals at each price.</p>
+                <h2 className="h2">Higher score, lower price</h2>
+                <p className="sub">Left is cheaper. The dashed line joins the best score at each price.</p>
               </div>
             </div>
             <div className="legend" style={{ marginBottom: 6 }}>
@@ -160,19 +160,19 @@ export function HomeShell({
                 <svg width="22" height="6" aria-hidden="true">
                   <line x1="0" y1="3" x2="22" y2="3" stroke="var(--muted)" strokeWidth="2" strokeDasharray="5 4" />
                 </svg>
-                Best deals
+                Best score at that price
               </span>
             </div>
             <Scatter pts={scatter} filter={f} />
             <p className="note">
-              Smarts: SIscope score. Price: OpenRouter list price, blended 3 parts input to 1 part output. Only models with both are shown ({scatter.length}).
+              Vertical axis: SIscope score. Horizontal axis: OpenRouter list price per 1M tokens, three input tokens for each output token. {scatter.length} models have both a score and a price.
             </p>
           </div>
           {gap}
         </div>
       </section>
       <section className="section wrap" aria-labelledby="rank-h">
-        <SectionHead id="rank-h" title="Rank over time: today's top 8" sub="Where each of today's top 8 stood in blind human votes at each recent Arena update. Higher on the chart is better." />
+        <SectionHead id="rank-h" title="How Arena text ranks shifted" sub="Eight model families at the top of today's chat-vote board. The top edge of each line is place 1." />
         {rankChart}
       </section>
     </>

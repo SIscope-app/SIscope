@@ -14,20 +14,20 @@ export function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: 10, fontWeight: 750, fontSize: 18, color: "var(--text)" }}>
               <LogoMark size={28} /> SIscope
             </div>
-            <p style={{ margin: "10px 0 0" }}>See which AI is best, at a glance. Free forever, no sign-up, no paid placements.</p>
+            <p style={{ margin: "10px 0 0" }}>An independent ranking of AI models. No account. No paid placement.</p>
             <p style={{ margin: "8px 0 0" }}>
-              <Link href="/methodology">How we score (v{SCORE_VERSION})</Link> · <Link href="/about">About</Link> ·{" "}
-              <a href="/api/v0/models.json">JSON API</a>
+              <Link href="/methodology">Score v{SCORE_VERSION}</Link> · <Link href="/about">About</Link> ·{" "}
+              <a href="/api/v0/models.json">JSON snapshot</a>
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(140px,1fr))", gap: "6px 28px", minWidth: 280 }}>
             {[
-              ["/leaderboard", "Leaderboard"],
-              ["/compare", "Compare models"],
-              ["/tools/cost", "Cost calculator"],
-              ["/best/coding", "Best for coding"],
-              ["/best/open", "Best open models"],
-              ["/best/cheap", "Best cheap models"],
+              ["/leaderboard", "Full ranking"],
+              ["/compare", "Compare"],
+              ["/tools/cost", "Monthly cost"],
+              ["/best/coding", "Coding"],
+              ["/best/open", "Open weights"],
+              ["/best/cheap", "Under $1"],
               ["/agents", "Agents"],
             ].map(([h, l]) => (
               <Link key={h} href={h} className="foot-link" style={{ color: "var(--muted)" }}>
@@ -37,9 +37,9 @@ export function Footer() {
           </div>
         </div>
         <div id="sources">
-          <div style={{ color: "var(--text)", fontWeight: 650, marginBottom: 6 }}>Data sources and licences</div>
+          <div style={{ color: "var(--text)", fontWeight: 650, marginBottom: 6 }}>Sources and licences</div>
           <p style={{ margin: "0 0 8px" }}>
-            <time dateTime={PUBLISH.last_success_at}>{fmtDateTime(PUBLISH.last_success_at)}</time> is the last refresh that deployed and passed the live checks. The dates below are each source&apos;s own data as of, which can be earlier.
+            <time dateTime={PUBLISH.last_success_at}>{fmtDateTime(PUBLISH.last_success_at)}</time> is the last refresh that deployed and passed its checks. Each source below has its own data as of date, which can be earlier.
           </p>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 6 }}>
             {SOURCES.sources.map((s) => (
@@ -52,7 +52,7 @@ export function Footer() {
             ))}
           </ul>
           <p style={{ margin: "10px 0 0", color: "var(--faint)" }}>
-            SIscope is independent and not affiliated with any model maker or data source. Speed numbers are not shown until our own speed tests are running. We never use Artificial Analysis data.
+            SIscope is not affiliated with a model maker or a data source. Speed is omitted until our own measurements exist. Artificial Analysis data is not used.
           </p>
         </div>
         <Donations />

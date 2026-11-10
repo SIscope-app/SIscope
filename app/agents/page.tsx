@@ -6,8 +6,8 @@ import { AGENTS, allModels, sourceById } from "@/lib/data";
 import { fmtDate, fmtInt } from "@/lib/format";
 
 export const metadata: Metadata = {
-  title: "AI agent leaderboard",
-  description: "Which AI models and agent setups get real multi-step work done: Arena's Agent Arena from real sessions, plus the Exgentic open agent leaderboard.",
+  title: "Agent results",
+  description: "Which models finish multi-step work. Arena agent sessions, plus the same models run inside several agent setups.",
   alternates: { canonical: "/agents" }, openGraph: og("/agents"),
 };
 
@@ -62,14 +62,14 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Agents</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>Which AI gets real work done?</h1>
-        <p className="lede">Agents take many steps on their own: browsing, running code, using apps. Here&apos;s who does it best, from real user sessions and from an open, repeatable test suite.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>Models that finish multi-step work</h1>
+        <p className="lede">Two views: votes from real agent sessions, and the same models inside several agent setups on a shared test suite.</p>
       </div>
 
       <section className="section" style={{ marginTop: 10 }}>
         <div className="sh">
           <div>
-            <h2 className="h2">Agent Arena: top 20 models</h2>
+            <h2 className="h2">Top 20 on Arena agents</h2>
             <p className="sub">Scored from {fmtInt(aa.rows.reduce((a, r) => a + (r.sessions ?? 0), 0))} real agent sessions. Score: Agent Arena&apos;s rating from user signals, shown as a percentage like on Arena (higher is better). Updated {fmtDate(aa.publish_date)}.</p>
           </div>
           <Link className="more" href="/best/agents">Best for agents →</Link>
@@ -85,7 +85,7 @@ export default function Page() {
       <section className="section">
         <div className="sh">
           <div>
-            <h2 className="h2">Agent setup × model</h2>
+            <h2 className="h2">Same model, different setups</h2>
             <p className="sub">
               Exgentic Open Agent Leaderboard: the same 5 models run inside 5 agent setups on AppWorld, BrowseComp+, SWE-bench and Tau² (each counts a quarter). Share of tasks solved.
             </p>

@@ -5,8 +5,8 @@ import { fmtDate } from "@/lib/format";
 import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "AI model cost calculator: monthly API cost",
-  description: "Estimate what an AI model costs per month for your token volume and input-to-output mix, using list prices for the exact model version.",
+  title: "Monthly token cost",
+  description: "Estimate a month of tokens from OpenRouter list prices. The link keeps the models and the mix you chose.",
   alternates: { canonical: "/tools/cost" }, openGraph: og("/tools/cost"),
 };
 
@@ -21,8 +21,8 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Cost calculator</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>What will it cost per month?</h1>
-        <p className="lede">Monthly tokens, split between input and output. OpenRouter list prices as of {fmtDate(or.as_of)}.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>Price a month of use</h1>
+        <p className="lede">Set a monthly token count and how much of it is input. Prices are OpenRouter list prices as of {fmtDate(or.as_of)}.</p>
       </div>
       <CostCalc models={list.map(slim)} defaults={defaults} />
     </div>

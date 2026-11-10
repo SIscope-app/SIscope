@@ -115,7 +115,7 @@ export function buildDecisions(ranked = siRanked()): Decisions {
     value = cardBase(
       "value",
       valueM,
-      "Best value",
+      "Strong score under $1",
       "List price",
       fmtPrice(valueM.price.blended_per_m),
       "/1M",
@@ -127,8 +127,8 @@ export function buildDecisions(ranked = siRanked()): Decisions {
 
   const compareSlugs = compareDefaultSlugs([overallM.slug, codingM.slug, valueM?.slug, openM.slug]);
   return {
-    overall: cardBase("overall", overallM, "Best overall", "SIscope overall", overallM.si!.toFixed(0), "/100", overallGlance(overallM, n), overallBits.join(" "), gapLimit(overallM)),
-    coding: cardBase("coding", codingM, "Best for coding", "SIscope coding", codingM.cats.coding!.toFixed(0), "/100", codingGlance(codingM), codingBits.join(" "), codingLimit),
+    overall: cardBase("overall", overallM, "Highest overall score", "SIscope score", overallM.si!.toFixed(0), "/100", overallGlance(overallM, n), overallBits.join(" "), gapLimit(overallM)),
+    coding: cardBase("coding", codingM, "Highest coding score", "Coding score", codingM.cats.coding!.toFixed(0), "/100", codingGlance(codingM), codingBits.join(" "), codingLimit),
     value,
     open: { slug: openM.slug, href: `/models/${openM.slug}`, name: settingLabel(openM.base, openM.variant), score: openM.si!.toFixed(0), rank: openM.siRank! },
     compareSlugs,

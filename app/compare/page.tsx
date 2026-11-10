@@ -5,8 +5,8 @@ import { buildDecisions } from "@/lib/decisions";
 import { EPOCH_BENCHMARKS, allModels, siRanked, slim } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Compare AI models side by side",
-  description: "Pick two to four AI models and compare their SIscope score, Arena votes, Epoch AI test results, price and context window at a glance.",
+  title: "Compare models",
+  description: "Put two to four settings next to each other. Score, Arena place, written tests, list price and context, with a link you can share.",
   alternates: { canonical: "/compare" }, openGraph: og("/compare"),
 };
 
@@ -23,8 +23,8 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Compare</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>Compare models side by side</h1>
-        <p className="lede">Two to four exact settings. We start from the homepage picks, and the link keeps yours.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>Set two models next to each other</h1>
+        <p className="lede">Two to four settings. The page opens on the homepage picks. The address keeps whatever you change.</p>
       </div>
       <Compare models={list.map(slim)} defaults={defaults} benches={benches} />
     </div>

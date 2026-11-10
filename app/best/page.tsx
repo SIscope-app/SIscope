@@ -16,8 +16,8 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Best for…</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>The best AI for what you want to do</h1>
-        <p className="lede">One winner per task, plus the runners-up and the best open option.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>A winner for each job</h1>
+        <p className="lede">One leading model per job, the next two, and the leading open-weight option.</p>
       </div>
       <div className="task-grid">
         {TASKS.map((t) => {
@@ -29,7 +29,7 @@ export default function Page() {
               </span>
               <span className="alt">{t.intro}</span>
               {t.soon ? (
-                <span className="soon" style={{ alignSelf: "flex-start" }}>Coming soon</span>
+                <span className="soon" style={{ alignSelf: "flex-start" }}>Not measured yet</span>
               ) : (
                 <ol style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 6 }}>
                   {r.map(({ m }, i) => (

@@ -9,7 +9,7 @@ export function ChangeBoard({ children }: { children: React.ReactNode }) {
       <div className={`chg-grid${all ? " chg-all" : ""}`}>{children}</div>
       <p className="chg-more-row">
         <button type="button" className="btn chg-more" aria-expanded={all} onClick={() => setAll((v) => !v)}>
-          {all ? "Show fewer" : "See all changes"}
+          {all ? "Show the latest" : "Show every update"}
         </button>
       </p>
     </>

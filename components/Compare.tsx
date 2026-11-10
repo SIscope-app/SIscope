@@ -173,14 +173,14 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
           </button>
           {priced.length > 0 && (
             <Link className="btn" href={`/tools/cost?m=${priced.map((m) => m.slug).join(",")}`}>
-              Monthly cost →
+              Price a month
             </Link>
           )}
         </div>
       </div>
 
       <div className="card tradeoff">
-        <h2 className="h2">Tradeoff</h2>
+        <h2 className="h2">The difference that matters</h2>
         <p>{trade.summary}</p>
         {trade.limits.map((line) => (
           <p key={line} className="decide-limit">{line}</p>
@@ -189,8 +189,8 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
 
       <div className="grid2 section" style={{ gridTemplateColumns: "1fr 1.2fr", marginTop: 16 }}>
         <div className="card" style={{ padding: 20 }}>
-          <h2 className="h2">Shapes side by side</h2>
-          <p className="sub">Bigger shape, stronger on the categories we measured. A spoke at the centre has no result, which is not a zero.</p>
+          <h2 className="h2">Shape of each score</h2>
+          <p className="sub">A larger shape is stronger on the categories we measured. A spoke at the centre has no result, and that is not a zero.</p>
           <div style={{ marginTop: 10 }}>
             <Radar series={chosen.map((m, i) => ({ label: settingName(m), cats: m.cats, color: COLORS[i], dashed: i % 2 === 1 }))} />
           </div>
@@ -203,7 +203,7 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
           </div>
         </div>
         <div className="card" style={{ padding: 20 }}>
-          <h2 className="h2">Category scores</h2>
+          <h2 className="h2">Score on each category</h2>
           <p className="sub" style={{ marginBottom: 8 }}>Percentiles from 0 to 100. A row names a winner only when at least two models have a result. Ties are marked.</p>
           {shownCats.map((c) => {
             const vals = chosen.map((m) => m.cats[c.id] ?? null);

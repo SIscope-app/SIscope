@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ChangeBoard } from "@/components/ChangeBoard";
 import { HomeShell } from "@/components/HomeShell";
-import { GapChart, RankLines, LINE_COLORS } from "@/components/charts";
+import { GapChart } from "@/components/charts";
+import { RankMoves } from "@/components/RankMoves";
+import { budgetPicks } from "@/lib/advice";
 import { Avatar, VariantChip } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
@@ -84,8 +86,8 @@ export default function Home() {
 
   const hero = (
     <>
-      <h1 className="h1 hero-h1">Which AI is best right now?</h1>
-      <p className="lede hero-lede">Exact setting on each pick. SIscope ranks and Arena ranks are separate.</p>
+      <h1 className="h1 hero-h1">Start with one of three models</h1>
+      <p className="lede hero-lede">Each card is one setting. The score and the Arena rank are different numbers.</p>
       <div className="decisions">
         <Decision card={picks.overall} />
         <Decision card={picks.coding} />
@@ -96,20 +98,30 @@ export default function Home() {
             <h2 className="decide-k">
               <Icon name="value" /> Best value
             </h2>
-            <p className="decide-why">No model with a SIscope score of at least 75 is listed at or under $1 per 1M tokens right now.</p>
-            <Link className="more" href="/best/cheap">See cheap models</Link>
+            <p className="decide-why">Nothing scored 75 or higher is listed at $1 or less per 1M tokens.</p>
+            <Link className="more" href="/best/cheap">See lower list prices</Link>
           </article>
         )}
       </div>
       <div className="decide-actions">
-        <Link className="btn primary" href={picks.compareHref}>Compare these picks</Link>
+        <Link className="btn primary" href={picks.compareHref}>Compare these three</Link>
+      </div>
+      <div className="budgets">
+        <span className="budgets-l">Highest score under a cap</span>
+        {budgetPicks(ranked).map((b) => (
+          <Link key={b.cap} href={b.href} className="budget">
+            <b>Under ${b.cap < 1 ? b.cap.toFixed(2) : b.cap}</b>
+            <span>{b.name}</span>
+            <span className="tnum">{b.score}</span>
+          </Link>
+        ))}
       </div>
     </>
   );
 
   const quiet = (
     <p className="quiet-stats">
-      <Link href={picks.open.href}>Best open: {picks.open.name}</Link>
+      <Link href={picks.open.href}>Highest open-weight score: {picks.open.name}</Link>
       <a href="#gap-h">Open vs closed {gapNow} pts{gapDelta === 0 ? "" : `, ${Math.abs(gapDelta)} ${gapDelta > 0 ? "wider" : "narrower"} than ${fmtDate(g0.d, { year: false })}`}</a>
       <span>{picks.rankedCount} scored · {picks.trackedCount} tracked · Arena history through {fmtDate(lastDate)}</span>
     </p>
@@ -128,9 +140,9 @@ export default function Home() {
 
   const gapCard = (
     <div className="card" style={{ padding: 20, display: "flex", flexDirection: "column", gap: 10 }}>
-      <h2 className="h2" id="gap-h">Open vs closed</h2>
+      <h2 className="h2" id="gap-h">Open weights versus closed</h2>
       <p className="sub" style={{ marginTop: 0 }}>
-        How far the best open model trails the best closed one in blind human votes (Arena text scores).
+        Gap between the leading open-weight model and the leading closed model on Arena text scores.
       </p>
       <div className="big" style={{ margin: "6px 0 2px" }}>
         <b>{gapNow} pts</b>
@@ -221,9 +233,9 @@ export default function Home() {
             {t.soon ? (
               <>
                 <span className="soon" style={{ alignSelf: "flex-start" }}>
-                  Coming soon
+                  Not measured yet
                 </span>
-                <span className="alt">Our own speed tests are on the way.</span>
+                <span className="alt">Our own speed runs are not in this snapshot.</span>
               </>
             ) : w ? (
               <>
@@ -235,7 +247,7 @@ export default function Home() {
                 <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? `${fmtPrice(w.price.blended_per_m)} per 1M tokens` : "Top open-weight pick") : o ? <>Best open: {o.base}{o.variant ? ` (${o.variant})` : ""}</> : "No open model with data yet"}</span>
               </>
             ) : (
-              <span className="nodata">No data yet</span>
+              <span className="nodata">No result yet</span>
             )}
           </Link>
         );
@@ -251,21 +263,12 @@ export default function Home() {
   const firstTop = top8.flatMap((m) => (m.history.text ?? []).map((p) => p[0])).sort()[0] ?? allDates[0];
   const histDates = allDates.filter((d) => d >= firstTop);
   const rankChart = (
-    <div className="card" style={{ padding: 20 }}>
-      <RankLines dates={histDates} series={top8.map((m, i) => ({ label: m.variant ? `${m.base} (${m.variant})` : m.base, color: LINE_COLORS[i], points: m.history.text ?? [] }))} />
-      <div className="legend" style={{ marginTop: 8 }}>
-        {top8.map((m, i) => (
-          <Link key={m.slug} href={`/models/${m.slug}`} className="lg">
-            <span style={{ width: 12, height: 12, borderRadius: 4, background: LINE_COLORS[i] }} aria-hidden="true" />
-            Arena text #{m.arena.text!.rank} {m.variant ? `${m.base} (${m.variant})` : m.base}
-          </Link>
-        ))}
-      </div>
+    <>
+      <RankMoves dates={histDates} rows={top8.map((m) => ({ slug: m.slug, name: m.variant ? `${m.base} (${m.variant})` : m.base, points: m.history.text ?? [] }))} />
       <p className="note">
-        Text arena rank at each Arena update from {fmtDate(histDates[0])} to {fmtDate(histDates[histDates.length - 1])}, when the first of these models appeared. A line starts when its model first shows up; a lone dot means it is brand new. Source:{" "}
-        <a className="link" href={ARENA_BOARD_URL.text} rel="noopener">Arena text leaderboard</a>.
+        Source: <a className="link" href={ARENA_BOARD_URL.text} rel="noopener">Arena text board</a>. One row per model family, using the setting that ranks highest today.
       </p>
-    </div>
+    </>
   );
 
   return (
