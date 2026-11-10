@@ -4,7 +4,9 @@ import test from "node:test";
 import publish from "../data/publish.json";
 import sources from "../data/sources.json";
 import { fmtDate, fmtDateTime } from "./format";
-import { mayAdvanceSuccess, sourceShortLabel } from "./freshness";
+import { mayAdvanceSuccess, sourceShortLabel, updatedLabel } from "./freshness";
+import models from "../data/models.json";
+import slugs from "../data/slugs.json";
 
 test("the public success time is a UTC stamp, separate from source as-of dates", () => {
   assert.match(publish.last_success_at, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
@@ -42,14 +44,30 @@ test("Artificial Analysis stays blocked and is not a source", () => {
   assert.equal(sources.sources.some((s) => /artificial analysis/i.test(s.name)), false);
 });
 
-test("the page copy distinguishes the success time from source dates", () => {
-  const freshness = readFileSync("components/Freshness.tsx", "utf8");
+test("the header date is the Chicago success day, and sources stay attributed", () => {
+  const stamp = updatedLabel("2026-11-10T03:47:54Z");
+  assert.equal(stamp.short, "Updated Nov 9");
+  assert.match(stamp.detail, /Last successful update/);
+  assert.match(stamp.detail, /live checks pass/);
+  const header = readFileSync("components/Header.tsx", "utf8");
+  const footer = readFileSync("components/Footer.tsx", "utf8");
+  const layout = readFileSync("app/layout.tsx", "utf8");
   const home = readFileSync("app/page.tsx", "utf8");
   const workflow = readFileSync(".github/workflows/data-refresh.yml", "utf8");
   const refresh = readFileSync("scripts/data-refresh.sh", "utf8");
-  assert.match(freshness, /Last successful update/);
-  assert.match(freshness, /as of/);
+  const proxy = readFileSync("proxy.ts", "utf8");
+  assert.match(header, /href="#sources"/);
+  assert.match(header, /dateTime=\{updatedAt\}/);
+  assert.match(layout, /updatedLabel\(PUBLISH\.last_success_at\)/);
+  assert.doesNotMatch(layout, /<Freshness/);
+  assert.match(footer, /id="sources"/);
+  assert.match(footer, /data as of/);
+  assert.match(footer, /license/);
   assert.match(home, /Arena history through/);
+  assert.match(proxy, /status: 404/);
+  assert.match(refresh, /HTTP 200 on the public pages/);
+  const fromModels = (models as { models: { slug: string }[] }).models.map((m) => m.slug).sort();
+  assert.deepEqual([...slugs].sort(), fromModels);
   assert.doesNotMatch(home, /Data as of \$\{fmtDate\(lastDate\)\}/);
   assert.match(workflow, /cron: "0 11 \* \* \*"/);
   assert.match(workflow, /cron: "0 12 \* \* \*"/);

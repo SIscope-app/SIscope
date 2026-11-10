@@ -36,10 +36,10 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div>
+        <div id="sources">
           <div style={{ color: "var(--text)", fontWeight: 650, marginBottom: 6 }}>Data sources and licences</div>
           <p style={{ margin: "0 0 8px" }}>
-            Last successful update <time dateTime={PUBLISH.last_success_at}>{fmtDateTime(PUBLISH.last_success_at)}</time>. The dates below are each source&apos;s own data-as-of, not that update.
+            <time dateTime={PUBLISH.last_success_at}>{fmtDateTime(PUBLISH.last_success_at)}</time> is the last refresh that deployed and passed the live checks. The dates below are each source&apos;s own data as of, which can be earlier.
           </p>
           <ul style={{ margin: 0, padding: 0, listStyle: "none", display: "grid", gap: 6 }}>
             {SOURCES.sources.map((s) => (

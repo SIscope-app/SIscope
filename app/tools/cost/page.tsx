@@ -22,7 +22,7 @@ export default function Page() {
       <div className="page-head">
         <div className="eyebrow">Cost calculator</div>
         <h1 className="h1" style={{ marginTop: 8 }}>What will it cost per month?</h1>
-        <p className="lede">Enter your monthly tokens and how they split between input and output. We start you with the ten highest-scoring models that have a public price. Prices from OpenRouter, {fmtDate(or.as_of)}.</p>
+        <p className="lede">Monthly tokens, split between input and output. OpenRouter list prices as of {fmtDate(or.as_of)}.</p>
       </div>
       <CostCalc models={list.map(slim)} defaults={defaults} />
     </div>

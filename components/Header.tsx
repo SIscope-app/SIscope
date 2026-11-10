@@ -80,7 +80,7 @@ function ThemeToggle() {
   );
 }
 
-export function Header() {
+export function Header({ updated, updatedAt }: { updated: { short: string; detail: string }; updatedAt: string }) {
   const path = usePathname();
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -101,6 +101,9 @@ export function Header() {
           ))}
         </nav>
         <div style={{ flex: 1 }} />
+        <a className="updated" href="#sources" title={updated.detail}>
+          <time dateTime={updatedAt}>{updated.short}</time>
+        </a>
         <QuickSearch />
         <ThemeToggle />
         <button className="iconbtn mobile-menu" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((o) => !o)}>

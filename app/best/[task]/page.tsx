@@ -12,6 +12,8 @@ import { TASKS, taskBySlug, taskRanking, CHEAP_MAX } from "@/lib/tasks";
 import { textPublishDate } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
 
+export const instant = false;
+
 export function generateStaticParams() {
   return TASKS.map((t) => ({ task: t.slug }));
 }
