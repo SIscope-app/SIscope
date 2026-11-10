@@ -15,12 +15,18 @@ export function fmtDateTime(s: string | null | undefined): string {
   return `${date}, ${time} UTC`;
 }
 
+/**
+ * List price in US dollars. $0 stays $0. Every other price shows at least two
+ * decimal places ($0.10, $0.50, $8.00). Digits past the cent are kept, through
+ * four places, when the price is not an even cent ($0.025, $1.2505).
+ */
 export function fmtPrice(v: number | null | undefined): string {
-  if (v == null) return "n/a";
+  if (v == null || !Number.isFinite(v)) return "n/a";
   if (v === 0) return "$0";
-  if (v < 0.1) return "$" + v.toFixed(3).replace(/0+$/, "");
-  if (v < 10) return "$" + v.toFixed(2).replace(/\.?0+$/, "");
-  return "$" + v.toFixed(0);
+  const sign = v < 0 ? "-" : "";
+  const fixed = Math.abs(v).toFixed(4).replace(/0+$/, "");
+  const [whole, frac = ""] = fixed.split(".");
+  return `${sign}$${whole}.${frac.padEnd(2, "0")}`;
 }
 
 export function fmtInt(v: number | null | undefined): string {

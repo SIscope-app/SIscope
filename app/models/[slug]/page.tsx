@@ -247,7 +247,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
         {m.epoch.length === 0 ? (
           <p className="note" style={{ marginTop: 0 }}>No Epoch AI run is attached to this exact setting. A missing run is not a zero.</p>
         ) : (
-          <div className="grid3">
+          <div className="bench-grid">
             {m.epoch.map((e) => {
               const b = EPOCH_BENCHMARKS[e.benchmark];
               return (
