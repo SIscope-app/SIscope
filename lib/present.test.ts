@@ -4,7 +4,7 @@ import test from "node:test";
 import publish from "../data/publish.json";
 import { modelBySlug, siRanked } from "./data";
 import { buildDecisions } from "./decisions";
-import { fmtPrice } from "./format";
+import { fmtPrice, fmtPriceExact } from "./format";
 import {
   compareDefaultSlugs,
   compareSummary,
@@ -139,9 +139,11 @@ test("category winners include ties and ignore a single present value", () => {
   assert.deepEqual(lower.win, [false, false, true]);
   assert.equal(lower.tie, false);
   const samePrice = displayedWinners([1.001, 1.004], "lo", fmtPrice);
-  assert.equal(samePrice.tie, false);
-  assert.equal(fmtPrice(1.001), "$1.001");
-  assert.equal(fmtPrice(1.004), "$1.004");
+  assert.equal(samePrice.tie, true);
+  assert.equal(fmtPrice(1.001), "$1.00");
+  assert.equal(fmtPrice(1.004), "$1.00");
+  const exactSplit = displayedWinners([1.001, 1.004], "lo", fmtPriceExact);
+  assert.equal(exactSplit.tie, false);
   const sameCent = displayedWinners([1, 1], "lo", fmtPrice);
   assert.equal(sameCent.tie, true);
 });

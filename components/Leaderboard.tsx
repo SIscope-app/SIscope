@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Slim } from "@/lib/data";
 import { CATEGORIES, DEFAULT_WEIGHTS, composite, weightsFromQuery, weightsToQuery, type CategoryId } from "@/lib/score";
 import { orgName } from "@/lib/orgs";
-import { fmtCtx, fmtPrice } from "@/lib/format";
+import { fmtCtx, fmtPrice, fmtPriceExact } from "@/lib/format";
 import { Avatar, OpenTag, VariantChip } from "./Avatar";
 import { FilterSeg } from "./HomeShell";
 import { Icon } from "./Icons";
@@ -344,7 +344,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
                 <span className="lb-extra tnum" title={m.ctx == null ? "No context length on the OpenRouter listing." : "Most tokens one request can hold, from OpenRouter"}>
                   {m.ctx != null ? fmtCtx(m.ctx) : "No context"}
                 </span>
-                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }} title={sort === "price" ? "SIscope score" : m.price == null ? "No OpenRouter list price. Unknown is not free." : m.price === 0 ? "OpenRouter lists this at $0 per 1M tokens." : "List price per 1M tokens, three input tokens per output token"}>
+                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }} title={sort === "price" ? "SIscope score" : m.price == null ? "No OpenRouter list price. Unknown is not free." : m.price === 0 ? "OpenRouter lists this at $0 per 1M tokens." : `List price ${fmtPriceExact(m.price)} per 1M tokens, three input tokens per output token`}>
                   {sort === "price" ? (m.si != null ? `SI ${m.si.toFixed(0)}` : "No score") : m.price != null ? fmtPrice(m.price) : "No list price"}
                 </span>
               </span>

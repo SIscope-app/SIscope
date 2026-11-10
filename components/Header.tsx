@@ -8,7 +8,7 @@ import { QuickSearch } from "./Search";
 const LINKS = [
   { href: "/leaderboard", label: "Ranking" },
   { href: "/compare", label: "Compare" },
-  { href: "/best", label: "Jobs" },
+  { href: "/best", label: "Best for" },
   { href: "/tools/cost", label: "Cost" },
   { href: "/agents", label: "Agents" },
 ];
@@ -21,7 +21,7 @@ const MORE = [
 const TABS = [
   { href: "/", label: "Home", d: "M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" },
   { href: "/leaderboard", label: "Ranking", d: "M5 20V10M12 20V4M19 20v-7" },
-  { href: "/best", label: "Jobs", d: "M12 3l2.6 5.6L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.4-.7z" },
+  { href: "/best", label: "Best for", d: "M12 3l2.6 5.6L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.4-.7z" },
   { href: "/compare", label: "Compare", d: "M8 4v16M16 4v16M4 8h8M12 16h8" },
   { href: "/tools/cost", label: "Cost", d: "M12 3v18M16 7.5c-.6-1.2-2-1.9-4-1.9-2.2 0-4 1-4 2.7s1.8 2.3 4 2.7 4 1 4 2.7-1.8 2.7-4 2.7c-2 0-3.4-.7-4-1.9" },
 ];

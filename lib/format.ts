@@ -15,18 +15,32 @@ export function fmtDateTime(s: string | null | undefined): string {
   return `${date}, ${time} UTC`;
 }
 
+function dollar(v: number, body: string): string {
+  return `${v < 0 ? "-" : ""}$${body}`;
+}
+
 /**
- * List price in US dollars. $0 stays $0. Every other price shows at least two
- * decimal places ($0.10, $0.50, $8.00). Digits past the cent are kept, through
- * four places, when the price is not an even cent ($0.025, $1.2505).
+ * Full list price. $0 stays $0. At least two decimal places, and digits past
+ * the cent through four places when the price is not an even cent ($0.025, $1.2505).
+ * Use this in detail lines, tooltips and the cost calculator.
+ */
+export function fmtPriceExact(v: number | null | undefined): string {
+  if (v == null || !Number.isFinite(v)) return "n/a";
+  if (v === 0) return "$0";
+  const fixed = Math.abs(v).toFixed(4).replace(/0+$/, "");
+  const [whole, frac = ""] = fixed.split(".");
+  return dollar(v, `${whole}.${frac.padEnd(2, "0")}`);
+}
+
+/**
+ * Headline list price. Two decimal places ($0.54, $0.10, $8.00). Amounts under
+ * $0.01 keep the extra digits so they do not collapse to $0.00.
  */
 export function fmtPrice(v: number | null | undefined): string {
   if (v == null || !Number.isFinite(v)) return "n/a";
   if (v === 0) return "$0";
-  const sign = v < 0 ? "-" : "";
-  const fixed = Math.abs(v).toFixed(4).replace(/0+$/, "");
-  const [whole, frac = ""] = fixed.split(".");
-  return `${sign}$${whole}.${frac.padEnd(2, "0")}`;
+  if (Math.abs(v) < 0.01) return fmtPriceExact(v);
+  return dollar(v, Math.abs(v).toFixed(2));
 }
 
 export function fmtInt(v: number | null | undefined): string {

@@ -2,7 +2,7 @@
  * Presentation helpers. They do not change the score, weights, or coverage gate.
  * Missing results stay missing: they are never shown as zero and never called free.
  */
-import { fmtDate, fmtPrice } from "./format";
+import { fmtDate, fmtPrice, fmtPriceExact } from "./format";
 import { CATEGORIES, COVERAGE_GATE, type CategoryId, type CategoryScores } from "./score";
 import type { EpochResult, Model } from "./types";
 
@@ -27,7 +27,7 @@ export function scoreFootnote(cats: CategoryScores, coverage: number, si: number
   if (si == null) {
     return `No SIscope score yet: measured categories cover ${Math.round(coverage * 100)}% of the weight, and ${Math.round(COVERAGE_GATE * 100)}% is required. Missing results are not zeros.`;
   }
-  if (!missing.length) return "All six categories have a measured result. Nothing was filled in.";
+  if (!missing.length) return "All six categories have a measured result.";
   return `Measured: ${measured.join(", ")}. Not measured: ${missing.join(", ")}. A missing result is not a zero. The missing weight counts as this model's weakest measured category, so the gap cannot raise the score.`;
 }
 
@@ -45,7 +45,7 @@ export function priceStatus(v: number | null | undefined): PriceStatus {
   if (v === 0) {
     return { kind: "free", short: "$0", detail: "OpenRouter lists this at $0 per 1M tokens." };
   }
-  return { kind: "priced", short: fmtPrice(v), detail: `${fmtPrice(v)} per 1M tokens, blended 3 parts input to 1 part output, from OpenRouter.` };
+  return { kind: "priced", short: fmtPrice(v), detail: `${fmtPriceExact(v)} per 1M tokens, blended 3 parts input to 1 part output, from OpenRouter.` };
 }
 
 export type DateFacts = {

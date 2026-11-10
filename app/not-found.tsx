@@ -17,7 +17,7 @@ export default function NotFound() {
         <Link className="btn primary" href="/">Home</Link>
         <Link className="btn" href="/leaderboard">Full ranking</Link>
         <Link className="btn" href="/compare">Compare</Link>
-        <Link className="btn" href="/best">Jobs</Link>
+        <Link className="btn" href="/best">Best for</Link>
       </div>
     </div>
   );
