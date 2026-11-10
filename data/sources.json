@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-10T04:05:33Z",
+ "built_at": "2026-11-10T04:29:48Z",
  "sources": [
   {
    "id": "arena",
@@ -9,7 +9,7 @@
    "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/",
    "attribution": "Arena (lmarena-ai), leaderboard-dataset on Hugging Face",
-   "fetched_at": "2026-11-10T04:05:27Z",
+   "fetched_at": "2026-11-10T04:29:42Z",
    "as_of": "2026-11-09",
    "used_for": "Human-preference scores: text, WebDev (coding), vision and agent arenas; category boards; history"
   },
@@ -21,7 +21,7 @@
    "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/",
    "attribution": "Epoch AI, 'Capabilities & benchmarking', epoch.ai/benchmarks",
-   "fetched_at": "2026-11-10T04:05:32Z",
+   "fetched_at": "2026-11-10T04:29:46Z",
    "as_of": "2026-11-06",
    "used_for": "Epoch's own runs of GPQA Diamond, SimpleQA Verified, OTIS Mock AIME, FrontierMath Tiers 1-3, SWE-bench Verified"
   },
@@ -33,8 +33,8 @@
    "license": "OpenRouter API terms (cited, prices only)",
    "license_url": "https://openrouter.ai/terms",
    "attribution": "Source: OpenRouter (openrouter.ai), models API",
-   "fetched_at": "2026-11-10T04:05:32Z",
-   "as_of": "2026-11-10T04:05:32Z",
+   "fetched_at": "2026-11-10T04:29:47Z",
+   "as_of": "2026-11-10T04:29:47Z",
    "used_for": "List prices per 1M input/output tokens and context length. Benchmark fields in the API are discarded."
   },
   {
@@ -45,7 +45,7 @@
    "license": "CDLA-Permissive-2.0",
    "license_url": "https://cdla.dev/permissive-2-0/",
    "attribution": "Open Agent Leaderboard (Exgentic), arXiv:2602.22953",
-   "fetched_at": "2026-11-10T04:05:33Z",
+   "fetched_at": "2026-11-10T04:29:47Z",
    "as_of": "2026-05-20",
    "used_for": "Agent x model success rates and cost per task on 6 agent benchmarks"
   }
