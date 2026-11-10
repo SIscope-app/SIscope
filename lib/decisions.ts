@@ -22,6 +22,8 @@ export type DecisionCard = {
   unit: string;
   reason: string;
   limit: string;
+  /** One line for the homepage card. The longer reason stays behind “Why”. */
+  glance: string;
 };
 
 export type OpenPick = { slug: string; href: string; name: string; score: string; rank: number };
@@ -37,7 +39,7 @@ export type Decisions = {
   trackedCount: number;
 };
 
-function cardBase(kind: DecisionCard["kind"], m: Enriched, kicker: string, rankKind: string, score: string, unit: string, reason: string, limit: string): DecisionCard {
+function cardBase(kind: DecisionCard["kind"], m: Enriched, kicker: string, rankKind: string, score: string, unit: string, glance: string, reason: string, limit: string): DecisionCard {
   return {
     kind,
     kicker,
@@ -51,9 +53,20 @@ function cardBase(kind: DecisionCard["kind"], m: Enriched, kicker: string, rankK
     open: m.open,
     score,
     unit,
+    glance,
     reason,
     limit,
   };
+}
+
+function overallGlance(m: Enriched, total: number): string {
+  const arena = m.arena.text ? `Arena text #${m.arena.text.rank}` : "no Arena text rank";
+  return `#${m.siRank} of ${total} · ${arena}`;
+}
+
+function codingGlance(m: Enriched): string {
+  const web = m.arena.webdev ? `WebDev #${m.arena.webdev.rank}` : "no WebDev rank";
+  return m.siRank === 1 ? `${web} · also overall #1` : `${web} · not overall`;
 }
 
 function gapLimit(m: Enriched): string {
@@ -103,9 +116,10 @@ export function buildDecisions(ranked = siRanked()): Decisions {
       "value",
       valueM,
       "Best value",
-      "OpenRouter list price",
+      "List price",
       fmtPrice(valueM.price.blended_per_m),
       "/1M",
+      `Top score under $${CHEAP_MAX}/1M`,
       `Highest SIscope score (${valueM.si!.toFixed(0)}) among models listed at or under $${CHEAP_MAX} per 1M tokens with a score of at least ${VALUE_MIN_SI}.${same ? ` This is the same setting as ${same}.` : ""} Listed at ${fmtPrice(valueM.price.blended_per_m)} per 1M.${vs}`,
       gapLimit(valueM),
     );
@@ -113,8 +127,8 @@ export function buildDecisions(ranked = siRanked()): Decisions {
 
   const compareSlugs = compareDefaultSlugs([overallM.slug, codingM.slug, valueM?.slug, openM.slug]);
   return {
-    overall: cardBase("overall", overallM, "Best overall", "SIscope overall", overallM.si!.toFixed(0), "/100", overallBits.join(" "), gapLimit(overallM)),
-    coding: cardBase("coding", codingM, "Best for coding", "SIscope coding", codingM.cats.coding!.toFixed(0), "/100", codingBits.join(" "), codingLimit),
+    overall: cardBase("overall", overallM, "Best overall", "SIscope overall", overallM.si!.toFixed(0), "/100", overallGlance(overallM, n), overallBits.join(" "), gapLimit(overallM)),
+    coding: cardBase("coding", codingM, "Best for coding", "SIscope coding", codingM.cats.coding!.toFixed(0), "/100", codingGlance(codingM), codingBits.join(" "), codingLimit),
     value,
     open: { slug: openM.slug, href: `/models/${openM.slug}`, name: settingLabel(openM.base, openM.variant), score: openM.si!.toFixed(0), rank: openM.siRank! },
     compareSlugs,

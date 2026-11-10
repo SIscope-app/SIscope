@@ -65,6 +65,7 @@ function TopList({ items }: { items: TopItem[] }) {
 export function HomeShell({
   hero,
   taskChips,
+  quiet,
   gap,
   changes,
   changesSub,
@@ -75,6 +76,7 @@ export function HomeShell({
 }: {
   hero: React.ReactNode;
   taskChips: React.ReactNode;
+  quiet: React.ReactNode;
   gap: React.ReactNode;
   changes: React.ReactNode;
   changesSub: string;
@@ -109,7 +111,7 @@ export function HomeShell({
             <h2 className="h2" id="top-h">
               {f === "open" ? "Top 10 open models" : f === "closed" ? "Top 10 closed models" : "Top 10 at a glance"}
             </h2>
-            <p className="sub">Best-scoring setting of each model. “No list price” means not listed, not free.</p>
+            <p className="sub">Best setting of each model. “No list price” is unknown, not free.</p>
           </div>
           <FilterSeg value={f} onChange={set} size="sm" />
         </div>
@@ -120,6 +122,7 @@ export function HomeShell({
             Full leaderboard →
           </Link>
         </div>
+        {quiet}
       </section>
       <section className="section wrap" aria-labelledby="task-h">
         <SectionHead id="task-h" title="Best for…" sub="The winner for each job, plus the best open option." more={{ href: "/best", label: "See all" }} />

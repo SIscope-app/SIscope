@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { ChangeBoard } from "@/components/ChangeBoard";
 import { HomeShell } from "@/components/HomeShell";
-import { SearchLaunch } from "@/components/Search";
 import { GapChart, RankLines, LINE_COLORS } from "@/components/charts";
 import { Avatar, VariantChip } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
@@ -11,6 +11,7 @@ import { CHANGES, allModels, siRanked, textRanked, type Enriched } from "@/lib/d
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { ARENA_BOARD_URL } from "@/lib/links";
 import { fmtDate, fmtPrice } from "@/lib/format";
+import { priceChangeCopy } from "@/lib/home-layout";
 import { orgName } from "@/lib/orgs";
 import { TASKS, taskRanking } from "@/lib/tasks";
 import { SITE, og } from "@/lib/site";
@@ -24,24 +25,34 @@ function row(m: Enriched): TopItem {
 function Decision({ card }: { card: DecisionCard }) {
   return (
     <article className={`card decide ${card.kind === "overall" ? "decide-lead" : ""}`}>
-      <h2 className="decide-k">
-        <Icon name={card.kind === "coding" ? "code" : card.kind === "value" ? "value" : "star"} /> {card.kicker}
-      </h2>
+      <div className="decide-top">
+        <h2 className="decide-k">
+          <Icon name={card.kind === "coding" ? "code" : card.kind === "value" ? "value" : "star"} /> {card.kicker}
+        </h2>
+        <details className="why">
+          <summary>Why</summary>
+          <div className="why-pop">
+            <p>{card.reason}</p>
+            <p>{card.limit}</p>
+          </div>
+        </details>
+      </div>
       <Link href={card.href} className="decide-name">
         <span>{card.base}</span>
         {card.variant ? <span className="setting">{card.variant}</span> : null}
       </Link>
-      <p className="decide-org">
-        <Avatar org={card.org} size={18} />
-        <span>{orgName(card.org)}</span>
-      </p>
-      <p className="decide-score">
-        <b>{card.score}</b>
-        <small>{card.unit}</small>
-        <span className="decide-kind">{card.rankKind}</span>
-      </p>
-      <p className="decide-why">{card.reason}</p>
-      <p className="decide-limit">{card.limit}</p>
+      <div className="decide-mid">
+        <p className="decide-org">
+          <Avatar org={card.org} size={16} />
+          <span>{orgName(card.org)}</span>
+          <span className="decide-kind">{card.rankKind}</span>
+        </p>
+        <p className="decide-score">
+          <b>{card.score}</b>
+          <small>{card.unit}</small>
+        </p>
+      </div>
+      <p className="decide-glance">{card.glance}</p>
     </article>
   );
 }
@@ -92,15 +103,16 @@ export default function Home() {
       </div>
       <div className="decide-actions">
         <Link className="btn primary" href={picks.compareHref}>Compare these picks</Link>
-        <Link className="btn" href="/leaderboard">Full leaderboard</Link>
-        <SearchLaunch className="btn" label="Search models" />
-      </div>
-      <div className="secondary">
-        <Link href={picks.open.href}>Best open model: {picks.open.name} · SIscope {picks.open.score} · #{picks.open.rank} overall</Link>
-        <a href="#gap-h">Open vs closed: {gapNow} pts in Arena text votes{gapDelta === 0 ? "" : `, ${Math.abs(gapDelta)} pts ${gapDelta > 0 ? "wider" : "narrower"} than ${fmtDate(g0.d, { year: false })}`}</a>
-        <Link href="/leaderboard">{picks.rankedCount} scored · {picks.trackedCount} tracked · Arena history through {fmtDate(lastDate)}</Link>
       </div>
     </>
+  );
+
+  const quiet = (
+    <p className="quiet-stats">
+      <Link href={picks.open.href}>Best open: {picks.open.name}</Link>
+      <a href="#gap-h">Open vs closed {gapNow} pts{gapDelta === 0 ? "" : `, ${Math.abs(gapDelta)} ${gapDelta > 0 ? "wider" : "narrower"} than ${fmtDate(g0.d, { year: false })}`}</a>
+      <span>{picks.rankedCount} scored · {picks.trackedCount} tracked · Arena history through {fmtDate(lastDate)}</span>
+    </p>
   );
 
   const taskChips = (
@@ -147,36 +159,38 @@ export default function Home() {
   );
 
   const ICON: Record<string, { c: string; s: string; k: string }> = {
+    holds_leader: { c: "var(--accent)", s: "★", k: "Still #1" },
     new_leader: { c: "var(--accent)", s: "★", k: "New #1" },
     up: { c: "var(--c-good)", s: "↑", k: "Moved up" },
     down: { c: "var(--c-down)", s: "↓", k: "Moved down" },
     gap: { c: "var(--c-open)", s: "↔", k: "Open vs closed" },
     new_entry: { c: "var(--accent)", s: "+", k: "New on a board" },
     price_new: { c: "var(--c-good)", s: "$", k: "New price" },
-    price_cut: { c: "var(--c-good)", s: "$", k: "Price cut" },
+    price_cut: { c: "var(--c-good)", s: "↓", k: "Price change" },
   };
   const changes = (
-    <div className="chg-grid">
+    <ChangeBoard>
       {CHANGES.changes.map((c, i) => {
         const ic = ICON[c.kind] ?? { c: "var(--muted)", s: "•", k: "Update" };
+        const price = c.kind === "price_new" || c.kind === "price_cut" ? priceChangeCopy(c.sub) : null;
+        const source = c.source === "openrouter" ? "OpenRouter" : c.board === "webdev" ? "Arena WebDev" : "Arena text";
         const inner = (
           <>
             <span className="ic" style={{ color: ic.c, background: `color-mix(in srgb, ${ic.c} 14%, transparent)` }} aria-hidden="true">
               {ic.s}
             </span>
-            <span style={{ minWidth: 0 }}>
-              <span className="k" style={{ display: "block" }}>
-                {ic.k}
-              </span>
-              <span className="t" style={{ display: "block" }}>
-                {c.text}
-              </span>
-              <span className="s" style={{ display: "block" }}>
-                {c.sub}
-              </span>
-              <span className="s" style={{ display: "block", color: "var(--faint)" }}>
-                {fmtDate(c.date)} · {c.source === "openrouter" ? "OpenRouter prices" : c.board === "webdev" ? "Arena WebDev" : "Arena text"}
-              </span>
+            <span className="chg-body">
+              <span className="k">{ic.k}</span>
+              <span className="t">{price ? (c.model ?? c.text) : c.text}</span>
+              {price ? (
+                <>
+                  <span className="chg-price">{price.headline}</span>
+                  <span className="s">{price.detail}</span>
+                </>
+              ) : (
+                <span className="s">{c.sub}</span>
+              )}
+              <span className="s chg-meta">{fmtDate(c.date, { year: false })} · {source}</span>
             </span>
           </>
         );
@@ -190,7 +204,7 @@ export default function Home() {
           </div>
         );
       })}
-    </div>
+    </ChangeBoard>
   );
 
   const tasks = (
@@ -265,7 +279,7 @@ export default function Home() {
           description: SITE.description,
         }}
       />
-      <HomeShell hero={hero} taskChips={taskChips} gap={gapCard} changes={changes} changesSub={`${CHANGES.changes.length} changes between the Arena updates of ${fmtDate(CHANGES.prev)} and ${fmtDate(CHANGES.week_to)}, plus new prices.`} rankChart={rankChart} tasks={tasks} scatter={scatter} top={top} />
+      <HomeShell hero={hero} taskChips={taskChips} quiet={quiet} gap={gapCard} changes={changes} changesSub={`${CHANGES.changes.length} updates from ${fmtDate(CHANGES.prev, { year: false })} to ${fmtDate(CHANGES.week_to, { year: false })}.`} rankChart={rankChart} tasks={tasks} scatter={scatter} top={top} />
     </>
   );
 }
