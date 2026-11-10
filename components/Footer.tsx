@@ -24,6 +24,7 @@ export function Footer() {
             {[
               ["/leaderboard", "Full ranking"],
               ["/compare", "Compare"],
+              ["/best", "Best for"],
               ["/tools/cost", "Monthly cost"],
               ["/best/coding", "Coding"],
               ["/best/open", "Open weights"],

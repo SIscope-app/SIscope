@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import type { Slim } from "@/lib/data";
-import { fmtPrice } from "@/lib/format";
+import { fmtPriceExact } from "@/lib/format";
 import { openrouterUrl } from "@/lib/links";
 import { Avatar, OpenTag, VariantChip } from "./Avatar";
 import { ModelPicker } from "./ModelPicker";
@@ -191,7 +191,7 @@ export function CostCalc({ models, defaults }: { models: Slim[]; defaults: strin
               <span style={{ fontSize: 12.5, color: "var(--faint)" }}>
                 {m.si != null ? `SIscope ${m.si.toFixed(0)} · ` : "No SIscope score · "}
                 <a href={openrouterUrl(m.orId!)} rel="noopener" target="_blank" style={{ textDecoration: "underline dotted", textUnderlineOffset: 3 }}>
-                  {fmtPrice(m.priceIn)} in · {fmtPrice(m.priceOut)} out per 1M
+                  {fmtPriceExact(m.priceIn)} in · {fmtPriceExact(m.priceOut)} out per 1M
                 </a>
               </span>
             </span>

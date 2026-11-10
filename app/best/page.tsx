@@ -6,8 +6,8 @@ import { Icon } from "@/components/Icons";
 import { TASKS, taskRanking } from "@/lib/tasks";
 
 export const metadata: Metadata = {
-  title: "Best AI for every task",
-  description: "The best AI model for coding, writing, math, images, agents, open weights and low cost, picked from human votes and independent tests.",
+  title: "Best for",
+  description: "The leading model for coding, writing, math, images, agents, open weights and a low list price.",
   alternates: { canonical: "/best" }, openGraph: og("/best"),
 };
 

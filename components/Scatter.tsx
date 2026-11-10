@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { fmtPrice } from "@/lib/format";
+import { fmtPrice, fmtPriceExact } from "@/lib/format";
 import { orgName } from "@/lib/orgs";
 
 /** Two decimal places so the server attribute and the hydrated number stringify the same. */
@@ -128,7 +128,7 @@ export function Scatter({ pts, filter, yLabel = "SIscope score" }: { pts: Scatte
           <br />
           {yLabel} <b>{tip.p.y.toFixed(0)}</b>
           <br />
-          {fmtPrice(tip.p.xin)} in · {fmtPrice(tip.p.xout)} out per 1M tokens
+          {fmtPriceExact(tip.p.xin)} in · {fmtPriceExact(tip.p.xout)} out per 1M tokens
           <div style={{ color: "var(--faint)", fontSize: 12, marginTop: 4 }}>Price: OpenRouter list price</div>
         </div>
       )}

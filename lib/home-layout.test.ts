@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { buildDecisions } from "./decisions";
-import { fmtPrice } from "./format";
+import { fmtPrice, fmtPriceExact } from "./format";
 import { priceChangeCopy, visibleChangeCount } from "./home-layout";
 import { modelBySlug } from "./data";
 
@@ -21,11 +21,16 @@ test("prices keep cents, including trailing zeros", () => {
   assert.equal(fmtPrice(0.1), "$0.10");
   assert.equal(fmtPrice(0.5), "$0.50");
   assert.equal(fmtPrice(0.54), "$0.54");
-  assert.equal(fmtPrice(0.025), "$0.025");
+  assert.equal(fmtPrice(0.5437), "$0.54");
+  assert.equal(fmtPrice(0.025), "$0.03");
   assert.equal(fmtPrice(0.006), "$0.006");
-  assert.equal(fmtPrice(1.2505), "$1.2505");
+  assert.equal(fmtPrice(1.2505), "$1.25");
   assert.equal(fmtPrice(8), "$8.00");
   assert.equal(fmtPrice(20), "$20.00");
+  assert.equal(fmtPriceExact(0.5437), "$0.5437");
+  assert.equal(fmtPriceExact(0.025), "$0.025");
+  assert.equal(fmtPriceExact(1.2505), "$1.2505");
+  assert.equal(fmtPriceExact(0.006), "$0.006");
 });
 
 test("a new OpenRouter listing is a blended price, not a made-up percent", () => {

@@ -8,7 +8,7 @@ import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
 import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
 import { EPOCH_BENCHMARKS, allModels, modelBySlug, siRanked, sourceById } from "@/lib/data";
-import { fmtCtx, fmtDate, fmtInt, fmtPrice } from "@/lib/format";
+import { fmtCtx, fmtDate, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
 import { orgName } from "@/lib/orgs";
 import { suggestions } from "@/lib/advice";
 import { CopyButton } from "@/components/CopyButton";
@@ -153,7 +153,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           <div className="card stat" role="listitem">
             <div className="k">List price</div>
             <div className="v">{price.kind === "unknown" ? <span className="nodata" style={{ fontSize: 17 }}>{price.short}</span> : <>{price.short}<small>/1M</small></>}</div>
-            <div className="d">{m.price ? `${fmtPrice(m.price.input_per_m)} in · ${fmtPrice(m.price.output_per_m)} out. Three input tokens per output token, from OpenRouter.` : "No public list price. That is unknown, not free."}</div>
+            <div className="d">{m.price ? `${fmtPriceExact(m.price.input_per_m)} in · ${fmtPriceExact(m.price.output_per_m)} out. Three input tokens per output token, from OpenRouter.` : "No public list price. That is unknown, not free."}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Context window</div>
@@ -385,9 +385,9 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           <div>
             <div className="price-grid">
               {([
-                ["Input", fmtPrice(m.price.input_per_m), "per 1M tokens"],
-                ["Output", fmtPrice(m.price.output_per_m), "per 1M tokens"],
-                ["Blended", fmtPrice(m.price.blended_per_m), "3 in : 1 out, per 1M"],
+                ["Input", fmtPriceExact(m.price.input_per_m), "per 1M tokens"],
+                ["Output", fmtPriceExact(m.price.output_per_m), "per 1M tokens"],
+                ["Blended", fmtPriceExact(m.price.blended_per_m), "3 in : 1 out, per 1M"],
                 ["Context window", fmtCtx(m.price.context_length), "max tokens per request"],
               ] as const).map(([k, v, d]) => (
                 <div key={k} className="card stat">

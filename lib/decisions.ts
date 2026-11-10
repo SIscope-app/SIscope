@@ -4,7 +4,7 @@
  */
 import { allModels, siRanked, type Enriched } from "./data";
 import { measuredAndMissing, settingLabel, compareDefaultSlugs } from "./present";
-import { fmtPrice } from "./format";
+import { fmtPrice, fmtPriceExact } from "./format";
 import { CHEAP_MAX, VALUE_MIN_SI, TASKS, bestValue, taskRanking } from "./tasks";
 
 export type DecisionCard = {
@@ -111,7 +111,7 @@ export function buildDecisions(ranked = siRanked()): Decisions {
   let value: DecisionCard | null = null;
   if (valueM?.price) {
     const same = valueM.slug === overallM.slug ? "the overall pick" : valueM.slug === codingM.slug ? "the coding pick" : null;
-    const vs = overallM.price && valueM.slug !== overallM.slug ? ` ${settingLabel(overallM.base, overallM.variant)} is listed at ${fmtPrice(overallM.price.blended_per_m)} per 1M.` : "";
+    const vs = overallM.price && valueM.slug !== overallM.slug ? ` ${settingLabel(overallM.base, overallM.variant)} is listed at ${fmtPriceExact(overallM.price.blended_per_m)} per 1M.` : "";
     value = cardBase(
       "value",
       valueM,
@@ -120,7 +120,7 @@ export function buildDecisions(ranked = siRanked()): Decisions {
       fmtPrice(valueM.price.blended_per_m),
       "/1M",
       `Top score under $${CHEAP_MAX}/1M`,
-      `Highest SIscope score (${valueM.si!.toFixed(0)}) among models listed at or under $${CHEAP_MAX} per 1M tokens with a score of at least ${VALUE_MIN_SI}.${same ? ` This is the same setting as ${same}.` : ""} Listed at ${fmtPrice(valueM.price.blended_per_m)} per 1M.${vs}`,
+      `Highest SIscope score (${valueM.si!.toFixed(0)}) among models listed at or under $${CHEAP_MAX} per 1M tokens with a score of at least ${VALUE_MIN_SI}.${same ? ` This is the same setting as ${same}.` : ""} Listed at ${fmtPriceExact(valueM.price.blended_per_m)} per 1M.${vs}`,
       gapLimit(valueM),
     );
   }

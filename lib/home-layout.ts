@@ -1,4 +1,4 @@
-import { fmtPrice } from "./format";
+import { fmtPrice, fmtPriceExact } from "./format";
 
 /** How many change cards to show so the last row is full. */
 export function visibleChangeCount(total: number, columns: number): number {
@@ -42,7 +42,7 @@ export function priceChangeCopy(sub: string): PriceChangeCopy {
     return {
       mode: "new",
       headline: `${fmtPrice(blended)} /1M`,
-      detail: `${fmtPrice(input)} in · ${fmtPrice(output)} out · new list price`,
+      detail: `${fmtPriceExact(input)} in · ${fmtPriceExact(output)} out · new list price`,
     };
   }
   return { mode: "new", headline: "New list price", detail: sub };
