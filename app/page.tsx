@@ -11,7 +11,6 @@ import { CHANGES, allModels, siRanked, textRanked, type Enriched } from "@/lib/d
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { ARENA_BOARD_URL } from "@/lib/links";
 import { fmtDate, fmtPrice } from "@/lib/format";
-import { RANK_NOTE } from "@/lib/present";
 import { orgName } from "@/lib/orgs";
 import { TASKS, taskRanking } from "@/lib/tasks";
 import { SITE, og } from "@/lib/site";
@@ -75,7 +74,7 @@ export default function Home() {
   const hero = (
     <>
       <h1 className="h1 hero-h1">Which AI is best right now?</h1>
-      <p className="lede hero-lede">Three picks from measured results. Each name is the exact setting that was tested.</p>
+      <p className="lede hero-lede">Exact setting on each pick. SIscope ranks and Arena ranks are separate.</p>
       <div className="decisions">
         <Decision card={picks.overall} />
         <Decision card={picks.coding} />
@@ -96,7 +95,6 @@ export default function Home() {
         <Link className="btn" href="/leaderboard">Full leaderboard</Link>
         <SearchLaunch className="btn" label="Search models" />
       </div>
-      <p className="rank-note">{RANK_NOTE}</p>
       <div className="secondary">
         <Link href={picks.open.href}>Best open model: {picks.open.name} · SIscope {picks.open.score} · #{picks.open.rank} overall</Link>
         <a href="#gap-h">Open vs closed: {gapNow} pts in Arena text votes{gapDelta === 0 ? "" : `, ${Math.abs(gapDelta)} pts ${gapDelta > 0 ? "wider" : "narrower"} than ${fmtDate(g0.d, { year: false })}`}</a>

@@ -109,7 +109,7 @@ export function HomeShell({
             <h2 className="h2" id="top-h">
               {f === "open" ? "Top 10 open models" : f === "closed" ? "Top 10 closed models" : "Top 10 at a glance"}
             </h2>
-            <p className="sub">Ranked by SIscope score (0 to 100). One row per model family, at its best-scoring setting, which is named on the row. Price is the blended OpenRouter list price per 1M tokens. “No list price” means not listed, not free.</p>
+            <p className="sub">Best-scoring setting of each model. “No list price” means not listed, not free.</p>
           </div>
           <FilterSeg value={f} onChange={set} size="sm" />
         </div>

@@ -34,8 +34,7 @@ export default function Page() {
         <div className="eyebrow">Leaderboard</div>
         <h1 className="h1" style={{ marginTop: 8 }}>Every model, ranked</h1>
         <p className="lede">
-          Pick what matters to you, filter by provider, price, context window, input type or data coverage, and share the exact view with a link. SIscope score v{SCORE_VERSION},{" "}
-          <Link className="link" href="/methodology">how it works</Link>.
+          Filter, reweight, and share the view. Score v{SCORE_VERSION}. <Link className="link" href="/methodology">How it works</Link>.
         </p>
       </div>
       <Leaderboard models={sorted.map(slim)} orgs={orgs} />

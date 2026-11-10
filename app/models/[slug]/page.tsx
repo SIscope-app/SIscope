@@ -14,6 +14,9 @@ import { dateFacts, dateSentence, priceStatus, scoreFootnote, settingLabel, verd
 import { COVERAGE_GATE } from "@/lib/score";
 import { SITE, og } from "@/lib/site";
 
+// This route has to read the slug before it can render. Opt out of the dev-only instant-navigation notice.
+export const instant = false;
+
 export function generateStaticParams() {
   return allModels().map((m) => ({ slug: m.slug }));
 }

@@ -43,3 +43,8 @@ const idx = [...allModels()]
   .map((m) => [m.slug, m.name, orgName(m.org), m.si == null ? null : Math.round(m.si), m.open ? 1 : 0]);
 writeFileSync(join(process.cwd(), "public", "search.json"), JSON.stringify(idx));
 console.log(`wrote public/search.json (${idx.length} entries)`);
+
+// Compact slug list for the request proxy. Keeps unknown /models/:slug off the streamed shell.
+const slugs = allModels().map((m) => m.slug).sort();
+writeFileSync(join(process.cwd(), "data", "slugs.json"), JSON.stringify(slugs, null, 2) + "\n");
+console.log(`wrote data/slugs.json (${slugs.length} slugs)`);

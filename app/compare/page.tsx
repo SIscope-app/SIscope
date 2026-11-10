@@ -24,7 +24,7 @@ export default function Page() {
       <div className="page-head">
         <div className="eyebrow">Compare</div>
         <h1 className="h1" style={{ marginTop: 8 }}>Compare models side by side</h1>
-        <p className="lede">Pick two to four. We start with the best overall setting, the best coding setting, and the best value when those are different models. The address bar keeps your picks, including back and forward.</p>
+        <p className="lede">Two to four exact settings. We start from the homepage picks, and the link keeps yours.</p>
       </div>
       <Compare models={list.map(slim)} defaults={defaults} benches={benches} />
     </div>

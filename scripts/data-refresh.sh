@@ -175,6 +175,8 @@ deploy_worker() {
   return 1
 }
 
+# HTTP 200 on the public pages. The success time is the header "Updated {Chicago date}"
+# linking to #sources. It is not a full-width banner, and this check does not scrape that text.
 verify_live() {
   local bust="$1" fail=0 p attempt code url
   for p in "${LIVE_PATHS[@]}"; do
