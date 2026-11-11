@@ -1,8 +1,44 @@
 {
  "source": "openrouter",
- "fetched_at": "2026-11-10T12:52:01Z",
- "as_of": "2026-11-10T12:52:01Z",
+ "fetched_at": "2026-11-11T12:53:55Z",
+ "as_of": "2026-11-11T12:53:55Z",
  "models": [
+  {
+   "id": "baidu/ernie-light-dt-1.0-intl",
+   "canonical_slug": "baidu/ernie-light-dt-1.0-intl-20261110",
+   "name": "Baidu: ERNIE-Light-DT-1.0",
+   "created": 1794331260,
+   "context_length": 1024000,
+   "hugging_face_id": null,
+   "input_per_m": 1.13,
+   "output_per_m": 3.94,
+   "modalities_in": [
+    "text"
+   ],
+   "source": "openrouter",
+   "license": "OpenRouter API terms; cite source",
+   "fetched_at": "2026-11-11T12:53:55Z"
+  },
+  {
+   "id": "google/gemini-4-carbon",
+   "canonical_slug": "google/gemini-4-carbon-20261110",
+   "name": "Google: Gemini 4 Carbon",
+   "created": 1794326871,
+   "context_length": 1048576,
+   "hugging_face_id": null,
+   "input_per_m": 2.0,
+   "output_per_m": 10.0,
+   "modalities_in": [
+    "audio",
+    "file",
+    "image",
+    "text",
+    "video"
+   ],
+   "source": "openrouter",
+   "license": "OpenRouter API terms; cite source",
+   "fetched_at": "2026-11-11T12:53:55Z"
+  },
   {
    "id": "nex-agi/nex-n2.6",
    "canonical_slug": "nex-agi/nex-n2.6-20261110",
@@ -18,7 +54,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-fable-5.2",
@@ -36,7 +72,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-ember",
@@ -56,7 +92,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "liquid/lfm-3-1.7b",
@@ -72,7 +108,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-omni-1.2-flash",
@@ -90,7 +126,23 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
+  },
+  {
+   "id": "kt/midm-k-3.0-pro",
+   "canonical_slug": "kt/midm-k-3.0-pro",
+   "name": "KT: Mi:dm K 3.0 Pro",
+   "created": 1793897701,
+   "context_length": 261795,
+   "hugging_face_id": null,
+   "input_per_m": 0.2,
+   "output_per_m": 0.8,
+   "modalities_in": [
+    "text"
+   ],
+   "source": "openrouter",
+   "license": "OpenRouter API terms; cite source",
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-omni-1.1-flash",
@@ -108,7 +160,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "ricursiveai/ripple-65b-preview",
@@ -124,7 +176,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hy4",
@@ -141,7 +193,23 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
+  },
+  {
+   "id": "motif-technologies/motif-3",
+   "canonical_slug": "motif-technologies/motif-3",
+   "name": "Motif Technologies: Motif 3",
+   "created": 1793655334,
+   "context_length": 262144,
+   "hugging_face_id": "Motif-Technologies/Motif-3",
+   "input_per_m": 0.3,
+   "output_per_m": 1.2,
+   "modalities_in": [
+    "text"
+   ],
+   "source": "openrouter",
+   "license": "OpenRouter API terms; cite source",
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5.3-flashx-legal",
@@ -159,7 +227,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "particle-ai/particle-1",
@@ -176,7 +244,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6.1-terra-pro",
@@ -194,7 +262,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6.1-terra",
@@ -212,7 +280,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k3.1-pro",
@@ -230,7 +298,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "minimax/minimax-m3.1-flash",
@@ -248,7 +316,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash-1017",
@@ -265,7 +333,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "elorian/glimpse",
@@ -283,7 +351,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "reflection/beam-1.0-501b-a23b",
@@ -299,7 +367,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "prism-ml/ternary-bonsai-2-9b",
@@ -316,7 +384,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moondream/moondream3-preview",
@@ -333,7 +401,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moondream/moondream3.1-9b-a2b",
@@ -350,7 +418,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-spark-open",
@@ -370,7 +438,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nvidia/nemotron-3.5-super-vl",
@@ -378,7 +446,7 @@
    "name": "NVIDIA: Nemotron 3.5 Super VL",
    "created": 1792076662,
    "context_length": 1048576,
-   "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL",
+   "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Super-VL-120B-A12B-BF16",
    "input_per_m": 0.15,
    "output_per_m": 0.47,
    "modalities_in": [
@@ -388,7 +456,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "unbiased/pareto-26.10",
@@ -405,7 +473,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "unbiased/pareto-26.9",
@@ -422,7 +490,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "liquid/lfm-2.5-24b-a2b",
@@ -438,7 +506,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-4-argon",
@@ -458,7 +526,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "scaledown/summarize",
@@ -476,7 +544,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "scaledown/extract",
@@ -494,7 +562,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-wonder",
@@ -514,7 +582,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "stepfun/step-5-preview",
@@ -532,7 +600,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-haiku-5.5",
@@ -550,7 +618,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-nano-banana-2.1",
@@ -567,7 +635,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-large-4-0",
@@ -584,7 +652,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "inclusionai/ling-3.1-flash",
@@ -592,7 +660,7 @@
    "name": "inclusionAI: Ling 3.1 Flash",
    "created": 1790950024,
    "context_length": 1000000,
-   "hugging_face_id": null,
+   "hugging_face_id": "inclusionAI/Ling-3.1-flash",
    "input_per_m": 0.045,
    "output_per_m": 0.135,
    "modalities_in": [
@@ -600,7 +668,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6.1-sol-pro",
@@ -618,7 +686,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6.1-sol",
@@ -636,7 +704,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-sonnet-5.5",
@@ -654,7 +722,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "perceptron/perceptron-mk1.5",
@@ -673,7 +741,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "fireworks/ember-1",
@@ -690,7 +758,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5.3-prime",
@@ -706,7 +774,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.8-max-prime",
@@ -724,7 +792,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "aion-labs/aion-3.5-mini",
@@ -740,7 +808,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "aion-labs/aion-3.5",
@@ -756,7 +824,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "upstage/solar-mini4",
@@ -772,7 +840,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "cohere/command-a-plus",
@@ -780,7 +848,7 @@
    "name": "Cohere: Command A+",
    "created": 1790102896,
    "context_length": 192000,
-   "hugging_face_id": null,
+   "hugging_face_id": "CohereLabs/command-a-plus-05-2026-bf16",
    "input_per_m": 0.3,
    "output_per_m": 1.5,
    "modalities_in": [
@@ -789,7 +857,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6-luna-pro",
@@ -807,7 +875,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6-luna",
@@ -825,7 +893,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6-sol-pro",
@@ -843,7 +911,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6-sol",
@@ -861,7 +929,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-opus-5.5",
@@ -879,7 +947,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "xiaomi/mimo-v2.6-pro-ultraspeed",
@@ -898,7 +966,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "xiaomi/mimo-v2.6-flash",
@@ -917,7 +985,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "xiaomi/mimo-v2.6-pro",
@@ -936,7 +1004,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "x-ai/grok-4.7",
@@ -954,7 +1022,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.8-omni-flash",
@@ -973,7 +1041,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "prism-ml/ternary-bonsai-2-27b",
@@ -990,7 +1058,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5.3-flashx",
@@ -1008,7 +1076,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "inference-net/schematron-v2-turbo",
@@ -1024,7 +1092,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "inference-net/schematron-v2-small",
@@ -1040,7 +1108,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "sakana/fugu-ultra-v2",
@@ -1058,7 +1126,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "sakana/fugu-max",
@@ -1076,7 +1144,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "inclusionai/ling-3.0-flash-vl",
@@ -1094,7 +1162,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v4.1-flash",
@@ -1103,15 +1171,15 @@
    "created": 1789021285,
    "context_length": 1048576,
    "hugging_face_id": "deepseek-ai/DeepSeek-V4.1-Flash",
-   "input_per_m": 0.006,
-   "output_per_m": 0.5,
+   "input_per_m": 0.051,
+   "output_per_m": 0.567,
    "modalities_in": [
     "text",
     "image"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nex-agi/nex-n2.5-mini",
@@ -1128,7 +1196,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nex-agi/nex-n2.5-pro",
@@ -1145,7 +1213,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6-astra",
@@ -1163,7 +1231,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-6-astra-pro",
@@ -1181,7 +1249,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.8-max-0902",
@@ -1199,7 +1267,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-spark-1.3-contributor",
@@ -1218,7 +1286,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-spark-1.3",
@@ -1237,7 +1305,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.8-flash",
@@ -1257,7 +1325,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-fable-5.1",
@@ -1275,7 +1343,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "ibm-granite/granite-4.2-8b",
@@ -1291,7 +1359,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hy4-preview",
@@ -1307,7 +1375,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.8-flash",
@@ -1325,7 +1393,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5.3-flash",
@@ -1334,8 +1402,8 @@
    "created": 1787752741,
    "context_length": 1048576,
    "hugging_face_id": "zai-org/GLM-5.3-Flash",
-   "input_per_m": 0.15,
-   "output_per_m": 0.5,
+   "input_per_m": 0.0399,
+   "output_per_m": 0.0784,
    "modalities_in": [
     "text",
     "image",
@@ -1343,7 +1411,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-spark-1.2-contributor",
@@ -1362,7 +1430,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
@@ -1379,7 +1447,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hy-mt2-1.8b",
@@ -1395,7 +1463,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hy-mt2-30b-a3b",
@@ -1411,7 +1479,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hy-mt2-7b",
@@ -1427,7 +1495,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5.3",
@@ -1443,7 +1511,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.8-27b",
@@ -1461,7 +1529,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.7-flash",
@@ -1481,7 +1549,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "bytedance-seed/seed-2-1-turbo",
@@ -1499,7 +1567,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.8-2.4t-a95b",
@@ -1515,7 +1583,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "bytedance-seed/seed-2.0-code",
@@ -1533,7 +1601,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1549,7 +1617,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "x-ai/grok-4.6",
@@ -1567,7 +1635,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "liquid/lfm-2.5-2.6b",
@@ -1583,7 +1651,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nvidia/nemotron-3.5-lightning",
@@ -1599,7 +1667,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "sakana/sakana-namazu",
@@ -1617,7 +1685,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "upstage/solar-pro4",
@@ -1633,7 +1701,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-glimmer-30b",
@@ -1650,7 +1718,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "inclusionai/ling-3.0-tiny",
@@ -1666,7 +1734,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-spark-1.2",
@@ -1685,7 +1753,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -1701,7 +1769,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "thinkingmachines/inkling-small",
@@ -1719,7 +1787,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.7-flash",
@@ -1737,7 +1805,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-opus-5",
@@ -1755,7 +1823,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "inclusionai/ling-3.0-flash",
@@ -1771,7 +1839,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.6-flash",
@@ -1791,7 +1859,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.5-flash-lite",
@@ -1811,7 +1879,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meituan/longcat-2.0",
@@ -1827,7 +1895,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "thinkingmachines/inkling",
@@ -1845,7 +1913,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k3",
@@ -1863,7 +1931,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta/muse-spark-1.1",
@@ -1882,7 +1950,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.6-luna-pro",
@@ -1900,7 +1968,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.6-luna",
@@ -1918,7 +1986,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.6-terra-pro",
@@ -1936,7 +2004,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.6-terra",
@@ -1954,7 +2022,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.6-sol-pro",
@@ -1972,7 +2040,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.6-sol",
@@ -1990,7 +2058,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "x-ai/grok-4.5",
@@ -2008,7 +2076,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "aion-labs/aion-3.0-mini",
@@ -2024,7 +2092,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "aion-labs/aion-3.0",
@@ -2040,7 +2108,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hy3",
@@ -2056,7 +2124,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-sonnet-5",
@@ -2074,7 +2142,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.1-flash-lite-image",
@@ -2091,7 +2159,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "sakana/fugu-ultra",
@@ -2108,7 +2176,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.1-flash-image",
@@ -2125,7 +2193,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3-pro-image",
@@ -2142,7 +2210,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5.2",
@@ -2151,14 +2219,14 @@
    "created": 1781631930,
    "context_length": 1048576,
    "hugging_face_id": "zai-org/GLM-5.2",
-   "input_per_m": 0.01,
+   "input_per_m": 0.007,
    "output_per_m": 6.8,
    "modalities_in": [
     "text"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k2.7-code",
@@ -2175,7 +2243,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-fable-5",
@@ -2193,7 +2261,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nvidia/nemotron-3.5-content-safety",
@@ -2210,7 +2278,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nvidia/nemotron-3-ultra-550b-a55b",
@@ -2226,7 +2294,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.7-plus",
@@ -2243,7 +2311,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "minimax/minimax-m3",
@@ -2261,7 +2329,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "stepfun/step-3.7-flash",
@@ -2279,7 +2347,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-opus-4.8",
@@ -2297,7 +2365,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.7-max",
@@ -2313,7 +2381,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "x-ai/grok-build-0.1",
@@ -2331,7 +2399,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.5-flash",
@@ -2351,7 +2419,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "perceptron/perceptron-mk1",
@@ -2369,7 +2437,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.1-flash-lite",
@@ -2389,7 +2457,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-chat-latest",
@@ -2407,7 +2475,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "x-ai/grok-4.3",
@@ -2425,7 +2493,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-medium-3-5",
@@ -2433,7 +2501,7 @@
    "name": "Mistral: Mistral Medium 3.5",
    "created": 1777570439,
    "context_length": 262144,
-   "hugging_face_id": null,
+   "hugging_face_id": "mistralai/Mistral-Medium-3.5-128B",
    "input_per_m": 1.5,
    "output_per_m": 7.5,
    "modalities_in": [
@@ -2443,7 +2511,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-plus-20260420",
@@ -2461,7 +2529,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.6-flash",
@@ -2479,7 +2547,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.6-35b-a3b",
@@ -2497,7 +2565,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.6-27b",
@@ -2515,7 +2583,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.5-pro",
@@ -2533,7 +2601,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.5",
@@ -2551,7 +2619,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v4-pro",
@@ -2560,14 +2628,14 @@
    "created": 1777000679,
    "context_length": 1048576,
    "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro",
-   "input_per_m": 0.9553,
-   "output_per_m": 1.9105,
+   "input_per_m": 0.8973,
+   "output_per_m": 1.7946,
    "modalities_in": [
     "text"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v4-flash",
@@ -2576,14 +2644,14 @@
    "created": 1777000666,
    "context_length": 1048576,
    "hugging_face_id": "deepseek-ai/DeepSeek-V4-Flash",
-   "input_per_m": 0.091,
-   "output_per_m": 0.182,
+   "input_per_m": 0.09,
+   "output_per_m": 0.18,
    "modalities_in": [
     "text"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2599,7 +2667,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "xiaomi/mimo-v2.5-pro",
@@ -2615,7 +2683,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "xiaomi/mimo-v2.5",
@@ -2634,7 +2702,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.4-image-2",
@@ -2652,7 +2720,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k2.6",
@@ -2669,7 +2737,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-opus-4.7",
@@ -2687,7 +2755,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5.1",
@@ -2696,14 +2764,14 @@
    "created": 1775578025,
    "context_length": 204800,
    "hugging_face_id": "zai-org/GLM-5.1",
-   "input_per_m": 1.4,
-   "output_per_m": 4.4,
+   "input_per_m": 1.33,
+   "output_per_m": 4.18,
    "modalities_in": [
     "text"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemma-4-26b-a4b-it",
@@ -2721,7 +2789,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemma-4-31b-it",
@@ -2739,7 +2807,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.6-plus",
@@ -2757,7 +2825,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5v-turbo",
@@ -2775,7 +2843,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "x-ai/grok-4.20-multi-agent",
@@ -2793,7 +2861,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "x-ai/grok-4.20",
@@ -2811,7 +2879,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "rekaai/reka-edge",
@@ -2829,7 +2897,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "minimax/minimax-m2.7",
@@ -2845,7 +2913,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.4-nano",
@@ -2863,7 +2931,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.4-mini",
@@ -2881,7 +2949,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-small-2603",
@@ -2898,7 +2966,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5-turbo",
@@ -2914,14 +2982,14 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nvidia/nemotron-3-super-120b-a12b",
    "canonical_slug": "nvidia/nemotron-3-super-120b-a12b-20230311",
    "name": "NVIDIA: Nemotron 3 Super",
    "created": 1773245239,
-   "context_length": 1048576,
+   "context_length": 262144,
    "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
    "input_per_m": 0.075,
    "output_per_m": 0.4,
@@ -2930,7 +2998,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "bytedance-seed/seed-2.0-lite",
@@ -2948,7 +3016,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-9b",
@@ -2966,7 +3034,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.4-pro",
@@ -2984,7 +3052,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.4",
@@ -3002,7 +3070,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.1-flash-lite-preview",
@@ -3022,7 +3090,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "bytedance-seed/seed-2.0-mini",
@@ -3040,7 +3108,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.1-flash-image-preview",
@@ -3057,7 +3125,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-35b-a3b",
@@ -3075,7 +3143,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-27b",
@@ -3093,7 +3161,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-122b-a10b",
@@ -3111,7 +3179,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-flash-02-23",
@@ -3129,7 +3197,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.1-pro-preview-customtools",
@@ -3149,7 +3217,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.3-codex",
@@ -3167,7 +3235,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "aion-labs/aion-2.0",
@@ -3183,7 +3251,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3.1-pro-preview",
@@ -3203,7 +3271,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-sonnet-4.6",
@@ -3221,7 +3289,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-plus-02-15",
@@ -3239,7 +3307,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3.5-397b-a17b",
@@ -3257,7 +3325,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "minimax/minimax-m2.5",
@@ -3266,14 +3334,14 @@
    "created": 1770908502,
    "context_length": 200000,
    "hugging_face_id": "MiniMaxAI/MiniMax-M2.5",
-   "input_per_m": 0.3,
-   "output_per_m": 1.2,
+   "input_per_m": 0.27,
+   "output_per_m": 1.08,
    "modalities_in": [
     "text"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-5",
@@ -3289,7 +3357,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-opus-4.6",
@@ -3307,7 +3375,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-coder-next",
@@ -3323,7 +3391,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "stepfun/step-3.5-flash",
@@ -3339,7 +3407,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k2.5",
@@ -3356,7 +3424,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "writer/palmyra-x5",
@@ -3372,7 +3440,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-audio",
@@ -3389,7 +3457,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-audio-mini",
@@ -3406,7 +3474,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-4.7-flash",
@@ -3422,7 +3490,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.2-codex",
@@ -3439,7 +3507,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "bytedance-seed/seed-1.6-flash",
@@ -3457,7 +3525,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "bytedance-seed/seed-1.6",
@@ -3475,7 +3543,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-4.7",
@@ -3491,7 +3559,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3-flash-preview",
@@ -3511,7 +3579,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nvidia/nemotron-3-nano-30b-a3b",
@@ -3527,7 +3595,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.2-chat",
@@ -3545,7 +3613,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.2-pro",
@@ -3563,7 +3631,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.2",
@@ -3581,7 +3649,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/devstral-2512",
@@ -3598,7 +3666,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "relace/relace-search",
@@ -3614,7 +3682,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-4.6v",
@@ -3632,7 +3700,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.1-codex-max",
@@ -3649,7 +3717,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "amazon/nova-2-lite-v1",
@@ -3668,7 +3736,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/ministral-14b-2512",
@@ -3685,7 +3753,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/ministral-8b-2512",
@@ -3702,7 +3770,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/ministral-3b-2512",
@@ -3719,7 +3787,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-large-2512",
@@ -3727,7 +3795,7 @@
    "name": "Mistral: Mistral Large 3 2512",
    "created": 1764624472,
    "context_length": 262144,
-   "hugging_face_id": "",
+   "hugging_face_id": "mistralai/Mistral-Large-3-675B-Instruct-2512",
    "input_per_m": 0.5,
    "output_per_m": 1.5,
    "modalities_in": [
@@ -3737,7 +3805,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v3.2",
@@ -3753,7 +3821,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-opus-4.5",
@@ -3771,7 +3839,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-3-pro-image-preview",
@@ -3788,7 +3856,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.1",
@@ -3806,7 +3874,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.1-codex",
@@ -3823,7 +3891,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5.1-codex-mini",
@@ -3840,7 +3908,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k2-thinking",
@@ -3856,7 +3924,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "amazon/nova-premier-v1",
@@ -3873,7 +3941,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "perplexity/sonar-pro-search",
@@ -3890,7 +3958,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/voxtral-small-24b-2507",
@@ -3908,7 +3976,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-oss-safeguard-20b",
@@ -3924,7 +3992,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5-image-mini",
@@ -3942,7 +4010,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-haiku-4.5",
@@ -3960,7 +4028,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-vl-8b-instruct",
@@ -3977,7 +4045,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5-image",
@@ -3995,7 +4063,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-2.5-flash-image",
@@ -4012,7 +4080,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-vl-30b-a3b-thinking",
@@ -4029,7 +4097,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -4046,7 +4114,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5-pro",
@@ -4064,7 +4132,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-4.6",
@@ -4080,7 +4148,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-sonnet-4.5",
@@ -4098,7 +4166,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v3.2-exp",
@@ -4114,7 +4182,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "thedrummer/cydonia-24b-v4.1",
@@ -4130,7 +4198,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "relace/relace-apply-3",
@@ -4146,7 +4214,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -4163,7 +4231,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-v3.1-terminus",
@@ -4179,7 +4247,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-coder-flash",
@@ -4195,7 +4263,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-next-80b-a3b-instruct",
@@ -4211,7 +4279,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k2-0905",
@@ -4227,7 +4295,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "nousresearch/hermes-4-405b",
@@ -4243,7 +4311,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-chat-v3.1",
@@ -4259,7 +4327,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-medium-3.1",
@@ -4277,7 +4345,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-4.5v",
@@ -4294,7 +4362,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5",
@@ -4312,7 +4380,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5-mini",
@@ -4330,7 +4398,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-5-nano",
@@ -4348,7 +4416,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-oss-120b",
@@ -4364,7 +4432,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-oss-20b",
@@ -4380,7 +4448,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthropic/claude-opus-4.1",
@@ -4398,7 +4466,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/codestral-2508",
@@ -4415,7 +4483,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-coder-30b-a3b-instruct",
@@ -4431,7 +4499,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-30b-a3b-instruct-2507",
@@ -4447,7 +4515,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-4.5",
@@ -4463,7 +4531,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "z-ai/glm-4.5-air",
@@ -4479,7 +4547,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -4495,7 +4563,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-coder",
@@ -4511,7 +4579,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "bytedance/ui-tars-1.5-7b",
@@ -4528,7 +4596,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-2.5-flash-lite",
@@ -4548,7 +4616,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-235b-a22b-2507",
@@ -4564,7 +4632,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "moonshotai/kimi-k2",
@@ -4580,7 +4648,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition",
@@ -4596,7 +4664,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "tencent/hunyuan-a13b-instruct",
@@ -4612,7 +4680,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "morph/morph-v3-large",
@@ -4628,7 +4696,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "morph/morph-v3-fast",
@@ -4644,7 +4712,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-small-3.2-24b-instruct",
@@ -4661,7 +4729,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-2.5-flash",
@@ -4681,7 +4749,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-2.5-pro",
@@ -4701,7 +4769,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/o3-pro",
@@ -4719,7 +4787,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemini-2.5-pro-preview",
@@ -4738,7 +4806,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-r1-0528",
@@ -4754,7 +4822,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-medium-3",
@@ -4772,7 +4840,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-guard-4-12b",
@@ -4789,7 +4857,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-30b-a3b",
@@ -4805,7 +4873,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-14b",
@@ -4821,7 +4889,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen3-32b",
@@ -4837,7 +4905,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/o3",
@@ -4855,7 +4923,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4.1",
@@ -4873,7 +4941,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4.1-mini",
@@ -4891,7 +4959,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4.1-nano",
@@ -4909,7 +4977,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-4-maverick",
@@ -4926,7 +4994,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-4-scout",
@@ -4943,7 +5011,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-chat-v3-0324",
@@ -4959,7 +5027,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-small-3.1-24b-instruct",
@@ -4976,7 +5044,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemma-3-4b-it",
@@ -4993,7 +5061,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemma-3-12b-it",
@@ -5010,7 +5078,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "cohere/command-a",
@@ -5026,7 +5094,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "rekaai/reka-flash-3",
@@ -5042,7 +5110,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemma-3-27b-it",
@@ -5059,7 +5127,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "thedrummer/skyfall-36b-v2",
@@ -5075,7 +5143,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "perplexity/sonar-reasoning-pro",
@@ -5092,7 +5160,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "perplexity/sonar-pro",
@@ -5109,7 +5177,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "perplexity/sonar-deep-research",
@@ -5125,7 +5193,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-saba",
@@ -5142,7 +5210,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "aion-labs/aion-rp-llama-3.1-8b",
@@ -5150,7 +5218,7 @@
    "name": "AionLabs: Aion-RP 1.0 (8B)",
    "created": 1738696718,
    "context_length": 32768,
-   "hugging_face_id": "",
+   "hugging_face_id": "aion-labs/Aion-RP-Llama-3.1-8B",
    "input_per_m": 0.8,
    "output_per_m": 1.6,
    "modalities_in": [
@@ -5158,7 +5226,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen2.5-vl-72b-instruct",
@@ -5175,7 +5243,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen-plus",
@@ -5191,7 +5259,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-small-24b-instruct-2501",
@@ -5207,7 +5275,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "perplexity/sonar",
@@ -5224,7 +5292,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "microsoft/phi-4",
@@ -5240,7 +5308,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "deepseek/deepseek-chat",
@@ -5256,7 +5324,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "cohere/command-r7b-12-2024",
@@ -5264,7 +5332,7 @@
    "name": "Cohere: Command R7B (12-2024)",
    "created": 1734158152,
    "context_length": 128000,
-   "hugging_face_id": "",
+   "hugging_face_id": "CohereLabs/c4ai-command-r7b-12-2024",
    "input_per_m": 0.0375,
    "output_per_m": 0.15,
    "modalities_in": [
@@ -5272,7 +5340,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-3.3-70b-instruct",
@@ -5288,7 +5356,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "amazon/nova-lite-v1",
@@ -5305,7 +5373,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "amazon/nova-micro-v1",
@@ -5321,7 +5389,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "amazon/nova-pro-v1",
@@ -5338,7 +5406,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4o-2024-11-20",
@@ -5356,7 +5424,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-large-2407",
@@ -5364,7 +5432,7 @@
    "name": "Mistral Large 2407",
    "created": 1731978415,
    "context_length": 131072,
-   "hugging_face_id": "",
+   "hugging_face_id": "mistralai/Mistral-Large-Instruct-2407",
    "input_per_m": 2.0,
    "output_per_m": 6.0,
    "modalities_in": [
@@ -5373,7 +5441,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen-2.5-coder-32b-instruct",
@@ -5389,7 +5457,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "thedrummer/unslopnemo-12b",
@@ -5405,7 +5473,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "anthracite-org/magnum-v4-72b",
@@ -5421,23 +5489,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
-  },
-  {
-   "id": "qwen/qwen-2.5-7b-instruct",
-   "canonical_slug": "qwen/qwen-2.5-7b-instruct",
-   "name": "Qwen: Qwen2.5 7B Instruct",
-   "created": 1729036800,
-   "context_length": 32768,
-   "hugging_face_id": "Qwen/Qwen2.5-7B-Instruct",
-   "input_per_m": 0.1,
-   "output_per_m": 0.2,
-   "modalities_in": [
-    "text"
-   ],
-   "source": "openrouter",
-   "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-3.2-1b-instruct",
@@ -5453,7 +5505,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-3.2-3b-instruct",
@@ -5469,7 +5521,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "qwen/qwen-2.5-72b-instruct",
@@ -5485,7 +5537,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "cohere/command-r-08-2024",
@@ -5493,7 +5545,7 @@
    "name": "Cohere: Command R (08-2024)",
    "created": 1724976000,
    "context_length": 128000,
-   "hugging_face_id": null,
+   "hugging_face_id": "CohereLabs/c4ai-command-r-08-2024",
    "input_per_m": 0.15,
    "output_per_m": 0.6,
    "modalities_in": [
@@ -5501,7 +5553,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "cohere/command-r-plus-08-2024",
@@ -5509,7 +5561,7 @@
    "name": "Cohere: Command R+ (08-2024)",
    "created": 1724976000,
    "context_length": 128000,
-   "hugging_face_id": null,
+   "hugging_face_id": "CohereLabs/c4ai-command-r-plus-08-2024",
    "input_per_m": 2.5,
    "output_per_m": 10.0,
    "modalities_in": [
@@ -5517,7 +5569,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "sao10k/l3.1-euryale-70b",
@@ -5533,7 +5585,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "sao10k/l3-lunaris-8b",
@@ -5549,7 +5601,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4o-2024-08-06",
@@ -5567,7 +5619,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-3.1-70b-instruct",
@@ -5583,7 +5635,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "meta-llama/llama-3.1-8b-instruct",
@@ -5599,7 +5651,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-nemo",
@@ -5615,7 +5667,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4o-mini",
@@ -5633,7 +5685,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4o-mini-2024-07-18",
@@ -5651,7 +5703,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "google/gemma-2-27b-it",
@@ -5667,7 +5719,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4o",
@@ -5685,7 +5737,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4o-2024-05-13",
@@ -5703,7 +5755,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mixtral-8x22b-instruct",
@@ -5720,7 +5772,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mistralai/mistral-large",
@@ -5737,7 +5789,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-3.5-turbo-0613",
@@ -5753,7 +5805,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-3.5-turbo-16k",
@@ -5769,7 +5821,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "mancer/weaver",
@@ -5778,14 +5830,14 @@
    "created": 1690934400,
    "context_length": 8000,
    "hugging_face_id": null,
-   "input_per_m": 0.4,
-   "output_per_m": 0.75,
+   "input_per_m": 0.3,
+   "output_per_m": 0.5,
    "modalities_in": [
     "text"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "undi95/remm-slerp-l2-13b",
@@ -5794,14 +5846,14 @@
    "created": 1689984000,
    "context_length": 6144,
    "hugging_face_id": "Undi95/ReMM-SLERP-L2-13B",
-   "input_per_m": 0.35,
-   "output_per_m": 0.65,
+   "input_per_m": 0.3,
+   "output_per_m": 0.5,
    "modalities_in": [
     "text"
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "gryphe/mythomax-l2-13b",
@@ -5817,7 +5869,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   },
   {
    "id": "openai/gpt-4",
@@ -5833,7 +5885,7 @@
    ],
    "source": "openrouter",
    "license": "OpenRouter API terms; cite source",
-   "fetched_at": "2026-11-10T12:52:01Z"
+   "fetched_at": "2026-11-11T12:53:55Z"
   }
  ]
 }

@@ -1,9 +1,9 @@
 {
  "source": "arena",
  "license": "CC-BY-4.0",
- "fetched_at": "2026-11-10T12:51:57Z",
- "dataset_sha": "ec013bce1ac4ce168415e6f888da8b476f7f237e",
- "dataset_last_modified": "2026-11-10T04:04:53.000Z",
+ "fetched_at": "2026-11-11T12:53:52Z",
+ "dataset_sha": "4217986c2fa1163d072e7a3dda637bb56cce8d79",
+ "dataset_last_modified": "2026-11-11T04:01:46.000Z",
  "boards": {
   "text": {
    "overall": {
@@ -41205,982 +41205,1004 @@
   },
   "webdev": {
    "overall": {
-    "publish_date": "2026-11-09",
+    "publish_date": "2026-11-10",
     "rows": [
+     {
+      "name": "Claude Fable 5.2 (xHigh)",
+      "org": "anthropic",
+      "model_license": "Proprietary",
+      "rank": 1,
+      "date": "2026-11-10",
+      "rating": 1835.8,
+      "lo": 1813.3,
+      "hi": 1858.2,
+      "votes": 994
+     },
      {
       "name": "Claude Opus 5.5 (Max)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 1,
-      "date": "2026-11-09",
-      "rating": 1817.7,
-      "lo": 1805.7,
-      "hi": 1829.8,
-      "votes": 4009
+      "rank": 2,
+      "date": "2026-11-10",
+      "rating": 1814.3,
+      "lo": 1802.6,
+      "hi": 1826.0,
+      "votes": 4187
      },
      {
       "name": "Claude Sonnet 5.5 (xHigh)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 2,
-      "date": "2026-11-09",
-      "rating": 1774.3,
-      "lo": 1764.0,
-      "hi": 1784.6,
-      "votes": 5493
+      "rank": 3,
+      "date": "2026-11-10",
+      "rating": 1772.5,
+      "lo": 1762.6,
+      "hi": 1782.5,
+      "votes": 5818
      },
      {
       "name": "Gemini 4 Carbon (High)",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 3,
-      "date": "2026-11-09",
-      "rating": 1768.0,
-      "lo": 1752.7,
-      "hi": 1783.3,
-      "votes": 2128
+      "rank": 4,
+      "date": "2026-11-10",
+      "rating": 1768.2,
+      "lo": 1752.8,
+      "hi": 1783.5,
+      "votes": 2120
      },
      {
       "name": "GPT-6 Astra (Max)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 4,
-      "date": "2026-11-09",
-      "rating": 1766.8,
-      "lo": 1758.0,
-      "hi": 1775.7,
-      "votes": 8117
-     },
-     {
-      "name": "Claude Fable 5.1 (Max)",
-      "org": "anthropic",
-      "model_license": "Proprietary",
       "rank": 5,
-      "date": "2026-11-09",
-      "rating": 1744.6,
-      "lo": 1736.4,
-      "hi": 1752.7,
-      "votes": 9453
+      "date": "2026-11-10",
+      "rating": 1764.4,
+      "lo": 1755.8,
+      "hi": 1773.0,
+      "votes": 8425
      },
      {
       "name": "GPT-6.1 Sol (Max)",
       "org": "openai",
       "model_license": "Proprietary",
       "rank": 6,
-      "date": "2026-11-09",
-      "rating": 1742.8,
-      "lo": 1732.7,
-      "hi": 1753.0,
-      "votes": 5250
+      "date": "2026-11-10",
+      "rating": 1743.0,
+      "lo": 1733.2,
+      "hi": 1752.9,
+      "votes": 5539
+     },
+     {
+      "name": "Claude Fable 5.1 (Max)",
+      "org": "anthropic",
+      "model_license": "Proprietary",
+      "rank": 7,
+      "date": "2026-11-10",
+      "rating": 1742.1,
+      "lo": 1734.1,
+      "hi": 1750.0,
+      "votes": 9756
      },
      {
       "name": "Muse Wonder Full (Max)",
       "org": "meta",
       "model_license": "Proprietary",
-      "rank": 7,
-      "date": "2026-11-09",
-      "rating": 1723.9,
-      "lo": 1709.5,
-      "hi": 1738.3,
-      "votes": 2080
+      "rank": 8,
+      "date": "2026-11-10",
+      "rating": 1723.4,
+      "lo": 1709.0,
+      "hi": 1737.8,
+      "votes": 2069
      },
      {
       "name": "Claude Sonnet 5.5 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 8,
-      "date": "2026-11-09",
-      "rating": 1713.2,
-      "lo": 1704.6,
-      "hi": 1721.8,
-      "votes": 7541
+      "rank": 9,
+      "date": "2026-11-10",
+      "rating": 1715.3,
+      "lo": 1706.9,
+      "hi": 1723.8,
+      "votes": 7881
      },
      {
       "name": "Claude Opus 5 (Max)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 9,
-      "date": "2026-11-09",
-      "rating": 1690.8,
-      "lo": 1684.7,
-      "hi": 1696.9,
-      "votes": 19593
+      "rank": 10,
+      "date": "2026-11-10",
+      "rating": 1691.0,
+      "lo": 1684.9,
+      "hi": 1697.1,
+      "votes": 19561
      },
      {
       "name": "Kimi K3.1 Pro (Max)",
       "org": "moonshot",
       "model_license": "Kimi K3.1 Pro License",
-      "rank": 10,
-      "date": "2026-11-09",
-      "rating": 1687.8,
-      "lo": 1677.8,
-      "hi": 1697.9,
-      "votes": 4591
+      "rank": 11,
+      "date": "2026-11-10",
+      "rating": 1687.7,
+      "lo": 1677.9,
+      "hi": 1697.4,
+      "votes": 4916
      },
      {
       "name": "Gemini 4 Argon (High)",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 11,
-      "date": "2026-11-09",
-      "rating": 1682.6,
-      "lo": 1672.6,
-      "hi": 1692.6,
-      "votes": 4626
+      "rank": 12,
+      "date": "2026-11-10",
+      "rating": 1682.1,
+      "lo": 1672.3,
+      "hi": 1691.8,
+      "votes": 4933
      },
      {
       "name": "GPT-6.1 Terra (Max)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 12,
-      "date": "2026-11-09",
-      "rating": 1678.7,
-      "lo": 1667.5,
-      "hi": 1690.0,
-      "votes": 3559
+      "rank": 13,
+      "date": "2026-11-10",
+      "rating": 1678.5,
+      "lo": 1667.8,
+      "hi": 1689.2,
+      "votes": 3944
      },
      {
       "name": "Qwen3.8-Max (0902)",
       "org": "alibaba",
       "model_license": "Proprietary",
-      "rank": 13,
-      "date": "2026-11-09",
-      "rating": 1676.7,
-      "lo": 1670.4,
-      "hi": 1683.0,
-      "votes": 21354
+      "rank": 14,
+      "date": "2026-11-10",
+      "rating": 1675.8,
+      "lo": 1669.6,
+      "hi": 1682.1,
+      "votes": 21951
      },
      {
       "name": "GPT-6 Sol (Max)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 14,
-      "date": "2026-11-09",
-      "rating": 1673.9,
-      "lo": 1665.3,
-      "hi": 1682.4,
-      "votes": 6882
+      "rank": 15,
+      "date": "2026-11-10",
+      "rating": 1673.0,
+      "lo": 1664.6,
+      "hi": 1681.3,
+      "votes": 7249
      },
      {
       "name": "Qwen3.8-Max",
       "org": "alibaba",
       "model_license": "Proprietary",
-      "rank": 15,
-      "date": "2026-11-09",
+      "rank": 16,
+      "date": "2026-11-10",
       "rating": 1670.3,
       "lo": 1658.2,
       "hi": 1682.4,
-      "votes": 3373
+      "votes": 3371
      },
      {
       "name": "DeepSeek-V4.1-Flash-20261017 (Max)",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 16,
-      "date": "2026-11-09",
-      "rating": 1664.2,
-      "lo": 1657.4,
-      "hi": 1671.0,
-      "votes": 13241
+      "rank": 17,
+      "date": "2026-11-10",
+      "rating": 1663.6,
+      "lo": 1656.9,
+      "hi": 1670.4,
+      "votes": 13952
      },
      {
       "name": "Kimi K3 (Max)",
       "org": "moonshot",
       "model_license": "Kimi K3 license",
-      "rank": 17,
-      "date": "2026-11-09",
-      "rating": 1657.1,
-      "lo": 1651.3,
-      "hi": 1662.8,
-      "votes": 22114
+      "rank": 18,
+      "date": "2026-11-10",
+      "rating": 1657.9,
+      "lo": 1652.2,
+      "hi": 1663.6,
+      "votes": 22405
      },
      {
       "name": "Claude Opus 5 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 18,
-      "date": "2026-11-09",
+      "rank": 19,
+      "date": "2026-11-10",
       "rating": 1656.6,
       "lo": 1651.3,
       "hi": 1661.9,
-      "votes": 26982
+      "votes": 26940
      },
      {
       "name": "Muse Spark 1.3 (Max)",
       "org": "meta",
       "model_license": "Proprietary",
-      "rank": 19,
-      "date": "2026-11-09",
-      "rating": 1654.3,
-      "lo": 1647.2,
-      "hi": 1661.4,
-      "votes": 11758
+      "rank": 20,
+      "date": "2026-11-10",
+      "rating": 1655.1,
+      "lo": 1648.1,
+      "hi": 1662.1,
+      "votes": 12122
      },
      {
       "name": "Muse Wonder (Max)",
       "org": "meta",
       "model_license": "Proprietary",
-      "rank": 20,
-      "date": "2026-11-09",
-      "rating": 1650.3,
-      "lo": 1640.5,
-      "hi": 1660.0,
-      "votes": 4875
+      "rank": 21,
+      "date": "2026-11-10",
+      "rating": 1648.6,
+      "lo": 1639.1,
+      "hi": 1658.1,
+      "votes": 5232
      },
      {
       "name": "Inkling 2 Small",
       "org": "thinky",
       "model_license": "Proprietary",
-      "rank": 21,
-      "date": "2026-11-09",
-      "rating": 1649.5,
-      "lo": 1629.8,
-      "hi": 1669.2,
-      "votes": 964
+      "rank": 22,
+      "date": "2026-11-10",
+      "rating": 1646.2,
+      "lo": 1626.7,
+      "hi": 1665.7,
+      "votes": 983
      },
      {
       "name": "Grok 4.7 (xHigh)",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 22,
-      "date": "2026-11-09",
-      "rating": 1639.4,
-      "lo": 1631.3,
-      "hi": 1647.4,
-      "votes": 7816
+      "rank": 23,
+      "date": "2026-11-10",
+      "rating": 1641.0,
+      "lo": 1633.0,
+      "hi": 1648.9,
+      "votes": 8125
      },
      {
       "name": "MiMo-V2.6-Flash",
       "org": "xiaomi",
       "model_license": "MIT",
-      "rank": 23,
-      "date": "2026-11-09",
-      "rating": 1636.5,
-      "lo": 1628.7,
-      "hi": 1644.4,
-      "votes": 8576
+      "rank": 24,
+      "date": "2026-11-10",
+      "rating": 1637.6,
+      "lo": 1629.9,
+      "hi": 1645.4,
+      "votes": 8890
      },
      {
       "name": "Hy4 preview",
       "org": "tencent",
       "model_license": "Apache 2.0",
-      "rank": 24,
-      "date": "2026-11-09",
-      "rating": 1631.5,
-      "lo": 1621.7,
-      "hi": 1641.3,
-      "votes": 4606
+      "rank": 25,
+      "date": "2026-11-10",
+      "rating": 1631.6,
+      "lo": 1621.9,
+      "hi": 1641.4,
+      "votes": 4602
      },
      {
       "name": "Claude Fable 5 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 25,
-      "date": "2026-11-09",
-      "rating": 1625.2,
-      "lo": 1619.2,
-      "hi": 1631.2,
-      "votes": 17017
-     },
-     {
-      "name": "Qwen3.8-Flash-Next",
-      "org": "alibaba",
-      "model_license": "qwen-community-1.0",
       "rank": 26,
-      "date": "2026-11-09",
-      "rating": 1624.5,
-      "lo": 1617.2,
-      "hi": 1631.7,
-      "votes": 10939
+      "date": "2026-11-10",
+      "rating": 1625.3,
+      "lo": 1619.4,
+      "hi": 1631.3,
+      "votes": 16998
      },
      {
       "name": "MiMo-V2.6-Pro",
       "org": "xiaomi",
       "model_license": "MIT",
       "rank": 27,
-      "date": "2026-11-09",
-      "rating": 1623.9,
-      "lo": 1616.1,
-      "hi": 1631.7,
-      "votes": 8402
+      "date": "2026-11-10",
+      "rating": 1624.3,
+      "lo": 1616.6,
+      "hi": 1631.9,
+      "votes": 8790
+     },
+     {
+      "name": "Qwen3.8-Flash-Next",
+      "org": "alibaba",
+      "model_license": "qwen-community-1.0",
+      "rank": 28,
+      "date": "2026-11-10",
+      "rating": 1623.5,
+      "lo": 1616.4,
+      "hi": 1630.6,
+      "votes": 11325
      },
      {
       "name": "GLM-5.3 (Max)",
       "org": "zai",
       "model_license": "MIT",
-      "rank": 28,
-      "date": "2026-11-09",
-      "rating": 1622.2,
-      "lo": 1615.2,
-      "hi": 1629.1,
-      "votes": 12263
+      "rank": 29,
+      "date": "2026-11-10",
+      "rating": 1622.3,
+      "lo": 1615.4,
+      "hi": 1629.2,
+      "votes": 12605
      },
      {
       "name": "DeepSeek-V4.1-Flash-20260910 (Max)",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 29,
-      "date": "2026-11-09",
-      "rating": 1620.7,
-      "lo": 1609.6,
+      "rank": 30,
+      "date": "2026-11-10",
+      "rating": 1620.6,
+      "lo": 1609.5,
       "hi": 1631.8,
-      "votes": 3408
+      "votes": 3400
      },
      {
       "name": "Muse Spark 1.3 (xHigh)",
       "org": "meta",
       "model_license": "Proprietary",
-      "rank": 30,
-      "date": "2026-11-09",
-      "rating": 1620.5,
+      "rank": 31,
+      "date": "2026-11-10",
+      "rating": 1620.4,
       "lo": 1613.4,
-      "hi": 1627.6,
-      "votes": 11277
+      "hi": 1627.3,
+      "votes": 11653
      },
      {
       "name": "Grok 4.6 (High)",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 31,
-      "date": "2026-11-09",
-      "rating": 1617.8,
-      "lo": 1610.9,
-      "hi": 1624.8,
+      "rank": 32,
+      "date": "2026-11-10",
+      "rating": 1618.0,
+      "lo": 1611.1,
+      "hi": 1624.9,
       "votes": 12193
      },
      {
       "name": "GPT-5.6 Sol (xHigh, Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 32,
-      "date": "2026-11-09",
-      "rating": 1615.3,
+      "rank": 33,
+      "date": "2026-11-10",
+      "rating": 1615.4,
       "lo": 1609.6,
-      "hi": 1621.0,
-      "votes": 18929
+      "hi": 1621.1,
+      "votes": 18914
+     },
+     {
+      "name": "U2 Flash",
+      "org": "unisound",
+      "model_license": "Proprietary",
+      "rank": 34,
+      "date": "2026-11-10",
+      "rating": 1610.6,
+      "lo": 1593.7,
+      "hi": 1627.4,
+      "votes": 1442
      },
      {
       "name": "GLM-5.3-Flash",
       "org": "zai",
       "model_license": "MIT",
-      "rank": 33,
-      "date": "2026-11-09",
-      "rating": 1608.6,
-      "lo": 1602.4,
-      "hi": 1614.8,
-      "votes": 23185
+      "rank": 35,
+      "date": "2026-11-10",
+      "rating": 1608.9,
+      "lo": 1602.7,
+      "hi": 1615.0,
+      "votes": 23554
      },
      {
       "name": "Muse Ember (Max)",
       "org": "meta",
       "model_license": "Proprietary",
-      "rank": 34,
-      "date": "2026-11-09",
-      "rating": 1608.1,
-      "lo": 1591.3,
-      "hi": 1625.0,
-      "votes": 1345
+      "rank": 36,
+      "date": "2026-11-10",
+      "rating": 1608.6,
+      "lo": 1591.8,
+      "hi": 1625.4,
+      "votes": 1337
      },
      {
       "name": "GLM-5.2 (Max)",
       "org": "zai",
       "model_license": "MIT",
-      "rank": 35,
-      "date": "2026-11-09",
+      "rank": 37,
+      "date": "2026-11-10",
       "rating": 1607.8,
       "lo": 1601.9,
       "hi": 1613.7,
-      "votes": 17934
+      "votes": 17926
      },
      {
       "name": "Claude Haiku 5.5 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 36,
-      "date": "2026-11-09",
-      "rating": 1595.1,
-      "lo": 1586.4,
-      "hi": 1603.8,
-      "votes": 6174
+      "rank": 38,
+      "date": "2026-11-10",
+      "rating": 1593.8,
+      "lo": 1585.3,
+      "hi": 1602.3,
+      "votes": 6549
      },
      {
       "name": "Qwen3.8-27B",
       "org": "alibaba",
       "model_license": "Apache 2.0",
-      "rank": 37,
-      "date": "2026-11-09",
-      "rating": 1590.5,
-      "lo": 1584.4,
-      "hi": 1596.6,
-      "votes": 20408
+      "rank": 39,
+      "date": "2026-11-10",
+      "rating": 1590.2,
+      "lo": 1584.2,
+      "hi": 1596.3,
+      "votes": 20791
      },
      {
       "name": "Gemini 3.7 Flash (High)",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 38,
-      "date": "2026-11-09",
-      "rating": 1588.2,
-      "lo": 1581.7,
-      "hi": 1594.6,
-      "votes": 14619
-     },
-     {
-      "name": "Gemini 3.8 Flash (High)",
-      "org": "google",
-      "model_license": "Proprietary",
-      "rank": 39,
-      "date": "2026-11-09",
-      "rating": 1583.8,
-      "lo": 1577.1,
-      "hi": 1590.5,
-      "votes": 13485
-     },
-     {
-      "name": "DeepSeek-V4-Flash (High)",
-      "org": "deepseek",
-      "model_license": "MIT",
       "rank": 40,
-      "date": "2026-11-09",
-      "rating": 1581.8,
-      "lo": 1572.4,
-      "hi": 1591.2,
-      "votes": 4839
+      "date": "2026-11-10",
+      "rating": 1588.1,
+      "lo": 1581.6,
+      "hi": 1594.6,
+      "votes": 14591
      },
      {
       "name": "MiniMax-M3.1-Flash",
       "org": "minimax",
       "model_license": "MiniMax Community License",
       "rank": 41,
-      "date": "2026-11-09",
+      "date": "2026-11-10",
+      "rating": 1584.5,
+      "lo": 1574.9,
+      "hi": 1594.2,
+      "votes": 4838
+     },
+     {
+      "name": "Gemini 3.8 Flash (High)",
+      "org": "google",
+      "model_license": "Proprietary",
+      "rank": 42,
+      "date": "2026-11-10",
+      "rating": 1582.6,
+      "lo": 1576.0,
+      "hi": 1589.3,
+      "votes": 13847
+     },
+     {
+      "name": "DeepSeek-V4-Flash (High)",
+      "org": "deepseek",
+      "model_license": "MIT",
+      "rank": 43,
+      "date": "2026-11-10",
       "rating": 1581.6,
-      "lo": 1571.6,
-      "hi": 1591.6,
-      "votes": 4421
+      "lo": 1572.2,
+      "hi": 1591.0,
+      "votes": 4830
      },
      {
       "name": "DeepSeek-V4-Pro (High, 20260813)",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 42,
-      "date": "2026-11-09",
+      "rank": 44,
+      "date": "2026-11-10",
       "rating": 1581.2,
-      "lo": 1571.7,
+      "lo": 1571.6,
       "hi": 1590.7,
-      "votes": 4614
+      "votes": 4604
      },
      {
       "name": "GPT-6 Luna (Max)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 43,
-      "date": "2026-11-09",
-      "rating": 1578.2,
-      "lo": 1572.3,
-      "hi": 1584.2,
-      "votes": 29989
+      "rank": 45,
+      "date": "2026-11-10",
+      "rating": 1577.5,
+      "lo": 1571.5,
+      "hi": 1583.4,
+      "votes": 30498
      },
      {
       "name": "Step 5 Preview (High)",
       "org": "stepfun",
       "model_license": "Proprietary",
-      "rank": 44,
-      "date": "2026-11-09",
-      "rating": 1572.5,
-      "lo": 1564.2,
-      "hi": 1580.7,
-      "votes": 7267
+      "rank": 46,
+      "date": "2026-11-10",
+      "rating": 1573.4,
+      "lo": 1565.2,
+      "hi": 1581.5,
+      "votes": 7583
      },
      {
       "name": "Mistral Large 4",
       "org": "mistral",
       "model_license": "Modified MIT",
-      "rank": 45,
-      "date": "2026-11-09",
-      "rating": 1562.2,
-      "lo": 1545.4,
-      "hi": 1579.0,
-      "votes": 1409
+      "rank": 47,
+      "date": "2026-11-10",
+      "rating": 1564.5,
+      "lo": 1549.2,
+      "hi": 1579.7,
+      "votes": 1725
      },
      {
       "name": "Claude Opus 4.7 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 46,
-      "date": "2026-11-09",
-      "rating": 1557.2,
-      "lo": 1551.4,
-      "hi": 1563.0,
-      "votes": 17616
+      "rank": 48,
+      "date": "2026-11-10",
+      "rating": 1557.1,
+      "lo": 1551.3,
+      "hi": 1562.9,
+      "votes": 17604
      },
      {
       "name": "Claude Opus 4.8 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 47,
-      "date": "2026-11-09",
-      "rating": 1555.4,
+      "rank": 49,
+      "date": "2026-11-10",
+      "rating": 1555.5,
       "lo": 1549.7,
-      "hi": 1561.2,
-      "votes": 18061
+      "hi": 1561.3,
+      "votes": 18030
      },
      {
       "name": "Claude Opus 4.7",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 48,
-      "date": "2026-11-09",
-      "rating": 1555.4,
+      "rank": 50,
+      "date": "2026-11-10",
+      "rating": 1555.3,
       "lo": 1549.7,
       "hi": 1561.0,
-      "votes": 17957
+      "votes": 17929
      },
      {
       "name": "Grok 4.5",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 49,
-      "date": "2026-11-09",
+      "rank": 51,
+      "date": "2026-11-10",
       "rating": 1552.4,
       "lo": 1545.7,
       "hi": 1559.2,
-      "votes": 10815
+      "votes": 10800
      },
      {
       "name": "Claude Opus 4.6 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 50,
-      "date": "2026-11-09",
-      "rating": 1546.3,
-      "lo": 1540.8,
-      "hi": 1551.9,
-      "votes": 19080
+      "rank": 52,
+      "date": "2026-11-10",
+      "rating": 1546.6,
+      "lo": 1541.1,
+      "hi": 1552.1,
+      "votes": 19059
      },
      {
       "name": "Muse Spark 1.1",
       "org": "meta",
       "model_license": "Proprietary",
-      "rank": 51,
-      "date": "2026-11-09",
-      "rating": 1541.6,
-      "lo": 1533.9,
-      "hi": 1549.2,
-      "votes": 7850
+      "rank": 53,
+      "date": "2026-11-10",
+      "rating": 1541.5,
+      "lo": 1533.8,
+      "hi": 1549.1,
+      "votes": 7843
      },
      {
       "name": "Claude Sonnet 5 (High)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 52,
-      "date": "2026-11-09",
-      "rating": 1539.2,
-      "lo": 1533.4,
-      "hi": 1545.0,
-      "votes": 16802
+      "rank": 54,
+      "date": "2026-11-10",
+      "rating": 1539.0,
+      "lo": 1533.2,
+      "hi": 1544.8,
+      "votes": 16790
      },
      {
       "name": "Gemini 3.6 Flash (High)",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 53,
-      "date": "2026-11-09",
+      "rank": 55,
+      "date": "2026-11-10",
       "rating": 1537.9,
       "lo": 1530.3,
-      "hi": 1545.4,
-      "votes": 8538
+      "hi": 1545.5,
+      "votes": 8524
      },
      {
       "name": "Claude Opus 4.6",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 54,
-      "date": "2026-11-09",
-      "rating": 1536.8,
-      "lo": 1531.5,
-      "hi": 1542.2,
-      "votes": 20385
+      "rank": 56,
+      "date": "2026-11-10",
+      "rating": 1536.7,
+      "lo": 1531.3,
+      "hi": 1542.1,
+      "votes": 20368
      },
      {
       "name": "Claude Opus 4.8",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 55,
-      "date": "2026-11-09",
-      "rating": 1536.4,
-      "lo": 1530.6,
-      "hi": 1542.1,
-      "votes": 16993
+      "rank": 57,
+      "date": "2026-11-10",
+      "rating": 1536.3,
+      "lo": 1530.5,
+      "hi": 1542.0,
+      "votes": 16966
      },
      {
       "name": "Muse Spark 1.2 (xHigh)",
       "org": "meta",
       "model_license": "Proprietary",
-      "rank": 56,
-      "date": "2026-11-09",
+      "rank": 58,
+      "date": "2026-11-10",
       "rating": 1533.5,
       "lo": 1519.7,
       "hi": 1547.3,
-      "votes": 2121
+      "votes": 2120
      },
      {
       "name": "Muse Spark Open (Max)",
       "org": "meta",
       "model_license": "muse-model-license",
-      "rank": 57,
-      "date": "2026-11-09",
-      "rating": 1526.2,
-      "lo": 1511.0,
+      "rank": 59,
+      "date": "2026-11-10",
+      "rating": 1526.3,
+      "lo": 1511.3,
       "hi": 1541.3,
-      "votes": 1780
+      "votes": 1824
      },
      {
       "name": "Claude Sonnet 4.6",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 58,
-      "date": "2026-11-09",
-      "rating": 1522.0,
-      "lo": 1516.8,
-      "hi": 1527.2,
-      "votes": 22558
+      "rank": 60,
+      "date": "2026-11-10",
+      "rating": 1522.2,
+      "lo": 1517.0,
+      "hi": 1527.3,
+      "votes": 22548
      },
      {
       "name": "GPT-5.6 Terra (xHigh, Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 59,
-      "date": "2026-11-09",
+      "rank": 61,
+      "date": "2026-11-10",
       "rating": 1520.1,
       "lo": 1514.0,
-      "hi": 1526.1,
-      "votes": 15502
-     },
-     {
-      "name": "Seed2.1 Pro Preview",
-      "org": "bytedance",
-      "model_license": "Proprietary",
-      "rank": 60,
-      "date": "2026-11-09",
-      "rating": 1519.2,
-      "lo": 1513.6,
-      "hi": 1524.9,
-      "votes": 17367
+      "hi": 1526.2,
+      "votes": 15482
      },
      {
       "name": "GPT-5.6 Luna (xHigh, Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 61,
-      "date": "2026-11-09",
+      "rank": 62,
+      "date": "2026-11-10",
+      "rating": 1519.1,
+      "lo": 1512.6,
+      "hi": 1525.6,
+      "votes": 12222
+     },
+     {
+      "name": "Seed2.1 Pro Preview",
+      "org": "bytedance",
+      "model_license": "Proprietary",
+      "rank": 63,
+      "date": "2026-11-10",
       "rating": 1519.0,
-      "lo": 1512.5,
-      "hi": 1525.5,
-      "votes": 12231
+      "lo": 1513.4,
+      "hi": 1524.6,
+      "votes": 17655
      },
      {
       "name": "Qwen3.7-Max (20260517)",
       "org": "alibaba",
       "model_license": "Proprietary",
-      "rank": 62,
-      "date": "2026-11-09",
-      "rating": 1515.1,
-      "lo": 1507.7,
-      "hi": 1522.5,
-      "votes": 8751
+      "rank": 64,
+      "date": "2026-11-10",
+      "rating": 1515.0,
+      "lo": 1507.6,
+      "hi": 1522.4,
+      "votes": 8743
      },
      {
       "name": "GPT-5.5 (xHigh, Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 63,
-      "date": "2026-11-09",
-      "rating": 1511.9,
-      "lo": 1506.0,
-      "hi": 1517.9,
-      "votes": 15398
+      "rank": 65,
+      "date": "2026-11-10",
+      "rating": 1512.1,
+      "lo": 1506.1,
+      "hi": 1518.1,
+      "votes": 15381
      },
      {
       "name": "Kimi K2.6",
       "org": "moonshot",
       "model_license": "Modified MIT",
-      "rank": 64,
-      "date": "2026-11-09",
-      "rating": 1509.1,
-      "lo": 1501.8,
-      "hi": 1516.3,
-      "votes": 10016
+      "rank": 66,
+      "date": "2026-11-10",
+      "rating": 1509.2,
+      "lo": 1502.0,
+      "hi": 1516.5,
+      "votes": 10012
      },
      {
       "name": "GLM-5.1",
       "org": "zai",
       "model_license": "MIT",
-      "rank": 65,
-      "date": "2026-11-09",
+      "rank": 67,
+      "date": "2026-11-10",
       "rating": 1508.1,
-      "lo": 1501.3,
+      "lo": 1501.2,
       "hi": 1514.9,
-      "votes": 10543
+      "votes": 10531
      },
      {
       "name": "Hy3",
       "org": "tencent",
       "model_license": "Apache 2.0",
-      "rank": 66,
-      "date": "2026-11-09",
+      "rank": 68,
+      "date": "2026-11-10",
       "rating": 1505.7,
       "lo": 1497.8,
       "hi": 1513.6,
-      "votes": 7207
+      "votes": 7259
      },
      {
       "name": "Gemini 3.5 Flash (High)",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 67,
-      "date": "2026-11-09",
-      "rating": 1499.5,
-      "lo": 1492.2,
-      "hi": 1506.9,
-      "votes": 9167
+      "rank": 69,
+      "date": "2026-11-10",
+      "rating": 1499.7,
+      "lo": 1492.3,
+      "hi": 1507.0,
+      "votes": 9160
      },
      {
       "name": "Claude Opus 4.5 (High, 32K, 20251101)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 68,
-      "date": "2026-11-09",
+      "rank": 70,
+      "date": "2026-11-10",
       "rating": 1493.0,
       "lo": 1484.6,
       "hi": 1501.3,
-      "votes": 10930
+      "votes": 10925
      },
      {
       "name": "Gemini 3.5 Flash (Medium)",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 69,
-      "date": "2026-11-09",
-      "rating": 1489.6,
-      "lo": 1482.9,
-      "hi": 1496.3,
-      "votes": 11913
+      "rank": 71,
+      "date": "2026-11-10",
+      "rating": 1489.8,
+      "lo": 1483.1,
+      "hi": 1496.5,
+      "votes": 11899
      },
      {
       "name": "GPT-5.5 (High, Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 70,
-      "date": "2026-11-09",
-      "rating": 1487.2,
-      "lo": 1481.2,
-      "hi": 1493.1,
-      "votes": 17673
+      "rank": 72,
+      "date": "2026-11-10",
+      "rating": 1487.1,
+      "lo": 1481.1,
+      "hi": 1493.0,
+      "votes": 17653
      },
      {
       "name": "Spark-X2.6",
       "org": "synlan",
       "model_license": "Proprietary",
-      "rank": 71,
-      "date": "2026-11-09",
-      "rating": 1484.8,
-      "lo": 1465.6,
+      "rank": 73,
+      "date": "2026-11-10",
+      "rating": 1484.7,
+      "lo": 1465.5,
       "hi": 1504.0,
-      "votes": 1189
+      "votes": 1184
      },
      {
       "name": "MiniMax-M3",
       "org": "minimax",
       "model_license": "MiniMax Community License",
-      "rank": 72,
-      "date": "2026-11-09",
-      "rating": 1484.2,
-      "lo": 1478.8,
-      "hi": 1489.6,
-      "votes": 21077
+      "rank": 74,
+      "date": "2026-11-10",
+      "rating": 1483.9,
+      "lo": 1478.5,
+      "hi": 1489.3,
+      "votes": 21048
      },
      {
       "name": "Qwen3.6-Max-Preview",
       "org": "alibaba",
       "model_license": "Proprietary",
-      "rank": 73,
-      "date": "2026-11-09",
-      "rating": 1482.1,
-      "lo": 1469.5,
-      "hi": 1494.7,
-      "votes": 2677
+      "rank": 75,
+      "date": "2026-11-10",
+      "rating": 1482.2,
+      "lo": 1469.6,
+      "hi": 1494.8,
+      "votes": 2674
      },
      {
       "name": "MiMo-V2.5-Pro",
       "org": "xiaomi",
       "model_license": "MIT",
-      "rank": 74,
-      "date": "2026-11-09",
+      "rank": 76,
+      "date": "2026-11-10",
       "rating": 1479.1,
-      "lo": 1473.8,
-      "hi": 1484.3,
-      "votes": 22101
+      "lo": 1473.9,
+      "hi": 1484.4,
+      "votes": 22059
      },
      {
       "name": "Kimi K2.7 Code",
       "org": "moonshot",
       "model_license": "Modified MIT",
-      "rank": 75,
-      "date": "2026-11-09",
-      "rating": 1473.9,
-      "lo": 1464.4,
-      "hi": 1483.3,
-      "votes": 4891
+      "rank": 77,
+      "date": "2026-11-10",
+      "rating": 1474.3,
+      "lo": 1464.8,
+      "hi": 1483.7,
+      "votes": 4887
      },
      {
       "name": "Claude Opus 4.5 (20251101)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 76,
-      "date": "2026-11-09",
+      "rank": 78,
+      "date": "2026-11-10",
       "rating": 1468.6,
       "lo": 1461.3,
       "hi": 1475.8,
-      "votes": 13310
+      "votes": 13303
      },
      {
       "name": "DeepSeek-V4-Pro Preview (High)",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 77,
-      "date": "2026-11-09",
+      "rank": 79,
+      "date": "2026-11-10",
       "rating": 1463.3,
       "lo": 1456.9,
       "hi": 1469.6,
-      "votes": 12958
+      "votes": 12947
      },
      {
       "name": "GPT-5.4 (High, Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 78,
-      "date": "2026-11-09",
-      "rating": 1461.8,
-      "lo": 1442.9,
-      "hi": 1480.7,
-      "votes": 1340
+      "rank": 80,
+      "date": "2026-11-10",
+      "rating": 1461.9,
+      "lo": 1443.0,
+      "hi": 1480.9,
+      "votes": 1338
      },
      {
       "name": "Qwen3.6-Plus",
       "org": "alibaba",
       "model_license": "Proprietary",
-      "rank": 79,
-      "date": "2026-11-09",
-      "rating": 1461.4,
-      "lo": 1455.8,
-      "hi": 1467.0,
-      "votes": 18273
+      "rank": 81,
+      "date": "2026-11-10",
+      "rating": 1461.3,
+      "lo": 1455.7,
+      "hi": 1466.9,
+      "votes": 18263
      },
      {
       "name": "GPT-5.5 (Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 80,
-      "date": "2026-11-09",
+      "rank": 82,
+      "date": "2026-11-10",
       "rating": 1455.4,
       "lo": 1449.5,
       "hi": 1461.3,
-      "votes": 15634
+      "votes": 15613
      },
      {
       "name": "DeepSeek-V4-Pro",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 81,
-      "date": "2026-11-09",
+      "rank": 83,
+      "date": "2026-11-10",
       "rating": 1448.4,
       "lo": 1442.0,
-      "hi": 1454.7,
-      "votes": 13779
+      "hi": 1454.8,
+      "votes": 13769
      },
      {
       "name": "Gemini 3.1 Pro Preview",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 82,
-      "date": "2026-11-09",
-      "rating": 1446.4,
-      "lo": 1441.3,
-      "hi": 1451.5,
-      "votes": 23865
+      "rank": 84,
+      "date": "2026-11-10",
+      "rating": 1446.5,
+      "lo": 1441.4,
+      "hi": 1451.6,
+      "votes": 23846
      },
      {
       "name": "GPT-5.4 (Medium, Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 83,
-      "date": "2026-11-09",
-      "rating": 1442.0,
-      "lo": 1423.6,
-      "hi": 1460.4,
+      "rank": 85,
+      "date": "2026-11-10",
+      "rating": 1442.1,
+      "lo": 1423.7,
+      "hi": 1460.5,
       "votes": 1363
      },
      {
       "name": "Gemini 3 Pro",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 84,
-      "date": "2026-11-09",
+      "rank": 86,
+      "date": "2026-11-10",
       "rating": 1440.6,
-      "lo": 1432.2,
+      "lo": 1432.1,
       "hi": 1449.1,
-      "votes": 13937
+      "votes": 13929
      },
      {
       "name": "Gemini 3 Flash",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 85,
-      "date": "2026-11-09",
-      "rating": 1439.7,
-      "lo": 1431.0,
-      "hi": 1448.3,
-      "votes": 10793
-     },
-     {
-      "name": "Beam 1.0 501B A23B",
-      "org": "reflection",
-      "model_license": "Apache 2.0",
-      "rank": 86,
-      "date": "2026-11-09",
-      "rating": 1437.8,
-      "lo": 1424.2,
-      "hi": 1451.5,
-      "votes": 2521
+      "rank": 87,
+      "date": "2026-11-10",
+      "rating": 1439.5,
+      "lo": 1430.8,
+      "hi": 1448.2,
+      "votes": 10781
      },
      {
       "name": "MiMo-V2.5",
       "org": "xiaomi",
       "model_license": "MIT",
-      "rank": 87,
-      "date": "2026-11-09",
-      "rating": 1437.8,
-      "lo": 1431.8,
-      "hi": 1443.9,
-      "votes": 14646
+      "rank": 88,
+      "date": "2026-11-10",
+      "rating": 1437.6,
+      "lo": 1431.6,
+      "hi": 1443.7,
+      "votes": 14632
+     },
+     {
+      "name": "Beam 1.0 501B A23B",
+      "org": "reflection",
+      "model_license": "Apache 2.0",
+      "rank": 89,
+      "date": "2026-11-10",
+      "rating": 1436.6,
+      "lo": 1422.9,
+      "hi": 1450.2,
+      "votes": 2515
      },
      {
       "name": "Kimi K2.5 (Thinking)",
       "org": "moonshot",
       "model_license": "Modified MIT",
-      "rank": 88,
-      "date": "2026-11-09",
+      "rank": 90,
+      "date": "2026-11-10",
       "rating": 1436.2,
       "lo": 1431.0,
       "hi": 1441.5,
-      "votes": 19815
+      "votes": 19795
      },
      {
       "name": "Gemini 3.5 Flash-Lite",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 89,
-      "date": "2026-11-09",
+      "rank": 91,
+      "date": "2026-11-10",
       "rating": 1435.2,
       "lo": 1394.0,
       "hi": 1476.4,
@@ -42190,328 +42212,328 @@
       "name": "GLM-5",
       "org": "zai",
       "model_license": "MIT",
-      "rank": 90,
-      "date": "2026-11-09",
+      "rank": 92,
+      "date": "2026-11-10",
       "rating": 1435.2,
       "lo": 1427.0,
       "hi": 1443.4,
-      "votes": 7418
+      "votes": 7417
      },
      {
       "name": "GLM-4.7",
       "org": "zai",
       "model_license": "MIT",
-      "rank": 91,
-      "date": "2026-11-09",
-      "rating": 1434.9,
-      "lo": 1422.9,
-      "hi": 1447.0,
+      "rank": 93,
+      "date": "2026-11-10",
+      "rating": 1435.0,
+      "lo": 1423.0,
+      "hi": 1447.1,
       "votes": 3975
      },
      {
       "name": "MiMo-V2-Pro",
       "org": "xiaomi",
       "model_license": "Proprietary",
-      "rank": 92,
-      "date": "2026-11-09",
+      "rank": 94,
+      "date": "2026-11-10",
       "rating": 1434.1,
-      "lo": 1426.0,
+      "lo": 1425.9,
       "hi": 1442.3,
-      "votes": 7194
+      "votes": 7181
      },
      {
       "name": "DeepSeek-V4-Flash Preview (High)",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 93,
-      "date": "2026-11-09",
-      "rating": 1430.9,
-      "lo": 1423.9,
-      "hi": 1437.9,
-      "votes": 9986
+      "rank": 95,
+      "date": "2026-11-10",
+      "rating": 1430.7,
+      "lo": 1423.7,
+      "hi": 1437.7,
+      "votes": 9979
      },
      {
       "name": "GPT-5.2",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 94,
-      "date": "2026-11-09",
-      "rating": 1419.7,
-      "lo": 1396.9,
-      "hi": 1442.5,
+      "rank": 96,
+      "date": "2026-11-10",
+      "rating": 1419.8,
+      "lo": 1397.0,
+      "hi": 1442.6,
       "votes": 1065
      },
      {
       "name": "GPT-5 (Medium)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 95,
-      "date": "2026-11-09",
+      "rank": 97,
+      "date": "2026-11-10",
       "rating": 1416.7,
       "lo": 1401.0,
-      "hi": 1432.4,
-      "votes": 3036
+      "hi": 1432.3,
+      "votes": 3038
      },
      {
       "name": "Inkling",
       "org": "thinky",
       "model_license": "Apache 2.0",
-      "rank": 96,
-      "date": "2026-11-09",
-      "rating": 1414.2,
-      "lo": 1408.2,
+      "rank": 98,
+      "date": "2026-11-10",
+      "rating": 1414.1,
+      "lo": 1408.1,
       "hi": 1420.1,
-      "votes": 17206
+      "votes": 17180
      },
      {
       "name": "Inkling-Small",
       "org": "thinky",
       "model_license": "Apache 2.0",
-      "rank": 97,
-      "date": "2026-11-09",
-      "rating": 1407.3,
-      "lo": 1398.2,
-      "hi": 1416.5,
-      "votes": 5228
+      "rank": 99,
+      "date": "2026-11-10",
+      "rating": 1407.5,
+      "lo": 1398.3,
+      "hi": 1416.7,
+      "votes": 5220
      },
      {
       "name": "GPT-5.3-Codex (Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 98,
-      "date": "2026-11-09",
+      "rank": 100,
+      "date": "2026-11-10",
       "rating": 1405.7,
       "lo": 1392.0,
-      "hi": 1419.5,
-      "votes": 2630
+      "hi": 1419.4,
+      "votes": 2629
      },
      {
       "name": "Kimi K2.5 (Instant)",
       "org": "moonshot",
       "model_license": "Modified MIT",
-      "rank": 99,
-      "date": "2026-11-09",
-      "rating": 1405.5,
-      "lo": 1393.4,
-      "hi": 1417.6,
-      "votes": 3244
-     },
-     {
-      "name": "Qwen3.5-397B-A17B",
-      "org": "alibaba",
-      "model_license": "Apache 2.0",
-      "rank": 100,
-      "date": "2026-11-09",
-      "rating": 1400.1,
-      "lo": 1395.0,
-      "hi": 1405.3,
-      "votes": 20871
-     },
-     {
-      "name": "GPT-5.4",
-      "org": "openai",
-      "model_license": "Proprietary",
       "rank": 101,
-      "date": "2026-11-09",
-      "rating": 1399.5,
-      "lo": 1389.6,
-      "hi": 1409.3,
-      "votes": 4666
+      "date": "2026-11-10",
+      "rating": 1405.4,
+      "lo": 1393.2,
+      "hi": 1417.5,
+      "votes": 3242
      },
      {
       "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
       "org": "nvidia",
       "model_license": "OpenMDW-1.1",
       "rank": 102,
-      "date": "2026-11-09",
+      "date": "2026-11-10",
+      "rating": 1401.3,
+      "lo": 1390.5,
+      "hi": 1412.1,
+      "votes": 5056
+     },
+     {
+      "name": "Qwen3.5-397B-A17B",
+      "org": "alibaba",
+      "model_license": "Apache 2.0",
+      "rank": 103,
+      "date": "2026-11-10",
+      "rating": 1400.1,
+      "lo": 1394.9,
+      "hi": 1405.2,
+      "votes": 20848
+     },
+     {
+      "name": "GPT-5.4",
+      "org": "openai",
+      "model_license": "Proprietary",
+      "rank": 104,
+      "date": "2026-11-10",
       "rating": 1399.4,
-      "lo": 1388.2,
-      "hi": 1410.6,
-      "votes": 4660
+      "lo": 1389.5,
+      "hi": 1409.2,
+      "votes": 4659
      },
      {
       "name": "GLM-5V-Turbo",
       "org": "zai",
       "model_license": "Proprietary",
-      "rank": 103,
-      "date": "2026-11-09",
-      "rating": 1399.3,
-      "lo": 1386.0,
-      "hi": 1412.6,
+      "rank": 105,
+      "date": "2026-11-10",
+      "rating": 1398.9,
+      "lo": 1385.6,
+      "hi": 1412.2,
       "votes": 2375
      },
      {
       "name": "MiniMax-M2.7",
       "org": "minimax",
       "model_license": "Modified MIT",
-      "rank": 104,
-      "date": "2026-11-09",
-      "rating": 1397.7,
+      "rank": 106,
+      "date": "2026-11-10",
+      "rating": 1397.8,
       "lo": 1391.9,
-      "hi": 1403.5,
-      "votes": 15748
+      "hi": 1403.6,
+      "votes": 15728
      },
      {
       "name": "GPT-5.4 mini (High)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 105,
-      "date": "2026-11-09",
-      "rating": 1397.5,
-      "lo": 1391.0,
-      "hi": 1404.1,
-      "votes": 11823
+      "rank": 107,
+      "date": "2026-11-10",
+      "rating": 1397.7,
+      "lo": 1391.2,
+      "hi": 1404.3,
+      "votes": 11817
      },
      {
       "name": "GPT-5.1 (Medium)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 106,
-      "date": "2026-11-09",
-      "rating": 1397.1,
-      "lo": 1385.5,
-      "hi": 1408.7,
-      "votes": 4859
+      "rank": 108,
+      "date": "2026-11-10",
+      "rating": 1397.4,
+      "lo": 1385.8,
+      "hi": 1409.0,
+      "votes": 4857
      },
      {
       "name": "Claude Sonnet 4.5 (High, 32K, 20250929)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 107,
-      "date": "2026-11-09",
-      "rating": 1393.4,
-      "lo": 1385.6,
-      "hi": 1401.1,
-      "votes": 13102
+      "rank": 109,
+      "date": "2026-11-10",
+      "rating": 1393.5,
+      "lo": 1385.7,
+      "hi": 1401.2,
+      "votes": 13100
      },
      {
       "name": "Claude Opus 4.1 (20250805)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 108,
-      "date": "2026-11-09",
+      "rank": 110,
+      "date": "2026-11-10",
       "rating": 1389.4,
-      "lo": 1378.6,
+      "lo": 1378.7,
       "hi": 1400.2,
-      "votes": 6816
+      "votes": 6818
      },
      {
       "name": "MiniMax-M2.5",
       "org": "minimax",
       "model_license": "Modified MIT",
-      "rank": 109,
-      "date": "2026-11-09",
-      "rating": 1385.5,
+      "rank": 111,
+      "date": "2026-11-10",
+      "rating": 1385.6,
       "lo": 1377.2,
-      "hi": 1393.9,
-      "votes": 7576
+      "hi": 1394.0,
+      "votes": 7568
      },
      {
       "name": "Claude Sonnet 4.5 (20250929)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 110,
-      "date": "2026-11-09",
-      "rating": 1384.6,
-      "lo": 1377.2,
-      "hi": 1391.9,
-      "votes": 15553
-     },
-     {
-      "name": "Gemini 3 Flash (Minimal)",
-      "org": "google",
-      "model_license": "Proprietary",
-      "rank": 111,
-      "date": "2026-11-09",
-      "rating": 1384.3,
-      "lo": 1379.1,
-      "hi": 1389.6,
-      "votes": 21966
+      "rank": 112,
+      "date": "2026-11-10",
+      "rating": 1384.7,
+      "lo": 1377.4,
+      "hi": 1392.1,
+      "votes": 15547
      },
      {
       "name": "MiniMax-M2.1 Preview",
       "org": "minimax",
       "model_license": "MIT",
-      "rank": 112,
-      "date": "2026-11-09",
+      "rank": 113,
+      "date": "2026-11-10",
+      "rating": 1384.4,
+      "lo": 1374.8,
+      "hi": 1394.0,
+      "votes": 7578
+     },
+     {
+      "name": "Gemini 3 Flash (Minimal)",
+      "org": "google",
+      "model_license": "Proprietary",
+      "rank": 114,
+      "date": "2026-11-10",
       "rating": 1384.3,
-      "lo": 1374.7,
-      "hi": 1393.9,
-      "votes": 7581
+      "lo": 1379.0,
+      "hi": 1389.6,
+      "votes": 21950
      },
      {
       "name": "Grok 4.20 Beta (Reasoning, 0309)",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 113,
-      "date": "2026-11-09",
-      "rating": 1375.5,
-      "lo": 1369.4,
-      "hi": 1381.6,
-      "votes": 15278
+      "rank": 115,
+      "date": "2026-11-10",
+      "rating": 1375.4,
+      "lo": 1369.2,
+      "hi": 1381.5,
+      "votes": 15273
      },
      {
       "name": "GPT-5.3-Codex (Codex Harness)",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 114,
-      "date": "2026-11-09",
-      "rating": 1370.9,
-      "lo": 1359.6,
-      "hi": 1382.3,
-      "votes": 3631
+      "rank": 116,
+      "date": "2026-11-10",
+      "rating": 1371.0,
+      "lo": 1359.7,
+      "hi": 1382.4,
+      "votes": 3630
      },
      {
       "name": "Gemma 4 31B",
       "org": "google",
       "model_license": "Apache 2.0",
-      "rank": 115,
-      "date": "2026-11-09",
-      "rating": 1369.2,
-      "lo": 1363.1,
-      "hi": 1375.2,
-      "votes": 16251
+      "rank": 117,
+      "date": "2026-11-10",
+      "rating": 1369.9,
+      "lo": 1363.8,
+      "hi": 1375.9,
+      "votes": 16462
      },
      {
       "name": "Solar Pro 4",
       "org": "upstage",
       "model_license": "Proprietary",
-      "rank": 116,
-      "date": "2026-11-09",
-      "rating": 1369.0,
-      "lo": 1358.5,
-      "hi": 1379.5,
-      "votes": 4503
+      "rank": 118,
+      "date": "2026-11-10",
+      "rating": 1369.1,
+      "lo": 1358.6,
+      "hi": 1379.6,
+      "votes": 4501
      },
      {
       "name": "DeepSeek-V3.2 (Thinking)",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 117,
-      "date": "2026-11-09",
+      "rank": 119,
+      "date": "2026-11-10",
       "rating": 1362.5,
-      "lo": 1353.4,
-      "hi": 1371.7,
-      "votes": 6858
+      "lo": 1353.3,
+      "hi": 1371.6,
+      "votes": 6851
      },
      {
       "name": "Qwen3.5-122B-A10B",
       "org": "alibaba",
       "model_license": "Apache 2.0",
-      "rank": 118,
-      "date": "2026-11-09",
-      "rating": 1360.1,
-      "lo": 1352.4,
-      "hi": 1367.8,
-      "votes": 8190
+      "rank": 120,
+      "date": "2026-11-10",
+      "rating": 1360.0,
+      "lo": 1352.3,
+      "hi": 1367.7,
+      "votes": 8183
      },
      {
       "name": "Gemma 4 26B A4B",
       "org": "google",
       "model_license": "Apache 2.0",
-      "rank": 119,
-      "date": "2026-11-09",
-      "rating": 1358.4,
+      "rank": 121,
+      "date": "2026-11-10",
+      "rating": 1358.5,
       "lo": 1341.5,
       "hi": 1375.4,
       "votes": 1492
@@ -42520,175 +42542,175 @@
       "name": "Hy3 preview",
       "org": "tencent",
       "model_license": "tencent-hunyuan-community",
-      "rank": 120,
-      "date": "2026-11-09",
-      "rating": 1358.2,
-      "lo": 1340.7,
-      "hi": 1375.7,
-      "votes": 1424
+      "rank": 122,
+      "date": "2026-11-10",
+      "rating": 1358.1,
+      "lo": 1340.6,
+      "hi": 1375.6,
+      "votes": 1425
      },
      {
       "name": "Grok 4.3",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 121,
-      "date": "2026-11-09",
-      "rating": 1357.5,
-      "lo": 1351.2,
+      "rank": 123,
+      "date": "2026-11-10",
+      "rating": 1357.4,
+      "lo": 1351.1,
       "hi": 1363.7,
-      "votes": 14694
+      "votes": 14690
      },
      {
       "name": "Qwen3.5-27B",
       "org": "alibaba",
       "model_license": "Apache 2.0",
-      "rank": 122,
-      "date": "2026-11-09",
-      "rating": 1357.1,
-      "lo": 1349.0,
-      "hi": 1365.2,
-      "votes": 7738
+      "rank": 124,
+      "date": "2026-11-10",
+      "rating": 1357.2,
+      "lo": 1349.2,
+      "hi": 1365.3,
+      "votes": 7739
      },
      {
       "name": "Muse Glimmer",
       "org": "meta",
       "model_license": "Apache-2.0",
-      "rank": 123,
-      "date": "2026-11-09",
-      "rating": 1354.6,
-      "lo": 1338.9,
-      "hi": 1370.2,
-      "votes": 1634
+      "rank": 125,
+      "date": "2026-11-10",
+      "rating": 1354.7,
+      "lo": 1339.0,
+      "hi": 1370.4,
+      "votes": 1630
      },
      {
       "name": "Laguna M.1",
       "org": "poolside",
       "model_license": "Apache 2.0",
-      "rank": 124,
-      "date": "2026-11-09",
-      "rating": 1349.4,
-      "lo": 1340.1,
-      "hi": 1358.7,
-      "votes": 5319
-     },
-     {
-      "name": "GPT-5.1",
-      "org": "openai",
-      "model_license": "Proprietary",
-      "rank": 125,
-      "date": "2026-11-09",
-      "rating": 1342.2,
-      "lo": 1333.6,
-      "hi": 1350.7,
-      "votes": 10600
+      "rank": 126,
+      "date": "2026-11-10",
+      "rating": 1349.6,
+      "lo": 1340.2,
+      "hi": 1358.9,
+      "votes": 5310
      },
      {
       "name": "GLM-4.6",
       "org": "zai",
       "model_license": "MIT",
-      "rank": 126,
-      "date": "2026-11-09",
-      "rating": 1342.1,
-      "lo": 1331.2,
-      "hi": 1353.0,
+      "rank": 127,
+      "date": "2026-11-10",
+      "rating": 1342.2,
+      "lo": 1331.4,
+      "hi": 1353.1,
       "votes": 6680
+     },
+     {
+      "name": "GPT-5.1",
+      "org": "openai",
+      "model_license": "Proprietary",
+      "rank": 128,
+      "date": "2026-11-10",
+      "rating": 1342.2,
+      "lo": 1333.6,
+      "hi": 1350.7,
+      "votes": 10598
      },
      {
       "name": "GPT-5.2-Codex",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 127,
-      "date": "2026-11-09",
-      "rating": 1338.3,
-      "lo": 1329.3,
-      "hi": 1347.3,
-      "votes": 6669
+      "rank": 129,
+      "date": "2026-11-10",
+      "rating": 1338.5,
+      "lo": 1329.5,
+      "hi": 1347.4,
+      "votes": 6664
      },
      {
       "name": "GPT-5.1-Codex",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 128,
-      "date": "2026-11-09",
-      "rating": 1337.6,
-      "lo": 1326.0,
-      "hi": 1349.3,
-      "votes": 4941
+      "rank": 130,
+      "date": "2026-11-10",
+      "rating": 1338.1,
+      "lo": 1326.4,
+      "hi": 1349.8,
+      "votes": 4938
      },
      {
       "name": "MiMo-V2-Flash (Non-Thinking)",
       "org": "xiaomi",
       "model_license": "MIT",
-      "rank": 129,
-      "date": "2026-11-09",
-      "rating": 1331.1,
-      "lo": 1321.3,
-      "hi": 1340.9,
-      "votes": 5647
+      "rank": 131,
+      "date": "2026-11-10",
+      "rating": 1331.0,
+      "lo": 1321.2,
+      "hi": 1340.8,
+      "votes": 5644
      },
      {
       "name": "Claude Haiku 4.5 (20251001)",
       "org": "anthropic",
       "model_license": "Proprietary",
-      "rank": 130,
-      "date": "2026-11-09",
-      "rating": 1330.1,
-      "lo": 1325.1,
-      "hi": 1335.0,
-      "votes": 28706
+      "rank": 132,
+      "date": "2026-11-10",
+      "rating": 1330.2,
+      "lo": 1325.3,
+      "hi": 1335.2,
+      "votes": 28691
      },
      {
       "name": "DeepSeek-V3.2",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 131,
-      "date": "2026-11-09",
-      "rating": 1325.7,
-      "lo": 1317.7,
+      "rank": 133,
+      "date": "2026-11-10",
+      "rating": 1325.6,
+      "lo": 1317.6,
       "hi": 1333.7,
-      "votes": 9302
+      "votes": 9301
      },
      {
       "name": "Kimi K2 Thinking Turbo",
       "org": "moonshot",
       "model_license": "Modified MIT",
-      "rank": 132,
-      "date": "2026-11-09",
-      "rating": 1321.4,
-      "lo": 1313.9,
-      "hi": 1328.9,
-      "votes": 12962
+      "rank": 134,
+      "date": "2026-11-10",
+      "rating": 1321.5,
+      "lo": 1314.0,
+      "hi": 1329.0,
+      "votes": 12957
      },
      {
       "name": "Laguna XS.2",
       "org": "poolside",
       "model_license": "Apache 2.0",
-      "rank": 133,
-      "date": "2026-11-09",
+      "rank": 135,
+      "date": "2026-11-10",
       "rating": 1303.2,
       "lo": 1292.4,
       "hi": 1313.9,
-      "votes": 4166
+      "votes": 4165
      },
      {
       "name": "MiniMax-M2",
       "org": "minimax",
       "model_license": "Apache 2.0",
-      "rank": 134,
-      "date": "2026-11-09",
-      "rating": 1298.9,
-      "lo": 1287.9,
-      "hi": 1309.9,
-      "votes": 6606
+      "rank": 136,
+      "date": "2026-11-10",
+      "rating": 1299.1,
+      "lo": 1288.0,
+      "hi": 1310.1,
+      "votes": 6599
      },
      {
       "name": "MiMo-V2-Flash (Thinking)",
       "org": "xiaomi",
       "model_license": "MIT",
-      "rank": 135,
-      "date": "2026-11-09",
+      "rank": 137,
+      "date": "2026-11-10",
       "rating": 1291.9,
-      "lo": 1275.4,
+      "lo": 1275.3,
       "hi": 1308.4,
       "votes": 1668
      },
@@ -42696,85 +42718,85 @@
       "name": "Qwen3-Coder-480B-A35B-Instruct",
       "org": "alibaba",
       "model_license": "Apache 2.0",
-      "rank": 136,
-      "date": "2026-11-09",
-      "rating": 1274.6,
+      "rank": 138,
+      "date": "2026-11-10",
+      "rating": 1274.5,
       "lo": 1266.7,
       "hi": 1282.4,
-      "votes": 12576
+      "votes": 12577
      },
      {
       "name": "DeepSeek-V3.2-Exp",
       "org": "deepseek",
       "model_license": "MIT",
-      "rank": 137,
-      "date": "2026-11-09",
-      "rating": 1270.3,
-      "lo": 1256.7,
-      "hi": 1283.9,
+      "rank": 139,
+      "date": "2026-11-10",
+      "rating": 1270.4,
+      "lo": 1256.8,
+      "hi": 1284.0,
       "votes": 3902
      },
      {
       "name": "Mistral Medium 3.5",
       "org": "mistral",
       "model_license": "Modified MIT",
-      "rank": 138,
-      "date": "2026-11-09",
-      "rating": 1262.5,
-      "lo": 1247.6,
-      "hi": 1277.4,
-      "votes": 2287
+      "rank": 140,
+      "date": "2026-11-10",
+      "rating": 1263.0,
+      "lo": 1248.2,
+      "hi": 1277.9,
+      "votes": 2280
      },
      {
       "name": "KAT-Coder-Pro V1",
       "org": "",
       "model_license": "Proprietary",
-      "rank": 139,
-      "date": "2026-11-09",
-      "rating": 1257.2,
-      "lo": 1237.7,
-      "hi": 1276.8,
-      "votes": 1493
+      "rank": 141,
+      "date": "2026-11-10",
+      "rating": 1257.7,
+      "lo": 1238.1,
+      "hi": 1277.2,
+      "votes": 1492
      },
      {
       "name": "Gemini 3.1 Flash-Lite Preview",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 140,
-      "date": "2026-11-09",
+      "rank": 142,
+      "date": "2026-11-10",
       "rating": 1255.6,
       "lo": 1248.7,
-      "hi": 1262.5,
-      "votes": 14259
+      "hi": 1262.4,
+      "votes": 14245
      },
      {
       "name": "Qwen3.5-35B-A3B",
       "org": "alibaba",
       "model_license": "Apache 2.0",
-      "rank": 141,
-      "date": "2026-11-09",
-      "rating": 1252.7,
-      "lo": 1235.2,
-      "hi": 1270.2,
-      "votes": 1613
+      "rank": 143,
+      "date": "2026-11-10",
+      "rating": 1252.8,
+      "lo": 1235.3,
+      "hi": 1270.3,
+      "votes": 1612
      },
      {
       "name": "GPT-5.1-Codex-Mini",
       "org": "openai",
       "model_license": "Proprietary",
-      "rank": 142,
-      "date": "2026-11-09",
-      "rating": 1244.4,
-      "lo": 1222.1,
-      "hi": 1266.7,
-      "votes": 1123
+      "rank": 144,
+      "date": "2026-11-10",
+      "rating": 1245.0,
+      "lo": 1222.7,
+      "hi": 1267.3,
+      "votes": 1125
      },
      {
       "name": "Qwen3.5-Flash",
       "org": "alibaba",
       "model_license": "Proprietary",
-      "rank": 143,
-      "date": "2026-11-09",
+      "rank": 145,
+      "date": "2026-11-10",
       "rating": 1243.5,
       "lo": 1223.8,
       "hi": 1263.2,
@@ -42784,63 +42806,63 @@
       "name": "Grok 4.1 Fast (Reasoning)",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 144,
-      "date": "2026-11-09",
-      "rating": 1241.7,
+      "rank": 146,
+      "date": "2026-11-10",
+      "rating": 1241.8,
       "lo": 1230.6,
-      "hi": 1252.9,
-      "votes": 5437
+      "hi": 1253.0,
+      "votes": 5435
      },
      {
       "name": "Trinity Large Thinking",
       "org": "",
       "model_license": "Apache 2.0",
-      "rank": 145,
-      "date": "2026-11-09",
+      "rank": 147,
+      "date": "2026-11-10",
       "rating": 1236.4,
-      "lo": 1216.3,
-      "hi": 1256.4,
+      "lo": 1216.4,
+      "hi": 1256.5,
       "votes": 1350
      },
      {
       "name": "Mistral Large 3",
       "org": "mistral",
       "model_license": "Apache 2.0",
-      "rank": 146,
-      "date": "2026-11-09",
-      "rating": 1233.1,
-      "lo": 1207.2,
-      "hi": 1259.0,
+      "rank": 148,
+      "date": "2026-11-10",
+      "rating": 1233.3,
+      "lo": 1207.4,
+      "hi": 1259.2,
       "votes": 816
      },
      {
       "name": "Gemini 2.5 Pro",
       "org": "google",
       "model_license": "Proprietary",
-      "rank": 147,
-      "date": "2026-11-09",
+      "rank": 149,
+      "date": "2026-11-10",
       "rating": 1227.5,
-      "lo": 1211.5,
-      "hi": 1243.4,
-      "votes": 2676
+      "lo": 1211.6,
+      "hi": 1243.5,
+      "votes": 2677
      },
      {
       "name": "Grok 4.1 (Thinking)",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 148,
-      "date": "2026-11-09",
-      "rating": 1216.6,
-      "lo": 1191.7,
-      "hi": 1241.5,
+      "rank": 150,
+      "date": "2026-11-10",
+      "rating": 1216.7,
+      "lo": 1191.8,
+      "hi": 1241.7,
       "votes": 955
      },
      {
       "name": "Devstral 2",
       "org": "mistral",
       "model_license": "Modified MIT",
-      "rank": 149,
-      "date": "2026-11-09",
+      "rank": 151,
+      "date": "2026-11-10",
       "rating": 1195.5,
       "lo": 1174.7,
       "hi": 1216.3,
@@ -42850,55 +42872,55 @@
       "name": "Granite 4.1 8B",
       "org": "ibm",
       "model_license": "Apache 2.0",
-      "rank": 150,
-      "date": "2026-11-09",
+      "rank": 152,
+      "date": "2026-11-10",
       "rating": 1192.6,
       "lo": 1174.0,
-      "hi": 1211.2,
-      "votes": 1748
+      "hi": 1211.1,
+      "votes": 1749
      },
      {
       "name": "Mercury 2",
       "org": "inception-ai",
       "model_license": "Proprietary",
-      "rank": 151,
-      "date": "2026-11-09",
-      "rating": 1171.0,
-      "lo": 1146.3,
-      "hi": 1195.7,
-      "votes": 940
+      "rank": 153,
+      "date": "2026-11-10",
+      "rating": 1170.8,
+      "lo": 1146.0,
+      "hi": 1195.5,
+      "votes": 937
      },
      {
       "name": "Grok Code Fast 1",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 152,
-      "date": "2026-11-09",
-      "rating": 1163.9,
-      "lo": 1135.2,
-      "hi": 1192.6,
+      "rank": 154,
+      "date": "2026-11-10",
+      "rating": 1164.0,
+      "lo": 1135.3,
+      "hi": 1192.7,
       "votes": 770
      },
      {
       "name": "Grok 4 Fast (Reasoning)",
       "org": "xai",
       "model_license": "Proprietary",
-      "rank": 153,
-      "date": "2026-11-09",
-      "rating": 1163.0,
-      "lo": 1135.2,
-      "hi": 1190.7,
+      "rank": 155,
+      "date": "2026-11-10",
+      "rating": 1162.2,
+      "lo": 1134.4,
+      "hi": 1189.9,
       "votes": 715
      },
      {
       "name": "Devstral Medium (2507)",
       "org": "mistral",
       "model_license": "Proprietary",
-      "rank": 154,
-      "date": "2026-11-09",
-      "rating": 1071.8,
-      "lo": 1041.0,
-      "hi": 1102.5,
+      "rank": 156,
+      "date": "2026-11-10",
+      "rating": 1071.9,
+      "lo": 1041.1,
+      "hi": 1102.7,
       "votes": 833
      }
     ]
@@ -80198,7 +80220,6 @@
   },
   "webdev": {
    "dates": [
-    "2026-09-29",
     "2026-09-30",
     "2026-10-01",
     "2026-10-06",
@@ -80213,7 +80234,8 @@
     "2026-10-28",
     "2026-11-06",
     "2026-11-08",
-    "2026-11-09"
+    "2026-11-09",
+    "2026-11-10"
    ],
    "series": {
     "Beam 1.0 501B A23B": [
@@ -80251,6 +80273,11 @@
       "2026-11-09",
       1437.8,
       86
+     ],
+     [
+      "2026-11-10",
+      1436.6,
+      89
      ]
     ],
     "Claude Fable 5 (High)": [
@@ -80303,6 +80330,11 @@
       "2026-11-09",
       1625.2,
       25
+     ],
+     [
+      "2026-11-10",
+      1625.3,
+      26
      ]
     ],
     "Claude Fable 5.1 (Max)": [
@@ -80355,6 +80387,18 @@
       "2026-11-09",
       1744.6,
       5
+     ],
+     [
+      "2026-11-10",
+      1742.1,
+      7
+     ]
+    ],
+    "Claude Fable 5.2 (xHigh)": [
+     [
+      "2026-11-10",
+      1835.8,
+      1
      ]
     ],
     "Claude Haiku 4.5 (20251001)": [
@@ -80407,6 +80451,11 @@
       "2026-11-09",
       1330.1,
       130
+     ],
+     [
+      "2026-11-10",
+      1330.2,
+      132
      ]
     ],
     "Claude Haiku 5.5 (High)": [
@@ -80459,6 +80508,11 @@
       "2026-11-09",
       1595.1,
       36
+     ],
+     [
+      "2026-11-10",
+      1593.8,
+      38
      ]
     ],
     "Claude Opus 4.1 (20250805)": [
@@ -80511,6 +80565,11 @@
       "2026-11-09",
       1389.4,
       108
+     ],
+     [
+      "2026-11-10",
+      1389.4,
+      110
      ]
     ],
     "Claude Opus 4.5 (20251101)": [
@@ -80563,6 +80622,11 @@
       "2026-11-09",
       1468.6,
       76
+     ],
+     [
+      "2026-11-10",
+      1468.6,
+      78
      ]
     ],
     "Claude Opus 4.5 (High, 32K, 20251101)": [
@@ -80615,6 +80679,11 @@
       "2026-11-09",
       1493.0,
       68
+     ],
+     [
+      "2026-11-10",
+      1493.0,
+      70
      ]
     ],
     "Claude Opus 4.6": [
@@ -80667,6 +80736,11 @@
       "2026-11-09",
       1536.8,
       54
+     ],
+     [
+      "2026-11-10",
+      1536.7,
+      56
      ]
     ],
     "Claude Opus 4.6 (High)": [
@@ -80719,6 +80793,11 @@
       "2026-11-09",
       1546.3,
       50
+     ],
+     [
+      "2026-11-10",
+      1546.6,
+      52
      ]
     ],
     "Claude Opus 4.7": [
@@ -80771,6 +80850,11 @@
       "2026-11-09",
       1555.4,
       48
+     ],
+     [
+      "2026-11-10",
+      1555.3,
+      50
      ]
     ],
     "Claude Opus 4.7 (High)": [
@@ -80823,6 +80907,11 @@
       "2026-11-09",
       1557.2,
       46
+     ],
+     [
+      "2026-11-10",
+      1557.1,
+      48
      ]
     ],
     "Claude Opus 4.8": [
@@ -80875,6 +80964,11 @@
       "2026-11-09",
       1536.4,
       55
+     ],
+     [
+      "2026-11-10",
+      1536.3,
+      57
      ]
     ],
     "Claude Opus 4.8 (High)": [
@@ -80927,6 +81021,11 @@
       "2026-11-09",
       1555.4,
       47
+     ],
+     [
+      "2026-11-10",
+      1555.5,
+      49
      ]
     ],
     "Claude Opus 5 (High)": [
@@ -80979,6 +81078,11 @@
       "2026-11-09",
       1656.6,
       18
+     ],
+     [
+      "2026-11-10",
+      1656.6,
+      19
      ]
     ],
     "Claude Opus 5 (Max)": [
@@ -81031,6 +81135,11 @@
       "2026-11-09",
       1690.8,
       9
+     ],
+     [
+      "2026-11-10",
+      1691.0,
+      10
      ]
     ],
     "Claude Opus 5.5 (Max)": [
@@ -81083,6 +81192,11 @@
       "2026-11-09",
       1817.7,
       1
+     ],
+     [
+      "2026-11-10",
+      1814.3,
+      2
      ]
     ],
     "Claude Sonnet 4.5 (20250929)": [
@@ -81135,6 +81249,11 @@
       "2026-11-09",
       1384.6,
       110
+     ],
+     [
+      "2026-11-10",
+      1384.7,
+      112
      ]
     ],
     "Claude Sonnet 4.5 (High, 32K, 20250929)": [
@@ -81187,6 +81306,11 @@
       "2026-11-09",
       1393.4,
       107
+     ],
+     [
+      "2026-11-10",
+      1393.5,
+      109
      ]
     ],
     "Claude Sonnet 4.6": [
@@ -81239,6 +81363,11 @@
       "2026-11-09",
       1522.0,
       58
+     ],
+     [
+      "2026-11-10",
+      1522.2,
+      60
      ]
     ],
     "Claude Sonnet 5 (High)": [
@@ -81291,6 +81420,11 @@
       "2026-11-09",
       1539.2,
       52
+     ],
+     [
+      "2026-11-10",
+      1539.0,
+      54
      ]
     ],
     "Claude Sonnet 5.5 (High)": [
@@ -81343,6 +81477,11 @@
       "2026-11-09",
       1713.2,
       8
+     ],
+     [
+      "2026-11-10",
+      1715.3,
+      9
      ]
     ],
     "Claude Sonnet 5.5 (xHigh)": [
@@ -81395,6 +81534,11 @@
       "2026-11-09",
       1774.3,
       2
+     ],
+     [
+      "2026-11-10",
+      1772.5,
+      3
      ]
     ],
     "DeepSeek-V3.2": [
@@ -81447,6 +81591,11 @@
       "2026-11-09",
       1325.7,
       131
+     ],
+     [
+      "2026-11-10",
+      1325.6,
+      133
      ]
     ],
     "DeepSeek-V3.2 (Thinking)": [
@@ -81499,6 +81648,11 @@
       "2026-11-09",
       1362.5,
       117
+     ],
+     [
+      "2026-11-10",
+      1362.5,
+      119
      ]
     ],
     "DeepSeek-V3.2-Exp": [
@@ -81551,6 +81705,11 @@
       "2026-11-09",
       1270.3,
       137
+     ],
+     [
+      "2026-11-10",
+      1270.4,
+      139
      ]
     ],
     "DeepSeek-V4-Flash (High)": [
@@ -81603,6 +81762,11 @@
       "2026-11-09",
       1581.8,
       40
+     ],
+     [
+      "2026-11-10",
+      1581.6,
+      43
      ]
     ],
     "DeepSeek-V4-Flash Preview (High)": [
@@ -81655,6 +81819,11 @@
       "2026-11-09",
       1430.9,
       93
+     ],
+     [
+      "2026-11-10",
+      1430.7,
+      95
      ]
     ],
     "DeepSeek-V4-Pro": [
@@ -81707,6 +81876,11 @@
       "2026-11-09",
       1448.4,
       81
+     ],
+     [
+      "2026-11-10",
+      1448.4,
+      83
      ]
     ],
     "DeepSeek-V4-Pro (High, 20260813)": [
@@ -81759,6 +81933,11 @@
       "2026-11-09",
       1581.2,
       42
+     ],
+     [
+      "2026-11-10",
+      1581.2,
+      44
      ]
     ],
     "DeepSeek-V4-Pro Preview (High)": [
@@ -81811,6 +81990,11 @@
       "2026-11-09",
       1463.3,
       77
+     ],
+     [
+      "2026-11-10",
+      1463.3,
+      79
      ]
     ],
     "DeepSeek-V4.1-Flash (Max)": [
@@ -81865,6 +82049,11 @@
       "2026-11-09",
       1620.7,
       29
+     ],
+     [
+      "2026-11-10",
+      1620.6,
+      30
      ]
     ],
     "DeepSeek-V4.1-Flash-20261017 (Max)": [
@@ -81912,6 +82101,11 @@
       "2026-11-09",
       1664.2,
       16
+     ],
+     [
+      "2026-11-10",
+      1663.6,
+      17
      ]
     ],
     "Devstral 2": [
@@ -81964,6 +82158,11 @@
       "2026-11-09",
       1195.5,
       149
+     ],
+     [
+      "2026-11-10",
+      1195.5,
+      151
      ]
     ],
     "Devstral Medium (2507)": [
@@ -82016,6 +82215,11 @@
       "2026-11-09",
       1071.8,
       154
+     ],
+     [
+      "2026-11-10",
+      1071.9,
+      156
      ]
     ],
     "GLM-4.6": [
@@ -82068,6 +82272,11 @@
       "2026-11-09",
       1342.1,
       126
+     ],
+     [
+      "2026-11-10",
+      1342.2,
+      127
      ]
     ],
     "GLM-4.7": [
@@ -82120,6 +82329,11 @@
       "2026-11-09",
       1434.9,
       91
+     ],
+     [
+      "2026-11-10",
+      1435.0,
+      93
      ]
     ],
     "GLM-5": [
@@ -82172,6 +82386,11 @@
       "2026-11-09",
       1435.2,
       90
+     ],
+     [
+      "2026-11-10",
+      1435.2,
+      92
      ]
     ],
     "GLM-5.1": [
@@ -82224,6 +82443,11 @@
       "2026-11-09",
       1508.1,
       65
+     ],
+     [
+      "2026-11-10",
+      1508.1,
+      67
      ]
     ],
     "GLM-5.2 (Max)": [
@@ -82276,6 +82500,11 @@
       "2026-11-09",
       1607.8,
       35
+     ],
+     [
+      "2026-11-10",
+      1607.8,
+      37
      ]
     ],
     "GLM-5.3 (Max)": [
@@ -82328,6 +82557,11 @@
       "2026-11-09",
       1622.2,
       28
+     ],
+     [
+      "2026-11-10",
+      1622.3,
+      29
      ]
     ],
     "GLM-5.3-Flash": [
@@ -82380,6 +82614,11 @@
       "2026-11-09",
       1608.6,
       33
+     ],
+     [
+      "2026-11-10",
+      1608.9,
+      35
      ]
     ],
     "GLM-5V-Turbo": [
@@ -82432,6 +82671,11 @@
       "2026-11-09",
       1399.3,
       103
+     ],
+     [
+      "2026-11-10",
+      1398.9,
+      105
      ]
     ],
     "GPT-5 (Medium)": [
@@ -82484,6 +82728,11 @@
       "2026-11-09",
       1416.7,
       95
+     ],
+     [
+      "2026-11-10",
+      1416.7,
+      97
      ]
     ],
     "GPT-5.1": [
@@ -82536,6 +82785,11 @@
       "2026-11-09",
       1342.2,
       125
+     ],
+     [
+      "2026-11-10",
+      1342.2,
+      128
      ]
     ],
     "GPT-5.1 (Medium)": [
@@ -82588,6 +82842,11 @@
       "2026-11-09",
       1397.1,
       106
+     ],
+     [
+      "2026-11-10",
+      1397.4,
+      108
      ]
     ],
     "GPT-5.1-Codex": [
@@ -82640,6 +82899,11 @@
       "2026-11-09",
       1337.6,
       128
+     ],
+     [
+      "2026-11-10",
+      1338.1,
+      130
      ]
     ],
     "GPT-5.1-Codex-Mini": [
@@ -82692,6 +82956,11 @@
       "2026-11-09",
       1244.4,
       142
+     ],
+     [
+      "2026-11-10",
+      1245.0,
+      144
      ]
     ],
     "GPT-5.2": [
@@ -82744,6 +83013,11 @@
       "2026-11-09",
       1419.7,
       94
+     ],
+     [
+      "2026-11-10",
+      1419.8,
+      96
      ]
     ],
     "GPT-5.2-Codex": [
@@ -82796,6 +83070,11 @@
       "2026-11-09",
       1338.3,
       127
+     ],
+     [
+      "2026-11-10",
+      1338.5,
+      129
      ]
     ],
     "GPT-5.3-Codex (Codex Harness)": [
@@ -82898,6 +83177,16 @@
       "2026-11-09",
       1370.9,
       114
+     ],
+     [
+      "2026-11-10",
+      1405.7,
+      100
+     ],
+     [
+      "2026-11-10",
+      1371.0,
+      116
      ]
     ],
     "GPT-5.4": [
@@ -82950,6 +83239,11 @@
       "2026-11-09",
       1399.5,
       101
+     ],
+     [
+      "2026-11-10",
+      1399.4,
+      104
      ]
     ],
     "GPT-5.4 (High, Codex Harness)": [
@@ -83002,6 +83296,11 @@
       "2026-11-09",
       1461.8,
       78
+     ],
+     [
+      "2026-11-10",
+      1461.9,
+      80
      ]
     ],
     "GPT-5.4 (Medium, Codex Harness)": [
@@ -83054,6 +83353,11 @@
       "2026-11-09",
       1442.0,
       83
+     ],
+     [
+      "2026-11-10",
+      1442.1,
+      85
      ]
     ],
     "GPT-5.4 mini (High)": [
@@ -83106,6 +83410,11 @@
       "2026-11-09",
       1397.5,
       105
+     ],
+     [
+      "2026-11-10",
+      1397.7,
+      107
      ]
     ],
     "GPT-5.5 (Codex Harness)": [
@@ -83158,6 +83467,11 @@
       "2026-11-09",
       1455.4,
       80
+     ],
+     [
+      "2026-11-10",
+      1455.4,
+      82
      ]
     ],
     "GPT-5.5 (High, Codex Harness)": [
@@ -83210,6 +83524,11 @@
       "2026-11-09",
       1487.2,
       70
+     ],
+     [
+      "2026-11-10",
+      1487.1,
+      72
      ]
     ],
     "GPT-5.5 (xHigh, Codex Harness)": [
@@ -83262,6 +83581,11 @@
       "2026-11-09",
       1511.9,
       63
+     ],
+     [
+      "2026-11-10",
+      1512.1,
+      65
      ]
     ],
     "GPT-5.6 Luna (xHigh, Codex Harness)": [
@@ -83314,6 +83638,11 @@
       "2026-11-09",
       1519.0,
       61
+     ],
+     [
+      "2026-11-10",
+      1519.1,
+      62
      ]
     ],
     "GPT-5.6 Sol (xHigh, Codex Harness)": [
@@ -83366,6 +83695,11 @@
       "2026-11-09",
       1615.3,
       32
+     ],
+     [
+      "2026-11-10",
+      1615.4,
+      33
      ]
     ],
     "GPT-5.6 Terra (xHigh, Codex Harness)": [
@@ -83418,6 +83752,11 @@
       "2026-11-09",
       1520.1,
       59
+     ],
+     [
+      "2026-11-10",
+      1520.1,
+      61
      ]
     ],
     "GPT-6 Astra (Max)": [
@@ -83470,6 +83809,11 @@
       "2026-11-09",
       1766.8,
       4
+     ],
+     [
+      "2026-11-10",
+      1764.4,
+      5
      ]
     ],
     "GPT-6 Luna (Max)": [
@@ -83522,6 +83866,11 @@
       "2026-11-09",
       1578.2,
       43
+     ],
+     [
+      "2026-11-10",
+      1577.5,
+      45
      ]
     ],
     "GPT-6 Sol (Max)": [
@@ -83574,6 +83923,11 @@
       "2026-11-09",
       1673.9,
       14
+     ],
+     [
+      "2026-11-10",
+      1673.0,
+      15
      ]
     ],
     "GPT-6.1 Sol (Max)": [
@@ -83626,6 +83980,11 @@
       "2026-11-09",
       1742.8,
       6
+     ],
+     [
+      "2026-11-10",
+      1743.0,
+      6
      ]
     ],
     "GPT-6.1 Terra (Max)": [
@@ -83653,6 +84012,11 @@
       "2026-11-09",
       1678.7,
       12
+     ],
+     [
+      "2026-11-10",
+      1678.5,
+      13
      ]
     ],
     "Gemini 2.5 Pro": [
@@ -83705,6 +84069,11 @@
       "2026-11-09",
       1227.5,
       147
+     ],
+     [
+      "2026-11-10",
+      1227.5,
+      149
      ]
     ],
     "Gemini 3 Flash": [
@@ -83757,6 +84126,11 @@
       "2026-11-09",
       1439.7,
       85
+     ],
+     [
+      "2026-11-10",
+      1439.5,
+      87
      ]
     ],
     "Gemini 3 Flash (Minimal)": [
@@ -83809,6 +84183,11 @@
       "2026-11-09",
       1384.3,
       111
+     ],
+     [
+      "2026-11-10",
+      1384.3,
+      114
      ]
     ],
     "Gemini 3 Pro": [
@@ -83861,6 +84240,11 @@
       "2026-11-09",
       1440.6,
       84
+     ],
+     [
+      "2026-11-10",
+      1440.6,
+      86
      ]
     ],
     "Gemini 3.1 Flash-Lite Preview": [
@@ -83913,6 +84297,11 @@
       "2026-11-09",
       1255.6,
       140
+     ],
+     [
+      "2026-11-10",
+      1255.6,
+      142
      ]
     ],
     "Gemini 3.1 Pro Preview": [
@@ -83965,6 +84354,11 @@
       "2026-11-09",
       1446.4,
       82
+     ],
+     [
+      "2026-11-10",
+      1446.5,
+      84
      ]
     ],
     "Gemini 3.5 Flash (High)": [
@@ -84017,6 +84411,11 @@
       "2026-11-09",
       1499.5,
       67
+     ],
+     [
+      "2026-11-10",
+      1499.7,
+      69
      ]
     ],
     "Gemini 3.5 Flash (Medium)": [
@@ -84069,6 +84468,11 @@
       "2026-11-09",
       1489.6,
       69
+     ],
+     [
+      "2026-11-10",
+      1489.8,
+      71
      ]
     ],
     "Gemini 3.5 Flash-Lite": [
@@ -84121,6 +84525,11 @@
       "2026-11-09",
       1435.2,
       89
+     ],
+     [
+      "2026-11-10",
+      1435.2,
+      91
      ]
     ],
     "Gemini 3.6 Flash (High)": [
@@ -84173,6 +84582,11 @@
       "2026-11-09",
       1537.9,
       53
+     ],
+     [
+      "2026-11-10",
+      1537.9,
+      55
      ]
     ],
     "Gemini 3.7 Flash (High)": [
@@ -84225,6 +84639,11 @@
       "2026-11-09",
       1588.2,
       38
+     ],
+     [
+      "2026-11-10",
+      1588.1,
+      40
      ]
     ],
     "Gemini 3.8 Flash (High)": [
@@ -84277,6 +84696,11 @@
       "2026-11-09",
       1583.8,
       39
+     ],
+     [
+      "2026-11-10",
+      1582.6,
+      42
      ]
     ],
     "Gemini 4 Argon (High)": [
@@ -84329,6 +84753,11 @@
       "2026-11-09",
       1682.6,
       11
+     ],
+     [
+      "2026-11-10",
+      1682.1,
+      12
      ]
     ],
     "Gemini 4 Carbon (High)": [
@@ -84351,6 +84780,11 @@
       "2026-11-09",
       1768.0,
       3
+     ],
+     [
+      "2026-11-10",
+      1768.2,
+      4
      ]
     ],
     "Gemma 4 26B A4B": [
@@ -84403,6 +84837,11 @@
       "2026-11-09",
       1358.4,
       119
+     ],
+     [
+      "2026-11-10",
+      1358.5,
+      121
      ]
     ],
     "Gemma 4 31B": [
@@ -84455,6 +84894,11 @@
       "2026-11-09",
       1369.2,
       115
+     ],
+     [
+      "2026-11-10",
+      1369.9,
+      117
      ]
     ],
     "Granite 4.1 8B": [
@@ -84507,6 +84951,11 @@
       "2026-11-09",
       1192.6,
       150
+     ],
+     [
+      "2026-11-10",
+      1192.6,
+      152
      ]
     ],
     "Grok 4 Fast (Reasoning)": [
@@ -84559,6 +85008,11 @@
       "2026-11-09",
       1163.0,
       153
+     ],
+     [
+      "2026-11-10",
+      1162.2,
+      155
      ]
     ],
     "Grok 4.1 (Thinking)": [
@@ -84611,6 +85065,11 @@
       "2026-11-09",
       1216.6,
       148
+     ],
+     [
+      "2026-11-10",
+      1216.7,
+      150
      ]
     ],
     "Grok 4.1 Fast (Reasoning)": [
@@ -84663,6 +85122,11 @@
       "2026-11-09",
       1241.7,
       144
+     ],
+     [
+      "2026-11-10",
+      1241.8,
+      146
      ]
     ],
     "Grok 4.20 Beta (Reasoning, 0309)": [
@@ -84715,6 +85179,11 @@
       "2026-11-09",
       1375.5,
       113
+     ],
+     [
+      "2026-11-10",
+      1375.4,
+      115
      ]
     ],
     "Grok 4.3": [
@@ -84767,6 +85236,11 @@
       "2026-11-09",
       1357.5,
       121
+     ],
+     [
+      "2026-11-10",
+      1357.4,
+      123
      ]
     ],
     "Grok 4.5": [
@@ -84819,6 +85293,11 @@
       "2026-11-09",
       1552.4,
       49
+     ],
+     [
+      "2026-11-10",
+      1552.4,
+      51
      ]
     ],
     "Grok 4.6 (High)": [
@@ -84871,6 +85350,11 @@
       "2026-11-09",
       1617.8,
       31
+     ],
+     [
+      "2026-11-10",
+      1618.0,
+      32
      ]
     ],
     "Grok 4.7 (xHigh)": [
@@ -84923,6 +85407,11 @@
       "2026-11-09",
       1639.4,
       22
+     ],
+     [
+      "2026-11-10",
+      1641.0,
+      23
      ]
     ],
     "Grok Code Fast 1": [
@@ -84975,6 +85464,11 @@
       "2026-11-09",
       1163.9,
       152
+     ],
+     [
+      "2026-11-10",
+      1164.0,
+      154
      ]
     ],
     "Hy3": [
@@ -85027,6 +85521,11 @@
       "2026-11-09",
       1505.7,
       66
+     ],
+     [
+      "2026-11-10",
+      1505.7,
+      68
      ]
     ],
     "Hy3 preview": [
@@ -85079,6 +85578,11 @@
       "2026-11-09",
       1358.2,
       120
+     ],
+     [
+      "2026-11-10",
+      1358.1,
+      122
      ]
     ],
     "Hy4 preview": [
@@ -85131,6 +85635,11 @@
       "2026-11-09",
       1631.5,
       24
+     ],
+     [
+      "2026-11-10",
+      1631.6,
+      25
      ]
     ],
     "Inkling": [
@@ -85183,6 +85692,11 @@
       "2026-11-09",
       1414.2,
       96
+     ],
+     [
+      "2026-11-10",
+      1414.1,
+      98
      ]
     ],
     "Inkling 2 Small": [
@@ -85200,14 +85714,14 @@
       "2026-11-09",
       1649.5,
       21
+     ],
+     [
+      "2026-11-10",
+      1646.2,
+      22
      ]
     ],
     "Inkling Small": [
-     [
-      "2026-09-29",
-      1408.1,
-      80
-     ],
      [
       "2026-09-30",
       1408.3,
@@ -85284,6 +85798,11 @@
       "2026-11-09",
       1407.3,
       97
+     ],
+     [
+      "2026-11-10",
+      1407.5,
+      99
      ]
     ],
     "KAT-Coder-Pro V1": [
@@ -85336,14 +85855,14 @@
       "2026-11-09",
       1257.2,
       139
+     ],
+     [
+      "2026-11-10",
+      1257.7,
+      141
      ]
     ],
     "KAT-Coder-Pro-V1": [
-     [
-      "2026-09-29",
-      1255.9,
-      121
-     ],
      [
       "2026-09-30",
       1255.3,
@@ -85420,6 +85939,11 @@
       "2026-11-09",
       1321.4,
       132
+     ],
+     [
+      "2026-11-10",
+      1321.5,
+      134
      ]
     ],
     "Kimi K2.5 (Instant)": [
@@ -85472,6 +85996,11 @@
       "2026-11-09",
       1405.5,
       99
+     ],
+     [
+      "2026-11-10",
+      1405.4,
+      101
      ]
     ],
     "Kimi K2.5 (Thinking)": [
@@ -85524,6 +86053,11 @@
       "2026-11-09",
       1436.2,
       88
+     ],
+     [
+      "2026-11-10",
+      1436.2,
+      90
      ]
     ],
     "Kimi K2.6": [
@@ -85576,6 +86110,11 @@
       "2026-11-09",
       1509.1,
       64
+     ],
+     [
+      "2026-11-10",
+      1509.2,
+      66
      ]
     ],
     "Kimi K2.7 Code": [
@@ -85628,6 +86167,11 @@
       "2026-11-09",
       1473.9,
       75
+     ],
+     [
+      "2026-11-10",
+      1474.3,
+      77
      ]
     ],
     "Kimi K3 (Max)": [
@@ -85680,6 +86224,11 @@
       "2026-11-09",
       1657.1,
       17
+     ],
+     [
+      "2026-11-10",
+      1657.9,
+      18
      ]
     ],
     "Kimi K3.1 Pro (Max)": [
@@ -85712,6 +86261,11 @@
       "2026-11-09",
       1687.8,
       10
+     ],
+     [
+      "2026-11-10",
+      1687.7,
+      11
      ]
     ],
     "Laguna M.1": [
@@ -85764,6 +86318,11 @@
       "2026-11-09",
       1349.4,
       124
+     ],
+     [
+      "2026-11-10",
+      1349.6,
+      126
      ]
     ],
     "Laguna XS.2": [
@@ -85816,6 +86375,11 @@
       "2026-11-09",
       1303.2,
       133
+     ],
+     [
+      "2026-11-10",
+      1303.2,
+      135
      ]
     ],
     "Mercury 2": [
@@ -85868,6 +86432,11 @@
       "2026-11-09",
       1171.0,
       151
+     ],
+     [
+      "2026-11-10",
+      1170.8,
+      153
      ]
     ],
     "MiMo-V2-Flash (Non-Thinking)": [
@@ -85920,6 +86489,11 @@
       "2026-11-09",
       1331.1,
       129
+     ],
+     [
+      "2026-11-10",
+      1331.0,
+      131
      ]
     ],
     "MiMo-V2-Flash (Thinking)": [
@@ -85972,6 +86546,11 @@
       "2026-11-09",
       1291.9,
       135
+     ],
+     [
+      "2026-11-10",
+      1291.9,
+      137
      ]
     ],
     "MiMo-V2-Pro": [
@@ -86024,6 +86603,11 @@
       "2026-11-09",
       1434.1,
       92
+     ],
+     [
+      "2026-11-10",
+      1434.1,
+      94
      ]
     ],
     "MiMo-V2.5": [
@@ -86076,6 +86660,11 @@
       "2026-11-09",
       1437.8,
       87
+     ],
+     [
+      "2026-11-10",
+      1437.6,
+      88
      ]
     ],
     "MiMo-V2.5-Pro": [
@@ -86128,6 +86717,11 @@
       "2026-11-09",
       1479.1,
       74
+     ],
+     [
+      "2026-11-10",
+      1479.1,
+      76
      ]
     ],
     "MiMo-V2.6-Flash": [
@@ -86180,6 +86774,11 @@
       "2026-11-09",
       1636.5,
       23
+     ],
+     [
+      "2026-11-10",
+      1637.6,
+      24
      ]
     ],
     "MiMo-V2.6-Pro": [
@@ -86231,6 +86830,11 @@
      [
       "2026-11-09",
       1623.9,
+      27
+     ],
+     [
+      "2026-11-10",
+      1624.3,
       27
      ]
     ],
@@ -86284,6 +86888,11 @@
       "2026-11-09",
       1298.9,
       134
+     ],
+     [
+      "2026-11-10",
+      1299.1,
+      136
      ]
     ],
     "MiniMax-M2.1 Preview": [
@@ -86336,6 +86945,11 @@
       "2026-11-09",
       1384.3,
       112
+     ],
+     [
+      "2026-11-10",
+      1384.4,
+      113
      ]
     ],
     "MiniMax-M2.5": [
@@ -86388,6 +87002,11 @@
       "2026-11-09",
       1385.5,
       109
+     ],
+     [
+      "2026-11-10",
+      1385.6,
+      111
      ]
     ],
     "MiniMax-M2.7": [
@@ -86440,6 +87059,11 @@
       "2026-11-09",
       1397.7,
       104
+     ],
+     [
+      "2026-11-10",
+      1397.8,
+      106
      ]
     ],
     "MiniMax-M3": [
@@ -86492,6 +87116,11 @@
       "2026-11-09",
       1484.2,
       72
+     ],
+     [
+      "2026-11-10",
+      1483.9,
+      74
      ]
     ],
     "MiniMax-M3.1-Flash": [
@@ -86533,6 +87162,11 @@
      [
       "2026-11-09",
       1581.6,
+      41
+     ],
+     [
+      "2026-11-10",
+      1584.5,
       41
      ]
     ],
@@ -86586,6 +87220,11 @@
       "2026-11-09",
       1233.1,
       146
+     ],
+     [
+      "2026-11-10",
+      1233.3,
+      148
      ]
     ],
     "Mistral Large 4": [
@@ -86638,6 +87277,11 @@
       "2026-11-09",
       1562.2,
       45
+     ],
+     [
+      "2026-11-10",
+      1564.5,
+      47
      ]
     ],
     "Mistral Medium 3.5": [
@@ -86690,6 +87334,11 @@
       "2026-11-09",
       1262.5,
       138
+     ],
+     [
+      "2026-11-10",
+      1263.0,
+      140
      ]
     ],
     "Muse Ember (Max)": [
@@ -86697,6 +87346,11 @@
       "2026-11-09",
       1608.1,
       34
+     ],
+     [
+      "2026-11-10",
+      1608.6,
+      36
      ]
     ],
     "Muse Glimmer": [
@@ -86749,6 +87403,11 @@
       "2026-11-09",
       1354.6,
       123
+     ],
+     [
+      "2026-11-10",
+      1354.7,
+      125
      ]
     ],
     "Muse Spark 1.1": [
@@ -86801,6 +87460,11 @@
       "2026-11-09",
       1541.6,
       51
+     ],
+     [
+      "2026-11-10",
+      1541.5,
+      53
      ]
     ],
     "Muse Spark 1.2 (xHigh)": [
@@ -86853,6 +87517,11 @@
       "2026-11-09",
       1533.5,
       56
+     ],
+     [
+      "2026-11-10",
+      1533.5,
+      58
      ]
     ],
     "Muse Spark 1.3 (Max)": [
@@ -86905,6 +87574,11 @@
       "2026-11-09",
       1654.3,
       19
+     ],
+     [
+      "2026-11-10",
+      1655.1,
+      20
      ]
     ],
     "Muse Spark 1.3 (xHigh)": [
@@ -86957,6 +87631,11 @@
       "2026-11-09",
       1620.5,
       30
+     ],
+     [
+      "2026-11-10",
+      1620.4,
+      31
      ]
     ],
     "Muse Spark Open (Max)": [
@@ -87009,6 +87688,11 @@
       "2026-11-09",
       1526.2,
       57
+     ],
+     [
+      "2026-11-10",
+      1526.3,
+      59
      ]
     ],
     "Muse Wonder (Max)": [
@@ -87061,6 +87745,11 @@
       "2026-11-09",
       1650.3,
       20
+     ],
+     [
+      "2026-11-10",
+      1648.6,
+      21
      ]
     ],
     "Muse Wonder Full (Max)": [
@@ -87103,6 +87792,11 @@
       "2026-11-09",
       1723.9,
       7
+     ],
+     [
+      "2026-11-10",
+      1723.4,
+      8
      ]
     ],
     "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)": [
@@ -87144,6 +87838,11 @@
      [
       "2026-11-09",
       1399.4,
+      102
+     ],
+     [
+      "2026-11-10",
+      1401.3,
       102
      ]
     ],
@@ -87197,6 +87896,11 @@
       "2026-11-09",
       1274.6,
       136
+     ],
+     [
+      "2026-11-10",
+      1274.5,
+      138
      ]
     ],
     "Qwen3.5-122B-A10B": [
@@ -87249,6 +87953,11 @@
       "2026-11-09",
       1360.1,
       118
+     ],
+     [
+      "2026-11-10",
+      1360.0,
+      120
      ]
     ],
     "Qwen3.5-27B": [
@@ -87301,6 +88010,11 @@
       "2026-11-09",
       1357.1,
       122
+     ],
+     [
+      "2026-11-10",
+      1357.2,
+      124
      ]
     ],
     "Qwen3.5-35B-A3B": [
@@ -87353,6 +88067,11 @@
       "2026-11-09",
       1252.7,
       141
+     ],
+     [
+      "2026-11-10",
+      1252.8,
+      143
      ]
     ],
     "Qwen3.5-397B-A17B": [
@@ -87405,6 +88124,11 @@
       "2026-11-09",
       1400.1,
       100
+     ],
+     [
+      "2026-11-10",
+      1400.1,
+      103
      ]
     ],
     "Qwen3.5-Flash": [
@@ -87457,6 +88181,11 @@
       "2026-11-09",
       1243.5,
       143
+     ],
+     [
+      "2026-11-10",
+      1243.5,
+      145
      ]
     ],
     "Qwen3.6-Max-Preview": [
@@ -87509,6 +88238,11 @@
       "2026-11-09",
       1482.1,
       73
+     ],
+     [
+      "2026-11-10",
+      1482.2,
+      75
      ]
     ],
     "Qwen3.6-Plus": [
@@ -87561,6 +88295,11 @@
       "2026-11-09",
       1461.4,
       79
+     ],
+     [
+      "2026-11-10",
+      1461.3,
+      81
      ]
     ],
     "Qwen3.7-Max (20260517)": [
@@ -87613,6 +88352,11 @@
       "2026-11-09",
       1515.1,
       62
+     ],
+     [
+      "2026-11-10",
+      1515.0,
+      64
      ]
     ],
     "Qwen3.8-27B": [
@@ -87665,6 +88409,11 @@
       "2026-11-09",
       1590.5,
       37
+     ],
+     [
+      "2026-11-10",
+      1590.2,
+      39
      ]
     ],
     "Qwen3.8-Flash-Next": [
@@ -87717,6 +88466,11 @@
       "2026-11-09",
       1624.5,
       26
+     ],
+     [
+      "2026-11-10",
+      1623.5,
+      28
      ]
     ],
     "Qwen3.8-Max": [
@@ -87769,6 +88523,11 @@
       "2026-11-09",
       1670.3,
       15
+     ],
+     [
+      "2026-11-10",
+      1670.3,
+      16
      ]
     ],
     "Qwen3.8-Max (0902)": [
@@ -87821,6 +88580,11 @@
       "2026-11-09",
       1676.7,
       13
+     ],
+     [
+      "2026-11-10",
+      1675.8,
+      14
      ]
     ],
     "Seed2.1 Pro Preview": [
@@ -87873,6 +88637,11 @@
       "2026-11-09",
       1519.2,
       60
+     ],
+     [
+      "2026-11-10",
+      1519.0,
+      63
      ]
     ],
     "Solar Pro 4": [
@@ -87925,6 +88694,11 @@
       "2026-11-09",
       1369.0,
       116
+     ],
+     [
+      "2026-11-10",
+      1369.1,
+      118
      ]
     ],
     "Spark-X2.6": [
@@ -87962,6 +88736,11 @@
       "2026-11-09",
       1484.8,
       71
+     ],
+     [
+      "2026-11-10",
+      1484.7,
+      73
      ]
     ],
     "Step 5 Preview (High)": [
@@ -88014,6 +88793,11 @@
       "2026-11-09",
       1572.5,
       44
+     ],
+     [
+      "2026-11-10",
+      1573.4,
+      46
      ]
     ],
     "Trinity Large Thinking": [
@@ -88066,6 +88850,18 @@
       "2026-11-09",
       1236.4,
       145
+     ],
+     [
+      "2026-11-10",
+      1236.4,
+      147
+     ]
+    ],
+    "U2 Flash": [
+     [
+      "2026-11-10",
+      1610.6,
+      34
      ]
     ],
     "beam-1.0-501b-a23b": [
@@ -88086,11 +88882,6 @@
      ]
     ],
     "claude-fable-5-high": [
-     [
-      "2026-09-29",
-      1625.9,
-      15
-     ],
      [
       "2026-09-30",
       1625.6,
@@ -88119,11 +88910,6 @@
     ],
     "claude-fable-5.1-max": [
      [
-      "2026-09-29",
-      1753.0,
-      3
-     ],
-     [
       "2026-09-30",
       1750.7,
       4
@@ -88150,11 +88936,6 @@
      ]
     ],
     "claude-haiku-4-5-20251001": [
-     [
-      "2026-09-29",
-      1329.5,
-      111
-     ],
      [
       "2026-09-30",
       1329.4,
@@ -88195,11 +88976,6 @@
     ],
     "claude-opus-4-1-20250805": [
      [
-      "2026-09-29",
-      1389.9,
-      89
-     ],
-     [
       "2026-09-30",
       1389.7,
       91
@@ -88226,11 +89002,6 @@
      ]
     ],
     "claude-opus-4-5-20251101": [
-     [
-      "2026-09-29",
-      1468.5,
-      59
-     ],
      [
       "2026-09-30",
       1468.4,
@@ -88259,11 +89030,6 @@
     ],
     "claude-opus-4-5-20251101-high-32k": [
      [
-      "2026-09-29",
-      1493.3,
-      52
-     ],
-     [
       "2026-09-30",
       1493.4,
       54
@@ -88290,11 +89056,6 @@
      ]
     ],
     "claude-opus-4-6": [
-     [
-      "2026-09-29",
-      1537.0,
-      38
-     ],
      [
       "2026-09-30",
       1537.1,
@@ -88323,11 +89084,6 @@
     ],
     "claude-opus-4-6-high": [
      [
-      "2026-09-29",
-      1546.0,
-      35
-     ],
-     [
       "2026-09-30",
       1546.1,
       37
@@ -88354,11 +89110,6 @@
      ]
     ],
     "claude-opus-4-7": [
-     [
-      "2026-09-29",
-      1555.8,
-      32
-     ],
      [
       "2026-09-30",
       1556.0,
@@ -88387,11 +89138,6 @@
     ],
     "claude-opus-4-7-high": [
      [
-      "2026-09-29",
-      1557.1,
-      31
-     ],
-     [
       "2026-09-30",
       1557.2,
       33
@@ -88418,11 +89164,6 @@
      ]
     ],
     "claude-opus-4-8": [
-     [
-      "2026-09-29",
-      1534.5,
-      40
-     ],
      [
       "2026-09-30",
       1534.1,
@@ -88451,11 +89192,6 @@
     ],
     "claude-opus-4-8-high": [
      [
-      "2026-09-29",
-      1555.5,
-      33
-     ],
-     [
       "2026-09-30",
       1556.0,
       35
@@ -88482,11 +89218,6 @@
      ]
     ],
     "claude-opus-5-high": [
-     [
-      "2026-09-29",
-      1659.8,
-      9
-     ],
      [
       "2026-09-30",
       1660.0,
@@ -88515,11 +89246,6 @@
     ],
     "claude-opus-5-max": [
      [
-      "2026-09-29",
-      1694.0,
-      5
-     ],
-     [
       "2026-09-30",
       1693.7,
       6
@@ -88546,11 +89272,6 @@
      ]
     ],
     "claude-opus-5.5-max": [
-     [
-      "2026-09-29",
-      1820.3,
-      1
-     ],
      [
       "2026-09-30",
       1817.8,
@@ -88579,11 +89300,6 @@
     ],
     "claude-sonnet-4-5-20250929": [
      [
-      "2026-09-29",
-      1383.9,
-      92
-     ],
-     [
       "2026-09-30",
       1384.1,
       94
@@ -88610,11 +89326,6 @@
      ]
     ],
     "claude-sonnet-4-5-20250929-high-32k": [
-     [
-      "2026-09-29",
-      1393.0,
-      88
-     ],
      [
       "2026-09-30",
       1393.1,
@@ -88643,11 +89354,6 @@
     ],
     "claude-sonnet-4-6": [
      [
-      "2026-09-29",
-      1521.4,
-      42
-     ],
-     [
       "2026-09-30",
       1521.6,
       44
@@ -88675,11 +89381,6 @@
     ],
     "claude-sonnet-5-high": [
      [
-      "2026-09-29",
-      1539.9,
-      37
-     ],
-     [
       "2026-09-30",
       1539.5,
       39
@@ -88706,11 +89407,6 @@
      ]
     ],
     "claude-sonnet-5.5-high": [
-     [
-      "2026-09-29",
-      1698.8,
-      4
-     ],
      [
       "2026-09-30",
       1708.7,
@@ -88761,11 +89457,6 @@
     ],
     "deepseek-v3.2": [
      [
-      "2026-09-29",
-      1325.0,
-      112
-     ],
-     [
       "2026-09-30",
       1324.9,
       114
@@ -88792,11 +89483,6 @@
      ]
     ],
     "deepseek-v3.2-exp": [
-     [
-      "2026-09-29",
-      1271.7,
-      118
-     ],
      [
       "2026-09-30",
       1271.9,
@@ -88825,11 +89511,6 @@
     ],
     "deepseek-v3.2-thinking": [
      [
-      "2026-09-29",
-      1361.7,
-      98
-     ],
-     [
       "2026-09-30",
       1361.6,
       100
@@ -88856,11 +89537,6 @@
      ]
     ],
     "deepseek-v4-flash-high": [
-     [
-      "2026-09-29",
-      1581.3,
-      29
-     ],
      [
       "2026-09-30",
       1581.0,
@@ -88889,11 +89565,6 @@
     ],
     "deepseek-v4-flash-high-preview": [
      [
-      "2026-09-29",
-      1430.0,
-      75
-     ],
-     [
       "2026-09-30",
       1430.3,
       77
@@ -88920,11 +89591,6 @@
      ]
     ],
     "deepseek-v4-pro": [
-     [
-      "2026-09-29",
-      1445.8,
-      65
-     ],
      [
       "2026-09-30",
       1446.2,
@@ -88953,11 +89619,6 @@
     ],
     "deepseek-v4-pro-high-20260813": [
      [
-      "2026-09-29",
-      1582.2,
-      27
-     ],
-     [
       "2026-09-30",
       1582.3,
       29
@@ -88984,11 +89645,6 @@
      ]
     ],
     "deepseek-v4-pro-high-preview": [
-     [
-      "2026-09-29",
-      1463.4,
-      61
-     ],
      [
       "2026-09-30",
       1463.4,
@@ -89017,11 +89673,6 @@
     ],
     "deepseek-v4.1-flash-max": [
      [
-      "2026-09-29",
-      1620.3,
-      18
-     ],
-     [
       "2026-09-30",
       1620.0,
       21
@@ -89048,11 +89699,6 @@
      ]
     ],
     "devstral-2": [
-     [
-      "2026-09-29",
-      1196.1,
-      130
-     ],
      [
       "2026-09-30",
       1196.1,
@@ -89081,11 +89727,6 @@
     ],
     "devstral-medium-2507": [
      [
-      "2026-09-29",
-      1075.9,
-      135
-     ],
-     [
       "2026-09-30",
       1075.9,
       137
@@ -89112,11 +89753,6 @@
      ]
     ],
     "gemini-2.5-pro": [
-     [
-      "2026-09-29",
-      1226.9,
-      128
-     ],
      [
       "2026-09-30",
       1226.8,
@@ -89145,11 +89781,6 @@
     ],
     "gemini-3-flash": [
      [
-      "2026-09-29",
-      1439.0,
-      69
-     ],
-     [
       "2026-09-30",
       1438.7,
       71
@@ -89176,11 +89807,6 @@
      ]
     ],
     "gemini-3-flash (thinking-minimal)": [
-     [
-      "2026-09-29",
-      1384.2,
-      91
-     ],
      [
       "2026-09-30",
       1384.1,
@@ -89209,11 +89835,6 @@
     ],
     "gemini-3-pro": [
      [
-      "2026-09-29",
-      1439.1,
-      68
-     ],
-     [
       "2026-09-30",
       1438.9,
       70
@@ -89240,11 +89861,6 @@
      ]
     ],
     "gemini-3.1-flash-lite-preview": [
-     [
-      "2026-09-29",
-      1255.9,
-      120
-     ],
      [
       "2026-09-30",
       1255.9,
@@ -89273,11 +89889,6 @@
     ],
     "gemini-3.1-pro-preview": [
      [
-      "2026-09-29",
-      1446.3,
-      64
-     ],
-     [
       "2026-09-30",
       1446.2,
       66
@@ -89304,11 +89915,6 @@
      ]
     ],
     "gemini-3.5-flash-high": [
-     [
-      "2026-09-29",
-      1499.1,
-      51
-     ],
      [
       "2026-09-30",
       1499.1,
@@ -89337,11 +89943,6 @@
     ],
     "gemini-3.5-flash-lite": [
      [
-      "2026-09-29",
-      1439.7,
-      67
-     ],
-     [
       "2026-09-30",
       1439.7,
       69
@@ -89368,11 +89969,6 @@
      ]
     ],
     "gemini-3.5-flash-medium": [
-     [
-      "2026-09-29",
-      1489.9,
-      53
-     ],
      [
       "2026-09-30",
       1489.9,
@@ -89401,11 +89997,6 @@
     ],
     "gemini-3.6-flash-high": [
      [
-      "2026-09-29",
-      1536.3,
-      39
-     ],
-     [
       "2026-09-30",
       1536.3,
       41
@@ -89433,11 +90024,6 @@
     ],
     "gemini-3.7-flash-high": [
      [
-      "2026-09-29",
-      1593.0,
-      24
-     ],
-     [
       "2026-09-30",
       1592.2,
       26
@@ -89464,11 +90050,6 @@
      ]
     ],
     "gemini-3.8-flash-high": [
-     [
-      "2026-09-29",
-      1581.4,
-      28
-     ],
      [
       "2026-09-30",
       1582.7,
@@ -89524,11 +90105,6 @@
     ],
     "gemma-4-26b-a4b": [
      [
-      "2026-09-29",
-      1358.5,
-      100
-     ],
-     [
       "2026-09-30",
       1358.5,
       102
@@ -89555,11 +90131,6 @@
      ]
     ],
     "gemma-4-31b": [
-     [
-      "2026-09-29",
-      1364.4,
-      97
-     ],
      [
       "2026-09-30",
       1364.7,
@@ -89588,11 +90159,6 @@
     ],
     "glm-4.6": [
      [
-      "2026-09-29",
-      1339.4,
-      107
-     ],
-     [
       "2026-09-30",
       1339.5,
       109
@@ -89619,11 +90185,6 @@
      ]
     ],
     "glm-4.7": [
-     [
-      "2026-09-29",
-      1434.6,
-      72
-     ],
      [
       "2026-09-30",
       1434.5,
@@ -89652,11 +90213,6 @@
     ],
     "glm-5": [
      [
-      "2026-09-29",
-      1433.9,
-      73
-     ],
-     [
       "2026-09-30",
       1434.0,
       75
@@ -89683,11 +90239,6 @@
      ]
     ],
     "glm-5.1": [
-     [
-      "2026-09-29",
-      1508.6,
-      50
-     ],
      [
       "2026-09-30",
       1508.5,
@@ -89716,11 +90267,6 @@
     ],
     "glm-5.2-max": [
      [
-      "2026-09-29",
-      1604.3,
-      23
-     ],
-     [
       "2026-09-30",
       1604.6,
       25
@@ -89747,11 +90293,6 @@
      ]
     ],
     "glm-5.3-flash": [
-     [
-      "2026-09-29",
-      1613.6,
-      22
-     ],
      [
       "2026-09-30",
       1614.8,
@@ -89780,11 +90321,6 @@
     ],
     "glm-5.3-max": [
      [
-      "2026-09-29",
-      1622.9,
-      17
-     ],
-     [
       "2026-09-30",
       1622.0,
       19
@@ -89811,11 +90347,6 @@
      ]
     ],
     "glm-5v-turbo": [
-     [
-      "2026-09-29",
-      1399.9,
-      82
-     ],
      [
       "2026-09-30",
       1399.8,
@@ -89844,11 +90375,6 @@
     ],
     "gpt-5-medium": [
      [
-      "2026-09-29",
-      1417.1,
-      76
-     ],
-     [
       "2026-09-30",
       1417.1,
       78
@@ -89875,11 +90401,6 @@
      ]
     ],
     "gpt-5.1": [
-     [
-      "2026-09-29",
-      1341.2,
-      106
-     ],
      [
       "2026-09-30",
       1341.0,
@@ -89908,11 +90429,6 @@
     ],
     "gpt-5.1-codex": [
      [
-      "2026-09-29",
-      1336.7,
-      109
-     ],
-     [
       "2026-09-30",
       1336.7,
       111
@@ -89939,11 +90455,6 @@
      ]
     ],
     "gpt-5.1-codex-mini": [
-     [
-      "2026-09-29",
-      1243.7,
-      123
-     ],
      [
       "2026-09-30",
       1243.6,
@@ -89972,11 +90483,6 @@
     ],
     "gpt-5.1-medium": [
      [
-      "2026-09-29",
-      1394.6,
-      87
-     ],
-     [
       "2026-09-30",
       1394.7,
       89
@@ -90003,11 +90509,6 @@
      ]
     ],
     "gpt-5.2": [
-     [
-      "2026-09-29",
-      1415.0,
-      77
-     ],
      [
       "2026-09-30",
       1415.5,
@@ -90036,11 +90537,6 @@
     ],
     "gpt-5.2-codex": [
      [
-      "2026-09-29",
-      1339.1,
-      108
-     ],
-     [
       "2026-09-30",
       1339.1,
       110
@@ -90067,16 +90563,6 @@
      ]
     ],
     "gpt-5.3-codex (codex-harness)": [
-     [
-      "2026-09-29",
-      1408.2,
-      79
-     ],
-     [
-      "2026-09-29",
-      1371.1,
-      95
-     ],
      [
       "2026-09-30",
       1408.1,
@@ -90130,11 +90616,6 @@
     ],
     "gpt-5.4": [
      [
-      "2026-09-29",
-      1395.1,
-      86
-     ],
-     [
       "2026-09-30",
       1394.9,
       88
@@ -90161,11 +90642,6 @@
      ]
     ],
     "gpt-5.4-high (codex-harness)": [
-     [
-      "2026-09-29",
-      1465.0,
-      60
-     ],
      [
       "2026-09-30",
       1465.3,
@@ -90194,11 +90670,6 @@
     ],
     "gpt-5.4-medium (codex-harness)": [
      [
-      "2026-09-29",
-      1443.4,
-      66
-     ],
-     [
       "2026-09-30",
       1443.4,
       68
@@ -90225,11 +90696,6 @@
      ]
     ],
     "gpt-5.4-mini-high": [
-     [
-      "2026-09-29",
-      1397.1,
-      84
-     ],
      [
       "2026-09-30",
       1396.9,
@@ -90258,11 +90724,6 @@
     ],
     "gpt-5.5 (codex-harness)": [
      [
-      "2026-09-29",
-      1455.8,
-      63
-     ],
-     [
       "2026-09-30",
       1455.3,
       65
@@ -90289,11 +90750,6 @@
      ]
     ],
     "gpt-5.5-high (codex-harness)": [
-     [
-      "2026-09-29",
-      1487.2,
-      54
-     ],
      [
       "2026-09-30",
       1487.0,
@@ -90322,11 +90778,6 @@
     ],
     "gpt-5.5-xhigh (codex-harness)": [
      [
-      "2026-09-29",
-      1512.4,
-      47
-     ],
-     [
       "2026-09-30",
       1512.1,
       49
@@ -90353,11 +90804,6 @@
      ]
     ],
     "gpt-5.6-luna-xhigh (codex-harness)": [
-     [
-      "2026-09-29",
-      1516.9,
-      45
-     ],
      [
       "2026-09-30",
       1517.9,
@@ -90386,11 +90832,6 @@
     ],
     "gpt-5.6-sol-xhigh (codex-harness)": [
      [
-      "2026-09-29",
-      1619.3,
-      20
-     ],
-     [
       "2026-09-30",
       1619.3,
       22
@@ -90417,11 +90858,6 @@
      ]
     ],
     "gpt-5.6-terra-xhigh (codex-harness)": [
-     [
-      "2026-09-29",
-      1519.7,
-      43
-     ],
      [
       "2026-09-30",
       1519.5,
@@ -90450,11 +90886,6 @@
     ],
     "gpt-6-astra-max": [
      [
-      "2026-09-29",
-      1792.0,
-      2
-     ],
-     [
       "2026-09-30",
       1789.1,
       2
@@ -90482,11 +90913,6 @@
     ],
     "gpt-6-luna-max": [
      [
-      "2026-09-29",
-      1583.3,
-      26
-     ],
-     [
       "2026-09-30",
       1581.9,
       30
@@ -90513,11 +90939,6 @@
      ]
     ],
     "gpt-6-sol-max": [
-     [
-      "2026-09-29",
-      1692.3,
-      6
-     ],
      [
       "2026-09-30",
       1689.3,
@@ -90573,11 +90994,6 @@
     ],
     "granite-4.1-8b": [
      [
-      "2026-09-29",
-      1190.2,
-      131
-     ],
-     [
       "2026-09-30",
       1190.8,
       133
@@ -90604,11 +91020,6 @@
      ]
     ],
     "grok-4-1-fast-reasoning": [
-     [
-      "2026-09-29",
-      1241.4,
-      125
-     ],
      [
       "2026-09-30",
       1241.4,
@@ -90637,11 +91048,6 @@
     ],
     "grok-4-fast-reasoning": [
      [
-      "2026-09-29",
-      1159.5,
-      134
-     ],
-     [
       "2026-09-30",
       1159.5,
       136
@@ -90668,11 +91074,6 @@
      ]
     ],
     "grok-4.1-thinking": [
-     [
-      "2026-09-29",
-      1213.9,
-      129
-     ],
      [
       "2026-09-30",
       1213.8,
@@ -90701,11 +91102,6 @@
     ],
     "grok-4.20-beta-0309-reasoning": [
      [
-      "2026-09-29",
-      1374.1,
-      94
-     ],
-     [
       "2026-09-30",
       1374.1,
       96
@@ -90732,11 +91128,6 @@
      ]
     ],
     "grok-4.3": [
-     [
-      "2026-09-29",
-      1356.5,
-      102
-     ],
      [
       "2026-09-30",
       1356.6,
@@ -90765,11 +91156,6 @@
     ],
     "grok-4.5": [
      [
-      "2026-09-29",
-      1551.9,
-      34
-     ],
-     [
       "2026-09-30",
       1552.0,
       36
@@ -90796,11 +91182,6 @@
      ]
     ],
     "grok-4.6-high": [
-     [
-      "2026-09-29",
-      1620.2,
-      19
-     ],
      [
       "2026-09-30",
       1620.1,
@@ -90829,11 +91210,6 @@
     ],
     "grok-4.7-xhigh": [
      [
-      "2026-09-29",
-      1636.3,
-      13
-     ],
-     [
       "2026-09-30",
       1636.3,
       15
@@ -90860,11 +91236,6 @@
      ]
     ],
     "grok-code-fast-1": [
-     [
-      "2026-09-29",
-      1167.1,
-      133
-     ],
      [
       "2026-09-30",
       1167.0,
@@ -90893,11 +91264,6 @@
     ],
     "hunyuan-hy3-preview": [
      [
-      "2026-09-29",
-      1355.6,
-      103
-     ],
-     [
       "2026-09-30",
       1355.8,
       105
@@ -90924,11 +91290,6 @@
      ]
     ],
     "hy3": [
-     [
-      "2026-09-29",
-      1508.6,
-      49
-     ],
      [
       "2026-09-30",
       1508.1,
@@ -90957,11 +91318,6 @@
     ],
     "hy4-preview": [
      [
-      "2026-09-29",
-      1633.0,
-      14
-     ],
-     [
       "2026-09-30",
       1633.2,
       16
@@ -90988,11 +91344,6 @@
      ]
     ],
     "inkling": [
-     [
-      "2026-09-29",
-      1412.0,
-      78
-     ],
      [
       "2026-09-30",
       1412.0,
@@ -91021,11 +91372,6 @@
     ],
     "kimi-k2-thinking-turbo": [
      [
-      "2026-09-29",
-      1321.5,
-      113
-     ],
-     [
       "2026-09-30",
       1321.4,
       115
@@ -91052,11 +91398,6 @@
      ]
     ],
     "kimi-k2.5-instant": [
-     [
-      "2026-09-29",
-      1403.6,
-      81
-     ],
      [
       "2026-09-30",
       1403.6,
@@ -91085,11 +91426,6 @@
     ],
     "kimi-k2.5-thinking": [
      [
-      "2026-09-29",
-      1435.7,
-      71
-     ],
-     [
       "2026-09-30",
       1435.8,
       73
@@ -91116,11 +91452,6 @@
      ]
     ],
     "kimi-k2.6": [
-     [
-      "2026-09-29",
-      1508.7,
-      48
-     ],
      [
       "2026-09-30",
       1508.7,
@@ -91149,11 +91480,6 @@
     ],
     "kimi-k2.7-code": [
      [
-      "2026-09-29",
-      1473.0,
-      58
-     ],
-     [
       "2026-09-30",
       1472.9,
       60
@@ -91180,11 +91506,6 @@
      ]
     ],
     "kimi-k3-max": [
-     [
-      "2026-09-29",
-      1658.5,
-      10
-     ],
      [
       "2026-09-30",
       1657.8,
@@ -91213,11 +91534,6 @@
     ],
     "laguna-m.1": [
      [
-      "2026-09-29",
-      1348.1,
-      105
-     ],
-     [
       "2026-09-30",
       1347.9,
       107
@@ -91244,11 +91560,6 @@
      ]
     ],
     "laguna-xs.2": [
-     [
-      "2026-09-29",
-      1301.9,
-      114
-     ],
      [
       "2026-09-30",
       1301.8,
@@ -91277,11 +91588,6 @@
     ],
     "mercury-2": [
      [
-      "2026-09-29",
-      1170.0,
-      132
-     ],
-     [
       "2026-09-30",
       1170.0,
       134
@@ -91308,11 +91614,6 @@
      ]
     ],
     "mimo-v2-flash (non-thinking)": [
-     [
-      "2026-09-29",
-      1329.6,
-      110
-     ],
      [
       "2026-09-30",
       1329.6,
@@ -91341,11 +91642,6 @@
     ],
     "mimo-v2-flash (thinking)": [
      [
-      "2026-09-29",
-      1292.1,
-      116
-     ],
-     [
       "2026-09-30",
       1292.0,
       118
@@ -91372,11 +91668,6 @@
      ]
     ],
     "mimo-v2-pro": [
-     [
-      "2026-09-29",
-      1432.8,
-      74
-     ],
      [
       "2026-09-30",
       1432.9,
@@ -91405,11 +91696,6 @@
     ],
     "mimo-v2.5": [
      [
-      "2026-09-29",
-      1437.7,
-      70
-     ],
-     [
       "2026-09-30",
       1437.7,
       72
@@ -91436,11 +91722,6 @@
      ]
     ],
     "mimo-v2.5-pro": [
-     [
-      "2026-09-29",
-      1476.9,
-      57
-     ],
      [
       "2026-09-30",
       1476.9,
@@ -91486,11 +91767,6 @@
     ],
     "mimo-v2.6-pro": [
      [
-      "2026-09-29",
-      1618.4,
-      21
-     ],
-     [
       "2026-09-30",
       1618.5,
       23
@@ -91517,11 +91793,6 @@
      ]
     ],
     "minimax-m2": [
-     [
-      "2026-09-29",
-      1296.7,
-      115
-     ],
      [
       "2026-09-30",
       1296.7,
@@ -91550,11 +91821,6 @@
     ],
     "minimax-m2.1-preview": [
      [
-      "2026-09-29",
-      1383.9,
-      93
-     ],
-     [
       "2026-09-30",
       1384.0,
       95
@@ -91581,11 +91847,6 @@
      ]
     ],
     "minimax-m2.5": [
-     [
-      "2026-09-29",
-      1386.2,
-      90
-     ],
      [
       "2026-09-30",
       1386.3,
@@ -91614,11 +91875,6 @@
     ],
     "minimax-m2.7": [
      [
-      "2026-09-29",
-      1397.0,
-      85
-     ],
-     [
       "2026-09-30",
       1397.1,
       86
@@ -91646,11 +91902,6 @@
     ],
     "minimax-m3": [
      [
-      "2026-09-29",
-      1482.4,
-      55
-     ],
-     [
       "2026-09-30",
       1482.4,
       57
@@ -91677,11 +91928,6 @@
      ]
     ],
     "mistral-large-3": [
-     [
-      "2026-09-29",
-      1229.9,
-      127
-     ],
      [
       "2026-09-30",
       1229.8,
@@ -91722,11 +91968,6 @@
     ],
     "mistral-medium-3.5": [
      [
-      "2026-09-29",
-      1263.2,
-      119
-     ],
-     [
       "2026-09-30",
       1263.1,
       121
@@ -91753,11 +91994,6 @@
      ]
     ],
     "muse-glimmer": [
-     [
-      "2026-09-29",
-      1354.9,
-      104
-     ],
      [
       "2026-09-30",
       1354.8,
@@ -91786,11 +92022,6 @@
     ],
     "muse-spark-1.1": [
      [
-      "2026-09-29",
-      1541.6,
-      36
-     ],
-     [
       "2026-09-30",
       1541.9,
       38
@@ -91817,11 +92048,6 @@
      ]
     ],
     "muse-spark-1.2 (xHigh)": [
-     [
-      "2026-09-29",
-      1531.6,
-      41
-     ],
      [
       "2026-09-30",
       1531.8,
@@ -91850,11 +92076,6 @@
     ],
     "muse-spark-1.3 (xHigh)": [
      [
-      "2026-09-29",
-      1623.2,
-      16
-     ],
-     [
       "2026-09-30",
       1623.3,
       18
@@ -91881,11 +92102,6 @@
      ]
     ],
     "muse-spark-1.3-max": [
-     [
-      "2026-09-29",
-      1654.7,
-      11
-     ],
      [
       "2026-09-30",
       1655.4,
@@ -91921,11 +92137,6 @@
     ],
     "qwen3-coder-480b-a35b-instruct": [
      [
-      "2026-09-29",
-      1274.5,
-      117
-     ],
-     [
       "2026-09-30",
       1274.3,
       119
@@ -91952,11 +92163,6 @@
      ]
     ],
     "qwen3.5-122b-a10b": [
-     [
-      "2026-09-29",
-      1360.0,
-      99
-     ],
      [
       "2026-09-30",
       1359.8,
@@ -91985,11 +92191,6 @@
     ],
     "qwen3.5-27b": [
      [
-      "2026-09-29",
-      1357.4,
-      101
-     ],
-     [
       "2026-09-30",
       1357.4,
       103
@@ -92016,11 +92217,6 @@
      ]
     ],
     "qwen3.5-35b-a3b": [
-     [
-      "2026-09-29",
-      1253.5,
-      122
-     ],
      [
       "2026-09-30",
       1253.5,
@@ -92049,11 +92245,6 @@
     ],
     "qwen3.5-397b-a17b": [
      [
-      "2026-09-29",
-      1399.6,
-      83
-     ],
-     [
       "2026-09-30",
       1399.6,
       85
@@ -92080,11 +92271,6 @@
      ]
     ],
     "qwen3.5-flash": [
-     [
-      "2026-09-29",
-      1243.2,
-      124
-     ],
      [
       "2026-09-30",
       1243.2,
@@ -92113,11 +92299,6 @@
     ],
     "qwen3.6-max-preview": [
      [
-      "2026-09-29",
-      1481.6,
-      56
-     ],
-     [
       "2026-09-30",
       1481.8,
       58
@@ -92144,11 +92325,6 @@
      ]
     ],
     "qwen3.6-plus": [
-     [
-      "2026-09-29",
-      1460.6,
-      62
-     ],
      [
       "2026-09-30",
       1460.6,
@@ -92177,11 +92353,6 @@
     ],
     "qwen3.7-max-20260517": [
      [
-      "2026-09-29",
-      1514.9,
-      46
-     ],
-     [
       "2026-09-30",
       1514.9,
       48
@@ -92208,11 +92379,6 @@
      ]
     ],
     "qwen3.8-27b": [
-     [
-      "2026-09-29",
-      1591.8,
-      25
-     ],
      [
       "2026-09-30",
       1590.4,
@@ -92241,11 +92407,6 @@
     ],
     "qwen3.8-flash-next": [
      [
-      "2026-09-29",
-      1636.5,
-      12
-     ],
-     [
       "2026-09-30",
       1637.8,
       14
@@ -92272,11 +92433,6 @@
      ]
     ],
     "qwen3.8-max": [
-     [
-      "2026-09-29",
-      1671.0,
-      7
-     ],
      [
       "2026-09-30",
       1671.2,
@@ -92305,11 +92461,6 @@
     ],
     "qwen3.8-max-0902": [
      [
-      "2026-09-29",
-      1670.6,
-      8
-     ],
-     [
       "2026-09-30",
       1669.7,
       10
@@ -92336,11 +92487,6 @@
      ]
     ],
     "seed-2.1-pro-preview": [
-     [
-      "2026-09-29",
-      1517.3,
-      44
-     ],
      [
       "2026-09-30",
       1517.0,
@@ -92369,11 +92515,6 @@
     ],
     "solar-pro4": [
      [
-      "2026-09-29",
-      1370.9,
-      96
-     ],
-     [
       "2026-09-30",
       1370.3,
       98
@@ -92400,11 +92541,6 @@
      ]
     ],
     "step-5-preview-high": [
-     [
-      "2026-09-29",
-      1568.8,
-      30
-     ],
      [
       "2026-09-30",
       1569.6,
@@ -92433,11 +92569,6 @@
     ],
     "trinity-large-thinking": [
      [
-      "2026-09-29",
-      1237.5,
-      126
-     ],
-     [
       "2026-09-30",
       1237.6,
       128
@@ -92465,13 +92596,6 @@
     ]
    },
    "gap": [
-    {
-     "d": "2026-09-29",
-     "closed": 1820.3,
-     "closed_name": "claude-opus-5.5-max",
-     "open": 1658.5,
-     "open_name": "kimi-k3-max"
-    },
     {
      "d": "2026-09-30",
      "closed": 1817.8,
@@ -92575,6 +92699,13 @@
      "closed": 1817.7,
      "closed_name": "Claude Opus 5.5 (Max)",
      "open": 1687.8,
+     "open_name": "Kimi K3.1 Pro (Max)"
+    },
+    {
+     "d": "2026-11-10",
+     "closed": 1835.8,
+     "closed_name": "Claude Fable 5.2 (xHigh)",
+     "open": 1687.7,
      "open_name": "Kimi K3.1 Pro (Max)"
     }
    ]
