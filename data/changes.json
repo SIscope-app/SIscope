@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-11T12:53:56Z",
+ "built_at": "2026-11-12T12:56:44Z",
  "week_to": "2026-11-09",
  "prev": "2026-11-08",
  "changes": [
@@ -102,12 +102,12 @@
   {
    "kind": "price_new",
    "board": "price",
-   "model": "Claude Fable 5.2 (xHigh)",
+   "model": "Claude Fable 5.2 (Max)",
    "text": "Claude Fable 5.2 gets a public price",
    "sub": "$8 in, $40 out per 1M tokens on OpenRouter",
    "date": "2026-11-09",
    "org": "anthropic",
-   "slug": "claude-fable-5-2-xhigh",
+   "slug": "claude-fable-5-2-max",
    "source": "openrouter"
   }
  ],
