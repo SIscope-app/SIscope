@@ -1,15 +1,15 @@
 {
- "built_at": "2026-11-12T12:56:44Z",
- "week_to": "2026-11-09",
- "prev": "2026-11-08",
+ "built_at": "2026-11-13T12:53:35Z",
+ "week_to": "2026-11-11",
+ "prev": "2026-11-09",
  "changes": [
   {
    "kind": "holds_leader",
    "board": "text",
    "model": "Gemini 4 Carbon (High)",
    "text": "Gemini 4 Carbon holds #1",
-   "sub": "Text arena · #1 in 4 of the last 16 updates",
-   "date": "2026-11-09",
+   "sub": "Text arena · #1 in 5 of the last 16 updates",
+   "date": "2026-11-11",
    "org": "google",
    "slug": "gemini-4-carbon-high",
    "source": "arena"
@@ -17,45 +17,34 @@
   {
    "kind": "new_entry",
    "board": "text",
-   "model": "Kimi K3.1 Pro (Max)",
-   "text": "Kimi K3.1 Pro debuts at #44",
+   "model": "Gemini 4 Hydrogen (High)",
+   "text": "Gemini 4 Hydrogen debuts at #8",
    "sub": "New on the text arena",
-   "date": "2026-11-09",
-   "org": "moonshot",
-   "slug": "kimi-k3-1-pro-max",
+   "date": "2026-11-11",
+   "org": "google",
+   "slug": "gemini-4-hydrogen-high",
    "source": "arena"
   },
   {
    "kind": "up",
    "board": "text",
-   "model": "Qwen3.5-Max-Preview",
-   "text": "Qwen3.5-Max-Preview climbs 1 place",
+   "model": "GLM-5.3-Flash",
+   "text": "GLM-5.3-Flash climbs 1 place",
    "sub": "Now #30 in text arena",
-   "date": "2026-11-09",
-   "org": "alibaba",
-   "slug": "qwen3-5-max-preview",
-   "source": "arena"
-  },
-  {
-   "kind": "up",
-   "board": "text",
-   "model": "GPT-5.5 (High)",
-   "text": "GPT-5.5 climbs 1 place",
-   "sub": "Now #29 in text arena",
-   "date": "2026-11-09",
-   "org": "openai",
-   "slug": "gpt-5-5-high",
+   "date": "2026-11-11",
+   "org": "zai",
+   "slug": "glm-5-3-flash",
    "source": "arena"
   },
   {
    "kind": "down",
    "board": "text",
-   "model": "GLM-5.3-Flash",
-   "text": "GLM-5.3-Flash slips 2 places",
-   "sub": "Now #31 in text arena",
-   "date": "2026-11-09",
-   "org": "zai",
-   "slug": "glm-5-3-flash",
+   "model": "MiMo-V2.6-Pro",
+   "text": "MiMo-V2.6-Pro slips 3 places",
+   "sub": "Now #14 in text arena",
+   "date": "2026-11-11",
+   "org": "xiaomi",
+   "slug": "mimo-v2-6-pro",
    "source": "arena"
   },
   {
@@ -63,30 +52,30 @@
    "board": "text",
    "text": "Open models 47 points behind",
    "sub": "Gap between best closed and best open was 47 at the previous update",
-   "date": "2026-11-09",
+   "date": "2026-11-11",
    "source": "arena"
   },
   {
    "kind": "new_entry",
    "board": "webdev",
-   "model": "Claude Fable 5.2 (xHigh)",
-   "text": "Claude Fable 5.2 joins the coding board at #1",
+   "model": "Gemini 4 Hydrogen (High)",
+   "text": "Gemini 4 Hydrogen joins the coding board at #10",
    "sub": "WebDev arena (building web apps)",
-   "date": "2026-11-10",
-   "org": "anthropic",
-   "slug": "claude-fable-5-2-xhigh",
+   "date": "2026-11-11",
+   "org": "google",
+   "slug": "gemini-4-hydrogen-high",
    "source": "arena"
   },
   {
-   "kind": "new_entry",
-   "board": "webdev",
-   "model": "U2 Flash",
-   "text": "U2 Flash joins the coding board at #34",
-   "sub": "WebDev arena (building web apps)",
-   "date": "2026-11-10",
-   "org": "unisound",
-   "slug": "u2-flash",
-   "source": "arena"
+   "kind": "price_new",
+   "board": "price",
+   "model": "Gemini 4 Hydrogen (High)",
+   "text": "Gemini 4 Hydrogen gets a public price",
+   "sub": "$1.5 in, $7.5 out per 1M tokens on OpenRouter",
+   "date": "2026-11-12",
+   "org": "google",
+   "slug": "gemini-4-hydrogen-high",
+   "source": "openrouter"
   },
   {
    "kind": "price_new",
@@ -98,27 +87,9 @@
    "org": "google",
    "slug": "gemini-4-carbon-high",
    "source": "openrouter"
-  },
-  {
-   "kind": "price_new",
-   "board": "price",
-   "model": "Claude Fable 5.2 (Max)",
-   "text": "Claude Fable 5.2 gets a public price",
-   "sub": "$8 in, $40 out per 1M tokens on OpenRouter",
-   "date": "2026-11-09",
-   "org": "anthropic",
-   "slug": "claude-fable-5-2-max",
-   "source": "openrouter"
   }
  ],
  "gap": [
-  {
-   "d": "2026-09-01",
-   "closed": 1505.0,
-   "closed_name": "claude-opus-5-max",
-   "open": 1476.3,
-   "open_name": "kimi-k3-max"
-  },
   {
    "d": "2026-09-02",
    "closed": 1513.7,
@@ -223,10 +194,16 @@
    "closed_name": "Gemini 4 Carbon (High)",
    "open": 1491.7,
    "open_name": "MiMo-V2.6-Pro"
+  },
+  {
+   "d": "2026-11-11",
+   "closed": 1538.4,
+   "closed_name": "Gemini 4 Carbon (High)",
+   "open": 1491.6,
+   "open_name": "MiMo-V2.6-Pro"
   }
  ],
  "webdev_dates": [
-  "2026-09-30",
   "2026-10-01",
   "2026-10-06",
   "2026-10-08",
@@ -241,6 +218,7 @@
   "2026-11-06",
   "2026-11-08",
   "2026-11-09",
-  "2026-11-10"
+  "2026-11-10",
+  "2026-11-11"
  ]
 }
