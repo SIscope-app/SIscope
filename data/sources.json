@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-14T12:36:54Z",
+ "built_at": "2026-11-14T16:43:13Z",
  "sources": [
   {
    "id": "arena",
@@ -33,8 +33,8 @@
    "license": "OpenRouter API terms (cited, prices only)",
    "license_url": "https://openrouter.ai/terms",
    "attribution": "Source: OpenRouter (openrouter.ai), models API",
-   "fetched_at": "2026-11-14T12:36:53Z",
-   "as_of": "2026-11-14T12:36:53Z",
+   "fetched_at": "2026-11-14T16:43:13Z",
+   "as_of": "2026-11-14T16:43:13Z",
    "used_for": "List prices per 1M input/output tokens and context length. Benchmark fields in the API are discarded."
   },
   {

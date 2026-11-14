@@ -109,6 +109,7 @@ export default function Page() {
             </li>
           ))}
           <li>Scrape websites. Every source is an open dataset or a public API.</li>
+          <li>Add Terminal-Bench, Aider Polyglot, LiveBench, or the SWE-bench site leaderboard. Epoch already publishes its own SWE-bench Verified runs under CC BY. The others are a different licence, a page we would have to scrape, or a score we cannot tie to one Arena setting without guessing.</li>
         </ul>
 
         <h2>Sources and licences</h2>

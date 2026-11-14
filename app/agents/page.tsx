@@ -119,7 +119,7 @@ export default function Page() {
           </table>
         </div>
         <p className="note">
-          Best combo: <b>{best.g.name}</b> with <b>{EXG_MODEL[models[best.i]]}</b> ({Math.round(best.v! * 100)}%). These are older models: the dataset was last updated {fmtDate(ex.dataset_last_modified)}. Source:{" "}
+          Best combo: <b>{best.g.name}</b> with <b>{EXG_MODEL[models[best.i]]}</b> ({Math.round(best.v! * 100)}%). This file is older than the Arena boards: it was last updated {fmtDate(ex.dataset_last_modified)}. A blank cell is a missing result, not a zero. Source:{" "}
           <a className="link" href={exSrc.home} rel="noopener">{exSrc.name}</a>, {exSrc.license}.
         </p>
       </section>

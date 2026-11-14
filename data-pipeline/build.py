@@ -179,6 +179,7 @@ def main():
         if pr:
             blended = round((3 * pr["input_per_m"] + pr["output_per_m"]) / 4, 4)
             price = {"openrouter_id": pr["id"], "input_per_m": pr["input_per_m"], "output_per_m": pr["output_per_m"],
+                     "cache_read_per_m": pr.get("cache_read_per_m"),
                      "blended_per_m": blended, "context_length": pr["context_length"], "modalities_in": pr["modalities_in"],
                      "as_of": prices["as_of"], **or_src}
             stats["priced"] += 1

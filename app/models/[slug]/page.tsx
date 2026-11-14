@@ -403,7 +403,8 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
               </div>
             </div>
             <p className="note">
-              List price from the OpenRouter models API, {fmtDate(m.price.as_of)}: <a className="link" href={openrouterUrl(m.price.openrouter_id)} rel="noopener">{m.price.openrouter_id} on OpenRouter ↗</a>. Providers can charge differently.
+              List price from the OpenRouter models API, {fmtDate(m.price.as_of)}: <a className="link" href={openrouterUrl(m.price.openrouter_id)} rel="noopener">{m.price.openrouter_id} on OpenRouter ↗</a>.
+              {m.price.cache_read_per_m ? ` Cached input is listed at ${fmtPriceExact(m.price.cache_read_per_m)} per 1M tokens.` : " OpenRouter does not list a cache-read price for this model."} Providers can charge differently.
             </p>
           </div>
         ) : (
