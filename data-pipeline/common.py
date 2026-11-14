@@ -164,7 +164,8 @@ def effort_of(variant: str | None) -> str | None:
 
 
 def slugify(name: str) -> str:
-    s = name.lower()
+    """URL slug. '+' is the word 'plus', so Command R+ is command-r-plus, not command-r."""
+    s = name.lower().replace("+", " plus ")
     s = re.sub(r"[()]+", " ", s)
     s = re.sub(r"[^a-z0-9.]+", "-", s)
     s = s.replace(".", "-")
