@@ -341,8 +341,16 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
 .catbar .l { font-size: 14.5px; font-weight: 560; }
 .catbar .v { text-align: right; font-weight: 650; font-variant-numeric: tabular-nums; }
 .heat td { text-align: center; font-variant-numeric: tabular-nums; font-weight: 600; }
-.scroll-x { overflow-x: auto; max-width: 100%; }
+.scroll-x { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
 .scroll-x > .tbl { min-width: 560px; }
+.scroll-x > .tbl th:first-child,
+.scroll-x > .tbl td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--card);
+  box-shadow: 1px 0 0 var(--line);
+}
 @media (max-width: 900px) {
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .grid3 { grid-template-columns: 1fr; }

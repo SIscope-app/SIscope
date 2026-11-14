@@ -29,6 +29,13 @@ def main():
         r = {k: m.get(k) for k in KEEP}
         r["input_per_m"] = round(inp * 1e6, 4)
         r["output_per_m"] = round(outp * 1e6, 4)
+        cache = p.get("input_cache_read")
+        try:
+            cache_n = float(cache) if cache not in (None, "") else 0.0
+        except (TypeError, ValueError):
+            cache_n = 0.0
+        # Only a published cache-read price. Zero or absent is not a guess of "free cache".
+        r["cache_read_per_m"] = round(cache_n * 1e6, 4) if cache_n > 0 else None
         r["modalities_in"] = (m.get("architecture") or {}).get("input_modalities")
         r.update(source="openrouter", license="OpenRouter API terms; cite source", fetched_at=fetched_at)
         rows.append(r)

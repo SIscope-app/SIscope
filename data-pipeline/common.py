@@ -134,8 +134,12 @@ DATE_RX = re.compile(r"(\b|[-_ ])(20\d{2}[-_]?\d{2}[-_]?\d{2}|\d{6}|\d{4}(?=$))(
 
 
 def base_key(name: str) -> str:
-    """Normalise a model name to a comparable key: no vendor prefix, variant, dates or punctuation."""
-    n = name.lower()
+    """Normalise a model name to a comparable key: no vendor prefix, variant, dates or punctuation.
+
+    A trailing plus is part of the model name (Command R+ is not Command R), so it is
+    kept as the word "plus" before other punctuation is removed.
+    """
+    n = name.lower().replace("+", " plus ")
     if ":" in n and not n.startswith("http"):
         n = n.split(":", 1)[1] if len(n.split(":", 1)[0]) < 24 else n
     n = re.sub(r"\(.*?\)", " ", n)

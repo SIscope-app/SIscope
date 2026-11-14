@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-14T12:36:54Z",
+ "built_at": "2026-11-14T16:43:13Z",
  "count": 497,
  "models": [
   {
@@ -163,6 +163,7 @@
     "openrouter_id": "google/gemini-4-carbon",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 4.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -172,10 +173,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -406,6 +407,7 @@
     "openrouter_id": "google/gemini-4-argon",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 4.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -415,10 +417,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -623,6 +625,7 @@
     "openrouter_id": "anthropic/claude-opus-5.5",
     "input_per_m": 4.0,
     "output_per_m": 20.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 8.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -630,10 +633,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -846,6 +849,7 @@
     "openrouter_id": "anthropic/claude-fable-5.1",
     "input_per_m": 10.0,
     "output_per_m": 50.0,
+    "cache_read_per_m": 0.25,
     "blended_per_m": 20.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -853,10 +857,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -1132,6 +1136,7 @@
     "openrouter_id": "anthropic/claude-opus-5",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -1139,10 +1144,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -1361,6 +1366,7 @@
     "openrouter_id": "meta/muse-wonder",
     "input_per_m": 4.0,
     "output_per_m": 20.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 8.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -1370,10 +1376,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -1591,6 +1597,7 @@
     "openrouter_id": "anthropic/claude-opus-5",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -1598,10 +1605,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -1806,6 +1813,7 @@
     "openrouter_id": "google/gemini-4-hydrogen",
     "input_per_m": 1.5,
     "output_per_m": 7.5,
+    "cache_read_per_m": 0.075,
     "blended_per_m": 3.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -1815,10 +1823,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -1946,6 +1954,7 @@
     "openrouter_id": "anthropic/claude-opus-4.6",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -1953,10 +1962,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -2245,6 +2254,7 @@
     "openrouter_id": "google/gemini-3.8-flash",
     "input_per_m": 0.825,
     "output_per_m": 4.125,
+    "cache_read_per_m": 0.0825,
     "blended_per_m": 1.65,
     "context_length": 1048576,
     "modalities_in": [
@@ -2254,10 +2264,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -2490,6 +2500,7 @@
     "openrouter_id": "anthropic/claude-opus-4.6",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -2497,10 +2508,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -2761,6 +2772,7 @@
     "openrouter_id": "anthropic/claude-fable-5",
     "input_per_m": 10.0,
     "output_per_m": 50.0,
+    "cache_read_per_m": 1.0,
     "blended_per_m": 20.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -2768,10 +2780,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -3018,6 +3030,7 @@
     "openrouter_id": "meta/muse-spark-1.3",
     "input_per_m": 1.25,
     "output_per_m": 4.25,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 2.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -3026,10 +3039,10 @@
      "video",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -3261,6 +3274,7 @@
     "openrouter_id": "xiaomi/mimo-v2.6-pro",
     "input_per_m": 0.435,
     "output_per_m": 0.87,
+    "cache_read_per_m": 0.0036,
     "blended_per_m": 0.5437,
     "context_length": 1050000,
     "modalities_in": [
@@ -3269,10 +3283,10 @@
      "video",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -3485,6 +3499,7 @@
     "openrouter_id": "anthropic/claude-opus-4.7",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -3492,10 +3507,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -3784,6 +3799,7 @@
     "openrouter_id": "google/gemini-3.7-flash",
     "input_per_m": 0.75,
     "output_per_m": 3.75,
+    "cache_read_per_m": 0.075,
     "blended_per_m": 1.5,
     "context_length": 1048576,
     "modalities_in": [
@@ -3793,10 +3809,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -4265,6 +4281,7 @@
     "openrouter_id": "meta/muse-spark-1.2",
     "input_per_m": 1.25,
     "output_per_m": 4.25,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 2.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -4273,10 +4290,10 @@
      "video",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -4494,6 +4511,7 @@
     "openrouter_id": "anthropic/claude-opus-4.7",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -4501,10 +4519,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -4793,6 +4811,7 @@
     "openrouter_id": "google/gemini-3.5-flash",
     "input_per_m": 1.5,
     "output_per_m": 9.0,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 3.375,
     "context_length": 1048576,
     "modalities_in": [
@@ -4802,10 +4821,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -5075,6 +5094,7 @@
     "openrouter_id": "google/gemini-3.1-pro-preview",
     "input_per_m": 2.0,
     "output_per_m": 12.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 4.5,
     "context_length": 1048576,
     "modalities_in": [
@@ -5084,10 +5104,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -5575,6 +5595,7 @@
     "openrouter_id": "google/gemini-3.6-flash",
     "input_per_m": 0.75,
     "output_per_m": 3.75,
+    "cache_read_per_m": 0.075,
     "blended_per_m": 1.5,
     "context_length": 1048576,
     "modalities_in": [
@@ -5584,10 +5605,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -5829,6 +5850,7 @@
     "openrouter_id": "meta/muse-spark-1.1",
     "input_per_m": 1.25,
     "output_per_m": 4.25,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 2.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -5837,10 +5859,10 @@
      "video",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -6058,6 +6080,7 @@
     "openrouter_id": "google/gemini-3.5-flash",
     "input_per_m": 1.5,
     "output_per_m": 9.0,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 3.375,
     "context_length": 1048576,
     "modalities_in": [
@@ -6067,10 +6090,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -6341,15 +6364,16 @@
     "openrouter_id": "z-ai/glm-5.3",
     "input_per_m": 0.084,
     "output_per_m": 3.6,
+    "cache_read_per_m": 0.079,
     "blended_per_m": 0.963,
     "context_length": 1048576,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -6740,6 +6764,7 @@
     "openrouter_id": "moonshotai/kimi-k3",
     "input_per_m": 0.192,
     "output_per_m": 16.0,
+    "cache_read_per_m": 0.182,
     "blended_per_m": 4.144,
     "context_length": 1048576,
     "modalities_in": [
@@ -6747,10 +6772,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -7149,6 +7174,7 @@
     "openrouter_id": "z-ai/glm-5.3-flash",
     "input_per_m": 0.0399,
     "output_per_m": 0.0784,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.0495,
     "context_length": 1048576,
     "modalities_in": [
@@ -7156,10 +7182,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -7359,6 +7385,7 @@
     "openrouter_id": "openai/gpt-5.5",
     "input_per_m": 5.0,
     "output_per_m": 30.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 11.25,
     "context_length": 1050000,
     "modalities_in": [
@@ -7366,10 +7393,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -7712,15 +7739,16 @@
     "openrouter_id": "z-ai/glm-5.2",
     "input_per_m": 0.007,
     "output_per_m": 6.8,
+    "cache_read_per_m": 0.006,
     "blended_per_m": 1.7052,
     "context_length": 1048576,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -7933,6 +7961,7 @@
     "openrouter_id": "anthropic/claude-sonnet-5.5",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 4.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -7940,10 +7969,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -8186,6 +8215,7 @@
     "openrouter_id": "openai/gpt-5.4",
     "input_per_m": 2.5,
     "output_per_m": 15.0,
+    "cache_read_per_m": 0.25,
     "blended_per_m": 5.625,
     "context_length": 1050000,
     "modalities_in": [
@@ -8193,10 +8223,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -8483,6 +8513,7 @@
     "openrouter_id": "openai/gpt-5.5",
     "input_per_m": 5.0,
     "output_per_m": 30.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 11.25,
     "context_length": 1050000,
     "modalities_in": [
@@ -8490,10 +8521,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -8839,15 +8870,16 @@
     "openrouter_id": "xiaomi/mimo-v2.5-pro",
     "input_per_m": 0.435,
     "output_per_m": 0.87,
+    "cache_read_per_m": 0.0036,
     "blended_per_m": 0.5437,
     "context_length": 1024000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -9321,15 +9353,16 @@
     "openrouter_id": "z-ai/glm-5.1",
     "input_per_m": 1.4,
     "output_per_m": 4.4,
+    "cache_read_per_m": 0.26,
     "blended_per_m": 2.15,
     "context_length": 204800,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -9542,6 +9575,7 @@
     "openrouter_id": "anthropic/claude-opus-4.8",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -9549,10 +9583,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -9760,6 +9794,7 @@
     "openrouter_id": "moonshotai/kimi-k3.1-pro",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 4.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -9767,10 +9802,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -9953,6 +9988,7 @@
     "openrouter_id": "anthropic/claude-sonnet-4.6",
     "input_per_m": 3.0,
     "output_per_m": 15.0,
+    "cache_read_per_m": 0.3,
     "blended_per_m": 6.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -9960,10 +9996,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -10233,6 +10269,7 @@
     "openrouter_id": "google/gemini-2.5-pro",
     "input_per_m": 1.25,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.125,
     "blended_per_m": 3.4375,
     "context_length": 1048576,
     "modalities_in": [
@@ -10242,10 +10279,10 @@
      "audio",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -10459,6 +10496,7 @@
     "openrouter_id": "openai/gpt-5.6-sol",
     "input_per_m": 4.0,
     "output_per_m": 20.0,
+    "cache_read_per_m": 0.4,
     "blended_per_m": 8.0,
     "context_length": 1050000,
     "modalities_in": [
@@ -10466,10 +10504,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -10691,16 +10729,17 @@
     "openrouter_id": "moonshotai/kimi-k2.6",
     "input_per_m": 0.65,
     "output_per_m": 3.41,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 1.34,
     "context_length": 262144,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -10957,16 +10996,17 @@
     "openrouter_id": "qwen/qwen3.7-plus",
     "input_per_m": 0.32,
     "output_per_m": 1.28,
+    "cache_read_per_m": 0.064,
     "blended_per_m": 0.56,
     "context_length": 1000000,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -11146,6 +11186,7 @@
     "openrouter_id": "anthropic/claude-opus-4.8",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -11153,10 +11194,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -11398,6 +11439,7 @@
     "openrouter_id": "openai/gpt-5.4",
     "input_per_m": 2.5,
     "output_per_m": 15.0,
+    "cache_read_per_m": 0.25,
     "blended_per_m": 5.625,
     "context_length": 1050000,
     "modalities_in": [
@@ -11405,10 +11447,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -12216,6 +12258,7 @@
     "openrouter_id": "anthropic/claude-opus-4.5",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 200000,
     "modalities_in": [
@@ -12223,10 +12266,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -12453,6 +12496,7 @@
     "openrouter_id": "xiaomi/mimo-v2.6-flash",
     "input_per_m": 0.14,
     "output_per_m": 0.28,
+    "cache_read_per_m": 0.0028,
     "blended_per_m": 0.175,
     "context_length": 1050000,
     "modalities_in": [
@@ -12461,10 +12505,10 @@
      "video",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -12678,6 +12722,7 @@
     "openrouter_id": "openai/gpt-5.6-terra",
     "input_per_m": 2.0,
     "output_per_m": 12.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 4.5,
     "context_length": 1050000,
     "modalities_in": [
@@ -12685,10 +12730,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -13136,6 +13181,7 @@
     "openrouter_id": "anthropic/claude-opus-4.5",
     "input_per_m": 5.0,
     "output_per_m": 25.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 10.0,
     "context_length": 200000,
     "modalities_in": [
@@ -13143,10 +13189,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -13359,6 +13405,7 @@
     "openrouter_id": "x-ai/grok-4.5",
     "input_per_m": 2.0,
     "output_per_m": 6.0,
+    "cache_read_per_m": 0.3,
     "blended_per_m": 3.0,
     "context_length": 500000,
     "modalities_in": [
@@ -13366,10 +13413,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -13864,15 +13911,16 @@
     "openrouter_id": "z-ai/glm-5",
     "input_per_m": 1.0,
     "output_per_m": 3.2,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 1.55,
     "context_length": 204800,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -14666,6 +14714,7 @@
     "openrouter_id": "openai/gpt-6.1-sol",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 4.0,
     "context_length": 1050000,
     "modalities_in": [
@@ -14673,10 +14722,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -14889,16 +14938,17 @@
     "openrouter_id": "moonshotai/kimi-k2.5",
     "input_per_m": 0.5,
     "output_per_m": 2.5,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 1.0,
     "context_length": 262144,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -15352,6 +15402,7 @@
     "openrouter_id": "stepfun/step-5-preview",
     "input_per_m": 1.0,
     "output_per_m": 2.7,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 1.425,
     "context_length": 1000000,
     "modalities_in": [
@@ -15359,10 +15410,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -15534,6 +15585,7 @@
     "openrouter_id": "thinkingmachines/inkling",
     "input_per_m": 1.0,
     "output_per_m": 4.05,
+    "cache_read_per_m": 0.17,
     "blended_per_m": 1.7625,
     "context_length": 524288,
     "modalities_in": [
@@ -15541,10 +15593,10 @@
      "image",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -15877,6 +15929,7 @@
     "openrouter_id": "google/gemma-4-31b-it",
     "input_per_m": 0.2,
     "output_per_m": 0.4,
+    "cache_read_per_m": null,
     "blended_per_m": 0.25,
     "context_length": 262144,
     "modalities_in": [
@@ -15884,10 +15937,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -16144,6 +16197,7 @@
     "openrouter_id": "openai/gpt-5.1",
     "input_per_m": 1.25,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.125,
     "blended_per_m": 3.4375,
     "context_length": 400000,
     "modalities_in": [
@@ -16151,10 +16205,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -16527,6 +16581,7 @@
     "openrouter_id": "anthropic/claude-sonnet-5",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 4.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -16534,10 +16589,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -16737,15 +16792,16 @@
     "openrouter_id": "z-ai/glm-4.6",
     "input_per_m": 0.5,
     "output_per_m": 2.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 0.875,
     "context_length": 204800,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -17029,6 +17085,7 @@
     "openrouter_id": "openai/gpt-6-astra",
     "input_per_m": 10.0,
     "output_per_m": 50.0,
+    "cache_read_per_m": 1.0,
     "blended_per_m": 20.0,
     "context_length": 1050000,
     "modalities_in": [
@@ -17036,10 +17093,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -17371,17 +17428,18 @@
    "epoch": [],
    "price": {
     "openrouter_id": "tencent/hy3",
-    "input_per_m": 0.132,
-    "output_per_m": 0.528,
-    "blended_per_m": 0.231,
+    "input_per_m": 0.0825,
+    "output_per_m": 0.33,
+    "cache_read_per_m": 0.0206,
+    "blended_per_m": 0.1444,
     "context_length": 262144,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -17638,6 +17696,7 @@
     "openrouter_id": "anthropic/claude-sonnet-4.5",
     "input_per_m": 3.0,
     "output_per_m": 15.0,
+    "cache_read_per_m": 0.3,
     "blended_per_m": 6.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -17645,10 +17704,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -17848,6 +17907,7 @@
     "openrouter_id": "openai/gpt-5.2-chat",
     "input_per_m": 1.75,
     "output_per_m": 14.0,
+    "cache_read_per_m": 0.175,
     "blended_per_m": 4.8125,
     "context_length": 128000,
     "modalities_in": [
@@ -17855,10 +17915,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -18052,6 +18112,7 @@
     "openrouter_id": "qwen/qwen3.5-397b-a17b",
     "input_per_m": 0.6,
     "output_per_m": 3.6,
+    "cache_read_per_m": 0.12,
     "blended_per_m": 1.35,
     "context_length": 262144,
     "modalities_in": [
@@ -18059,10 +18120,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -18484,6 +18545,7 @@
     "openrouter_id": "qwen/qwen3.8-27b",
     "input_per_m": 0.15,
     "output_per_m": 1.875,
+    "cache_read_per_m": 0.0375,
     "blended_per_m": 0.5813,
     "context_length": 1024000,
     "modalities_in": [
@@ -18491,10 +18553,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -19080,6 +19142,7 @@
     "openrouter_id": "qwen/qwen3.6-plus",
     "input_per_m": 0.325,
     "output_per_m": 1.95,
+    "cache_read_per_m": null,
     "blended_per_m": 0.7312,
     "context_length": 1000000,
     "modalities_in": [
@@ -19087,10 +19150,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -19333,15 +19396,16 @@
     "openrouter_id": "z-ai/glm-4.7",
     "input_per_m": 0.6,
     "output_per_m": 2.2,
+    "cache_read_per_m": 0.11,
     "blended_per_m": 1.0,
     "context_length": 204800,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -19554,6 +19618,7 @@
     "openrouter_id": "google/gemini-3.5-flash-lite",
     "input_per_m": 0.3,
     "output_per_m": 2.5,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.85,
     "context_length": 1048576,
     "modalities_in": [
@@ -19563,10 +19628,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -19809,6 +19874,7 @@
     "openrouter_id": "anthropic/claude-sonnet-4.5",
     "input_per_m": 3.0,
     "output_per_m": 15.0,
+    "cache_read_per_m": 0.3,
     "blended_per_m": 6.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -19816,10 +19882,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -20032,6 +20098,7 @@
     "openrouter_id": "google/gemma-4-26b-a4b-it",
     "input_per_m": 0.0675,
     "output_per_m": 0.225,
+    "cache_read_per_m": 0.0375,
     "blended_per_m": 0.1069,
     "context_length": 262144,
     "modalities_in": [
@@ -20039,10 +20106,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -20362,6 +20429,7 @@
     "openrouter_id": "openai/gpt-5.6-luna",
     "input_per_m": 0.2,
     "output_per_m": 1.2,
+    "cache_read_per_m": 0.02,
     "blended_per_m": 0.45,
     "context_length": 1050000,
     "modalities_in": [
@@ -20369,10 +20437,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -20497,15 +20565,16 @@
     "openrouter_id": "z-ai/glm-4.5",
     "input_per_m": 0.6,
     "output_per_m": 2.2,
+    "cache_read_per_m": 0.11,
     "blended_per_m": 1.0,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -20699,6 +20768,7 @@
     "openrouter_id": "x-ai/grok-4.6",
     "input_per_m": 2.0,
     "output_per_m": 6.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 3.0,
     "context_length": 500000,
     "modalities_in": [
@@ -20706,10 +20776,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -21426,6 +21496,7 @@
     "openrouter_id": "minimax/minimax-m3",
     "input_per_m": 0.3,
     "output_per_m": 1.2,
+    "cache_read_per_m": 0.06,
     "blended_per_m": 0.525,
     "context_length": 1048576,
     "modalities_in": [
@@ -21433,10 +21504,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -21769,6 +21840,7 @@
     "openrouter_id": "xiaomi/mimo-v2.5",
     "input_per_m": 0.4,
     "output_per_m": 2.0,
+    "cache_read_per_m": 0.08,
     "blended_per_m": 0.8,
     "context_length": 1000000,
     "modalities_in": [
@@ -21777,10 +21849,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -22207,15 +22279,16 @@
     "openrouter_id": "deepseek/deepseek-v3.2-exp",
     "input_per_m": 0.27,
     "output_per_m": 0.41,
+    "cache_read_per_m": null,
     "blended_per_m": 0.305,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -22548,6 +22621,7 @@
     "openrouter_id": "mistralai/mistral-medium-3.1",
     "input_per_m": 0.4,
     "output_per_m": 2.0,
+    "cache_read_per_m": 0.04,
     "blended_per_m": 0.8,
     "context_length": 131072,
     "modalities_in": [
@@ -22555,10 +22629,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -22696,15 +22770,16 @@
     "openrouter_id": "deepseek/deepseek-v3.2",
     "input_per_m": 0.26,
     "output_per_m": 0.38,
+    "cache_read_per_m": 0.13,
     "blended_per_m": 0.29,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -22918,15 +22993,16 @@
     "openrouter_id": "reflection/beam-1.0-501b-a23b",
     "input_per_m": 0.3,
     "output_per_m": 1.0,
+    "cache_read_per_m": 0.04,
     "blended_per_m": 0.475,
     "context_length": 1048576,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -23364,15 +23440,16 @@
     "openrouter_id": "deepseek/deepseek-v3.2-exp",
     "input_per_m": 0.27,
     "output_per_m": 0.41,
+    "cache_read_per_m": null,
     "blended_per_m": 0.305,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -23614,6 +23691,7 @@
     "openrouter_id": "openai/gpt-5.1",
     "input_per_m": 1.25,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.125,
     "blended_per_m": 3.4375,
     "context_length": 400000,
     "modalities_in": [
@@ -23621,10 +23699,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -23851,6 +23929,7 @@
     "openrouter_id": "mistralai/mistral-medium-3-5",
     "input_per_m": 1.5,
     "output_per_m": 7.5,
+    "cache_read_per_m": null,
     "blended_per_m": 3.0,
     "context_length": 262144,
     "modalities_in": [
@@ -23858,10 +23937,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -24074,16 +24153,17 @@
     "openrouter_id": "moonshotai/kimi-k2.5",
     "input_per_m": 0.5,
     "output_per_m": 2.5,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 1.0,
     "context_length": 262144,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -24283,15 +24363,16 @@
     "openrouter_id": "deepseek/deepseek-v3.2",
     "input_per_m": 0.26,
     "output_per_m": 0.38,
+    "cache_read_per_m": 0.13,
     "blended_per_m": 0.29,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -24491,16 +24572,17 @@
     "openrouter_id": "qwen/qwen3-vl-235b-a22b-instruct",
     "input_per_m": 0.21,
     "output_per_m": 1.9,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 0.6325,
     "context_length": 262144,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -24625,15 +24707,16 @@
     "openrouter_id": "deepseek/deepseek-chat-v3.1",
     "input_per_m": 0.25,
     "output_per_m": 0.95,
+    "cache_read_per_m": 0.13,
     "blended_per_m": 0.425,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -24787,6 +24870,7 @@
     "openrouter_id": "anthropic/claude-opus-4.1",
     "input_per_m": 15.0,
     "output_per_m": 75.0,
+    "cache_read_per_m": 1.5,
     "blended_per_m": 30.0,
     "context_length": 200000,
     "modalities_in": [
@@ -24794,10 +24878,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -25212,15 +25296,16 @@
     "openrouter_id": "deepseek/deepseek-v3.1-terminus",
     "input_per_m": 0.27,
     "output_per_m": 1.0,
+    "cache_read_per_m": null,
     "blended_per_m": 0.4525,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -25521,6 +25606,7 @@
     "openrouter_id": "anthropic/claude-opus-4.1",
     "input_per_m": 15.0,
     "output_per_m": 75.0,
+    "cache_read_per_m": 1.5,
     "blended_per_m": 30.0,
     "context_length": 200000,
     "modalities_in": [
@@ -25528,10 +25614,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -25744,6 +25830,7 @@
     "openrouter_id": "qwen/qwen3.5-122b-a10b",
     "input_per_m": 0.26,
     "output_per_m": 2.08,
+    "cache_read_per_m": null,
     "blended_per_m": 0.715,
     "context_length": 262144,
     "modalities_in": [
@@ -25751,10 +25838,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -26103,15 +26190,16 @@
     "openrouter_id": "deepseek/deepseek-v3.1-terminus",
     "input_per_m": 0.27,
     "output_per_m": 1.0,
+    "cache_read_per_m": null,
     "blended_per_m": 0.4525,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -26236,15 +26324,16 @@
     "openrouter_id": "qwen/qwen3-next-80b-a3b-instruct",
     "input_per_m": 0.09,
     "output_per_m": 1.1,
+    "cache_read_per_m": null,
     "blended_per_m": 0.3425,
     "context_length": 262144,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -26382,6 +26471,7 @@
     "openrouter_id": "google/gemini-2.5-flash",
     "input_per_m": 0.3,
     "output_per_m": 2.5,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.85,
     "context_length": 1048576,
     "modalities_in": [
@@ -26391,10 +26481,10 @@
      "audio",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -26519,15 +26609,16 @@
     "openrouter_id": "deepseek/deepseek-chat-v3.1",
     "input_per_m": 0.25,
     "output_per_m": 0.95,
+    "cache_read_per_m": 0.13,
     "blended_per_m": 0.425,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -26722,6 +26813,7 @@
     "openrouter_id": "openai/gpt-5.2",
     "input_per_m": 1.75,
     "output_per_m": 14.0,
+    "cache_read_per_m": 0.175,
     "blended_per_m": 4.8125,
     "context_length": 400000,
     "modalities_in": [
@@ -26729,10 +26821,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -26883,6 +26975,7 @@
     "openrouter_id": "google/gemini-3.1-flash-lite-preview",
     "input_per_m": 0.25,
     "output_per_m": 1.5,
+    "cache_read_per_m": 0.025,
     "blended_per_m": 0.5625,
     "context_length": 1048576,
     "modalities_in": [
@@ -26892,10 +26985,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -27586,6 +27679,7 @@
     "openrouter_id": "thinkingmachines/inkling-small",
     "input_per_m": 0.45,
     "output_per_m": 1.2,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 0.6375,
     "context_length": 524288,
     "modalities_in": [
@@ -27593,10 +27687,10 @@
      "image",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -28015,6 +28109,7 @@
     "openrouter_id": "openai/gpt-5.2",
     "input_per_m": 1.75,
     "output_per_m": 14.0,
+    "cache_read_per_m": 0.175,
     "blended_per_m": 4.8125,
     "context_length": 400000,
     "modalities_in": [
@@ -28022,10 +28117,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -28281,6 +28376,7 @@
     "openrouter_id": "openai/gpt-5.4-mini",
     "input_per_m": 0.75,
     "output_per_m": 4.5,
+    "cache_read_per_m": 0.075,
     "blended_per_m": 1.6875,
     "context_length": 400000,
     "modalities_in": [
@@ -28288,10 +28384,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -28651,16 +28747,17 @@
     "openrouter_id": "mistralai/mistral-large-4-0",
     "input_per_m": 0.7,
     "output_per_m": 2.1,
+    "cache_read_per_m": 0.07,
     "blended_per_m": 1.05,
     "context_length": 1048576,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -29055,6 +29152,7 @@
     "openrouter_id": "openai/o3",
     "input_per_m": 2.0,
     "output_per_m": 8.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 3.5,
     "context_length": 200000,
     "modalities_in": [
@@ -29062,10 +29160,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -29216,6 +29314,7 @@
     "openrouter_id": "qwen/qwen3.5-27b",
     "input_per_m": 0.26,
     "output_per_m": 2.6,
+    "cache_read_per_m": null,
     "blended_per_m": 0.845,
     "context_length": 262144,
     "modalities_in": [
@@ -29223,10 +29322,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -30170,6 +30269,7 @@
     "openrouter_id": "openai/gpt-5",
     "input_per_m": 1.25,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.125,
     "blended_per_m": 3.4375,
     "context_length": 400000,
     "modalities_in": [
@@ -30177,10 +30277,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -30445,15 +30545,16 @@
     "openrouter_id": "minimax/minimax-m2.7",
     "input_per_m": 0.21,
     "output_per_m": 0.84,
+    "cache_read_per_m": 0.042,
     "blended_per_m": 0.3675,
     "context_length": 196608,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -30794,16 +30895,17 @@
     "openrouter_id": "thinkingmachines/inkling-2-small",
     "input_per_m": 0.3,
     "output_per_m": 1.0,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.475,
     "context_length": 1048576,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -30935,15 +31037,16 @@
     "openrouter_id": "stepfun/step-3.5-flash",
     "input_per_m": 0.1,
     "output_per_m": 0.3,
+    "cache_read_per_m": null,
     "blended_per_m": 0.15,
     "context_length": 262144,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -31081,15 +31184,16 @@
     "openrouter_id": "tencent/hy3-preview",
     "input_per_m": 0.18,
     "output_per_m": 0.6,
+    "cache_read_per_m": 0.06,
     "blended_per_m": 0.285,
     "context_length": 262144,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -31626,6 +31730,7 @@
     "openrouter_id": "x-ai/grok-4.7",
     "input_per_m": 2.0,
     "output_per_m": 6.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 3.0,
     "context_length": 500000,
     "modalities_in": [
@@ -31633,10 +31738,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -32060,6 +32165,7 @@
     "openrouter_id": "anthropic/claude-haiku-5.5",
     "input_per_m": 0.1,
     "output_per_m": 0.5,
+    "cache_read_per_m": 0.01,
     "blended_per_m": 0.2,
     "context_length": 1000000,
     "modalities_in": [
@@ -32067,10 +32173,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -32322,6 +32428,7 @@
     "openrouter_id": "qwen/qwen3.5-flash-02-23",
     "input_per_m": 0.065,
     "output_per_m": 0.26,
+    "cache_read_per_m": null,
     "blended_per_m": 0.1138,
     "context_length": 1000000,
     "modalities_in": [
@@ -32329,10 +32436,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -32545,6 +32652,7 @@
     "openrouter_id": "x-ai/grok-4.3",
     "input_per_m": 1.25,
     "output_per_m": 2.5,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 1.5625,
     "context_length": 1000000,
     "modalities_in": [
@@ -32552,10 +32660,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -32839,6 +32947,7 @@
     "openrouter_id": "openai/gpt-6-sol",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 4.0,
     "context_length": 1050000,
     "modalities_in": [
@@ -32846,10 +32955,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -33092,6 +33201,7 @@
     "openrouter_id": "anthropic/claude-haiku-4.5",
     "input_per_m": 1.0,
     "output_per_m": 5.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 2.0,
     "context_length": 200000,
     "modalities_in": [
@@ -33099,10 +33209,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -33451,6 +33561,7 @@
     "openrouter_id": "qwen/qwen3.5-35b-a3b",
     "input_per_m": 0.14,
     "output_per_m": 1.0,
+    "cache_read_per_m": 0.05,
     "blended_per_m": 0.355,
     "context_length": 262144,
     "modalities_in": [
@@ -33458,10 +33569,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -34690,6 +34801,7 @@
     "openrouter_id": "openai/gpt-6-luna",
     "input_per_m": 0.1,
     "output_per_m": 0.5,
+    "cache_read_per_m": 0.01,
     "blended_per_m": 0.2,
     "context_length": 1050000,
     "modalities_in": [
@@ -34697,10 +34809,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -34914,15 +35026,16 @@
     "openrouter_id": "upstage/solar-pro4",
     "input_per_m": 0.15,
     "output_per_m": 0.6,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.2625,
     "context_length": 524288,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -35229,15 +35342,16 @@
     "openrouter_id": "z-ai/glm-4.5-air",
     "input_per_m": 0.2,
     "output_per_m": 1.1,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.425,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -35446,6 +35560,7 @@
     "openrouter_id": "openai/gpt-4.1",
     "input_per_m": 2.0,
     "output_per_m": 8.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 3.5,
     "context_length": 1047576,
     "modalities_in": [
@@ -35453,10 +35568,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -36243,6 +36358,7 @@
     "openrouter_id": "z-ai/glm-4.6v",
     "input_per_m": 0.3,
     "output_per_m": 0.9,
+    "cache_read_per_m": 0.055,
     "blended_per_m": 0.45,
     "context_length": 131072,
     "modalities_in": [
@@ -36250,10 +36366,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -36568,6 +36684,7 @@
     "openrouter_id": "openai/gpt-5-mini",
     "input_per_m": 0.25,
     "output_per_m": 2.0,
+    "cache_read_per_m": 0.025,
     "blended_per_m": 0.6875,
     "context_length": 400000,
     "modalities_in": [
@@ -36575,10 +36692,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -36922,6 +37039,7 @@
     "openrouter_id": "openai/gpt-5.4-nano",
     "input_per_m": 0.2,
     "output_per_m": 1.25,
+    "cache_read_per_m": 0.02,
     "blended_per_m": 0.4625,
     "context_length": 400000,
     "modalities_in": [
@@ -36929,10 +37047,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -37190,6 +37308,7 @@
     "openrouter_id": "mistralai/mistral-medium-3",
     "input_per_m": 0.4,
     "output_per_m": 2.0,
+    "cache_read_per_m": 0.04,
     "blended_per_m": 0.8,
     "context_length": 131072,
     "modalities_in": [
@@ -37197,10 +37316,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -38262,15 +38381,16 @@
     "openrouter_id": "openai/gpt-oss-120b",
     "input_per_m": 0.15,
     "output_per_m": 0.6,
+    "cache_read_per_m": 0.075,
     "blended_per_m": 0.2625,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -39041,15 +39161,16 @@
     "openrouter_id": "minimax/minimax-m2.5",
     "input_per_m": 0.27,
     "output_per_m": 0.95,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.44,
     "context_length": 198000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -40553,15 +40674,16 @@
     "openrouter_id": "z-ai/glm-4.7-flash",
     "input_per_m": 0.0605,
     "output_per_m": 0.4,
+    "cache_read_per_m": null,
     "blended_per_m": 0.1454,
     "context_length": 200000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -41129,6 +41251,7 @@
     "openrouter_id": "openai/gpt-4.1-mini",
     "input_per_m": 0.4,
     "output_per_m": 1.6,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 0.7,
     "context_length": 1047576,
     "modalities_in": [
@@ -41136,10 +41259,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -41488,15 +41611,16 @@
     "openrouter_id": "qwen/qwen3-32b",
     "input_per_m": 0.08,
     "output_per_m": 0.28,
+    "cache_read_per_m": null,
     "blended_per_m": 0.13,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -42943,16 +43067,17 @@
     "openrouter_id": "z-ai/glm-4.5v",
     "input_per_m": 0.6,
     "output_per_m": 1.8,
+    "cache_read_per_m": 0.11,
     "blended_per_m": 0.9,
     "context_length": 65536,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -43106,15 +43231,16 @@
     "openrouter_id": "deepseek/deepseek-chat",
     "input_per_m": 0.2574,
     "output_per_m": 1.0287,
+    "cache_read_per_m": null,
     "blended_per_m": 0.4502,
     "context_length": 163840,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -43239,15 +43365,16 @@
     "openrouter_id": "cohere/command-a",
     "input_per_m": 2.5,
     "output_per_m": 10.0,
+    "cache_read_per_m": null,
     "blended_per_m": 4.375,
     "context_length": 256000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -43923,15 +44050,16 @@
     "openrouter_id": "qwen/qwen-plus",
     "input_per_m": 0.26,
     "output_per_m": 0.78,
+    "cache_read_per_m": 0.052,
     "blended_per_m": 0.39,
     "context_length": 1000000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -44246,6 +44374,7 @@
     "openrouter_id": "openai/gpt-5-nano",
     "input_per_m": 0.05,
     "output_per_m": 0.4,
+    "cache_read_per_m": 0.005,
     "blended_per_m": 0.1375,
     "context_length": 400000,
     "modalities_in": [
@@ -44253,10 +44382,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -44913,15 +45042,16 @@
     "openrouter_id": "ibm-granite/granite-4.2-8b",
     "input_per_m": 0.06,
     "output_per_m": 0.25,
+    "cache_read_per_m": 0.015,
     "blended_per_m": 0.1075,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -45240,15 +45370,16 @@
     "openrouter_id": "qwen/qwen3-30b-a3b",
     "input_per_m": 0.12,
     "output_per_m": 0.5,
+    "cache_read_per_m": null,
     "blended_per_m": 0.215,
     "context_length": 40960,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -47927,15 +48058,16 @@
     "openrouter_id": "openai/gpt-oss-20b",
     "input_per_m": 0.03,
     "output_per_m": 0.13,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.055,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -48544,6 +48676,7 @@
     "openrouter_id": "openai/gpt-4o-mini",
     "input_per_m": 0.15,
     "output_per_m": 0.6,
+    "cache_read_per_m": 0.075,
     "blended_per_m": 0.2625,
     "context_length": 128000,
     "modalities_in": [
@@ -48551,10 +48684,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -48735,6 +48868,7 @@
     "openrouter_id": "openai/gpt-4.1-nano",
     "input_per_m": 0.1,
     "output_per_m": 0.4,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.175,
     "context_length": 1047576,
     "modalities_in": [
@@ -48742,10 +48876,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -50438,15 +50572,16 @@
     "openrouter_id": "meta-llama/llama-3.3-70b-instruct",
     "input_per_m": 0.71,
     "output_per_m": 0.71,
+    "cache_read_per_m": 0.71,
     "blended_per_m": 0.71,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -51269,15 +51404,16 @@
     "openrouter_id": "qwen/qwen-2.5-72b-instruct",
     "input_per_m": 0.36,
     "output_per_m": 0.4,
+    "cache_read_per_m": null,
     "blended_per_m": 0.37,
     "context_length": 32768,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -51522,16 +51658,17 @@
     "openrouter_id": "mistralai/mistral-large",
     "input_per_m": 2.0,
     "output_per_m": 6.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 3.0,
     "context_length": 128000,
     "modalities_in": [
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -52354,15 +52491,16 @@
     "openrouter_id": "meta-llama/llama-3.1-70b-instruct",
     "input_per_m": 0.72,
     "output_per_m": 0.72,
+    "cache_read_per_m": null,
     "blended_per_m": 0.72,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -53784,15 +53922,16 @@
     "openrouter_id": "qwen/qwen-2.5-coder-32b-instruct",
     "input_per_m": 0.66,
     "output_per_m": 1.0,
+    "cache_read_per_m": null,
     "blended_per_m": 0.745,
     "context_length": 32768,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -53914,18 +54053,19 @@
    },
    "epoch": [],
    "price": {
-    "openrouter_id": "cohere/command-r-08-2024",
-    "input_per_m": 0.15,
-    "output_per_m": 0.6,
-    "blended_per_m": 0.2625,
+    "openrouter_id": "cohere/command-r-plus-08-2024",
+    "input_per_m": 2.5,
+    "output_per_m": 10.0,
+    "cache_read_per_m": null,
+    "blended_per_m": 4.375,
     "context_length": 128000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -55467,15 +55607,16 @@
     "openrouter_id": "microsoft/phi-4",
     "input_per_m": 0.07,
     "output_per_m": 0.14,
+    "cache_read_per_m": null,
     "blended_per_m": 0.0875,
     "context_length": 16384,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -55986,18 +56127,19 @@
    },
    "epoch": [],
    "price": {
-    "openrouter_id": "cohere/command-r-08-2024",
-    "input_per_m": 0.15,
-    "output_per_m": 0.6,
-    "blended_per_m": 0.2625,
+    "openrouter_id": "cohere/command-r-plus-08-2024",
+    "input_per_m": 2.5,
+    "output_per_m": 10.0,
+    "cache_read_per_m": null,
+    "blended_per_m": 4.375,
     "context_length": 128000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -56899,15 +57041,16 @@
     "openrouter_id": "cohere/command-r-08-2024",
     "input_per_m": 0.15,
     "output_per_m": 0.6,
+    "cache_read_per_m": null,
     "blended_per_m": 0.2625,
     "context_length": 128000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -57181,15 +57324,16 @@
     "openrouter_id": "meta-llama/llama-3.1-8b-instruct",
     "input_per_m": 0.02,
     "output_per_m": 0.04,
+    "cache_read_per_m": null,
     "blended_per_m": 0.025,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -57554,16 +57698,17 @@
     "openrouter_id": "mistralai/mistral-large",
     "input_per_m": 2.0,
     "output_per_m": 6.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 3.0,
     "context_length": 128000,
     "modalities_in": [
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -58558,15 +58703,16 @@
     "openrouter_id": "cohere/command-r-08-2024",
     "input_per_m": 0.15,
     "output_per_m": 0.6,
+    "cache_read_per_m": null,
     "blended_per_m": 0.2625,
     "context_length": 128000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -61370,15 +61516,16 @@
     "openrouter_id": "meta-llama/llama-3.2-3b-instruct",
     "input_per_m": 0.0509,
     "output_per_m": 0.335,
+    "cache_read_per_m": null,
     "blended_per_m": 0.1219,
     "context_length": 131072,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -64735,15 +64882,16 @@
     "openrouter_id": "meta-llama/llama-3.2-1b-instruct",
     "input_per_m": 0.027,
     "output_per_m": 0.201,
+    "cache_read_per_m": null,
     "blended_per_m": 0.0705,
     "context_length": 60000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -67945,6 +68093,7 @@
     "openrouter_id": "anthropic/claude-fable-5.2",
     "input_per_m": 8.0,
     "output_per_m": 40.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 16.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -67952,10 +68101,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -68071,6 +68220,7 @@
     "openrouter_id": "anthropic/claude-opus-5.5",
     "input_per_m": 4.0,
     "output_per_m": 20.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 8.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -68078,10 +68228,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -68270,6 +68420,7 @@
     "openrouter_id": "anthropic/claude-sonnet-5.5",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 4.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -68277,10 +68428,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -68446,6 +68597,7 @@
     "openrouter_id": "openai/gpt-6.1-terra",
     "input_per_m": 1.0,
     "output_per_m": 5.0,
+    "cache_read_per_m": 0.05,
     "blended_per_m": 2.0,
     "context_length": 1050000,
     "modalities_in": [
@@ -68453,10 +68605,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -68526,6 +68678,7 @@
     "openrouter_id": "qwen/qwen3.8-max-0902",
     "input_per_m": 2.0,
     "output_per_m": 6.0,
+    "cache_read_per_m": 0.25,
     "blended_per_m": 3.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -68533,10 +68686,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -68742,17 +68895,18 @@
    "epoch": [],
    "price": {
     "openrouter_id": "tencent/hy4-preview",
-    "input_per_m": 0.834,
-    "output_per_m": 2.501,
-    "blended_per_m": 1.2508,
+    "input_per_m": 0.7506,
+    "output_per_m": 2.2509,
+    "cache_read_per_m": 0.0378,
+    "blended_per_m": 1.1257,
     "context_length": 1048576,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -68993,6 +69147,7 @@
     "openrouter_id": "meta/muse-spark-1.3",
     "input_per_m": 1.25,
     "output_per_m": 4.25,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 2.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -69001,10 +69156,10 @@
      "video",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -69099,6 +69254,7 @@
     "openrouter_id": "openai/gpt-5.6-sol",
     "input_per_m": 4.0,
     "output_per_m": 20.0,
+    "cache_read_per_m": 0.4,
     "blended_per_m": 8.0,
     "context_length": 1050000,
     "modalities_in": [
@@ -69106,10 +69262,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -69258,6 +69414,7 @@
     "openrouter_id": "meta/muse-ember",
     "input_per_m": 0.1,
     "output_per_m": 0.5,
+    "cache_read_per_m": 0.004,
     "blended_per_m": 0.2,
     "context_length": 1048576,
     "modalities_in": [
@@ -69267,10 +69424,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -69332,19 +69489,20 @@
    "epoch": [],
    "price": {
     "openrouter_id": "minimax/minimax-m3.1-flash",
-    "input_per_m": 0.15,
-    "output_per_m": 0.6,
-    "blended_per_m": 0.2625,
+    "input_per_m": 0.075,
+    "output_per_m": 0.3,
+    "cache_read_per_m": 0.0075,
+    "blended_per_m": 0.1312,
     "context_length": 1048576,
     "modalities_in": [
      "text",
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -69519,6 +69677,7 @@
     "openrouter_id": "stepfun/step-5-preview",
     "input_per_m": 1.0,
     "output_per_m": 2.7,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 1.425,
     "context_length": 1000000,
     "modalities_in": [
@@ -69526,10 +69685,10 @@
      "image",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -69624,6 +69783,7 @@
     "openrouter_id": "meta/muse-spark-open",
     "input_per_m": 1.25,
     "output_per_m": 4.25,
+    "cache_read_per_m": 0.15,
     "blended_per_m": 2.0,
     "context_length": 1048576,
     "modalities_in": [
@@ -69633,10 +69793,10 @@
      "file",
      "audio"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -69731,6 +69891,7 @@
     "openrouter_id": "openai/gpt-5.6-terra",
     "input_per_m": 2.0,
     "output_per_m": 12.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 4.5,
     "context_length": 1050000,
     "modalities_in": [
@@ -69738,10 +69899,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -69836,6 +69997,7 @@
     "openrouter_id": "openai/gpt-5.6-luna",
     "input_per_m": 0.2,
     "output_per_m": 1.2,
+    "cache_read_per_m": 0.02,
     "blended_per_m": 0.45,
     "context_length": 1050000,
     "modalities_in": [
@@ -69843,10 +70005,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -70150,6 +70312,7 @@
     "openrouter_id": "openai/gpt-5.5",
     "input_per_m": 5.0,
     "output_per_m": 30.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 11.25,
     "context_length": 1050000,
     "modalities_in": [
@@ -70157,10 +70320,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -70255,6 +70418,7 @@
     "openrouter_id": "openai/gpt-5.5",
     "input_per_m": 5.0,
     "output_per_m": 30.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 11.25,
     "context_length": 1050000,
     "modalities_in": [
@@ -70262,10 +70426,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -70506,16 +70670,17 @@
     "openrouter_id": "moonshotai/kimi-k2.7-code",
     "input_per_m": 0.6,
     "output_per_m": 3.5,
+    "cache_read_per_m": 0.16,
     "blended_per_m": 1.325,
     "context_length": 262144,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -70653,6 +70818,7 @@
     "openrouter_id": "openai/gpt-5.4",
     "input_per_m": 2.5,
     "output_per_m": 15.0,
+    "cache_read_per_m": 0.25,
     "blended_per_m": 5.625,
     "context_length": 1050000,
     "modalities_in": [
@@ -70660,10 +70826,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -70758,6 +70924,7 @@
     "openrouter_id": "openai/gpt-5.5",
     "input_per_m": 5.0,
     "output_per_m": 30.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 11.25,
     "context_length": 1050000,
     "modalities_in": [
@@ -70765,10 +70932,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -70892,6 +71059,7 @@
     "openrouter_id": "openai/gpt-5.4",
     "input_per_m": 2.5,
     "output_per_m": 15.0,
+    "cache_read_per_m": 0.25,
     "blended_per_m": 5.625,
     "context_length": 1050000,
     "modalities_in": [
@@ -70899,10 +71067,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -71040,6 +71208,7 @@
     "openrouter_id": "openai/gpt-5",
     "input_per_m": 1.25,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.125,
     "blended_per_m": 3.4375,
     "context_length": 400000,
     "modalities_in": [
@@ -71047,10 +71216,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -71145,6 +71314,7 @@
     "openrouter_id": "openai/gpt-5.3-codex",
     "input_per_m": 1.75,
     "output_per_m": 14.0,
+    "cache_read_per_m": 0.175,
     "blended_per_m": 4.8125,
     "context_length": 400000,
     "modalities_in": [
@@ -71152,10 +71322,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -71339,6 +71509,7 @@
     "openrouter_id": "openai/gpt-5.1",
     "input_per_m": 1.25,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.125,
     "blended_per_m": 3.4375,
     "context_length": 400000,
     "modalities_in": [
@@ -71346,10 +71517,10 @@
      "text",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -71534,16 +71705,17 @@
     "openrouter_id": "openai/gpt-5.2-codex",
     "input_per_m": 1.75,
     "output_per_m": 14.0,
+    "cache_read_per_m": 0.175,
     "blended_per_m": 4.8125,
     "context_length": 400000,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -71638,16 +71810,17 @@
     "openrouter_id": "openai/gpt-5.1-codex",
     "input_per_m": 1.25,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.13,
     "blended_per_m": 3.4375,
     "context_length": 400000,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -71922,16 +72095,17 @@
     "openrouter_id": "openai/gpt-5.1-codex-mini",
     "input_per_m": 0.25,
     "output_per_m": 2.0,
+    "cache_read_per_m": 0.03,
     "blended_per_m": 0.6875,
     "context_length": 400000,
     "modalities_in": [
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "webdev": [
@@ -72296,6 +72470,7 @@
     "openrouter_id": "z-ai/glm-5v-turbo",
     "input_per_m": 1.2,
     "output_per_m": 4.0,
+    "cache_read_per_m": 0.24,
     "blended_per_m": 1.9,
     "context_length": 202752,
     "modalities_in": [
@@ -72303,10 +72478,10 @@
      "text",
      "video"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {
     "text": [
@@ -72536,16 +72711,17 @@
     "openrouter_id": "qwen/qwen2.5-vl-72b-instruct",
     "input_per_m": 0.8,
     "output_per_m": 1.0,
+    "cache_read_per_m": 0.4,
     "blended_per_m": 0.85,
     "context_length": 128000,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73258,6 +73434,7 @@
     "openrouter_id": "anthropic/claude-fable-5.2",
     "input_per_m": 8.0,
     "output_per_m": 40.0,
+    "cache_read_per_m": 0.2,
     "blended_per_m": 16.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -73265,10 +73442,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73358,6 +73535,7 @@
     "openrouter_id": "anthropic/claude-sonnet-5.5",
     "input_per_m": 2.0,
     "output_per_m": 10.0,
+    "cache_read_per_m": 0.1,
     "blended_per_m": 4.0,
     "context_length": 1000000,
     "modalities_in": [
@@ -73365,10 +73543,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73401,16 +73579,17 @@
     "openrouter_id": "tencent/hy4",
     "input_per_m": 0.417,
     "output_per_m": 1.2505,
+    "cache_read_per_m": 0.021,
     "blended_per_m": 0.6254,
     "context_length": 1048576,
     "modalities_in": [
      "text",
      "image"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73500,6 +73679,7 @@
     "openrouter_id": "x-ai/grok-4.6",
     "input_per_m": 2.0,
     "output_per_m": 6.0,
+    "cache_read_per_m": 0.5,
     "blended_per_m": 3.0,
     "context_length": 500000,
     "modalities_in": [
@@ -73507,10 +73687,10 @@
      "image",
      "file"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73543,6 +73723,7 @@
     "openrouter_id": "openai/gpt-6-luna",
     "input_per_m": 0.1,
     "output_per_m": 0.5,
+    "cache_read_per_m": 0.01,
     "blended_per_m": 0.2,
     "context_length": 1050000,
     "modalities_in": [
@@ -73550,10 +73731,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73586,6 +73767,7 @@
     "openrouter_id": "openai/gpt-6-luna",
     "input_per_m": 0.1,
     "output_per_m": 0.5,
+    "cache_read_per_m": 0.01,
     "blended_per_m": 0.2,
     "context_length": 1050000,
     "modalities_in": [
@@ -73593,10 +73775,10 @@
      "image",
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73700,15 +73882,16 @@
     "openrouter_id": "qwen/qwen3.7-max",
     "input_per_m": 1.475,
     "output_per_m": 4.425,
+    "cache_read_per_m": 0.295,
     "blended_per_m": 2.2125,
     "context_length": 1000000,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   },
@@ -73770,15 +73953,16 @@
     "openrouter_id": "nvidia/nemotron-3-ultra-550b-a55b",
     "input_per_m": 0.6,
     "output_per_m": 2.4,
+    "cache_read_per_m": 0.12,
     "blended_per_m": 1.05,
     "context_length": 262144,
     "modalities_in": [
      "text"
     ],
-    "as_of": "2026-11-14T12:36:53Z",
+    "as_of": "2026-11-14T16:43:13Z",
     "source": "openrouter",
     "license": "OpenRouter API terms; cite source",
-    "fetched_at": "2026-11-14T12:36:53Z"
+    "fetched_at": "2026-11-14T16:43:13Z"
    },
    "history": {}
   }

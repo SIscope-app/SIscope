@@ -32,6 +32,8 @@ export type Price = Provenance & {
   openrouter_id: string;
   input_per_m: number;
   output_per_m: number;
+  /** OpenRouter cache-read price per 1M tokens, when the listing publishes one. */
+  cache_read_per_m?: number | null;
   blended_per_m: number;
   context_length: number | null;
   modalities_in: string[] | null;
