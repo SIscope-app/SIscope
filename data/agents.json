@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-14T16:55:12Z",
+ "built_at": "2026-11-14T17:01:22Z",
  "arena_agent": {
   "publish_date": "2026-11-11",
   "rows": [
@@ -714,12 +714,12 @@
   ],
   "source": "arena",
   "license": "CC-BY-4.0",
-  "fetched_at": "2026-11-14T16:51:47Z"
+  "fetched_at": "2026-11-14T17:01:15Z"
  },
  "exgentic": {
   "source": "exgentic",
   "license": "CDLA-Permissive-2.0",
-  "fetched_at": "2026-11-14T12:36:54Z",
+  "fetched_at": "2026-11-14T17:01:21Z",
   "dataset_last_modified": "2026-05-20T09:35:37.000Z",
   "rows": [
    {
@@ -735,7 +735,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -750,7 +750,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -765,7 +765,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -780,7 +780,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -795,7 +795,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -810,7 +810,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -825,7 +825,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -840,7 +840,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -855,7 +855,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -870,7 +870,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -885,7 +885,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -900,7 +900,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -915,7 +915,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -930,7 +930,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -945,7 +945,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -960,7 +960,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -975,7 +975,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -990,7 +990,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1005,7 +1005,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1020,7 +1020,7 @@
     "sessions": 51,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1035,7 +1035,7 @@
     "sessions": 97,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1050,7 +1050,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1065,7 +1065,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1080,7 +1080,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1095,7 +1095,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1110,7 +1110,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1125,7 +1125,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1140,7 +1140,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1155,7 +1155,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "claude_code",
@@ -1170,7 +1170,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1185,7 +1185,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1200,7 +1200,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1215,7 +1215,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1230,7 +1230,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1245,7 +1245,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1260,7 +1260,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1275,7 +1275,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1290,7 +1290,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1305,7 +1305,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1320,7 +1320,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1335,7 +1335,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1350,7 +1350,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1365,7 +1365,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1380,7 +1380,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1395,7 +1395,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1410,7 +1410,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1425,7 +1425,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1440,7 +1440,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1455,7 +1455,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1470,7 +1470,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1485,7 +1485,7 @@
     "sessions": 83,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1500,7 +1500,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1515,7 +1515,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1530,7 +1530,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1545,7 +1545,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1560,7 +1560,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1575,7 +1575,7 @@
     "sessions": 94,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1590,7 +1590,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1605,7 +1605,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "openai_solo",
@@ -1620,7 +1620,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1635,7 +1635,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1650,7 +1650,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1665,7 +1665,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1680,7 +1680,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1695,7 +1695,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1710,7 +1710,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1725,7 +1725,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1740,7 +1740,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1755,7 +1755,7 @@
     "sessions": 93,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1770,7 +1770,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1785,7 +1785,7 @@
     "sessions": 98,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1800,7 +1800,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1815,7 +1815,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1830,7 +1830,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1845,7 +1845,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1860,7 +1860,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1875,7 +1875,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1890,7 +1890,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1905,7 +1905,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1920,7 +1920,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1935,7 +1935,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1950,7 +1950,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1965,7 +1965,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1980,7 +1980,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -1995,7 +1995,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -2010,7 +2010,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -2025,7 +2025,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -2040,7 +2040,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -2055,7 +2055,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "smolagents_code",
@@ -2070,7 +2070,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2085,7 +2085,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2100,7 +2100,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2115,7 +2115,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2130,7 +2130,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2145,7 +2145,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2160,7 +2160,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2175,7 +2175,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2190,7 +2190,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2205,7 +2205,7 @@
     "sessions": 98,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2220,7 +2220,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2235,7 +2235,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2250,7 +2250,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2265,7 +2265,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2280,7 +2280,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2295,7 +2295,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2310,7 +2310,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2325,7 +2325,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2340,7 +2340,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2355,7 +2355,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2370,7 +2370,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2385,7 +2385,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2400,7 +2400,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2415,7 +2415,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2430,7 +2430,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2445,7 +2445,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2460,7 +2460,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2475,7 +2475,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2490,7 +2490,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2505,7 +2505,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling",
@@ -2520,7 +2520,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2535,7 +2535,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2550,7 +2550,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2565,7 +2565,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2580,7 +2580,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2595,7 +2595,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2610,7 +2610,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2625,7 +2625,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2640,7 +2640,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2655,7 +2655,7 @@
     "sessions": 98,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2670,7 +2670,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2685,7 +2685,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2700,7 +2700,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2715,7 +2715,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2730,7 +2730,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2745,7 +2745,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2760,7 +2760,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2775,7 +2775,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2790,7 +2790,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2805,7 +2805,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2820,7 +2820,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2835,7 +2835,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2850,7 +2850,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2865,7 +2865,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2880,7 +2880,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2895,7 +2895,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2910,7 +2910,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2925,7 +2925,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2940,7 +2940,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2955,7 +2955,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2970,7 +2970,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-14T12:36:54Z"
+    "fetched_at": "2026-11-14T17:01:21Z"
    }
   ]
  }
