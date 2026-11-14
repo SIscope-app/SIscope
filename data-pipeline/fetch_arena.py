@@ -18,6 +18,28 @@ BOARDS = {
 HISTORY = {"text": "overall", "webdev": "overall"}
 
 
+def prefer_row(prev: dict, row: dict) -> dict:
+    """Two published rows for one model: keep the one with more votes (or agent sessions).
+
+    File order is not a measurement. A larger sample is. Equal samples keep the better rank.
+    """
+    prev_n = prev.get("votes") if prev.get("votes") is not None else prev.get("sessions") or 0
+    row_n = row.get("votes") if row.get("votes") is not None else row.get("sessions") or 0
+    if row_n > prev_n:
+        return row
+    if row_n == prev_n and row["rank"] < prev["rank"]:
+        return row
+    return prev
+
+
+def collapse_rows(rows: list[dict]) -> list[dict]:
+    by_name: dict[str, dict] = {}
+    for row in rows:
+        prev = by_name.get(row["name"])
+        by_name[row["name"]] = row if prev is None else prefer_row(prev, row)
+    return sorted(by_name.values(), key=lambda r: r["rank"])
+
+
 def main():
     fetched_at = now_iso()
     meta = read_json_url(f"https://huggingface.co/api/datasets/{DS}", timeout=60)
@@ -55,13 +77,16 @@ def main():
                     row.update(rating=round(float(r.rating), 1), lo=round(float(r.rating_lower), 1), hi=round(float(r.rating_upper), 1),
                                votes=int(r.vote_count) if pd.notna(r.vote_count) else None)
                 rows.append(row)
+            rows = collapse_rows(rows)
             b[cat] = {"publish_date": max((x["date"] for x in rows), default=None), "rows": rows}
         out["boards"][board] = b
         print(board, {c: len(v["rows"]) for c, v in b.items()})
     for board, cat in HISTORY.items():
         p = download(f"{BASE}/{board}/full-00000-of-00001.parquet", CACHE / f"arena_{board}_full.parquet")
-        f = pd.read_parquet(p, columns=["model_name", "license", "rating", "rank", "category", "leaderboard_publish_date"])
+        f = pd.read_parquet(p, columns=["model_name", "license", "rating", "rank", "category", "leaderboard_publish_date", "vote_count"])
         f = f[f.category == cat]
+        # One row per model per date. Keep the larger vote sample.
+        f = f.sort_values("vote_count", ascending=False).drop_duplicates(["model_name", "leaderboard_publish_date"])
         dates = sorted(f.leaderboard_publish_date.astype(str).unique())[-16:]
         f = f[f.leaderboard_publish_date.astype(str).isin(dates)]
         hist = {}

@@ -14,7 +14,7 @@ import collections
 import datetime as dt
 import re
 
-from epoch_match import accept, arena_dates, dates_agree
+from epoch_match import accept, arena_dates, dates_agree, pick_latest
 from common import EFFORTS, assert_no_blocked, base_key, effort_of, now_iso, read_json, slugify, split_name, write_json
 
 LADDER = ["none", "minimal", "low", "medium", "high", "xhigh", "max"]
@@ -154,7 +154,7 @@ def main():
                 (ok if good else rejected).append((c, why) if good else {"model": m["name"], "benchmark": bench, "epoch_version": c[1]["model_version"], "reason": why})
             if not ok:
                 continue
-            pick = sorted(ok, key=lambda cw: (cw[0][1]["run_date"] or "", cw[0][1]["score"]))[-1][0][1]
+            pick = pick_latest([c[1] for c, _why in ok])
             ep.append({"benchmark": bench, "score": pick["score"], "stderr": pick["stderr"], "tested_as": pick["model_version"],
                        "approx": False, "run_date": pick["run_date"], "log_url": pick["log_url"], **epoch_src})
             stats["epoch_matched"] += 1

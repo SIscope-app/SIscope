@@ -64,6 +64,14 @@ def arena_setting(variant: str | None):
     return eff, (bud.group(1) + "k") if bud else None, think, "codex harness" in v
 
 
+def pick_latest(runs: list[dict]) -> dict:
+    """When Epoch published more than one run of the same version, keep the latest date.
+
+    A later run replaces an earlier one. If the dates match, the higher score is kept.
+    """
+    return sorted(runs, key=lambda r: (r.get("run_date") or "", r.get("score") or 0))[-1]
+
+
 def accept(arena_name: str, variant: str | None, version: str, dated_siblings: bool, has_plain_and_none: bool) -> tuple[bool, str]:
     """Return (ok, reason). `dated_siblings`: another Arena entry shares this base name."""
     eff, bud, think, harness = arena_setting(variant)

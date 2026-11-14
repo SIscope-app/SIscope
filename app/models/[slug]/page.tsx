@@ -9,6 +9,7 @@ import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
 import { EPOCH_BENCHMARKS, allModels, modelBySlug, siRanked, sourceById } from "@/lib/data";
 import { fmtCtx, fmtDate, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
+import { schemaName } from "@/lib/names";
 import { orgName } from "@/lib/orgs";
 import { suggestions } from "@/lib/advice";
 import { CopyButton } from "@/components/CopyButton";
@@ -101,13 +102,13 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
               "@type": "BreadcrumbList",
               itemListElement: [
                 { "@type": "ListItem", position: 1, name: "Leaderboard", item: `${SITE.url}/leaderboard` },
-                { "@type": "ListItem", position: 2, name: m.name, item: `${SITE.url}/models/${m.slug}` },
+                { "@type": "ListItem", position: 2, name: schemaName(m.name), item: `${SITE.url}/models/${m.slug}` },
               ],
             },
             {
               "@type": "Dataset",
-              name: `${m.name} scores and price`,
-              description: `Human-vote rankings, independent benchmark results and list price for ${m.name}.`,
+              name: schemaName(m.name),
+              description: `Human-vote rankings, independent benchmark results and list price for ${schemaName(m.name)}.`,
               url: `${SITE.url}/models/${m.slug}`,
               creator: { "@type": "Organization", name: "SIscope" },
               isBasedOn: [arenaSrc.home, epochSrc.home, orSrc.home],

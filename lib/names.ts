@@ -71,6 +71,24 @@ export function prettyParts(base: string, variant: string | null): Pretty {
   return { base: b, variant: v || null };
 }
 
+/**
+ * Name used in JSON-LD. No trailing period, and a provider word is not repeated
+ * ("Command Command R+." is "Command R+").
+ */
+export function schemaName(name: string): string {
+  let s = name.trim().replace(/\.+$/u, "").replace(/\s+/g, " ");
+  const parts = s.split(" ");
+  for (let n = Math.floor(parts.length / 2); n >= 1; n--) {
+    const lead = parts.slice(0, n).join(" ");
+    const again = parts.slice(n, n * 2).join(" ");
+    if (lead.toLowerCase() === again.toLowerCase()) {
+      s = parts.slice(n).join(" ");
+      break;
+    }
+  }
+  return s;
+}
+
 /** Clean a full display name of the form "Base (Variant)". */
 export function prettyName(name: string): string {
   const m = /^(.*?)\s*\(([^)]+)\)$/.exec(name);
