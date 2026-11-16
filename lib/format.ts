@@ -47,6 +47,11 @@ export function fmtInt(v: number | null | undefined): string {
   return v == null ? "n/a" : Math.round(v).toLocaleString("en-US");
 }
 
+/** Difference of the numbers a person sees. Round each side first, then subtract. */
+export function shownGap(closed: number, open: number): number {
+  return Math.round(closed) - Math.round(open);
+}
+
 export function fmtCtx(v: number | null | undefined): string {
   if (!v) return "n/a";
   if (v >= 1_000_000) return `${+(v / 1_000_000).toFixed(1)}M`;

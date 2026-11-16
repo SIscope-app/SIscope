@@ -2,7 +2,9 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { buildDecisions } from "./decisions";
 import { fmtPrice, fmtPriceExact } from "./format";
-import { priceChangeCopy, visibleChangeCount } from "./home-layout";
+import { changeRangeLabel, lastRankChange, materialChanges, priceChangeCopy, visibleChangeCount } from "./home-layout";
+import { shownGap } from "./format";
+import { LIVE_TASKS, TASKS } from "./tasks";
 import { modelBySlug } from "./data";
 
 test("change grids hide a remainder so every row is full", () => {
@@ -46,6 +48,38 @@ test("a new OpenRouter listing is a blended price, not a made-up percent", () =>
   assert.equal(cut.headline, "$8.00 → $4.00");
   assert.match(cut.detail, /down/);
   assert.match(cut.detail, /-50%/);
+  const prose = priceChangeCopy("$0.5437 in, $1.2505 out per 1M tokens on OpenRouter");
+  assert.equal(prose.detail, "$0.54 in · $1.25 out · new list price");
+  assert.doesNotMatch(`${prose.headline} ${prose.detail}`, /\d\.\d{3}/);
+});
+
+test("the change range is the dates on the cards, and an unchanged gap is dropped", () => {
+  const changes = [
+    { kind: "holds_leader", date: "2026-11-11", text: "holds" },
+    { kind: "gap", date: "2026-11-11", text: "Open models 47 points behind", sub: "was 47" },
+    { kind: "price_new", date: "2026-11-12", text: "price" },
+    { kind: "price_new", date: "2026-11-10", text: "older price" },
+  ];
+  const gap = [
+    { closed: 1538.3, open: 1491.7 },
+    { closed: 1538.4, open: 1491.6 },
+  ];
+  assert.equal(shownGap(1538.4, 1491.6), 46);
+  const shown = materialChanges(changes, gap);
+  assert.equal(shown.some((c) => c.kind === "gap"), false);
+  assert.equal(changeRangeLabel(shown, (d) => d.slice(5)), "3 updates from 11-10 to 11-12.");
+  assert.equal(lastRankChange(shown), "2026-11-11");
+  const moved = materialChanges(changes, [
+    { closed: 1500, open: 1450 },
+    { closed: 1510, open: 1450 },
+  ]);
+  assert.equal(moved.some((c) => c.kind === "gap"), true);
+});
+
+test("the homepage job grid leaves unmeasured categories for the methodology page", () => {
+  assert.equal(TASKS.some((t) => t.slug === "fast" && t.soon), true);
+  assert.equal(LIVE_TASKS.some((t) => t.slug === "fast"), false);
+  assert.ok(LIVE_TASKS.length >= 1);
 });
 
 test("homepage glances stay short and keep SIscope separate from Arena", () => {
@@ -61,5 +95,6 @@ test("homepage glances stay short and keep SIscope separate from Arena", () => {
   if (d.value) {
     assert.match(d.value.glance, /under \$1\/1M/);
     assert.ok(d.value.glance.length < 48);
+    assert.doesNotMatch(d.value.reason, /\$\d+\.\d{3}/);
   }
 });

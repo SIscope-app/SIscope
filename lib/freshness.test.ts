@@ -4,7 +4,7 @@ import test from "node:test";
 import publish from "../data/publish.json";
 import sources from "../data/sources.json";
 import { fmtDate, fmtDateTime } from "./format";
-import { mayAdvanceSuccess, sourceShortLabel, updatedLabel } from "./freshness";
+import { freshnessNote, mayAdvanceSuccess, sourceShortLabel, updatedLabel } from "./freshness";
 import models from "../data/models.json";
 import slugs from "../data/slugs.json";
 
@@ -58,7 +58,10 @@ test("the header date is the Chicago success day, and sources stay attributed", 
   const proxy = readFileSync("proxy.ts", "utf8");
   assert.match(header, /href="#sources"/);
   assert.match(header, /dateTime=\{updatedAt\}/);
-  assert.match(layout, /updatedLabel\(PUBLISH\.last_success_at\)/);
+  assert.match(layout, /freshnessNote\(PUBLISH\.last_success_at/);
+  const quiet = freshnessNote("2026-11-15T12:38:47Z", "2026-11-11");
+  assert.equal(quiet.short, "No rank changes since Nov 11; checked Nov 15");
+  assert.equal(freshnessNote("2026-11-11T18:00:00Z", "2026-11-11").short, "Updated Nov 11");
   assert.doesNotMatch(layout, /<Freshness/);
   assert.match(footer, /id="sources"/);
   assert.match(footer, /data as of/);

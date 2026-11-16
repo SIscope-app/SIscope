@@ -114,7 +114,7 @@ export default function Page() {
 
         <h2>Sources and licences</h2>
         <p>
-          “Updated …” in the header is the last refresh that finished deploying and checking the public site, shown as a Chicago date. A failed refresh does not move it. The dates in the table, and in the footer, are when each source&apos;s own data was current, which can be earlier.
+          The header date is the last refresh that finished deploying and checking the public site, in Chicago time. When that check is newer than the last Arena rank move, it says so. A failed refresh does not move it. The dates in the table, and in the footer, are when each source&apos;s own data was current, which can be earlier.
         </p>
       </section>
       <div className="card scroll-x">

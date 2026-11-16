@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { BottomNav, Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { PUBLISH } from "@/lib/data";
-import { updatedLabel } from "@/lib/freshness";
+import { CHANGES, PUBLISH } from "@/lib/data";
+import { freshnessNote } from "@/lib/freshness";
+import { lastRankChange } from "@/lib/home-layout";
 import { SITE, og } from "@/lib/site";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -40,7 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="sr-only focus:not-sr-only">
           Skip to content
         </a>
-        <Header updated={updatedLabel(PUBLISH.last_success_at)} updatedAt={PUBLISH.last_success_at} />
+        <Header updated={freshnessNote(PUBLISH.last_success_at, lastRankChange(CHANGES.changes))} updatedAt={PUBLISH.last_success_at} />
         <main id="main">{children}</main>
         <Footer />
         <BottomNav />

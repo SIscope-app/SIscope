@@ -29,6 +29,27 @@ def ladder_pos(e):
     return LADDER.index(e) if e in LADDER else 3
 
 
+def shown_gap(closed, open_score):
+    """Gap a person can check: round each displayed rating, then subtract."""
+    return round(closed) - round(open_score)
+
+
+def gap_change(g1, g0, date):
+    """None when the rounded gap did not move. An unchanged 'was 47, now 47' is not an update."""
+    if not g1.get("closed") or not g1.get("open") or not g0.get("closed") or not g0.get("open"):
+        return None
+    now, prev = shown_gap(g1["closed"], g1["open"]), shown_gap(g0["closed"], g0["open"])
+    if now == prev:
+        return None
+    return {
+        "kind": "gap",
+        "board": "text",
+        "text": f"Open models {now} points behind",
+        "sub": f"Gap between best closed and best open was {prev} at the previous update",
+        "date": date,
+    }
+
+
 def epoch_key(v):
     parts = v.rsplit("_", 1)
     eff = None
@@ -244,8 +265,9 @@ def main():
             changes.append({"kind": "down", "board": "text", "model": n, "text": f"{split_name(n)[0]} slips {-delta} place{'s' if delta < -1 else ''}", "sub": f"Now #{cur[n][-1][2]} in text arena", "date": d1})
     gap = th["gap"]
     g1, g0 = gap[-1], gap[-2]
-    if g1["closed"] and g1["open"]:
-        changes.append({"kind": "gap", "board": "text", "text": f"Open models {round(g1['closed'] - g1['open'])} points behind", "sub": f"Gap between best closed and best open was {round(g0['closed'] - g0['open'])} at the previous update", "date": d1})
+    gap_item = gap_change(g1, g0, d1)
+    if gap_item:
+        changes.append(gap_item)
     wh = arena["history"]["webdev"]
     wd = wh["dates"]
     wcur = {n: s for n, s in wh["series"].items() if s and s[-1][0] == wd[-1]}
