@@ -148,7 +148,7 @@ export default function Page() {
         <ul>
           {Object.entries(EPOCH_BENCHMARKS).map(([k, b]) => (
             <li key={k}>
-              <b>{b.label}</b>: {b.description}. {b.n} models tested.
+              <b>{b.label}</b>: {b.description}. {b.n} models tested.{b.in_score === false ? " Shown on model pages. Not in the score." : ""}
             </li>
           ))}
         </ul>

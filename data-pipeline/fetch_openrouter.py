@@ -36,7 +36,21 @@ def main():
             cache_n = 0.0
         # Only a published cache-read price. Zero or absent is not a guess of "free cache".
         r["cache_read_per_m"] = round(cache_n * 1e6, 4) if cache_n > 0 else None
-        r["modalities_in"] = (m.get("architecture") or {}).get("input_modalities")
+        arch = m.get("architecture") or {}
+        r["modalities_in"] = arch.get("input_modalities")
+        r["output_modalities"] = arch.get("output_modalities")
+        top = m.get("top_provider") or {}
+        cap = top.get("max_completion_tokens")
+        r["max_output"] = int(cap) if isinstance(cap, int) or (isinstance(cap, float) and cap == int(cap)) else None
+        params = m.get("supported_parameters")
+        if isinstance(params, list):
+            names = set(params)
+            # Present in the list is a published capability. Absent from a published list is "not listed", not a guess.
+            r["tools"] = "tools" in names
+            r["structured"] = "structured_outputs" in names or "response_format" in names
+            r["reasoning"] = "reasoning" in names or "include_reasoning" in names
+        else:
+            r["tools"] = r["structured"] = r["reasoning"] = None
         r.update(source="openrouter", license="OpenRouter API terms; cite source", fetched_at=fetched_at)
         rows.append(r)
     out = {"source": "openrouter", "fetched_at": fetched_at, "as_of": fetched_at, "models": rows}

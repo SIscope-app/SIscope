@@ -23,6 +23,8 @@ export type EpochResult = Provenance & {
   tested_as: string;
   approx: boolean;
   run_date: string | null;
+  /** Epoch's own release date for this model version, when the file has one. */
+  release_date?: string | null;
   log_url: string | null;
   pct?: number;
   tested_models?: number;
@@ -37,6 +39,15 @@ export type Price = Provenance & {
   blended_per_m: number;
   context_length: number | null;
   modalities_in: string[] | null;
+  output_modalities?: string[] | null;
+  /** OpenRouter top-provider max completion tokens, when published. */
+  max_output?: number | null;
+  /** Unix seconds, OpenRouter `created`. A listing date, not a lab announcement. */
+  created?: number | null;
+  /** True or false only when OpenRouter published supported_parameters. Otherwise unknown. */
+  tools?: boolean | null;
+  structured?: boolean | null;
+  reasoning?: boolean | null;
   as_of: string;
 };
 
@@ -62,4 +73,4 @@ export type Model = {
   history: { text?: HistPoint[]; webdev?: HistPoint[] };
 };
 
-export type EpochBenchmark = { label: string; category: string; description: string; random_baseline: number; url: string; n: number };
+export type EpochBenchmark = { label: string; category: string; description: string; random_baseline: number; url: string; n: number; in_score?: boolean };

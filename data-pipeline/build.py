@@ -177,7 +177,7 @@ def main():
                 continue
             pick = pick_latest([c[1] for c, _why in ok])
             ep.append({"benchmark": bench, "score": pick["score"], "stderr": pick["stderr"], "tested_as": pick["model_version"],
-                       "approx": False, "run_date": pick["run_date"], "log_url": pick["log_url"], **epoch_src})
+                       "approx": False, "run_date": pick["run_date"], "release_date": pick.get("release_date"), "log_url": pick["log_url"], **epoch_src})
             stats["epoch_matched"] += 1
         # price
         pr = P.get(k)
@@ -202,6 +202,9 @@ def main():
             price = {"openrouter_id": pr["id"], "input_per_m": pr["input_per_m"], "output_per_m": pr["output_per_m"],
                      "cache_read_per_m": pr.get("cache_read_per_m"),
                      "blended_per_m": blended, "context_length": pr["context_length"], "modalities_in": pr["modalities_in"],
+                     "output_modalities": pr.get("output_modalities"), "max_output": pr.get("max_output"),
+                     "created": pr.get("created"), "tools": pr.get("tools"), "structured": pr.get("structured"),
+                     "reasoning": pr.get("reasoning"),
                      "as_of": prices["as_of"], **or_src}
             stats["priced"] += 1
         hist = {}
@@ -308,7 +311,7 @@ def main():
         {"id": "epoch", "name": "Epoch AI Benchmarking Hub", "url": "https://epoch.ai/benchmarks", "home": "https://epoch.ai",
          "license": "CC BY 4.0", "license_url": "https://creativecommons.org/licenses/by/4.0/",
          "attribution": "Epoch AI, 'Capabilities & benchmarking', epoch.ai/benchmarks", "fetched_at": epoch["fetched_at"],
-         "as_of": max((r["run_date"] or "") for r in epoch["results"]), "used_for": "Epoch's own runs of GPQA Diamond, SimpleQA Verified, OTIS Mock AIME, FrontierMath Tiers 1-3, SWE-bench Verified"},
+         "as_of": max((r["run_date"] or "") for r in epoch["results"]), "used_for": "Epoch's own runs. In the score: GPQA Diamond, SimpleQA Verified, OTIS Mock AIME, FrontierMath Tiers 1-3, SWE-bench Verified. Shown, not in the score: MATH level 5, FrontierMath Tier 4, Chess Puzzles, MirrorCode"},
         {"id": "openrouter", "name": "OpenRouter models API", "url": "https://openrouter.ai/api/v1/models", "home": "https://openrouter.ai",
          "license": "OpenRouter API terms (cited, prices only)", "license_url": "https://openrouter.ai/terms",
          "attribution": "Source: OpenRouter (openrouter.ai), models API", "fetched_at": prices["fetched_at"], "as_of": prices["as_of"],

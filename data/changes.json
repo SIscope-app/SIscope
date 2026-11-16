@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-15T12:38:40Z",
+ "built_at": "2026-11-16T23:58:43Z",
  "week_to": "2026-11-11",
  "prev": "2026-11-09",
  "changes": [
@@ -45,14 +45,6 @@
    "date": "2026-11-11",
    "org": "xiaomi",
    "slug": "mimo-v2-6-pro",
-   "source": "arena"
-  },
-  {
-   "kind": "gap",
-   "board": "text",
-   "text": "Open models 47 points behind",
-   "sub": "Gap between best closed and best open was 47 at the previous update",
-   "date": "2026-11-11",
    "source": "arena"
   },
   {
