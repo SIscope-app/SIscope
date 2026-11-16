@@ -63,7 +63,7 @@ export default function Page() {
       <div className="page-head">
         <div className="eyebrow">Agents</div>
         <h1 className="h1" style={{ marginTop: 8 }}>Models that finish multi-step work</h1>
-        <p className="lede">Two views: votes from real agent sessions, and the same models inside several agent setups on a shared test suite.</p>
+        <p className="lede">The score on the tile is the Arena Agent board ({fmtDate(AGENTS.arena_agent.publish_date)}). The grid further down is the Open Agent Leaderboard, a different file dated {fmtDate(AGENTS.exgentic.dataset_last_modified)}.</p>
       </div>
 
       <section className="section" style={{ marginTop: 10 }}>

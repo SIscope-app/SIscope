@@ -6,6 +6,7 @@ import agentsJson from "@/data/agents.json";
 import type { EpochBenchmark, Model } from "./types";
 import { prettyName, prettyParts } from "./names";
 import { categoryScores, composite, type CategoryScores, type Components } from "./score";
+import { provisionalScore } from "./trust";
 
 const rawJson = modelsJson as unknown as { built_at: string; models: Model[]; epoch_benchmarks: Record<string, EpochBenchmark> };
 /** Models with cleaned display names (slugs unchanged). `raw_name` keeps the source spelling. */
@@ -142,6 +143,8 @@ export type Slim = {
   org: string;
   open: boolean;
   si: number | null;
+  /** Floor-formula score under the coverage gate. Null when an official score exists. */
+  provisional: number | null;
   coverage: number;
   cats: CategoryScores;
   text: number | null;
@@ -173,6 +176,10 @@ export function slim(m: Enriched): Slim {
     org: m.org,
     open: m.open,
     si: m.si == null ? null : Math.round(m.si * 10) / 10,
+    provisional: (() => {
+      const p = provisionalScore(m.cats);
+      return p == null ? null : Math.round(p * 10) / 10;
+    })(),
     coverage: Math.round(m.coverage * 100) / 100,
     cats: Object.fromEntries(Object.entries(m.cats).map(([k, v]) => [k, Math.round((v as number) * 10) / 10])),
     text: m.arena.text?.rating ?? null,

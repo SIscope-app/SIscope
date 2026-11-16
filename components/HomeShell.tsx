@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Scatter, type ScatterPt } from "./Scatter";
 import Link from "next/link";
 import { SectionHead } from "./rows";
+import { tieTitle, tieWithPrevious } from "@/lib/trust";
 import { Avatar, OpenTag, VariantChip } from "./Avatar";
 
 type F = "all" | "open" | "closed";
@@ -19,10 +20,10 @@ export function FilterSeg({ value, onChange, size }: { value: F; onChange: (f: F
   );
 }
 
-export type TopItem = { slug: string; name: string; base: string; variant: string | null; org: string; open: boolean; si: number; price: string | null };
+export type TopItem = { slug: string; name: string; base: string; variant: string | null; org: string; open: boolean; si: number; price: string | null; measured: string; lo: number | null; hi: number | null };
 
 /** Compact top-10: rank, provider, name, score bar, score, blended price. */
-function TopList({ items }: { items: TopItem[] }) {
+function TopList({ items, ties }: { items: TopItem[]; ties: ReturnType<typeof tieWithPrevious> }) {
   const floor = 50;
   return (
     <div className="card t10">
@@ -35,6 +36,7 @@ function TopList({ items }: { items: TopItem[] }) {
       </div>
       <ol>
         {items.map((it, i) => {
+          const tie = ties[i];
           const w = Math.max(2, Math.min(100, ((it.si - floor) / (100 - floor)) * 100));
           return (
             <li key={it.slug}>
@@ -45,6 +47,8 @@ function TopList({ items }: { items: TopItem[] }) {
                   <span className="n" title={it.name}>{it.base}</span>
                   <VariantChip v={it.variant} />
                   <OpenTag open={it.open} />
+                  <span className="cov-n">{it.measured}</span>
+                  {tie ? <span className="cov-n" title={tieTitle(tie) ?? undefined}>tied</span> : null}
                 </span>
                 <span className="t10-track">
                   <span className="barw t10-bar" aria-hidden="true">
@@ -101,6 +105,7 @@ export function HomeShell({
     window.history.replaceState(null, "", u);
   };
   const top10 = top.filter((t) => f === "all" || (f === "open" ? t.open : !t.open)).slice(0, 10);
+  const ties = tieWithPrevious(top10.map((t) => ({ score: t.si, lo: t.lo, hi: t.hi })));
   return (
     <>
       <section className="hero wrap" aria-label="Best models right now">
@@ -117,7 +122,7 @@ export function HomeShell({
           </div>
           <FilterSeg value={f} onChange={set} size="sm" />
         </div>
-        <TopList items={top10} />
+        <TopList items={top10} ties={ties} />
         <div className="t10-foot">
           <span className="note" style={{ margin: 0 }}>Bars start at 50 so small gaps near the top stay visible.</span>
           <Link className="btn" href={f === "all" ? "/leaderboard" : `/leaderboard?show=${f}`}>

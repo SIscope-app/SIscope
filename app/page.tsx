@@ -4,12 +4,13 @@ import { HomeShell } from "@/components/HomeShell";
 import { GapChart } from "@/components/charts";
 import { RankMoves } from "@/components/RankMoves";
 import { budgetPicks } from "@/lib/advice";
+import { coverageOf } from "@/components/Coverage";
 import { Avatar, VariantChip } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import type { TopItem } from "@/components/HomeShell";
 import type { ScatterPt } from "@/components/Scatter";
-import { CHANGES, allModels, siRanked, textRanked, type Enriched } from "@/lib/data";
+import { AGENTS, CHANGES, allModels, siRanked, textRanked, type Enriched } from "@/lib/data";
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { ARENA_BOARD_URL } from "@/lib/links";
 import { fmtDate, fmtPrice, shownGap } from "@/lib/format";
@@ -21,7 +22,20 @@ import { SITE, og } from "@/lib/site";
 export const metadata = { alternates: { canonical: "/" }, openGraph: og("/") };
 
 function row(m: Enriched): TopItem {
-  return { slug: m.slug, name: m.name, base: m.base, variant: m.variant, org: m.org, open: m.open, si: m.si!, price: m.price ? fmtPrice(m.price.blended_per_m) : null };
+  const c = coverageOf(m.cats);
+  return {
+    slug: m.slug,
+    name: m.name,
+    base: m.base,
+    variant: m.variant,
+    org: m.org,
+    open: m.open,
+    si: m.si!,
+    price: m.price ? fmtPrice(m.price.blended_per_m) : null,
+    measured: `${c.n}/${c.total} measured`,
+    lo: m.arena.text?.lo ?? null,
+    hi: m.arena.text?.hi ?? null,
+  };
 }
 
 function Decision({ card }: { card: DecisionCard }) {
@@ -55,6 +69,7 @@ function Decision({ card }: { card: DecisionCard }) {
         </p>
       </div>
       <p className="decide-glance">{card.glance}</p>
+      {card.asof ? <p className="decide-asof">{card.asof}</p> : null}
     </article>
   );
 }
@@ -246,6 +261,7 @@ export default function Home() {
                   <VariantChip v={w.variant} />
                 </span>
                 <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? `${fmtPrice(w.price.blended_per_m)} per 1M tokens` : "Top open-weight pick") : o ? <>Best open: {o.base}{o.variant ? ` (${o.variant})` : ""}</> : "No open model with data yet"}</span>
+                {t.slug === "agents" ? <span className="alt">Driven by the Arena Agent board, {fmtDate(AGENTS.arena_agent.publish_date, { year: false })}. The Open Agent Leaderboard file is {fmtDate(AGENTS.exgentic.dataset_last_modified, { year: false })} and is a separate table.</span> : null}
               </>
             ) : (
               <span className="nodata">No result yet</span>
