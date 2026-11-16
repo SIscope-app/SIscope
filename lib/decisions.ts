@@ -4,8 +4,9 @@
  */
 import { allModels, siRanked, type Enriched } from "./data";
 import { measuredAndMissing, settingLabel, compareDefaultSlugs } from "./present";
-import { fmtPrice } from "./format";
+import { fmtDate, fmtPrice } from "./format";
 import { CHEAP_MAX, VALUE_MIN_SI, TASKS, bestValue, taskRanking } from "./tasks";
+import { categorySources } from "./trust";
 
 export type DecisionCard = {
   kind: "overall" | "coding" | "value";
@@ -24,6 +25,8 @@ export type DecisionCard = {
   limit: string;
   /** One line for the homepage card. The longer reason stays behind “Why”. */
   glance: string;
+  /** Quiet source date. Empty when that card has no dated source. */
+  asof: string;
 };
 
 export type OpenPick = { slug: string; href: string; name: string; score: string; rank: number };
@@ -39,7 +42,7 @@ export type Decisions = {
   trackedCount: number;
 };
 
-function cardBase(kind: DecisionCard["kind"], m: Enriched, kicker: string, rankKind: string, score: string, unit: string, glance: string, reason: string, limit: string): DecisionCard {
+function cardBase(kind: DecisionCard["kind"], m: Enriched, kicker: string, rankKind: string, score: string, unit: string, glance: string, reason: string, limit: string, asof: string): DecisionCard {
   return {
     kind,
     kicker,
@@ -56,6 +59,7 @@ function cardBase(kind: DecisionCard["kind"], m: Enriched, kicker: string, rankK
     glance,
     reason,
     limit,
+    asof,
   };
 }
 
@@ -122,13 +126,25 @@ export function buildDecisions(ranked = siRanked()): Decisions {
       `Top score under $${CHEAP_MAX}/1M`,
       `Highest SIscope score (${valueM.si!.toFixed(0)}) among models listed at or under $${CHEAP_MAX} per 1M tokens with a score of at least ${VALUE_MIN_SI}.${same ? ` This is the same setting as ${same}.` : ""} Listed at ${fmtPrice(valueM.price.blended_per_m)} per 1M.${vs}`,
       gapLimit(valueM),
+      valueM.price.as_of ? `OpenRouter price checked ${fmtDate(valueM.price.as_of, { year: false })}` : "",
     );
   }
 
   const compareSlugs = compareDefaultSlugs([overallM.slug, codingM.slug, valueM?.slug, openM.slug]);
   return {
-    overall: cardBase("overall", overallM, "Highest overall score", "SIscope score", overallM.si!.toFixed(0), "/100", overallGlance(overallM, n), overallBits.join(" "), gapLimit(overallM)),
-    coding: cardBase("coding", codingM, "Highest coding score", "Coding score", codingM.cats.coding!.toFixed(0), "/100", codingGlance(codingM), codingBits.join(" "), codingLimit),
+    overall: cardBase("overall", overallM, "Highest overall score", "SIscope score", overallM.si!.toFixed(0), "/100", overallGlance(overallM, n), overallBits.join(" "), gapLimit(overallM), overallM.arena.text ? `Arena text through ${fmtDate(overallM.arena.text.date, { year: false })}` : ""),
+    coding: cardBase(
+      "coding",
+      codingM,
+      "Highest coding score",
+      "Coding score",
+      codingM.cats.coding!.toFixed(0),
+      "/100",
+      codingGlance(codingM),
+      codingBits.join(" "),
+      codingLimit,
+      [codingM.arena.webdev ? `Arena WebDev through ${fmtDate(codingM.arena.webdev.date, { year: false })}` : "", categorySources(codingM.comp, "coding").n === 1 ? "single source" : ""].filter(Boolean).join(" · "),
+    ),
     value,
     open: { slug: openM.slug, href: `/models/${openM.slug}`, name: settingLabel(openM.base, openM.variant), score: openM.si!.toFixed(0), rank: openM.siRank! },
     compareSlugs,

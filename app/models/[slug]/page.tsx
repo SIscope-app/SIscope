@@ -15,6 +15,7 @@ import { suggestions } from "@/lib/advice";
 import { CopyButton } from "@/components/CopyButton";
 import { dateFacts, dateSentence, priceStatus, scoreFootnote, settingLabel, verdictParagraph } from "@/lib/present";
 import { COVERAGE_GATE } from "@/lib/score";
+import { measuredScore, provisionalScore } from "@/lib/trust";
 import { SITE, og } from "@/lib/site";
 
 // This route has to read the slug before it can render. Opt out of the dev-only instant-navigation notice.
@@ -77,6 +78,8 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
   const epochSrc = sourceById("epoch");
   const orSrc = sourceById("openrouter");
   const cov = coverageOf(m.cats);
+  const measured = measuredScore(m.cats);
+  const provisional = provisionalScore(m.cats);
   const dates = dateFacts(m);
   const when = dateSentence(dates);
   const price = priceStatus(m.price?.blended_per_m ?? null);
@@ -138,8 +141,8 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
         <div className="kf" role="list" aria-label="Key facts">
           <div className="card stat lead" role="listitem">
             <div className="k">SIscope score</div>
-            <div className="v">{m.si != null ? <>{m.si.toFixed(0)}<small>/100</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
-            <div className="d">{m.si != null ? `#${m.siRank} of ${ranked.length} scored models. Not an Arena rank.` : `${Math.round(m.coverage * 100)}% of the weight is measured. A score needs ${COVERAGE_GATE * 100}%.`}</div>
+            <div className="v">{m.si != null ? <>{m.si.toFixed(0)}<small>/100</small></> : provisional != null ? <>{provisional.toFixed(0)}<small> provisional</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
+            <div className="d">{m.si != null ? `#${m.siRank} of ${ranked.length} scored models. Not an Arena rank.` : provisional != null ? `Provisional. ${Math.round(m.coverage * 100)}% of the weight is measured, under the ${COVERAGE_GATE * 100}% gate, so this is not in the main ranking.` : `${Math.round(m.coverage * 100)}% of the weight is measured. A score needs ${COVERAGE_GATE * 100}%.`}</div>
           </div>
           {(["text", "webdev"] as const).map((b) => {
             const a = m.arena[b];
@@ -217,7 +220,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             {siblings.slice(0, 6).map((s) => (
               <Link key={s.slug} href={`/models/${s.slug}`} className="src">
                 {s.variant ?? "Default"}
-                {s.si != null ? ` · ${s.si.toFixed(0)}` : ""}
+                {s.si != null ? ` · ${s.si.toFixed(0)}` : provisionalScore(s.cats) != null ? ` · ${provisionalScore(s.cats)!.toFixed(0)} provisional` : " · no score yet"}
               </Link>
             ))}
           </div>
@@ -257,7 +260,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           <div className="card" style={{ padding: 20 }}>
             <h2 className="h2">Score by category</h2>
             <p className="sub" style={{ marginBottom: 10 }}>90 means better than about 90% of models measured on that category.</p>
-            <CatBars cats={m.cats} open={m.open} />
+            <CatBars cats={m.cats} open={m.open} comp={m.comp} imputed={measured.score != null ? measured.imputed : []} />
             <p className="note">
               <Link className="link" href="/methodology">What goes into each category</Link> ·{" "}
               {rival && (
@@ -406,10 +409,11 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             <p className="note">
               List price from the OpenRouter models API, {fmtDate(m.price.as_of)}: <a className="link" href={openrouterUrl(m.price.openrouter_id)} rel="noopener">{m.price.openrouter_id} on OpenRouter ↗</a>.
               {m.price.cache_read_per_m ? ` Cached input is listed at ${fmtPrice(m.price.cache_read_per_m)} per 1M tokens.` : " OpenRouter does not list a cache-read price for this model."} Providers can charge differently. The table above keeps the extra digits.
+              {m.arena.agent?.cost_per_task_p50 != null ? ` Arena lists a median ${fmtPrice(m.arena.agent.cost_per_task_p50)} per agent task on the ${fmtDate(m.arena.agent.date, { year: false })} board. The blended price ignores how many tokens a high-effort run burns.` : " This blended price ignores how many tokens a high-effort run burns. Arena does not list a median cost per task for this setting."}
             </p>
           </div>
         ) : (
-          <p className="note" style={{ marginTop: 0 }}>{price.detail} We only show OpenRouter list prices, matched to this model&apos;s snapshot.</p>
+          <p className="note" style={{ marginTop: 0 }}>{price.detail} We only show OpenRouter list prices, matched to this model&apos;s snapshot.{m.arena.agent?.cost_per_task_p50 != null ? ` Arena lists a median ${fmtPrice(m.arena.agent.cost_per_task_p50)} per agent task (${fmtDate(m.arena.agent.date, { year: false })}). That is a task cost, not a token price.` : ""}</p>
         )}
       </section>
     </div>

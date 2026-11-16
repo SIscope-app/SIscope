@@ -23,7 +23,7 @@ export function CoverageDots({ cats, label = false }: { cats: CategoryScores; la
           <span key={k.id} className={cats[k.id] != null ? "on" : ""} />
         ))}
       </span>
-      {label && <span className="cov-n" aria-hidden="true">{c.n}/{c.total}</span>}
+      {label && <span className="cov-n">{c.n}/{c.total} measured</span>}
     </span>
   );
 }

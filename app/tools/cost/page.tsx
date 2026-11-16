@@ -22,7 +22,7 @@ export default function Page() {
       <div className="page-head">
         <div className="eyebrow">Cost calculator</div>
         <h1 className="h1" style={{ marginTop: 8 }}>Price a month of use</h1>
-        <p className="lede">Set a monthly token count and how much of it is input. Prices are OpenRouter list prices as of {fmtDate(or.as_of)}.</p>
+        <p className="lede">Set a monthly token count and how much of it is input. Prices are OpenRouter list prices as of {fmtDate(or.as_of)}. A blended token price ignores how many tokens a high-effort agent run burns. Where Arena publishes a median cost per task, the model page shows that figure.</p>
       </div>
       <CostCalc models={list.map(slim)} defaults={defaults} />
     </div>

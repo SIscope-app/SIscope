@@ -61,7 +61,7 @@ const COVS = [
   { id: "3", label: "3+ of 6 categories" },
   { id: "4", label: "4+ of 6 categories" },
   { id: "5", label: "5+ of 6 categories" },
-  { id: "6", label: "All 6 categories" },
+  { id: "6", label: "Fully measured only" },
 ];
 const presetOf = (w: Record<CategoryId, number>) => PRESETS.find((p) => weightsToQuery(p.w) === weightsToQuery(w))?.id ?? null;
 
@@ -76,6 +76,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
   const [ctx, setCtx] = useState("");
   const [mod, setMod] = useState("");
   const [cov, setCov] = useState("");
+  const [prov, setProv] = useState(false);
   const [limit, setLimit] = useState(PAGE);
   const [panel, setPanel] = useState(false);
   const [filters, setFilters] = useState(false);
@@ -101,6 +102,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
       setCtx(fc);
       setMod(fm);
       setCov(fv);
+      setProv(p.get("prov") === "1");
       if (fp || fc || fm || fv) setFilters(true);
       setReady(true);
     };
@@ -124,8 +126,9 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     set("ctx", ctx || null);
     set("mod", mod || null);
     set("cov", cov || null);
+    set("prov", prov ? "1" : null);
     window.history.replaceState(null, "", u.toString().replace(/%2C/gi, ","));
-  }, [ready, f, org, q, sort, w, price, ctx, mod, cov]);
+  }, [ready, f, org, q, sort, w, price, ctx, mod, cov, prov]);
 
   const custom = weightsToQuery(w) !== weightsToQuery(DEFAULT_WEIGHTS);
   const activePreset = presetOf(w);
@@ -133,7 +136,11 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
 
   const rows = useMemo(() => {
     const val = (m: Slim): number | null => {
-      if (sort === "si") return custom ? composite(m.cats, w).score : m.si;
+      if (sort === "si") {
+        const scored = custom ? composite(m.cats, w).score : m.si;
+        if (scored != null) return scored;
+        return prov && !custom ? m.provisional : null;
+      }
       if (sort === "text") return m.text;
       if (sort === "textRank") return m.textRank;
       if (sort === "webdev") return m.webdevRank;
@@ -160,7 +167,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     const has = withV.filter((x): x is { m: Slim; v: number } => x.v != null);
     has.sort((a, b) => (ASC.has(sort) ? a.v - b.v || (b.m.si ?? 0) - (a.m.si ?? 0) : b.v - a.v));
     return { has, missing: withV.length - has.length };
-  }, [models, f, org, q, sort, w, custom, price, ctx, mod, cov]);
+  }, [models, f, org, q, sort, w, custom, price, ctx, mod, cov, prov]);
 
   const S = SORTS.find((s) => s.id === sort)!;
   const vals = rows.has.map((r) => r.v);
@@ -187,6 +194,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     setCtx("");
     setMod("");
     setCov("");
+    setProv(false);
     setLimit(PAGE);
   };
   const copy = async () => {
@@ -271,6 +279,9 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
           <button type="button" className={`btn ${filters ? "primary" : ""}`} onClick={() => setFilters((x) => !x)} aria-expanded={filters}>
             Filters{nFilters ? ` (${nFilters})` : ""}
           </button>
+          <button type="button" className={`btn ${prov ? "primary" : ""}`} aria-pressed={prov} onClick={() => (setProv((v) => !v), setLimit(PAGE))}>
+            {prov ? "Provisional scores on" : "Show provisional"}
+          </button>
         </div>
 
         {filters && (
@@ -337,7 +348,8 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
                 <span className="barw">
                   <span className={`bar ${m.open ? "open" : ""}`} style={{ width: `${width(v).toFixed(1)}%` }} />
                 </span>
-                <CoverageDots cats={m.cats} />
+                <CoverageDots cats={m.cats} label />
+                {sort === "si" && m.si == null && m.provisional != null ? <span className="soon">Provisional</span> : null}
                 <span className="lb-extra tnum" title={m.textRank == null ? "Not on the Arena text board. That is not a last-place rank." : "Place on the Arena text board"}>
                   {m.textRank != null ? `Text #${m.textRank}` : "No text rank"}
                 </span>
@@ -376,7 +388,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
         {(sort === "textRank" || sort === "webdev") && " Place 1 is the top of that board. Models with no result are left out of the order."}
         {sort === "price" && " Bars use a log scale. The price is the OpenRouter list price, three input tokens per output token."}
         {sort === "ctx" && " Context is the longest request the OpenRouter listing allows."}
-        {sort !== "text" && sort !== "textRank" && sort !== "webdev" && sort !== "price" && sort !== "ctx" && " Scores run from 0 to 100."} Green segments show how many of the six categories have a result.
+        {sort !== "text" && sort !== "textRank" && sort !== "webdev" && sort !== "price" && sort !== "ctx" && " Scores run from 0 to 100."} The count is how many of the six categories have a result. A provisional score uses the same formula but sits under the coverage gate, so it stays out of this order until you turn it on.
       </p>
     </div>
   );

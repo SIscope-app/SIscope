@@ -654,6 +654,7 @@ input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; border-radius
 .decide-score small { font-size: 12px; font-weight: 600; color: var(--faint); }
 .decide-kind { font-size: 12px; font-weight: 650; color: var(--muted); white-space: nowrap; }
 .decide-glance { margin: 0; font-size: 13px; line-height: 1.3; color: var(--text); font-weight: 550; }
+.decide-asof { margin: 2px 0 0; font-size: 12px; line-height: 1.3; color: var(--faint); }
 .why { position: relative; flex: none; }
 .why summary { cursor: pointer; color: var(--accent); font-size: 12.5px; font-weight: 650; list-style: none; min-height: 28px; min-width: 44px; display: inline-flex; align-items: center; justify-content: flex-end; padding: 0 2px; }
 .why summary::-webkit-details-marker { display: none; }
