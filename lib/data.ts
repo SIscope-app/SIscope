@@ -165,6 +165,9 @@ export type Slim = {
   orId: string | null;
   /** Input types OpenRouter lists for this model (text, image, audio, video, file). */
   mods: string[] | null;
+  tools: boolean | null;
+  structured: boolean | null;
+  reasoning: boolean | null;
 };
 
 export function slim(m: Enriched): Slim {
@@ -197,5 +200,8 @@ export function slim(m: Enriched): Slim {
     epoch: Object.fromEntries(m.epoch.map((e) => [e.benchmark, Math.round(e.score * 1000) / 1000])),
     orId: m.price?.openrouter_id ?? null,
     mods: m.price?.modalities_in ?? null,
+    tools: m.price?.tools ?? null,
+    structured: m.price?.structured ?? null,
+    reasoning: m.price?.reasoning ?? null,
   };
 }

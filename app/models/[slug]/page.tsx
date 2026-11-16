@@ -9,6 +9,7 @@ import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
 import { EPOCH_BENCHMARKS, allModels, modelBySlug, siRanked, sourceById } from "@/lib/data";
 import { fmtCtx, fmtDate, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
+import { commercialLabel } from "@/lib/license";
 import { schemaName } from "@/lib/names";
 import { orgName } from "@/lib/orgs";
 import { suggestions } from "@/lib/advice";
@@ -167,7 +168,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           <div className="card stat" role="listitem">
             <div className="k">Weights</div>
             <div className="v" style={{ color: m.open ? "var(--open-ink)" : undefined }}>{m.open ? "Open" : "Closed"}</div>
-            <div className="d" title={m.model_license}>{m.model_license}</div>
+            <div className="d" title={m.model_license}>{m.model_license}. {commercialLabel(m.model_license)}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Categories measured</div>
@@ -184,9 +185,24 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           <p className="score-note">
             {m.arena.vision ? `Arena vision #${m.arena.vision.rank} of ${m.arena.vision.board_size}. ` : "No Arena vision result. "}
             {m.arena.agent ? `Arena agents #${m.arena.agent.rank} of ${m.arena.agent.board_size}. ` : "No Arena agent result. "}
-            {m.price?.modalities_in?.length ? `OpenRouter lists inputs: ${m.price.modalities_in.map((id) => MODALITY[id] ?? id).join(", ")}.` : ""}
+            {m.price?.modalities_in?.length ? `OpenRouter lists inputs: ${m.price.modalities_in.map((id) => MODALITY[id] ?? id).join(", ")}. ` : ""}
+            {m.price?.output_modalities?.length ? `Outputs: ${m.price.output_modalities.map((id) => MODALITY[id] ?? id).join(", ")}.` : ""}
           </p>
         )}
+        <p className="score-note">
+          {m.price?.max_output ? `Max output listed by OpenRouter: ${fmtInt(m.price.max_output)} tokens. ` : "Max output tokens are not on the OpenRouter listing. "}
+          {m.price
+            ? `Capabilities on that listing: tool calling ${m.price.tools == null ? "unknown" : m.price.tools ? "listed" : "not listed"}, structured output ${m.price.structured == null ? "unknown" : m.price.structured ? "listed" : "not listed"}, reasoning ${m.price.reasoning == null ? "unknown" : m.price.reasoning ? "listed" : "not listed"}. `
+            : "No OpenRouter listing, so capabilities stay unknown. "}
+          {m.price?.created ? `OpenRouter listing created ${fmtDate(new Date(m.price.created * 1000).toISOString().slice(0, 10))}. ` : ""}
+          {(() => {
+            const dates = [...new Set(m.epoch.map((e) => e.release_date).filter((d): d is string => !!d))].sort();
+            if (dates.length === 1) return `Epoch AI lists this version as released ${fmtDate(dates[0])}. `;
+            if (dates.length > 1) return `Epoch AI lists release dates from ${fmtDate(dates[0])} to ${fmtDate(dates[dates.length - 1])} on the matched tests. `;
+            return "";
+          })()}
+          Parameter count and hardware needs are not in a source we trust, so they stay unknown.
+        </p>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 14 }}>
           {rival && (
             <Link className="btn primary" href={`/compare?m=${m.slug},${rival.slug}`}>
@@ -316,10 +332,11 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
                   <span className="barw">
                     <span className={`bar ${m.open ? "open" : ""}`} style={{ width: `${Math.max(2, e.score * 100)}%` }} />
                   </span>
-                  <div style={{ fontSize: 13.5, color: "var(--muted)" }}>{b?.description}</div>
+                  <div style={{ fontSize: 13.5, color: "var(--muted)" }}>{b?.description}{b?.in_score === false ? " Shown here. Not part of the SIscope score." : ""}</div>
                   <div style={{ fontSize: 13, color: "var(--faint)" }}>
                     {e.pct != null && e.tested_models ? `Better than ${Math.round(e.pct)}% of ${e.tested_models} tested models. ` : ""}
                     {e.approx ? `Tested with a different setting (${e.tested_as}). ` : ""}
+                    {e.release_date ? `Epoch lists the version as released ${fmtDate(e.release_date)}. ` : ""}
                     {e.run_date ? `Run ${fmtDate(e.run_date)}.` : "Run date not published."} Fetched {fmtDate(e.fetched_at)}.
                   </div>
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>

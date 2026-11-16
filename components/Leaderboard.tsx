@@ -56,6 +56,12 @@ const MODS = [
   { id: "audio", label: "Hears audio" },
   { id: "video", label: "Watches video" },
 ];
+const CAPS = [
+  { id: "", label: "Any capability" },
+  { id: "tools", label: "Tool calling listed" },
+  { id: "structured", label: "Structured output listed" },
+  { id: "reasoning", label: "Reasoning listed" },
+];
 const COVS = [
   { id: "", label: "Any coverage" },
   { id: "3", label: "3+ of 6 categories" },
@@ -75,6 +81,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
   const [price, setPrice] = useState("");
   const [ctx, setCtx] = useState("");
   const [mod, setMod] = useState("");
+  const [cap, setCap] = useState("");
   const [cov, setCov] = useState("");
   const [prov, setProv] = useState(false);
   const [limit, setLimit] = useState(PAGE);
@@ -97,13 +104,14 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
       const pw = pr ? pr.w : weightsFromQuery(p.get("w"));
       setW(pw ?? DEFAULT_WEIGHTS);
       if (pw && !presetOf(pw)) setPanel(true);
-      const fp = pick("price", PRICES), fc = pick("ctx", CTXS), fm = pick("mod", MODS), fv = pick("cov", COVS);
+      const fp = pick("price", PRICES), fc = pick("ctx", CTXS), fm = pick("mod", MODS), fv = pick("cov", COVS), fcap = pick("cap", CAPS);
       setPrice(fp);
       setCtx(fc);
       setMod(fm);
+      setCap(fcap);
       setCov(fv);
       setProv(p.get("prov") === "1");
-      if (fp || fc || fm || fv) setFilters(true);
+      if (fp || fc || fm || fv || fcap) setFilters(true);
       setReady(true);
     };
     apply();
@@ -125,14 +133,15 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     set("price", price || null);
     set("ctx", ctx || null);
     set("mod", mod || null);
+    set("cap", cap || null);
     set("cov", cov || null);
     set("prov", prov ? "1" : null);
     window.history.replaceState(null, "", u.toString().replace(/%2C/gi, ","));
-  }, [ready, f, org, q, sort, w, price, ctx, mod, cov, prov]);
+  }, [ready, f, org, q, sort, w, price, ctx, mod, cap, cov, prov]);
 
   const custom = weightsToQuery(w) !== weightsToQuery(DEFAULT_WEIGHTS);
   const activePreset = presetOf(w);
-  const nFilters = [price, ctx, mod, cov].filter(Boolean).length + (org ? 1 : 0) + (f !== "all" ? 1 : 0);
+  const nFilters = [price, ctx, mod, cap, cov].filter(Boolean).length + (org ? 1 : 0) + (f !== "all" ? 1 : 0);
 
   const rows = useMemo(() => {
     const val = (m: Slim): number | null => {
@@ -161,13 +170,14 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
         (maxP == null || (m.price != null && m.price < maxP)) &&
         (minC == null || (m.ctx != null && m.ctx >= minC)) &&
         (!mod || (m.mods ?? []).includes(mod)) &&
+        (!cap || m[cap as "tools" | "structured" | "reasoning"] === true) &&
         (minCov == null || coverageOf(m.cats).n >= minCov),
     );
     const withV = base.map((m) => ({ m, v: val(m) }));
     const has = withV.filter((x): x is { m: Slim; v: number } => x.v != null);
     has.sort((a, b) => (ASC.has(sort) ? a.v - b.v || (b.m.si ?? 0) - (a.m.si ?? 0) : b.v - a.v));
     return { has, missing: withV.length - has.length };
-  }, [models, f, org, q, sort, w, custom, price, ctx, mod, cov, prov]);
+  }, [models, f, org, q, sort, w, custom, price, ctx, mod, cap, cov, prov]);
 
   const S = SORTS.find((s) => s.id === sort)!;
   const vals = rows.has.map((r) => r.v);
@@ -193,6 +203,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     setPrice("");
     setCtx("");
     setMod("");
+    setCap("");
     setCov("");
     setProv(false);
     setLimit(PAGE);
@@ -300,6 +311,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
             {sel("lb-price", "Blended price", price, setPrice, PRICES)}
             {sel("lb-ctx", "Context window", ctx, setCtx, CTXS)}
             {sel("lb-mod", "Input type", mod, setMod, MODS)}
+            {sel("lb-cap", "Listed capability", cap, setCap, CAPS)}
             {sel("lb-cov", "Data coverage", cov, setCov, COVS)}
             <div style={{ display: "flex", alignItems: "end" }}>
               <button type="button" className="btn" style={{ width: "100%", justifyContent: "center" }} onClick={reset} disabled={!nFilters && !q}>
@@ -383,7 +395,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
       <p className="note">
         {rows.has.length} models in this list.
         {rows.missing > 0 && ` ${rows.missing} match the filters but have no ${S.label} yet. A missing value is not zero.`}
-        {(price || ctx || mod) && " Price, context and input filters only include models with an OpenRouter listing."}
+        {(price || ctx || mod || cap) && " Price, context, input and capability filters only include models whose OpenRouter listing states that fact."}
         {sort === "text" && " Arena text scores work like chess ratings, from votes on chat answers."}
         {(sort === "textRank" || sort === "webdev") && " Place 1 is the top of that board. Models with no result are left out of the order."}
         {sort === "price" && " Bars use a log scale. The price is the OpenRouter list price, three input tokens per output token."}

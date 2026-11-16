@@ -17,6 +17,11 @@ BENCHES = {
     "otis_mock_aime": ("otis_mock_aime_2024_2025.csv", "OTIS Mock AIME 2024-25", "math", "Competition maths problems in the style of AIME"),
     "frontiermath": ("frontiermath_tiers_1_3_v2.csv", "FrontierMath Tiers 1-3", "math", "Very hard, unpublished research-style maths problems"),
     "swe_bench_verified": ("swe_bench_verified.csv", "SWE-bench Verified", "coding", "Fixing real GitHub issues in Python repositories"),
+    # Shown on model pages. Not added to the v0.2.0 category mean, so the ranking does not move.
+    "math_level_5": ("math_level_5.csv", "MATH level 5", "math", "Hard competition-math problems from the MATH dataset", False),
+    "frontiermath_tier_4": ("frontiermath_tier_4_v2.csv", "FrontierMath Tier 4", "math", "The hardest FrontierMath tier. Separate from Tiers 1-3, which are in the score", False),
+    "chess_puzzles": ("chess_puzzles.csv", "Chess Puzzles", "reasoning", "Chess puzzles scored by Epoch AI", False),
+    "mirrorcode": ("mirrorcode.csv", "MirrorCode", "coding", "A coding task in Epoch's own benchmark set", False),
 }
 
 
@@ -28,18 +33,21 @@ def main():
     zipfile.ZipFile(z).extractall(d)
     meta = pd.read_csv(d / "benchmark_metadata.csv")
     out = {"source": "epoch", "license": "CC-BY-4.0", "fetched_at": fetched_at, "benchmarks": {}, "results": []}
-    for bid, (fn, label, cat, desc) in BENCHES.items():
+    for bid, spec in BENCHES.items():
+        fn, label, cat, desc = spec[:4]
+        in_score = spec[4] if len(spec) > 4 else True
         df = pd.read_csv(d / fn)
         m = meta[meta.source_file == fn]
         baseline = float(m.random_baseline.iloc[0]) if len(m) else 0.0
         out["benchmarks"][bid] = {"label": label, "category": cat, "description": desc, "random_baseline": baseline,
-                                  "url": "https://epoch.ai/benchmarks", "n": int(len(df))}
+                                  "url": "https://epoch.ai/benchmarks", "n": int(len(df)), "in_score": in_score}
         for _, r in df.iterrows():
             if pd.isna(r["Model version"]):
                 continue
             score = r.get("Best score (across scorers)", r.get("mean_score"))
             if pd.isna(score):
                 continue
+            released = r.get("Release date")
             out["results"].append({
                 "benchmark": bid,
                 "model_version": str(r["Model version"]).strip(),
@@ -47,6 +55,7 @@ def main():
                 "score": round(float(score), 4),
                 "stderr": None if pd.isna(r.get("stderr")) else round(float(r["stderr"]), 4),
                 "run_date": None if pd.isna(r.get("Started at")) else str(r["Started at"])[:10],
+                "release_date": None if pd.isna(released) or str(released).strip() == "" else str(released)[:10],
                 "log_url": None if pd.isna(r.get("Log viewer")) else str(r["Log viewer"]),
                 "source": "epoch", "license": "CC-BY-4.0", "fetched_at": fetched_at,
             })
