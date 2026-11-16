@@ -1,4 +1,4 @@
-import { fmtPrice, fmtPriceExact } from "./format";
+import { fmtPrice, shownGap } from "./format";
 
 /** How many change cards to show so the last row is full. */
 export function visibleChangeCount(total: number, columns: number): number {
@@ -42,8 +42,41 @@ export function priceChangeCopy(sub: string): PriceChangeCopy {
     return {
       mode: "new",
       headline: `${fmtPrice(blended)} /1M`,
-      detail: `${fmtPriceExact(input)} in · ${fmtPriceExact(output)} out · new list price`,
+      detail: `${fmtPrice(input)} in · ${fmtPrice(output)} out · new list price`,
     };
   }
   return { mode: "new", headline: "New list price", detail: sub };
+}
+
+export type ChangeItem = { kind: string; date: string; text?: string; sub?: string };
+
+/** Drop a gap card whose rounded points did not move. "was 47, now 47" is not an update. */
+export function materialChanges<T extends ChangeItem>(changes: T[], gap: { closed: number; open: number }[]): T[] {
+  if (gap.length < 2) return changes;
+  const now = shownGap(gap[gap.length - 1].closed, gap[gap.length - 1].open);
+  const prev = shownGap(gap[gap.length - 2].closed, gap[gap.length - 2].open);
+  if (now !== prev) return changes;
+  return changes.filter((c) => c.kind !== "gap");
+}
+
+/** The dates on the cards themselves, not the previous board snapshot. */
+export function changeSpan(changes: { date: string }[]): { from: string; to: string } | null {
+  const dates = changes.map((c) => c.date).filter(Boolean).sort();
+  if (!dates.length) return null;
+  return { from: dates[0], to: dates[dates.length - 1] };
+}
+
+/** Newest civil date among rank moves. Price listings are not rank moves. */
+export function lastRankChange(changes: { kind: string; date: string }[]): string | null {
+  const dates = changes.filter((c) => c.kind !== "price_new" && c.kind !== "price_cut").map((c) => c.date).filter(Boolean).sort();
+  return dates.at(-1) ?? null;
+}
+
+export function changeRangeLabel(changes: { date: string }[], fmt: (iso: string) => string): string {
+  const span = changeSpan(changes);
+  if (!span) return "No updates in this snapshot.";
+  const n = changes.length;
+  const noun = n === 1 ? "update" : "updates";
+  if (span.from === span.to) return `${n} ${noun} on ${fmt(span.from)}.`;
+  return `${n} ${noun} from ${fmt(span.from)} to ${fmt(span.to)}.`;
 }

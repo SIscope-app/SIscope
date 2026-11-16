@@ -131,6 +131,9 @@ export const TASKS: Task[] = [
   },
 ];
 
+/** Jobs with a measured result. Unmeasured jobs stay on /best and the methodology page. */
+export const LIVE_TASKS = TASKS.filter((t) => !t.soon);
+
 export function taskBySlug(slug: string) {
   return TASKS.find((t) => t.slug === slug);
 }

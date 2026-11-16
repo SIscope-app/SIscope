@@ -154,7 +154,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           <div className="card stat" role="listitem">
             <div className="k">List price</div>
             <div className="v">{price.kind === "unknown" ? <span className="nodata" style={{ fontSize: 17 }}>{price.short}</span> : <>{price.short}<small>/1M</small></>}</div>
-            <div className="d">{m.price ? `${fmtPriceExact(m.price.input_per_m)} in · ${fmtPriceExact(m.price.output_per_m)} out. Three input tokens per output token, from OpenRouter.` : "No public list price. That is unknown, not free."}</div>
+            <div className="d">{m.price ? `${fmtPrice(m.price.input_per_m)} in · ${fmtPrice(m.price.output_per_m)} out. Three input tokens per output token, from OpenRouter.` : "No public list price. That is unknown, not free."}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Context window</div>
@@ -405,7 +405,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             </div>
             <p className="note">
               List price from the OpenRouter models API, {fmtDate(m.price.as_of)}: <a className="link" href={openrouterUrl(m.price.openrouter_id)} rel="noopener">{m.price.openrouter_id} on OpenRouter ↗</a>.
-              {m.price.cache_read_per_m ? ` Cached input is listed at ${fmtPriceExact(m.price.cache_read_per_m)} per 1M tokens.` : " OpenRouter does not list a cache-read price for this model."} Providers can charge differently.
+              {m.price.cache_read_per_m ? ` Cached input is listed at ${fmtPrice(m.price.cache_read_per_m)} per 1M tokens.` : " OpenRouter does not list a cache-read price for this model."} Providers can charge differently. The table above keeps the extra digits.
             </p>
           </div>
         ) : (

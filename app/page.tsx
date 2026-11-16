@@ -12,10 +12,10 @@ import type { ScatterPt } from "@/components/Scatter";
 import { CHANGES, allModels, siRanked, textRanked, type Enriched } from "@/lib/data";
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { ARENA_BOARD_URL } from "@/lib/links";
-import { fmtDate, fmtPrice } from "@/lib/format";
-import { priceChangeCopy } from "@/lib/home-layout";
+import { fmtDate, fmtPrice, shownGap } from "@/lib/format";
+import { changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-layout";
 import { orgName } from "@/lib/orgs";
-import { TASKS, taskRanking } from "@/lib/tasks";
+import { LIVE_TASKS, taskRanking } from "@/lib/tasks";
 import { SITE, og } from "@/lib/site";
 
 export const metadata = { alternates: { canonical: "/" }, openGraph: og("/") };
@@ -80,8 +80,8 @@ export default function Home() {
   const g0 = gap[0];
   const lastDate = g1.d;
 
-  const gapNow = Math.round(g1.closed - g1.open);
-  const gapThen = Math.round(g0.closed - g0.open);
+  const gapNow = shownGap(g1.closed, g1.open);
+  const gapThen = shownGap(g0.closed, g0.open);
   const gapDelta = gapNow - gapThen;
 
   const hero = (
@@ -130,7 +130,7 @@ export default function Home() {
   const taskChips = (
     <nav className="tchips" aria-label="Best AI for a task">
       <span className="tchips-l">Best for</span>
-      {TASKS.map((t) => (
+      {LIVE_TASKS.map((t) => (
         <Link key={t.slug} href={`/best/${t.slug}`} className="tchip">
           <Icon name={t.icon} /> {t.label}
         </Link>
@@ -180,9 +180,10 @@ export default function Home() {
     price_new: { c: "var(--c-good)", s: "$", k: "New price" },
     price_cut: { c: "var(--c-good)", s: "↓", k: "Price change" },
   };
+  const shownChanges = materialChanges(CHANGES.changes, CHANGES.gap);
   const changes = (
     <ChangeBoard>
-      {CHANGES.changes.map((c, i) => {
+      {shownChanges.map((c, i) => {
         const ic = ICON[c.kind] ?? { c: "var(--muted)", s: "•", k: "Update" };
         const price = c.kind === "price_new" || c.kind === "price_cut" ? priceChangeCopy(c.sub) : null;
         const source = c.source === "openrouter" ? "OpenRouter" : c.board === "webdev" ? "Arena WebDev" : "Arena text";
@@ -221,7 +222,7 @@ export default function Home() {
 
   const tasks = (
     <div className="tasks">
-      {TASKS.map((t) => {
+        {LIVE_TASKS.map((t) => {
         const r = taskRanking(t);
         const w = r[0]?.m;
         const o = r.find((x) => x.m.open && x.m !== w)?.m;
@@ -282,7 +283,7 @@ export default function Home() {
           description: SITE.description,
         }}
       />
-      <HomeShell hero={hero} taskChips={taskChips} quiet={quiet} gap={gapCard} changes={changes} changesSub={`${CHANGES.changes.length} updates from ${fmtDate(CHANGES.prev, { year: false })} to ${fmtDate(CHANGES.week_to, { year: false })}.`} rankChart={rankChart} tasks={tasks} scatter={scatter} top={top} />
+      <HomeShell hero={hero} taskChips={taskChips} quiet={quiet} gap={gapCard} changes={changes} changesSub={changeRangeLabel(shownChanges, (d) => fmtDate(d, { year: false }))} rankChart={rankChart} tasks={tasks} scatter={scatter} top={top} />
     </>
   );
 }
