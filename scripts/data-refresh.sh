@@ -15,7 +15,7 @@ SITE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PUBLISH_FILE="${PUBLISH_FILE:-$SITE/data/publish.json}"
 # 2.8 MiB. The free plan hard limit is 3 MiB (3072 KiB). This leaves room for the snapshot to grow.
 WORKER_GZIP_LIMIT_KIB=2867
-LIVE_PATHS=(/ /leaderboard /compare /agents /methodology /api/v0/models.json /sitemap.xml /robots.txt /opengraph-image)
+LIVE_PATHS=(/ /leaderboard /compare /agents /methodology /api/v0/models.json /sitemap.xml /robots.txt /og/home.png /pick /trends /feed.xml)
 
 commit_allowed() {
   local deploy="$1" verified="$2" kept="$3"
