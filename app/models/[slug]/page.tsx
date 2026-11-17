@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Avatar, OpenTag } from "@/components/Avatar";
-import { HistoryChart, Radar, RankChart } from "@/components/charts";
+
+const HistoryChart = dynamic(() => import("@/components/charts").then((m) => m.HistoryChart));
+const Radar = dynamic(() => import("@/components/charts").then((m) => m.Radar));
+const RankChart = dynamic(() => import("@/components/charts").then((m) => m.RankChart));
 import { CoverageDots, coverageOf, coverageText } from "@/components/Coverage";
 import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
 import { CatBars } from "@/components/CatBars";

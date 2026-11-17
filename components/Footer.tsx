@@ -18,7 +18,10 @@ export function Footer() {
             <p style={{ margin: "8px 0 0" }}>
               <Link href="/methodology">Score v{SCORE_VERSION}</Link> · <Link href="/about">About</Link> ·{" "}
               <Link href="/changes">What changed</Link> · <a href="/feed.xml">Feed</a> ·{" "}
-              <a href="/api/v0/models.json">JSON snapshot</a>
+              <Link href="/developers">API</Link> · <a href="https://github.com/SIscope-app/SIscope">GitHub</a>
+            </p>
+            <p style={{ margin: "8px 0 0" }}>
+              <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link>
             </p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(140px,1fr))", gap: "6px 28px", minWidth: 280 }}>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { allModels, textPublishDate } from "@/lib/data";
+import { allModels, siRanked, textPublishDate } from "@/lib/data";
+import { popularMatchups } from "@/lib/matchups";
 import { TASKS } from "@/lib/tasks";
 import { SITE } from "@/lib/site";
 
@@ -10,6 +11,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     u("/", 1),
     u("/leaderboard", 0.9),
     u("/compare", 0.7),
+    ...popularMatchups(siRanked()).map((p) => u(`/compare/${p.key}`, 0.5)),
+    u("/developers", 0.4),
+    u("/privacy", 0.2),
+    u("/terms", 0.2),
     u("/tools/cost", 0.6),
     u("/best", 0.8),
     ...TASKS.map((t) => u(`/best/${t.slug}`, 0.8)),
