@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-16T23:58:43Z",
- "count": 252,
+ "built_at": "2026-11-17T00:59:55Z",
+ "count": 254,
  "rows": [
   {
    "model": "Claude 3.5 Sonnet (20240620)",
@@ -1158,6 +1158,18 @@
    "model": "GPT-6 Luna (Medium)",
    "benchmark": "gpqa_diamond",
    "epoch_version": "gpt-6-luna_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-6.1 Sol (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-6.1-sol_max",
+   "reason": "different effort"
+  },
+  {
+   "model": "GPT-6.1 Terra (Medium)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gpt-6.1-terra_max",
    "reason": "different effort"
   },
   {

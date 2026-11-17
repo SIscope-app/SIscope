@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-16T23:58:43Z",
+ "built_at": "2026-11-17T00:59:55Z",
  "week_to": "2026-11-11",
  "prev": "2026-11-09",
  "changes": [
@@ -50,13 +50,24 @@
   {
    "kind": "new_entry",
    "board": "webdev",
-   "model": "Gemini 4 Hydrogen (High)",
-   "text": "Gemini 4 Hydrogen joins the coding board at #10",
+   "model": "Qwen4-Max (xHigh)",
+   "text": "Qwen4-Max joins the coding board at #6",
    "sub": "WebDev arena (building web apps)",
-   "date": "2026-11-11",
-   "org": "google",
-   "slug": "gemini-4-hydrogen-high",
+   "date": "2026-11-15",
+   "org": "alibaba",
+   "slug": "qwen4-max-xhigh",
    "source": "arena"
+  },
+  {
+   "kind": "price_new",
+   "board": "price",
+   "model": "Qwen4-Max (xHigh)",
+   "text": "Qwen4-Max gets a public price",
+   "sub": "$1.425 in, $4.275 out per 1M tokens on OpenRouter",
+   "date": "2026-11-16",
+   "org": "alibaba",
+   "slug": "qwen4-max-xhigh",
+   "source": "openrouter"
   },
   {
    "kind": "price_new",
@@ -67,17 +78,6 @@
    "date": "2026-11-12",
    "org": "google",
    "slug": "gemini-4-hydrogen-high",
-   "source": "openrouter"
-  },
-  {
-   "kind": "price_new",
-   "board": "price",
-   "model": "Gemini 4 Carbon (High)",
-   "text": "Gemini 4 Carbon gets a public price",
-   "sub": "$2 in, $10 out per 1M tokens on OpenRouter",
-   "date": "2026-11-10",
-   "org": "google",
-   "slug": "gemini-4-carbon-high",
    "source": "openrouter"
   }
  ],
@@ -196,7 +196,6 @@
   }
  ],
  "webdev_dates": [
-  "2026-10-01",
   "2026-10-06",
   "2026-10-08",
   "2026-10-13",
@@ -211,6 +210,7 @@
   "2026-11-08",
   "2026-11-09",
   "2026-11-10",
-  "2026-11-11"
+  "2026-11-11",
+  "2026-11-15"
  ]
 }
