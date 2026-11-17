@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Picker } from "@/components/Picker";
-import { allModels } from "@/lib/data";
+import { allModels, ensureData } from "@/lib/data";
 import { og } from "@/lib/site";
 import { LIVE_TASKS } from "@/lib/tasks";
 
@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   openGraph: og("/pick"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const models = allModels()
     .filter((m) => m.si != null || LIVE_TASKS.some((t) => t.get(m) != null))
     .map((m) => ({

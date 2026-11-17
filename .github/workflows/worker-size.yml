@@ -1,0 +1,50 @@
+# Fails a pull request when the Cloudflare worker script is over 2.8 MiB gzip.
+# The free plan rejects anything at 3 MiB. This check leaves room for the daily snapshot to grow.
+name: Worker size
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  size:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build the worker
+        run: npx opennextjs-cloudflare build
+
+      - name: Measure gzip without uploading
+        run: |
+          set -euo pipefail
+          out="$(npx wrangler deploy --dry-run --outdir "$RUNNER_TEMP/wrangler-dry" 2>&1)" || {
+            printf '%s\n' "$out"
+            exit 1
+          }
+          printf '%s\n' "$out"
+          printf '%s\n' "$out" | python3 -c '
+          import re, sys
+          text = sys.stdin.read()
+          m = re.search(r"gzip:\s*([0-9.]+)\s*KiB", text)
+          if not m:
+              raise SystemExit("Could not read the worker gzip size.")
+          kib = float(m.group(1))
+          limit = 2867
+          print(f"worker gzip: {kib:.2f} KiB (limit {limit} KiB)")
+          if kib > limit:
+              raise SystemExit("Worker gzip is over 2.8 MiB.")
+          '

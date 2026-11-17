@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-
-const GapChart = dynamic(() => import("@/components/charts").then((m) => m.GapChart));
-const RankMoves = dynamic(() => import("@/components/RankMoves").then((m) => m.RankMoves));
-import { CHANGES, allModels, textRanked } from "@/lib/data";
+import { GapChart, RankMoves } from "@/components/ClientCharts";
+import { CHANGES, allModels, ensureData, textRanked } from "@/lib/data";
 import { fmtDate, shownGap } from "@/lib/format";
 import { ARENA_BOARD_URL } from "@/lib/links";
 import { og } from "@/lib/site";
@@ -16,7 +13,8 @@ export const metadata: Metadata = {
   openGraph: og("/trends"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const gap = CHANGES.gap;
   const g1 = gap[gap.length - 1];
   const g0 = gap[0];

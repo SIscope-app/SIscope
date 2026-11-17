@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CostCalc } from "@/components/CostCalc";
-import { allModels, siRanked, slim, sourceById } from "@/lib/data";
+import { allModels, ensureData, siRanked, slim, sourceById } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
 import { og } from "@/lib/site";
 
@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/tools/cost" }, openGraph: og("/tools/cost"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const priced = allModels().filter((m) => m.price);
   const ranked = siRanked().filter((m) => m.price);
   const seen = new Set<string>();

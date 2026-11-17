@@ -8,7 +8,7 @@ import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import type { TopItem } from "@/components/HomeShell";
 import type { ScatterPt } from "@/components/Scatter";
-import { AGENTS, CHANGES, siRanked, type Enriched } from "@/lib/data";
+import { AGENTS, CHANGES, ensureData, siRanked, type Enriched } from "@/lib/data";
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { fmtDate, fmtPrice, shownGap } from "@/lib/format";
 import { changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-layout";
@@ -72,7 +72,8 @@ function Decision({ card }: { card: DecisionCard }) {
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  await ensureData();
   const ranked = siRanked();
   const picks = buildDecisions(ranked);
   const scatter: ScatterPt[] = ranked

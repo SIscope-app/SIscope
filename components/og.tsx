@@ -1,4 +1,4 @@
-// Shared building blocks for Open Graph images (rendered by next/og, inline styles only).
+// Shared frame for the build-time social images. Inline styles only.
 export const OG_SIZE = { width: 1200, height: 630 };
 
 export function OgFrame({ children, kicker }: { children: React.ReactNode; kicker?: string }) {

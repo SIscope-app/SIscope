@@ -1,9 +1,7 @@
 "use client";
-import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
+import { Scatter } from "./ClientCharts";
 import type { ScatterPt } from "./Scatter";
-
-const Scatter = dynamic(() => import("./Scatter").then((m) => m.Scatter), { loading: () => <p className="note">Loading the chart.</p> });
 import Link from "next/link";
 import { SectionHead } from "./rows";
 import { tieTitle, tieWithPrevious } from "@/lib/trust";

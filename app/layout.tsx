@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { BottomNav, Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CHANGES, PUBLISH } from "@/lib/data";
+import { CHANGES, PUBLISH, ensureData } from "@/lib/data";
 import { freshnessNote } from "@/lib/freshness";
 import { lastRankChange } from "@/lib/home-layout";
 import { SITE, og } from "@/lib/site";
@@ -31,7 +31,8 @@ export const viewport: Viewport = {
 
 const themeScript = `(function(){try{var q=new URLSearchParams(location.search).get('theme');var t=q||localStorage.getItem('theme');if(!t){t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}document.documentElement.dataset.theme=t}catch(e){}})()`;
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  await ensureData();
   return (
     <html lang="en" data-theme="dark" className={inter.variable} suppressHydrationWarning>
       <head>

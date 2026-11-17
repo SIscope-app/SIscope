@@ -1,61 +1,172 @@
-import modelsJson from "@/data/models.json";
-import changesJson from "@/data/changes.json";
-import sourcesJson from "@/data/sources.json";
-import publishJson from "@/data/publish.json";
-import agentsJson from "@/data/agents.json";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { EpochBenchmark, Model } from "./types";
 import { prettyName, prettyParts } from "./names";
 import { categoryScores, composite, type CategoryScores, type Components } from "./score";
 import { provisionalScore } from "./trust";
 
-const rawJson = modelsJson as unknown as { built_at: string; models: Model[]; epoch_benchmarks: Record<string, EpochBenchmark> };
-/** Models with cleaned display names (slugs unchanged). `raw_name` keeps the source spelling. */
-const raw = {
-  ...rawJson,
-  models: rawJson.models.map((m) => {
-    const p = prettyParts(m.base, m.variant);
-    return { ...m, raw_name: m.name, base: p.base, variant: p.variant, name: p.variant ? `${p.base} (${p.variant})` : p.base };
-  }),
-};
-const NAME_BY_KEY = new Map<string, string>();
-for (const m of raw.models) {
-  NAME_BY_KEY.set(m.slug, m.name);
-  NAME_BY_KEY.set(m.raw_name, m.name);
-}
-/** Display name for any model reference in the data: a slug, a raw source name, or a display name. */
-export function displayName(ref: string): string {
-  return NAME_BY_KEY.get(ref) ?? prettyName(ref);
+/**
+ * Read a snapshot file from disk. The JSON is not imported, so the Cloudflare
+ * worker script does not contain it. Prerender runs in Node, where the files exist.
+ * A request that still renders reads the copy published under /data/.
+ */
+function readData<T>(name: string): T {
+  const candidates = [join(process.cwd(), "data", name), join(process.cwd(), "public", "data", name)];
+  const path = candidates.find((p) => existsSync(p));
+  if (!path) throw new Error(`Missing data file ${name}`);
+  return JSON.parse(readFileSync(path, "utf8")) as T;
 }
 
-export const BUILT_AT = raw.built_at;
-/** Last refresh that was deployed and checked. Not a source dataset's as-of date. */
-export const PUBLISH = publishJson as { last_success_at: string };
-export const EPOCH_BENCHMARKS = raw.epoch_benchmarks;
-export const SOURCES = sourcesJson as unknown as {
+type ModelsFile = { built_at: string; models: Model[]; epoch_benchmarks: Record<string, EpochBenchmark> };
+type PublishFile = { last_success_at: string };
+type SourcesFile = {
   built_at: string;
   sources: { id: string; name: string; url: string; home: string; license: string; license_url: string; attribution: string; fetched_at: string; as_of: string; used_for: string }[];
   blocked: { name: string; reason: string }[];
 };
-const changesRaw = changesJson as unknown as {
+type ChangesFile = {
   week_to: string;
   prev: string;
   changes: { kind: string; board: string; model?: string; slug?: string; org?: string; text: string; sub: string; date: string; source: string }[];
   gap: { d: string; closed: number; open: number; closed_name: string; open_name: string }[];
 };
-export const CHANGES = {
-  ...changesRaw,
-  changes: changesRaw.changes.map((c) => (c.model ? { ...c, model: displayName(c.model) } : c)),
-  gap: changesRaw.gap.map((g) => ({ ...g, closed_name: displayName(g.closed_name), open_name: displayName(g.open_name) })),
-};
+
 export type AgentsData = {
   arena_agent: { publish_date: string; rows: { name: string; org: string; model_license: string; rank: number; score: number; lo: number; hi: number; sessions: number | null; cost_per_task_p50: number | null }[]; fetched_at: string };
   exgentic: { fetched_at: string; dataset_last_modified: string; rows: { agent: string; agent_name: string; model: string; benchmark: string; benchmark_name: string; subset: string | null; success: number | null; score: number | null; avg_cost: number | null; sessions: number }[] };
 };
-const agentsRaw = agentsJson as unknown as AgentsData;
-export const AGENTS: AgentsData = {
-  ...agentsRaw,
-  arena_agent: { ...agentsRaw.arena_agent, rows: agentsRaw.arena_agent.rows.map((r) => ({ ...r, name: displayName(r.name) })) },
+
+type NamedModel = Model & { raw_name: string };
+
+type Store = {
+  raw: { built_at: string; models: NamedModel[]; epoch_benchmarks: Record<string, EpochBenchmark> };
+  names: Map<string, string>;
+  publish: PublishFile;
+  sources: SourcesFile;
+  changes: ChangesFile;
+  agents: AgentsData;
 };
+
+let store: Store | null = null;
+
+function assemble(files: { models: ModelsFile; publish: PublishFile; sources: SourcesFile; changes: ChangesFile; agents: AgentsData }): Store {
+  const models = files.models.models.map((m) => {
+    const p = prettyParts(m.base, m.variant);
+    return { ...m, raw_name: m.name, base: p.base, variant: p.variant, name: p.variant ? `${p.base} (${p.variant})` : p.base };
+  });
+  const names = new Map<string, string>();
+  for (const m of models) {
+    names.set(m.slug, m.name);
+    names.set(m.raw_name, m.name);
+  }
+  const label = (ref: string) => names.get(ref) ?? prettyName(ref);
+  const changes = files.changes;
+  const agents = files.agents;
+  return {
+    raw: { ...files.models, models },
+    names,
+    publish: files.publish,
+    sources: files.sources,
+    changes: {
+      ...changes,
+      changes: changes.changes.map((c) => (c.model ? { ...c, model: label(c.model) } : c)),
+      gap: changes.gap.map((g) => ({ ...g, closed_name: label(g.closed_name), open_name: label(g.open_name) })),
+    },
+    agents: {
+      ...agents,
+      arena_agent: { ...agents.arena_agent, rows: agents.arena_agent.rows.map((r) => ({ ...r, name: label(r.name) })) },
+    },
+  };
+}
+
+function diskAllowed(): boolean {
+  // The worker must not touch node:fs. Its shim can hang on a missing file.
+  return process.env.SISCOPE_DISK === "1" || process.env.NEXT_PHASE === "phase-production-build";
+}
+
+function fromDisk(): Store {
+  return assemble({
+    models: readData<ModelsFile>("models.json"),
+    publish: readData<PublishFile>("publish.json"),
+    sources: readData<SourcesFile>("sources.json"),
+    changes: readData<ChangesFile>("changes.json"),
+    agents: readData<AgentsData>("agents.json"),
+  });
+}
+
+let loading: Promise<void> | null = null;
+
+/** Fill the snapshot. Disk during prerender; the static asset copy if a request still renders. */
+export function ensureData(): Promise<void> {
+  if (store) return Promise.resolve();
+  if (!loading) {
+    loading = (async () => {
+      if (diskAllowed()) {
+        store = fromDisk();
+        return;
+      }
+      const { getCloudflareContext } = await import("@opennextjs/cloudflare");
+      const assets = getCloudflareContext().env.ASSETS as { fetch: (input: Request) => Promise<Response> };
+      async function pull<T>(name: string): Promise<T> {
+        const res = await assets.fetch(new Request(`https://siscope.app/data/${name}`));
+        if (!res.ok) throw new Error(`Missing /data/${name}`);
+        return (await res.json()) as T;
+      }
+      store = assemble({
+        models: await pull("models.json"),
+        publish: await pull("publish.json"),
+        sources: await pull("sources.json"),
+        changes: await pull("changes.json"),
+        agents: await pull("agents.json"),
+      });
+    })();
+  }
+  return loading;
+}
+
+function snapshot(): Store {
+  if (!store) {
+    if (!diskAllowed()) throw new Error("Snapshot was not loaded.");
+    store = fromDisk();
+  }
+  return store;
+}
+
+/** Display name for any model reference in the data: a slug, a raw source name, or a display name. */
+export function displayName(ref: string): string {
+  return snapshot().names.get(ref) ?? prettyName(ref);
+}
+
+export function builtAt(): string {
+  return snapshot().raw.built_at;
+}
+
+function live<T extends object>(read: () => T): T {
+  return new Proxy({} as T, {
+    get(_t, key) {
+      const value = Reflect.get(read(), key);
+      return typeof value === "function" ? value.bind(read()) : value;
+    },
+    ownKeys() {
+      return Reflect.ownKeys(read());
+    },
+    getOwnPropertyDescriptor(_t, key) {
+      const desc = Reflect.getOwnPropertyDescriptor(read(), key);
+      if (desc) desc.enumerable = true;
+      return desc;
+    },
+    has(_t, key) {
+      return Reflect.has(read(), key);
+    },
+  });
+}
+
+/** Last refresh that was deployed and checked. Not a source dataset's as-of date. */
+export const PUBLISH = live(() => snapshot().publish);
+export const EPOCH_BENCHMARKS = live(() => snapshot().raw.epoch_benchmarks);
+export const SOURCES = live(() => snapshot().sources);
+export const CHANGES = live(() => snapshot().changes);
+export const AGENTS = live(() => snapshot().agents);
 
 export function sourceById(id: string) {
   return SOURCES.sources.find((s) => s.id === id)!;
@@ -85,7 +196,7 @@ export type Enriched = Model & {
 let _cache: Enriched[] | null = null;
 export function allModels(): Enriched[] {
   if (_cache) return _cache;
-  const list = raw.models.map((m) => {
+  const list = snapshot().raw.models.map((m) => {
     const comp = components(m);
     const cats = categoryScores(comp);
     const c = composite(cats);

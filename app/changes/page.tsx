@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChangeBoard } from "@/components/ChangeBoard";
-import { CHANGES } from "@/lib/data";
+import { CHANGES, ensureData } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
 import { changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-layout";
 import { og } from "@/lib/site";
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   openGraph: og("/changes"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const items = materialChanges(CHANGES.changes, CHANGES.gap);
   return (
     <div className="wrap">

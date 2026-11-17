@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Avatar, OpenTag } from "@/components/Avatar";
-
-const HistoryChart = dynamic(() => import("@/components/charts").then((m) => m.HistoryChart));
-const Radar = dynamic(() => import("@/components/charts").then((m) => m.Radar));
-const RankChart = dynamic(() => import("@/components/charts").then((m) => m.RankChart));
+import { HistoryChart, Radar, RankChart } from "@/components/ClientCharts";
 import { CoverageDots, coverageOf, coverageText } from "@/components/Coverage";
 import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
 import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
-import { EPOCH_BENCHMARKS, allModels, modelBySlug, siRanked, sourceById } from "@/lib/data";
+import { EPOCH_BENCHMARKS, allModels, ensureData, modelBySlug, siRanked, sourceById } from "@/lib/data";
 import { fmtCtx, fmtDate, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
 import { commercialLabel } from "@/lib/license";
 import { schemaName } from "@/lib/names";
@@ -31,6 +27,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps<"/models/[slug]">): Promise<Metadata> {
+  await ensureData();
   const { slug } = await params;
   const m = modelBySlug(slug);
   if (!m) return { title: "Model not found", robots: { index: false, follow: true } };
@@ -69,6 +66,7 @@ const MODALITY: Record<string, string> = {
 };
 
 export default async function ModelPage({ params }: PageProps<"/models/[slug]">) {
+  await ensureData();
   const { slug } = await params;
   const m = modelBySlug(slug);
   // Unknown slugs are not prebuilt. notFound() stops the page before it streams, which keeps a 404 and a noindex tag.

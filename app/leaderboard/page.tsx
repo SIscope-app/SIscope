@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Leaderboard } from "@/components/Leaderboard";
 import { JsonLd } from "@/components/JsonLd";
-import { allModels, slim, siRanked } from "@/lib/data";
+import { allModels, ensureData, slim, siRanked } from "@/lib/data";
 import { SCORE_VERSION } from "@/lib/score";
 import { SITE, og } from "@/lib/site";
 import Link from "next/link";
@@ -12,7 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/leaderboard" }, openGraph: og("/leaderboard"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const list = allModels().filter((m) => m.si != null || m.arena.text || m.price);
   const counts = new Map<string, number>();
   for (const m of list) counts.set(m.org, (counts.get(m.org) ?? 0) + 1);

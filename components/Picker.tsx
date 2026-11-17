@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { fmtPrice } from "@/lib/format";
-import { LIVE_TASKS } from "@/lib/tasks";
+import { LIVE_TASKS } from "@/lib/task-meta";
 
 type Row = {
   slug: string;

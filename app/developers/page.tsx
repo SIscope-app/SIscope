@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SOURCES } from "@/lib/data";
+import { SOURCES, ensureData } from "@/lib/data";
 import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   openGraph: og("/developers"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   return (
     <div className="wrap">
       <div className="page-head">

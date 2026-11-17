@@ -1,7 +1,7 @@
 import { og } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EPOCH_BENCHMARKS, SOURCES, siRanked } from "@/lib/data";
+import { EPOCH_BENCHMARKS, SOURCES, ensureData, siRanked } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
 import { CATEGORIES, COVERAGE_GATE, SCORE_DATE, SCORE_VERSION } from "@/lib/score";
 
@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/methodology" }, openGraph: og("/methodology"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const n = siRanked().length;
   return (
     <div className="wrap">

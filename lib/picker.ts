@@ -4,7 +4,7 @@
 import type { Enriched } from "./data";
 import { fmtPrice } from "./format";
 import { settingLabel } from "./present";
-import { LIVE_TASKS, type Task } from "./tasks";
+import { LIVE_TASKS, type Task } from "./task-meta";
 
 export type PickerQuery = {
   /** "overall" or a measured task slug. */
