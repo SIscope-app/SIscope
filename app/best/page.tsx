@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Avatar, OpenTag, VariantChip } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
+import { ensureData } from "@/lib/data";
 import { TASKS, taskRanking } from "@/lib/tasks";
 
 export const metadata: Metadata = {
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/best" }, openGraph: og("/best"),
 };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   return (
     <div className="wrap">
       <div className="page-head">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CopyButton } from "@/components/CopyButton";
-import { modelBySlug, siRanked } from "@/lib/data";
+import { ensureData, modelBySlug, siRanked } from "@/lib/data";
 import { fmtPrice } from "@/lib/format";
 import { matchupByKey, popularMatchups } from "@/lib/matchups";
 import { compareSummary } from "@/lib/present";
@@ -13,6 +13,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ pair: string }> }): Promise<Metadata> {
+  await ensureData();
   const { pair } = await params;
   const hit = matchupByKey(siRanked(), pair);
   if (!hit) return { title: "Comparison not found", robots: { index: false, follow: true } };
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ pair: str
 }
 
 export default async function Page({ params }: { params: Promise<{ pair: string }> }) {
+  await ensureData();
   const { pair } = await params;
   const hit = matchupByKey(siRanked(), pair);
   if (!hit) notFound();

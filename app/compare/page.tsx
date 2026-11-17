@@ -2,7 +2,7 @@ import { og } from "@/lib/site";
 import type { Metadata } from "next";
 import { Compare } from "@/components/Compare";
 import { buildDecisions } from "@/lib/decisions";
-import { EPOCH_BENCHMARKS, allModels, siRanked, slim } from "@/lib/data";
+import { EPOCH_BENCHMARKS, allModels, ensureData, siRanked, slim } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Compare models",
@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 
 const BENCH_ORDER = ["swe_bench_verified", "gpqa_diamond", "frontiermath", "otis_mock_aime", "simpleqa_verified"];
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const ranked = siRanked();
   const rest = allModels().filter((m) => m.si == null && (m.arena.text || m.epoch.length || m.price)).sort((a, b) => a.name.localeCompare(b.name));
   const list = [...ranked, ...rest];

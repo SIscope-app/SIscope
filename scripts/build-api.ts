@@ -1,7 +1,7 @@
 // Writes the static JSON API to public/api/v0/. Runs before `next build`.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { BUILT_AT, PUBLISH, SOURCES, allModels } from "../lib/data";
+import { PUBLISH, SOURCES, allModels, builtAt } from "../lib/data";
 import { orgName } from "../lib/orgs";
 import { CATEGORIES, COVERAGE_GATE, SCORE_VERSION } from "../lib/score";
 
@@ -25,7 +25,7 @@ const models = allModels().map((m) => ({
 const doc = {
   name: "SIscope models API",
   version: "v0",
-  built_at: BUILT_AT,
+  built_at: builtAt(),
   last_success_at: PUBLISH.last_success_at,
   score: { version: SCORE_VERSION, coverage_gate: COVERAGE_GATE, weights: Object.fromEntries(CATEGORIES.map((c) => [c.id, c.weight])), docs: "https://siscope.app/methodology" },
   sources: SOURCES.sources.map(({ id, name, home, license, license_url, attribution, as_of }) => ({ id, name, home, license, license_url, attribution, as_of })),

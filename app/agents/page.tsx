@@ -2,7 +2,7 @@ import { og } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BarRows } from "@/components/rows";
-import { AGENTS, allModels, sourceById } from "@/lib/data";
+import { AGENTS, allModels, ensureData, sourceById } from "@/lib/data";
 import { fmtDate, fmtInt } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -20,7 +20,8 @@ const EXG_MODEL: Record<string, string> = {
 };
 const FAMILY: Record<string, string> = { appworld_test_normal: "AppWorld", browsecompplus: "BrowseComp+", swebench: "SWE-bench", tau2_airline: "Tau²", tau2_retail: "Tau²", tau2_telecom: "Tau²" };
 
-export default function Page() {
+export default async function Page() {
+  await ensureData();
   const bySlug = new Map(allModels().map((m) => [m.name, m]));
   const aa = AGENTS.arena_agent;
   const arenaRows = aa.rows.slice(0, 20).map((r) => {

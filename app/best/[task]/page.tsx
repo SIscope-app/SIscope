@@ -9,7 +9,7 @@ import { BarRows } from "@/components/rows";
 import { fmtPrice } from "@/lib/format";
 import { orgName } from "@/lib/orgs";
 import { TASKS, taskBySlug, taskRanking, CHEAP_MAX } from "@/lib/tasks";
-import { AGENTS, textPublishDate } from "@/lib/data";
+import { AGENTS, ensureData, textPublishDate } from "@/lib/data";
 import { categorySources } from "@/lib/trust";
 import { fmtDate } from "@/lib/format";
 
@@ -20,6 +20,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps<"/best/[task]">): Promise<Metadata> {
+  await ensureData();
   const { task } = await params;
   const t = taskBySlug(task);
   if (!t) return {};
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: PageProps<"/best/[task]">): P
 }
 
 export default async function Page({ params }: PageProps<"/best/[task]">) {
+  await ensureData();
   const { task } = await params;
   const t = taskBySlug(task);
   if (!t) notFound();

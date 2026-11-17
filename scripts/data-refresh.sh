@@ -13,8 +13,8 @@ set -o pipefail
 
 SITE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PUBLISH_FILE="${PUBLISH_FILE:-$SITE/data/publish.json}"
-# 3 MiB, matching the Cloudflare Workers compressed script limit.
-WORKER_GZIP_LIMIT_KIB=3072
+# 2.8 MiB. The free plan hard limit is 3 MiB (3072 KiB). This leaves room for the snapshot to grow.
+WORKER_GZIP_LIMIT_KIB=2867
 LIVE_PATHS=(/ /leaderboard /compare /agents /methodology /api/v0/models.json /sitemap.xml /robots.txt /opengraph-image)
 
 commit_allowed() {
@@ -107,7 +107,7 @@ kib = float(m.group(1))
 limit = float(os.environ["WORKER_GZIP_LIMIT_KIB"])
 print(f"worker gzip: {kib:.2f} KiB (limit {limit:.0f} KiB)")
 if kib >= limit:
-    raise SystemExit("Refusing to deploy: worker gzip is over the 3 MiB Cloudflare script limit.")
+    raise SystemExit("Refusing to deploy: worker gzip is over 2.8 MiB. The free-plan hard limit is 3 MiB.")
 '
 }
 

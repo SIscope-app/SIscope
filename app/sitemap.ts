@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
-import { allModels, siRanked, textPublishDate } from "@/lib/data";
+import { allModels, ensureData, siRanked, textPublishDate } from "@/lib/data";
 import { popularMatchups } from "@/lib/matchups";
 import { TASKS } from "@/lib/tasks";
 import { SITE } from "@/lib/site";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  await ensureData();
   const d = new Date(textPublishDate() + "T12:00:00Z");
   const u = (p: string, priority = 0.6) => ({ url: `${SITE.url}${p}`, lastModified: d, changeFrequency: "weekly" as const, priority });
   return [

@@ -90,6 +90,6 @@ test("the header date is the Chicago success day, and sources stay attributed", 
   assert.ok(buildAt > -1 && deployAt > buildAt);
   assert.match(refresh, /wrangler rollback/);
   assert.match(refresh, /\[skip ci\]/);
-  assert.match(refresh, /WORKER_GZIP_LIMIT_KIB=3072/);
+  assert.match(refresh, /WORKER_GZIP_LIMIT_KIB=2867/);
   assert.match(refresh, /wrangler deploy --dry-run/);
 });
