@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { GapChart } from "@/components/charts";
-import { RankMoves } from "@/components/RankMoves";
+
+const GapChart = dynamic(() => import("@/components/charts").then((m) => m.GapChart));
+const RankMoves = dynamic(() => import("@/components/RankMoves").then((m) => m.RankMoves));
 import { CHANGES, allModels, textRanked } from "@/lib/data";
 import { fmtDate, shownGap } from "@/lib/format";
 import { ARENA_BOARD_URL } from "@/lib/links";

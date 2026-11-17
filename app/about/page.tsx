@@ -13,7 +13,7 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">About</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>An independent model ranking</h1>
+        <h1 className="h1" style={{ marginTop: 8 }}>An independent project by the SIscope team</h1>
         <p className="lede">SIscope shows which setting leads, on which job, and what the public list price is.</p>
       </div>
       <div className="prose">
@@ -35,6 +35,8 @@ export default function Page() {
         </p>
         <h2>Not on the site yet</h2>
         <p>There is no speed or latency number until our own tests are running. We do not fill that gap from another site.</p>
+        <h2>Contact</h2>
+        <p>Independent project by the SIscope team. Write to <a href="mailto:team@siscope.app">team@siscope.app</a>.</p>
       </div>
     </div>
   );
