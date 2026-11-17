@@ -15,6 +15,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...TASKS.map((t) => u(`/best/${t.slug}`, 0.8)),
     u("/agents", 0.7),
     u("/methodology", 0.5),
+    u("/methodology/changelog", 0.3),
+    u("/trends", 0.5),
+    u("/pick", 0.6),
+    u("/changes", 0.4),
     u("/about", 0.3),
     ...allModels()
       .filter((m) => m.si != null || m.arena.text)

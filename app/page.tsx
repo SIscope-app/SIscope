@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { ChangeBoard } from "@/components/ChangeBoard";
 import { HomeShell } from "@/components/HomeShell";
-import { GapChart } from "@/components/charts";
-import { RankMoves } from "@/components/RankMoves";
 import { budgetPicks } from "@/lib/advice";
 import { coverageOf } from "@/components/Coverage";
 import { Avatar, VariantChip } from "@/components/Avatar";
@@ -10,12 +8,12 @@ import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import type { TopItem } from "@/components/HomeShell";
 import type { ScatterPt } from "@/components/Scatter";
-import { AGENTS, CHANGES, allModels, siRanked, textRanked, type Enriched } from "@/lib/data";
+import { AGENTS, CHANGES, siRanked, type Enriched } from "@/lib/data";
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
-import { ARENA_BOARD_URL } from "@/lib/links";
 import { fmtDate, fmtPrice, shownGap } from "@/lib/format";
 import { changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-layout";
 import { orgName } from "@/lib/orgs";
+import { CATEGORIES, COVERAGE_GATE } from "@/lib/score";
 import { LIVE_TASKS, taskRanking } from "@/lib/tasks";
 import { SITE, og } from "@/lib/site";
 
@@ -77,8 +75,6 @@ function Decision({ card }: { card: DecisionCard }) {
 export default function Home() {
   const ranked = siRanked();
   const picks = buildDecisions(ranked);
-  const open = ranked.find((m) => m.slug === picks.open.slug)!;
-
   const scatter: ScatterPt[] = ranked
     .filter((m) => m.price && m.price.blended_per_m > 0)
     .slice(0, 80)
@@ -103,6 +99,9 @@ export default function Home() {
     <>
       <h1 className="h1 hero-h1">Start with one of three models</h1>
       <p className="lede hero-lede">Each card is one setting. The score and the Arena rank are different numbers.</p>
+      <p className="score-note">
+        The score weights {CATEGORIES.map((c) => `${c.short.toLowerCase()} ${c.weight}`).join(", ")}. It is shown when measured categories cover at least {Math.round(COVERAGE_GATE * 100)}% of that weight. <Link href="/methodology">How the score is built</Link>
+      </p>
       <div className="decisions">
         <Decision card={picks.overall} />
         <Decision card={picks.coding} />
@@ -120,6 +119,7 @@ export default function Home() {
       </div>
       <div className="decide-actions">
         <Link className="btn primary" href={picks.compareHref}>Compare these three</Link>
+        <Link className="btn" href="/pick">Which model do you need?</Link>
       </div>
       <div className="budgets">
         <span className="budgets-l">Highest score under a cap</span>
@@ -137,6 +137,7 @@ export default function Home() {
   const quiet = (
     <p className="quiet-stats">
       <Link href={picks.open.href}>Highest open-weight score: {picks.open.name}</Link>
+      <span>Pages pick different open models because each one uses its own measure. This line is the full score. A job page uses that job. The Arena gap uses text votes only.</span>
       <a href="#gap-h">Open vs closed {gapNow} pts{gapDelta === 0 ? "" : `, ${Math.abs(gapDelta)} ${gapDelta > 0 ? "wider" : "narrower"} than ${fmtDate(g0.d, { year: false })}`}</a>
       <span>{picks.rankedCount} scored · {picks.trackedCount} tracked · Arena history through {fmtDate(lastDate)}</span>
     </p>
@@ -154,34 +155,14 @@ export default function Home() {
   );
 
   const gapCard = (
-    <div className="card" style={{ padding: 20, display: "flex", flexDirection: "column", gap: 10 }}>
+    <div className="card" style={{ padding: 20, display: "flex", flexDirection: "column", gap: 8 }}>
       <h2 className="h2" id="gap-h">Open weights versus closed</h2>
-      <p className="sub" style={{ marginTop: 0 }}>
-        Gap between the leading open-weight model and the leading closed model on Arena text scores.
-      </p>
-      <div className="big" style={{ margin: "6px 0 2px" }}>
+      <p className="sub" style={{ marginTop: 0 }}>Arena text only. {Math.round(g1.closed)} closed, {Math.round(g1.open)} open.</p>
+      <div className="big" style={{ margin: "4px 0" }}>
         <b>{gapNow} pts</b>
-        <span>gap today · {gapThen} pts on {fmtDate(g0.d)}</span>
+        <span>{gapThen} pts on {fmtDate(g0.d, { year: false })}</span>
       </div>
-      <GapChart points={gap} />
-      <div className="legend">
-        <span className="lg">
-          <svg width="22" height="6" aria-hidden="true">
-            <line x1="0" y1="3" x2="22" y2="3" stroke="var(--c-closed)" strokeWidth="3" />
-          </svg>
-          Top closed: {g1.closed_name.replace(/ \(.*\)$/, "")} ({Math.round(g1.closed)})
-        </span>
-        <span className="lg">
-          <svg width="22" height="6" aria-hidden="true">
-            <line x1="0" y1="3" x2="22" y2="3" stroke="var(--c-open)" strokeWidth="3" strokeDasharray="6 4" />
-          </svg>
-          Top open in votes: {g1.open_name.replace(/ \(.*\)$/, "")} ({Math.round(g1.open)})
-        </span>
-      </div>
-      <p className="note" style={{ marginTop: "auto" }}>
-        Arena text scores work like chess ratings: a 50-point lead means the leader wins roughly 57% of head-to-head votes.
-        {g1.open_name.replace(/ \(.*\)$/, "") !== open.base ? <> Our &ldquo;Best open model&rdquo; pick ({picks.open.name}) uses the full SIscope score, which also counts independent tests. The gap above is Arena text only.</> : null}
-      </p>
+      <Link className="more" href="/trends">See the charts</Link>
     </div>
   );
 
@@ -197,6 +178,7 @@ export default function Home() {
   };
   const shownChanges = materialChanges(CHANGES.changes, CHANGES.gap);
   const changes = (
+    <>
     <ChangeBoard>
       {shownChanges.map((c, i) => {
         const ic = ICON[c.kind] ?? { c: "var(--muted)", s: "•", k: "Update" };
@@ -233,6 +215,8 @@ export default function Home() {
         );
       })}
     </ChangeBoard>
+    <p className="note"><Link href="/changes">Every update</Link> · <Link href="/feed.xml">Atom feed</Link></p>
+    </>
   );
 
   const tasks = (
@@ -261,6 +245,7 @@ export default function Home() {
                   <VariantChip v={w.variant} />
                 </span>
                 <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? `${fmtPrice(w.price.blended_per_m)} per 1M tokens` : "Top open-weight pick") : o ? <>Best open: {o.base}{o.variant ? ` (${o.variant})` : ""}</> : "No open model with data yet"}</span>
+                {t.slug === "open" ? <span className="alt">This tile uses the full score. A job tile uses that job, and the Arena gap uses text votes only.</span> : null}
                 {t.slug === "agents" ? <span className="alt">Driven by the Arena Agent board, {fmtDate(AGENTS.arena_agent.publish_date, { year: false })}. The Open Agent Leaderboard file is {fmtDate(AGENTS.exgentic.dataset_last_modified, { year: false })} and is a separate table.</span> : null}
               </>
             ) : (
@@ -270,22 +255,6 @@ export default function Home() {
         );
       })}
     </div>
-  );
-
-  const seenBase = new Set<string>();
-  const top8 = textRanked()
-    .filter((m) => (seenBase.has(m.base) ? false : (seenBase.add(m.base), true)))
-    .slice(0, 8);
-  const allDates = [...new Set(allModels().flatMap((m) => (m.history.text ?? []).map((p) => p[0])))].sort();
-  const firstTop = top8.flatMap((m) => (m.history.text ?? []).map((p) => p[0])).sort()[0] ?? allDates[0];
-  const histDates = allDates.filter((d) => d >= firstTop);
-  const rankChart = (
-    <>
-      <RankMoves dates={histDates} rows={top8.map((m) => ({ slug: m.slug, name: m.variant ? `${m.base} (${m.variant})` : m.base, points: m.history.text ?? [] }))} />
-      <p className="note">
-        Source: <a className="link" href={ARENA_BOARD_URL.text} rel="noopener">Arena text board</a>. One row per model family, using the setting that ranks highest today.
-      </p>
-    </>
   );
 
   return (
@@ -299,7 +268,7 @@ export default function Home() {
           description: SITE.description,
         }}
       />
-      <HomeShell hero={hero} taskChips={taskChips} quiet={quiet} gap={gapCard} changes={changes} changesSub={changeRangeLabel(shownChanges, (d) => fmtDate(d, { year: false }))} rankChart={rankChart} tasks={tasks} scatter={scatter} top={top} />
+      <HomeShell hero={hero} taskChips={taskChips} quiet={quiet} gap={gapCard} changes={changes} changesSub={changeRangeLabel(shownChanges, (d) => fmtDate(d, { year: false }))} tasks={tasks} scatter={scatter} top={top} />
     </>
   );
 }

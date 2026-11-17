@@ -129,7 +129,7 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
             <div className="card lb">
               <BarRows items={top.map(({ m, v }) => ({ slug: m.slug, name: m.name, base: m.base, variant: m.variant, org: m.org, open: m.open, value: v, display: disp(v) }))} floor={floor} />
             </div>
-            <p className="note">Based on {t.sourceNote} Bars start at {floor}. {r.length} models have data for this task.</p>
+            <p className="note">Based on {t.sourceNote} Bars start at {floor}. {r.length} models have data for this task.{t.slug === "open" ? " This page ranks open models by the full SIscope score. A job page’s open pick uses that job, and the Arena gap on Trends uses text votes only." : ""}</p>
           </section>
         </>
       )}
