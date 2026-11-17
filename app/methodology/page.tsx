@@ -153,6 +153,7 @@ export default function Page() {
           ))}
         </ul>
         <h2>Changelog</h2>
+        <p>Score versions have their own page: <Link href="/methodology/changelog">score changelog</Link>.</p>
         <ul>
           <li>
             <b>Site update</b> (3 Nov 2026): Compare up to four models, leaderboard filters and shareable weight presets, coverage badges, rank-over-time charts, a cost calculator and links from numbers to their sources. Scores did not change.

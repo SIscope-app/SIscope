@@ -1,6 +1,9 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import { Scatter, type ScatterPt } from "./Scatter";
+import type { ScatterPt } from "./Scatter";
+
+const Scatter = dynamic(() => import("./Scatter").then((m) => m.Scatter), { loading: () => <p className="note">Loading the chart.</p> });
 import Link from "next/link";
 import { SectionHead } from "./rows";
 import { tieTitle, tieWithPrevious } from "@/lib/trust";
@@ -75,7 +78,6 @@ export function HomeShell({
   gap,
   changes,
   changesSub,
-  rankChart,
   tasks,
   scatter,
   top,
@@ -86,7 +88,6 @@ export function HomeShell({
   gap: React.ReactNode;
   changes: React.ReactNode;
   changesSub: string;
-  rankChart: React.ReactNode;
   tasks: React.ReactNode;
   scatter: ScatterPt[];
   top: TopItem[];
@@ -175,10 +176,6 @@ export function HomeShell({
           </div>
           {gap}
         </div>
-      </section>
-      <section className="section wrap" aria-labelledby="rank-h">
-        <SectionHead id="rank-h" title="How Arena text ranks shifted" sub="Eight model families at the top of today's chat-vote board. The top edge of each line is place 1." />
-        {rankChart}
       </section>
     </>
   );

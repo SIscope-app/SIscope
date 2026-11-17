@@ -17,6 +17,7 @@ export function Footer() {
             <p style={{ margin: "10px 0 0" }}>An independent ranking of AI models. No account. No paid placement.</p>
             <p style={{ margin: "8px 0 0" }}>
               <Link href="/methodology">Score v{SCORE_VERSION}</Link> · <Link href="/about">About</Link> ·{" "}
+              <Link href="/changes">What changed</Link> · <a href="/feed.xml">Feed</a> ·{" "}
               <a href="/api/v0/models.json">JSON snapshot</a>
             </p>
           </div>
