@@ -8,7 +8,7 @@ import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Trends",
-  description: "How the Arena text gap between open and closed models moved, and how the top chat ranks shifted.",
+  description: "How the Arena text gap between open and closed models moved. These charts are not the SIscope score.",
   alternates: { canonical: "/trends" },
   openGraph: og("/trends"),
 };

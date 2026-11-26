@@ -8,7 +8,7 @@ import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "What changed",
-  description: "Rank moves, new board entries, and new list prices since the previous Arena update.",
+  description: "What moved in the public data: rank changes, new board entries, and new list prices.",
   alternates: { canonical: "/changes", types: { "application/atom+xml": "/feed.xml" } },
   openGraph: og("/changes"),
 };

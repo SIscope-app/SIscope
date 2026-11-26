@@ -18,7 +18,7 @@ export default function Page() {
       </div>
       <section className="prose">
         <p>Pages are static. Choosing a theme writes <code>theme</code> to local storage in your browser so the next visit matches. That is not a cookie, and it never leaves the browser.</p>
-        <p>The comparison address, the leaderboard filters, and the cost calculator keep your choices in the page URL. They are not sent to an account, because there is no account.</p>
+        <p>The comparison address, the ranking filters, and the cost calculator keep your choices in the page URL. They are not sent to an account, because there is no account.</p>
         <p>The host may keep ordinary request logs, the way any web server does. SIscope does not add a third-party analytics script.</p>
         <p>Questions: <a href="mailto:team@siscope.app">team@siscope.app</a>.</p>
       </section>

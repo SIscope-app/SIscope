@@ -4,7 +4,7 @@ import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "How to read AI benchmarks",
-  description: "What an Arena Elo, a percentile, coverage, open weights, a context window, a token, a blended price, and an agent score actually mean.",
+  description: "What an Arena Elo, a percentile, coverage, open weights, a context window, a token, a blended price, and an agent score mean.",
   alternates: { canonical: "/benchmarks" },
   openGraph: og("/benchmarks"),
 };

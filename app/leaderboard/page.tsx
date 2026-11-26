@@ -7,8 +7,8 @@ import { SITE, og } from "@/lib/site";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Model ranking",
-  description: "Rank models by SIscope score, Arena place, category, list price or context window. Filter by open weights, provider and price, then share the link.",
+  title: "Full ranking",
+  description: "The full list behind the pick. Sort by score, Arena place, price, or context. The method is published.",
   alternates: { canonical: "/leaderboard" }, openGraph: og("/leaderboard"),
 };
 
@@ -26,16 +26,16 @@ export default async function Page() {
         data={{
           "@context": "https://schema.org",
           "@type": "ItemList",
-          name: "SIscope AI model leaderboard",
+          name: "SIscope model ranking",
           itemListOrder: "https://schema.org/ItemListOrderDescending",
           itemListElement: top.map((m, i) => ({ "@type": "ListItem", position: i + 1, name: m.name, url: `${SITE.url}/models/${m.slug}` })),
         }}
       />
       <div className="page-head">
-        <div className="eyebrow">Leaderboard</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>The full ranking</h1>
+        <div className="eyebrow">Ranking</div>
+        <h1 className="h1" style={{ marginTop: 8 }}>The full list behind the pick</h1>
         <p className="lede">
-          Sort, filter, and keep the link. Score v{SCORE_VERSION}. <Link className="link" href="/methodology">How the score is built</Link>.
+          Every scored setting, from the same public data. Score v{SCORE_VERSION}. <Link className="link" href="/methodology">How the score is built</Link>.
         </p>
       </div>
       <Leaderboard models={sorted.map(slim)} orgs={orgs} />

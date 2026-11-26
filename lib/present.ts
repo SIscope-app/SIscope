@@ -152,6 +152,13 @@ export function displayedWinners(values: (number | null)[], mode: "hi" | "lo", f
   return { win, tie: n > 1 };
 }
 
+/** A category winner exists only when every model in the comparison has that result. */
+export function categoryCompare(values: (number | null)[]): "winner" | "tie" | "not-comparable" {
+  if (values.length < 2 || values.some((v) => v == null)) return "not-comparable";
+  const marked = displayedWinners(values, "hi", (n) => n.toFixed(0));
+  return marked.tie ? "tie" : "winner";
+}
+
 function joinNames(names: string[]): string {
   if (names.length <= 1) return names[0] ?? "";
   if (names.length === 2) return `${names[0]} and ${names[1]}`;

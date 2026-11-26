@@ -7,8 +7,8 @@ import { ensureData } from "@/lib/data";
 import { TASKS, taskRanking } from "@/lib/tasks";
 
 export const metadata: Metadata = {
-  title: "Best for",
-  description: "The leading model for coding, writing, math, images, agents, open weights and a low list price.",
+  title: "Best for a job",
+  description: "Which model to use for coding, writing, math, images, agents, open weights, or a low list price.",
   alternates: { canonical: "/best" }, openGraph: og("/best"),
 };
 
@@ -18,8 +18,8 @@ export default async function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Best for…</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>A winner for each job</h1>
-        <p className="lede">One leading model per job, the next two, and the leading open-weight option.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>A model for each job</h1>
+        <p className="lede">The leading setting for the job, the next two, and the leading open-weight option. Same public data as the homepage pick.</p>
       </div>
       <div className="task-grid">
         {TASKS.map((t) => {

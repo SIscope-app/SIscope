@@ -12,12 +12,12 @@ import { AGENTS, allModels, CHANGES, ensureData, siRanked, textPublishDate, type
 import { headlineEligible } from "@/lib/score";
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { fmtDate, fmtInOut, shownGap } from "@/lib/format";
-import { changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-layout";
+import { changeNatureLabel, changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-layout";
 import { orgName } from "@/lib/orgs";
-import { CATEGORIES, COVERAGE_GATE } from "@/lib/score";
 import { LIVE_TASKS, taskRanking } from "@/lib/tasks";
 import { buildState, toStateModel } from "@/lib/state";
 import { SITE, og } from "@/lib/site";
+import { ScoreNote } from "@/components/ScoreNote";
 
 export const metadata = { alternates: { canonical: "/" }, openGraph: og("/") };
 
@@ -109,11 +109,9 @@ export default async function Home() {
         ))}
         <Link href="/state-of-ai" className="glance-more">State of AI</Link>
       </nav>
-      <h1 className="h1 hero-h1">Start with one of three models</h1>
-      <p className="lede hero-lede">Each card is one setting. The score and the Arena rank are different numbers.</p>
-      <p className="score-note">
-        The score weights {CATEGORIES.map((c) => `${c.short.toLowerCase()} ${c.weight}`).join(", ")}. It is shown when measured categories cover at least {Math.round(COVERAGE_GATE * 100)}% of that weight. <Link href="/methodology">How the score is built</Link>
-      </p>
+      <h1 className="h1 hero-h1">Which model should you use?</h1>
+      <p className="lede hero-lede">Hundreds of models. Start with three settings from public votes, written tests, and list prices. The method is published. The score and the Arena rank are different numbers.</p>
+      <ScoreNote coverage={`${picks.rankedCount} models have a listed score.`} />
       <div className="decisions">
         <Decision card={picks.overall} />
         <Decision card={picks.open} />
@@ -121,7 +119,7 @@ export default async function Home() {
       </div>
       <div className="decide-actions">
         <Link className="btn primary" href={picks.compareHref}>Compare these three</Link>
-        <Link className="btn" href="/pick">Which model do you need?</Link>
+        <Link className="btn" href="/pick">Pick for a job</Link>
       </div>
       <div className="budgets">
         <span className="budgets-l">Highest score under a cap</span>
@@ -201,7 +199,7 @@ export default async function Home() {
               ) : (
                 <span className="s">{c.sub}</span>
               )}
-              <span className="s chg-meta">{fmtDate(c.date, { year: false })} · {source}</span>
+              <span className="s chg-meta">{fmtDate(c.date, { year: false })} · {source}{changeNatureLabel(c.kind) ? ` · ${changeNatureLabel(c.kind)}` : ""}</span>
             </span>
           </>
         );

@@ -1,88 +1,63 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
-import { fmtInOut, fmtPrice } from "@/lib/format";
-import { LIVE_TASKS } from "@/lib/task-meta";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { USE_CASES, advise, type AdviseRow, type UseId } from "@/lib/picker";
+import { ScoreNote } from "./ScoreNote";
 
-type Row = {
-  slug: string;
-  name: string;
-  base: string;
-  variant: string | null;
-  open: boolean;
-  si: number | null;
-  price: number | null;
-  priceIn: number | null;
-  priceOut: number | null;
-  tasks: Record<string, number | null>;
-};
-
-function label(row: Row): string {
-  return row.variant ? `${row.base} (${row.variant})` : row.base;
+function isUse(value: string | null): value is UseId {
+  return USE_CASES.some((u) => u.id === value);
 }
 
-export function Picker({ models }: { models: Row[] }) {
-  const [task, setTask] = useState("overall");
-  const [cap, setCap] = useState("");
-  const [openOnly, setOpenOnly] = useState(false);
-  const result = useMemo(() => {
-    const maxPrice = cap ? Number(cap) : null;
-    const spec = LIVE_TASKS.find((t) => t.slug === task);
-    const rows = models
-      .filter((m) => (openOnly ? m.open : true) && (maxPrice == null || (m.price != null && m.price <= maxPrice)))
-      .map((m) => ({ m, v: task === "overall" ? m.si : (m.tasks[task] ?? null) }))
-      .filter((x): x is { m: Row; v: number } => x.v != null)
-      .sort((a, b) => b.v - a.v || (b.m.si ?? 0) - (a.m.si ?? 0));
-    return { rows, spec };
-  }, [models, task, cap, openOnly]);
-  const [primary, ...alts] = result.rows;
-  const metric = result.spec?.metric ?? "SIscope score";
-  const show = (v: number) => (result.spec?.scale === "elo" ? String(Math.round(v)) : v.toFixed(0));
-  const line = (row: { m: Row; v: number }, why: string) =>
-    `${why} ${metric} ${show(row.v)}, ${row.m.priceIn != null && row.m.priceOut != null ? fmtInOut(row.m.priceIn, row.m.priceOut) : row.m.price == null ? "no list price" : `${fmtPrice(row.m.price)} per 1M`}, ${row.m.open ? "open weights" : "closed weights"}.`;
+export function Picker({ models }: { models: AdviseRow[] }) {
+  const params = useSearchParams();
+  const router = useRouter();
+  const path = usePathname();
+  const rawUse = params.get("use");
+  const use: UseId = isUse(rawUse) ? rawUse : "general";
+  const quality = Math.min(100, Math.max(0, Number(params.get("q") ?? "100") || 0));
+  const result = useMemo(() => advise(models, { use, quality }), [models, use, quality]);
+
+  const set = (nextUse: UseId, nextQuality: number) => {
+    const q = new URLSearchParams(params.toString());
+    q.set("use", nextUse);
+    q.set("q", String(nextQuality));
+    router.replace(`${path}?${q.toString()}`, { scroll: false });
+  };
 
   return (
     <div className="card" style={{ padding: 20, display: "grid", gap: 16 }}>
       <div className="filters">
         <label style={{ display: "grid", gap: 4, fontSize: 12.5, color: "var(--muted)", fontWeight: 560 }}>
-          Job
-          <select className="select" value={task} onChange={(e) => setTask(e.target.value)} aria-label="Job">
-            <option value="overall">Overall score</option>
-            {LIVE_TASKS.filter((t) => t.slug !== "open" && t.slug !== "cheap").map((t) => (
-              <option key={t.slug} value={t.slug}>{t.label}</option>
+          Use
+          <select className="select" value={use} onChange={(e) => { if (isUse(e.target.value)) set(e.target.value, quality); }} aria-label="Use">
+            {USE_CASES.map((u) => (
+              <option key={u.id} value={u.id}>{u.label}</option>
             ))}
           </select>
         </label>
-        <label style={{ display: "grid", gap: 4, fontSize: 12.5, color: "var(--muted)", fontWeight: 560 }}>
-          Budget cap
-          <select className="select" value={cap} onChange={(e) => setCap(e.target.value)} aria-label="Budget cap">
-            <option value="">Any list price</option>
-            <option value="1">Under $1 per 1M</option>
-            <option value="3">Under $3 per 1M</option>
-            <option value="10">Under $10 per 1M</option>
-          </select>
-        </label>
-        <label style={{ display: "flex", alignItems: "end", gap: 8, fontSize: 14, minHeight: 44 }}>
-          <input type="checkbox" checked={openOnly} onChange={(e) => setOpenOnly(e.target.checked)} /> Open weights only
+        <label style={{ display: "grid", gap: 6, fontSize: 12.5, color: "var(--muted)", fontWeight: 560, minWidth: 220 }}>
+          Cost to quality: {quality}
+          <input type="range" min={0} max={100} value={quality} aria-label="Quality versus cost" onChange={(e) => set(use, Number(e.target.value))} />
         </label>
       </div>
-      {!primary ? (
-        <p className="note" style={{ margin: 0 }}>No model in this snapshot matches that job, budget, and weight rule.</p>
+      {!result.primary ? (
+        <p className="note" style={{ margin: 0 }}>{result.empty}</p>
       ) : (
         <>
           <article>
             <div className="eyebrow">Recommendation</div>
-            <Link href={`/models/${primary.m.slug}`} className="decide-name">{label(primary.m)}</Link>
-            <p className="sub">{line(primary, "Highest measured result inside the filters.")}</p>
+            <Link href={`/models/${result.primary.slug}`} className="decide-name">{result.primary.name}</Link>
+            <p className="sub">{result.primary.why}</p>
           </article>
-          {alts.slice(0, 2).length > 0 && (
+          {result.alternatives.length > 0 && (
             <div>
               <div className="eyebrow">Alternatives</div>
               <ul style={{ margin: "8px 0 0", padding: 0, listStyle: "none", display: "grid", gap: 10 }}>
-                {alts.slice(0, 2).map((row, i) => (
-                  <li key={row.m.slug}>
-                    <Link href={`/models/${row.m.slug}`} className="link">{label(row.m)}</Link>
-                    <p className="sub" style={{ margin: "2px 0 0" }}>{line(row, i === 0 ? "Next measured result inside the same filters." : "Third measured result inside the same filters.")}</p>
+                {result.alternatives.map((alt) => (
+                  <li key={alt.kind + alt.slug}>
+                    <Link href={`/models/${alt.slug}`} className="link">{alt.name}</Link>
+                    <p className="sub" style={{ margin: "2px 0 0" }}>{alt.kind === "cheaper" ? "Cheaper" : alt.kind === "open-weight" ? "Open-weight" : "Runner-up"}. {alt.line}</p>
                   </li>
                 ))}
               </ul>
@@ -90,6 +65,7 @@ export function Picker({ models }: { models: Row[] }) {
           )}
         </>
       )}
+      <ScoreNote />
     </div>
   );
 }

@@ -5,8 +5,8 @@ import { fmtDate } from "@/lib/format";
 import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Monthly token cost",
-  description: "Estimate a month of tokens from OpenRouter list prices. The link keeps the models and the mix you chose.",
+  title: "Cost",
+  description: "Price a month of tokens from OpenRouter list prices. The link keeps the models and the mix you chose.",
   alternates: { canonical: "/tools/cost" }, openGraph: og("/tools/cost"),
 };
 

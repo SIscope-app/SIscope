@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import type { Slim } from "@/lib/data";
 import { CATEGORIES } from "@/lib/score";
 import { orgName } from "@/lib/orgs";
-import { fmtCtx, fmtPrice } from "@/lib/format";
+import { fmtPrice } from "@/lib/format";
 import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
-import { compareSummary, displayedWinners, priceStatus, splitCovered, type ScoreRow } from "@/lib/present";
+import { formatContext, formatListPrice, formatScore } from "@/lib/facts";
+import { categoryCompare, compareSummary, displayedWinners, priceStatus, splitCovered, type ScoreRow } from "@/lib/present";
 import { Avatar } from "./Avatar";
+import { ScoreNote } from "./ScoreNote";
 import { Radar } from "./charts";
 import { CoverageDots, coverageOf } from "./Coverage";
 import { ModelPicker } from "./ModelPicker";
@@ -99,7 +101,7 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
   });
 
   const tiles: Tile[] = [
-    { k: "si", title: "SIscope score", desc: "0 to 100, from measured categories. Not an Arena rank.", src: { href: "/methodology", label: "How it works", internal: true }, get: (m) => m.si, fmt: (v) => v.toFixed(1), best: "hi", width: pctW, empty: "No score" },
+    { k: "si", title: "SIscope score", desc: "A percentile-based composite, not a percentage. Not an Arena rank.", src: { href: "/methodology", label: "How it works", internal: true }, get: (m) => m.si, fmt: (v) => formatScore(v), best: "hi", width: pctW, empty: "No score yet" },
     arenaTile("text", "Arena: text", "Blind human votes on chat answers. Separate from the SIscope score.", (m) => m.textRank),
     arenaTile("webdev", "Arena: WebDev", "Human votes on web apps the models build. Separate from the SIscope score.", (m) => m.webdevRank),
     arenaTile("vision", "Arena: vision", "Human votes on questions about images.", (m) => m.visionRank),
@@ -121,13 +123,13 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
       title: "Blended price",
       desc: "Per 1M tokens, 3 parts input to 1 part output. Lower wins. Unknown is not free.",
       get: (m) => m.price,
-      fmt: (v) => fmtPrice(v),
+      fmt: (v, m) => (m.priceIn != null && m.priceOut != null ? formatListPrice({ input_per_m: m.priceIn, output_per_m: m.priceOut }) : fmtPrice(v)),
       best: "lo",
       width: (v, known) => (v / Math.max(...known, 0.0001)) * 100,
       href: (m) => (m.orId ? openrouterUrl(m.orId) : null),
       empty: "No list price",
     },
-    { k: "ctx", title: "Context window", desc: "Most tokens one request can hold, from the OpenRouter listing", get: (m) => m.ctx, fmt: (v) => fmtCtx(v), best: "hi", width: (v, known) => (v / Math.max(...known)) * 100, href: (m) => (m.orId ? openrouterUrl(m.orId) : null), empty: "No listing" },
+    { k: "ctx", title: "Context window", desc: "Most tokens one request can hold, from the OpenRouter listing", get: (m) => m.ctx, fmt: (v) => formatContext(v), best: "hi", width: (v, known) => (v / Math.max(...known)) * 100, href: (m) => (m.orId ? openrouterUrl(m.orId) : null), empty: "No context length" },
   ];
 
   const share = async () => {
@@ -177,6 +179,24 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
             </Link>
           )}
         </div>
+        {chosen.length >= 2 && (
+          <div className="legend">
+            {(() => {
+              const pricedRows = chosen.filter((m) => m.price != null && m.price > 0 && m.si != null);
+              const cheaper = [...pricedRows].sort((a, b) => a.price! - b.price!)[0];
+              const value = [...pricedRows].sort((a, b) => b.si! / b.price! - a.si! / a.price!)[0];
+              const open = [...chosen].filter((m) => m.open).sort((a, b) => (b.si ?? 0) - (a.si ?? 0))[0];
+              return (
+                <>
+                  {value ? <span className="lg">Best value: {settingName(value)}</span> : null}
+                  {cheaper ? <span className="lg">Cheaper: {settingName(cheaper)}</span> : null}
+                  {open ? <span className="lg">Open-weight: {settingName(open)}</span> : null}
+                </>
+              );
+            })()}
+          </div>
+        )}
+        <ScoreNote />
       </div>
 
       <div className="card tradeoff">
@@ -187,7 +207,7 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
         ))}
       </div>
 
-      <div className="grid2 section" style={{ gridTemplateColumns: "1fr 1.2fr", marginTop: 16 }}>
+        <div className="grid2 section" style={{ marginTop: 16 }}>
         <div className="card" style={{ padding: 20 }}>
           <h2 className="h2">Shape of each score</h2>
           <p className="sub">A larger shape is stronger on the categories we measured. A spoke at the centre has no result, and that is not a zero.</p>
@@ -207,12 +227,13 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
           <p className="sub" style={{ marginBottom: 8 }}>Percentiles from 0 to 100. A row names a winner only when at least two models have a result. Ties are marked.</p>
           {shownCats.map((c) => {
             const vals = chosen.map((m) => m.cats[c.id] ?? null);
-            const { win, tie } = displayedWinners(vals, "hi", (n) => n.toFixed(1));
+            const state = categoryCompare(vals);
+            const { win, tie } = state === "not-comparable" ? { win: vals.map(() => false), tie: false } : displayedWinners(vals, "hi", (n) => n.toFixed(0));
             return (
               <div key={c.id} style={{ padding: "8px 0", borderBottom: "1px solid var(--line)" }}>
                 <div style={{ fontSize: 14, fontWeight: 600, marginBottom: 5 }}>
                   {c.label}
-                  {tie ? <span className="tie"> Tie</span> : null}
+                  {state === "not-comparable" ? <span className="tie"> Not comparable</span> : tie ? <span className="tie"> Tie</span> : null}
                 </div>
                 <div style={{ display: "grid", gap: 4 }}>
                   {chosen.map((m, i) => {
@@ -263,7 +284,7 @@ export function Compare({ models, defaults, benches }: { models: Slim[]; default
           {shownTiles.map((t) => {
             const vals = chosen.map((m) => t.get(m));
             const known = vals.filter((v): v is number => v != null);
-            const { win } = displayedWinners(vals, t.best, (n) => (t.k === "price" ? fmtPrice(n) : t.k === "ctx" ? fmtCtx(n) : t.k.startsWith("epoch") ? `${n.toFixed(0)}%` : t.k === "si" ? n.toFixed(1) : String(Math.round(n))));
+            const { win } = displayedWinners(vals, t.best, (n) => (t.k === "price" ? fmtPrice(n) : t.k === "ctx" ? formatContext(n) : t.k.startsWith("epoch") ? `${n.toFixed(0)}%` : t.k === "si" ? formatScore(n) : String(Math.round(n))));
             return (
               <div key={t.k} className="card tile">
                 <div className="tile-h">

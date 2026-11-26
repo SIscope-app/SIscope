@@ -7,7 +7,7 @@ import { CATEGORIES, COVERAGE_GATE, SCORE_DATE, SCORE_VERSION, STALE_AFTER_DAYS,
 
 export const metadata: Metadata = {
   title: "How the score is built",
-  description: `SIscope score v${SCORE_VERSION}: the weights, the sources, the licences, and the results we refuse to invent.`,
+  description: `How the SIscope score is built, version ${SCORE_VERSION}. Published weights, named sources, and no invented results.`,
   alternates: { canonical: "/methodology" }, openGraph: og("/methodology"),
 };
 
@@ -89,7 +89,7 @@ export default async function Page() {
           <b>3. The overall score is a weighted average of categories</b>, using the weights above. We only show it when the categories with data carry at least {Math.round(COVERAGE_GATE * 100)}% of the total weight. Otherwise you&apos;ll see &quot;no score yet&quot;. Today {n} models pass. A missing category counts at the reference 25th percentile and the score is labelled provisional. The fill cannot raise the model. Homepage picks, the picker, Best-for tiles, and the best open model need every category measured, or at least two independent sources.
         </p>
         <p>
-          <b>4. Your weights, your ranking.</b> On the <Link href="/leaderboard">leaderboard</Link> you can change the weights. That re-ranks models in your browser only, and the link keeps your settings.
+          <b>4. Your weights, your ranking.</b> On the <Link href="/leaderboard">ranking</Link> you can change the weights. That re-ranks models in your browser only, and the link keeps your settings.
         </p>
         <h2>Matching models across sources</h2>
         <p>
@@ -108,7 +108,7 @@ export default async function Page() {
         </p>
         <h2>Coverage</h2>
         <p>
-          The coverage badge on model pages, the leaderboard and Compare counts how many of the six categories have at least one measured result for that model, and names the ones that don&apos;t. It is a plain count, separate from the weighted coverage the score uses for its {Math.round(COVERAGE_GATE * 100)}% rule, and it never changes a score. Low coverage means a score rests on fewer tests, not that the model is weak.
+          The coverage badge on model pages, the ranking and Compare counts how many of the six categories have at least one measured result for that model, and names the ones that don&apos;t. It is a plain count, separate from the weighted coverage the score uses for its {Math.round(COVERAGE_GATE * 100)}% rule, and it never changes a score. Low coverage means a score rests on fewer tests, not that the model is weak.
         </p>
         <h2>History and rank charts</h2>
         <p>
@@ -124,7 +124,7 @@ export default async function Page() {
         </p>
         <h2>Sharing a view</h2>
         <p>
-          The leaderboard keeps its weight preset (or your custom weights), filters and sort in the page address, and Compare and the cost calculator keep their picked models. Copy the link to share exactly what you see. Filters hide rows and number the rest from 1; they never change a score.
+          The ranking keeps its weight preset (or your custom weights), filters and sort in the page address, and Compare and the cost calculator keep their picked models. Copy the link to share exactly what you see. Filters hide rows and number the rest from 1; they never change a score.
         </p>
         <h2>What we never do</h2>
         <ul>

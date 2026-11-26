@@ -5,6 +5,7 @@ import { allModels, siRanked, type Enriched } from "./data";
 import { measuredAndMissing, settingLabel, compareDefaultSlugs } from "./present";
 import { fmtDate, fmtPrice } from "./format";
 import { CHEAP_MAX, VALUE_MIN_SI } from "./tasks";
+import { formatScore } from "./facts";
 import { headlineEligible } from "./score";
 
 export type DecisionCard = {
@@ -112,16 +113,16 @@ export function buildDecisions(ranked: Enriched[] = siRanked(), pool: Enriched[]
   const valueCap = valued?.cap ?? null;
   const valueFloor = valued?.floor ?? 0;
 
-  const overallBits = [`SIscope overall ${overallM.si!.toFixed(0)}/100, #${overallM.siRank} of ${n} scored models.`];
+  const overallBits = [`SIscope Score ${formatScore(overallM.si)}, a percentile composite, #${overallM.siRank} of ${n} scored models.`];
   if (overallM.arena.text) overallBits.push(`Arena text rank is #${overallM.arena.text.rank} of ${overallM.arena.text.board_size}, a separate chat-vote board.`);
   else overallBits.push("This setting has no Arena text rank.");
 
   const openKicker = opened.role === "best" ? "Best open-weight" : opened.role === "next" ? "Next open-weight" : "Next scored setting";
   const openReason = opened.role === "fallback"
-    ? `No separate open-weight model cleared the headline rule, so this card is the next scored setting: ${openM.si!.toFixed(0)}/100.`
+    ? `No separate open-weight model cleared the headline rule, so this card is the next scored setting: ${formatScore(openM.si)}.`
     : opened.role === "next"
-      ? `The overall card is already the best open-weight score, so this is the next open-weight setting: ${openM.si!.toFixed(0)}/100.`
-      : `Highest open-weight SIscope score: ${openM.si!.toFixed(0)}/100.`;
+      ? `The overall card is already the best open-weight score, so this is the next open-weight setting: ${formatScore(openM.si)}.`
+      : `Highest open-weight SIscope Score: ${formatScore(openM.si)}.`;
 
   const primary = valueCap === CHEAP_MAX && valueFloor === VALUE_MIN_SI;
   const capLabel = valueCap == null ? "Lowest list price" : `Under $${capText(valueCap)}/1M`;
@@ -132,15 +133,15 @@ export function buildDecisions(ranked: Enriched[] = siRanked(), pool: Enriched[]
 
   const compareSlugs = compareDefaultSlugs([overallM.slug, openM.slug, valueM.slug]);
   return {
-    overall: cardBase("overall", overallM, "Best overall", "SIscope score", overallM.si!.toFixed(0), "/100", overallGlance(overallM, n), overallBits.join(" "), gapLimit(overallM), overallM.arena.text ? `Arena text through ${fmtDate(overallM.arena.text.date, { year: false })}` : ""),
-    open: cardBase("open", openM, openKicker, "SIscope score", openM.si!.toFixed(0), "/100", opened.role === "fallback" ? `Next score · #${openM.siRank}` : `Open-weight · #${openM.siRank}`, openReason, gapLimit(openM), openM.arena.text ? `Arena text through ${fmtDate(openM.arena.text.date, { year: false })}` : ""),
+    overall: cardBase("overall", overallM, "Best overall", "SIscope score", formatScore(overallM.si), "", overallGlance(overallM, n), overallBits.join(" "), gapLimit(overallM), overallM.arena.text ? `Arena text through ${fmtDate(overallM.arena.text.date, { year: false })}` : ""),
+    open: cardBase("open", openM, openKicker, "SIscope score", formatScore(openM.si), "", opened.role === "fallback" ? `Next score · #${openM.siRank}` : `Open-weight · #${openM.siRank}`, openReason, gapLimit(openM), openM.arena.text ? `Arena text through ${fmtDate(openM.arena.text.date, { year: false })}` : ""),
     value: cardBase(
       "value",
       valueM,
       `Best value · ${capLabel}`,
       "SIscope score",
-      valueM.si!.toFixed(0),
-      "/100",
+      formatScore(valueM.si),
+      "",
       capLabel,
       `${valueReason}${priceBit}`,
       gapLimit(valueM),

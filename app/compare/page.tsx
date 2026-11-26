@@ -6,7 +6,7 @@ import { EPOCH_BENCHMARKS, allModels, ensureData, siRanked, slim } from "@/lib/d
 
 export const metadata: Metadata = {
   title: "Compare models",
-  description: "Put two to four settings next to each other. Score, Arena place, written tests, list price and context, with a link you can share.",
+  description: "Set two to four settings side by side. Score, Arena place, written tests, list price, and context. The link keeps the comparison.",
   alternates: { canonical: "/compare" }, openGraph: og("/compare"),
 };
 
@@ -24,8 +24,8 @@ export default async function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Compare</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>Set two models next to each other</h1>
-        <p className="lede">Two to four settings. The page opens on the homepage picks. The address keeps whatever you change.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>Compare the settings</h1>
+        <p className="lede">Two to four settings, from the same public data. The page opens on the homepage picks. The link keeps your choice.</p>
       </div>
       <Compare models={list.map(slim)} defaults={defaults} benches={benches} />
     </div>

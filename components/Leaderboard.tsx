@@ -4,8 +4,10 @@ import { useEffect, useMemo, useState } from "react";
 import type { Slim } from "@/lib/data";
 import { CATEGORIES, DEFAULT_WEIGHTS, composite, weightsFromQuery, weightsToQuery, type CategoryId } from "@/lib/score";
 import { orgName } from "@/lib/orgs";
-import { fmtCtx, fmtInOut, fmtPrice } from "@/lib/format";
+import { fmtPrice } from "@/lib/format";
+import { formatContext, formatListPrice, formatScore } from "@/lib/facts";
 import { Avatar, OpenTag } from "./Avatar";
+import { ScoreNote } from "./ScoreNote";
 import { FilterSeg } from "./HomeShell";
 import { Icon } from "./Icons";
 import { CoverageDots, coverageOf } from "./Coverage";
@@ -192,8 +194,8 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
     if (sort === "price") return fmtPrice(v);
     if (sort === "text") return Math.round(v).toString();
     if (sort === "textRank" || sort === "webdev") return `#${Math.round(v)}`;
-    if (sort === "ctx") return fmtCtx(v);
-    return v.toFixed(0);
+    if (sort === "ctx") return formatContext(v);
+    return formatScore(v);
   };
   const wsum = Object.values(w).reduce((a, b) => a + b, 0);
   const reset = () => {
@@ -364,11 +366,11 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
                 <span className="lb-extra tnum">
                   {m.textRank != null ? `Text #${m.textSpan ?? m.textRank}${m.textTied ? " · tied within margin" : ""}` : "No text rank"}
                 </span>
-                <span className="lb-extra tnum" title={m.ctx == null ? "No context length on the OpenRouter listing." : "Most tokens one request can hold, from OpenRouter"}>
-                  {m.ctx != null ? fmtCtx(m.ctx) : "No context"}
+                <span className="lb-extra tnum">
+                  {formatContext(m.ctx)}
                 </span>
-                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }} title={sort === "price" ? "SIscope score" : m.price == null ? "No OpenRouter list price. Unknown is not free." : m.price === 0 ? "OpenRouter lists this at $0 per 1M tokens." : m.priceIn != null && m.priceOut != null ? `${fmtInOut(m.priceIn, m.priceOut)} per 1M tokens. Blended ${fmtPrice(m.price)} at three input tokens per output token.` : `List price ${fmtPrice(m.price)} per 1M tokens`}>
-                  {sort === "price" ? (m.si != null ? `SI ${m.si.toFixed(0)}` : "No score") : m.priceIn != null && m.priceOut != null ? fmtInOut(m.priceIn, m.priceOut) : m.price != null ? fmtPrice(m.price) : "No list price"}
+                <span className="lb-price tnum" style={{ fontSize: 13, color: "var(--faint)", minWidth: 58, textAlign: "right" }}>
+                  {sort === "price" ? formatScore(m.si) : formatListPrice(m.priceIn != null && m.priceOut != null ? { input_per_m: m.priceIn, output_per_m: m.priceOut } : null)}
                 </span>
               </span>
             </span>
@@ -391,6 +393,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
           </div>
         )}
       </div>
+      <ScoreNote />
       <p className="note">
         {rows.has.length} models in this list.
         {rows.missing > 0 && ` ${rows.missing} match the filters but have no ${S.label} yet. A missing value is not zero.`}

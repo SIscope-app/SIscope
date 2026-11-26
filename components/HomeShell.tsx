@@ -145,7 +145,7 @@ export function HomeShell({
   const ties = tieWithPrevious(top10.map((t) => ({ score: t.si, lo: t.lo, hi: t.hi })));
   return (
     <>
-      <section className="hero wrap" aria-label="Best models right now">
+      <section className="hero wrap" aria-label="Which model to use">
         {hero}
         {taskChips}
       </section>

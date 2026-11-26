@@ -7,9 +7,13 @@ import { CoverageDots, coverageOf, coverageText } from "@/components/Coverage";
 import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
 import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
-import { EPOCH_BENCHMARKS, allModels, currentStaleSources, ensureData, modelBySlug, siRanked, sourceById, textMargins } from "@/lib/data";
-import { fmtCtx, fmtDate, fmtInOut, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
-import { commercialLabel } from "@/lib/license";
+import { CHANGES, EPOCH_BENCHMARKS, allModels, currentStaleSources, ensureData, modelBySlug, siRanked, sourceById, textMargins } from "@/lib/data";
+import { fmtCtx, fmtDate, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
+import { commercialLine, weightClass, weightClassLabel } from "@/lib/license";
+import { formatAsOf, formatContext, formatListPrice, formatRank, formatScore } from "@/lib/facts";
+import { modelProfile } from "@/lib/profile";
+import { ScoreNote } from "@/components/ScoreNote";
+import { changeNatureLabel } from "@/lib/home-layout";
 import { schemaName } from "@/lib/names";
 import { orgName } from "@/lib/orgs";
 import { suggestions } from "@/lib/advice";
@@ -91,6 +95,8 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
   const measured = measuredScore(m.cats);
   const provisional = provisionalScore(m.cats);
   const dates = dateFacts(m);
+  const profile = modelProfile(m.cats, m.comp);
+  const ownChanges = CHANGES.changes.filter((c) => c.slug === m.slug).slice(0, 4);
   const when = dateSentence(dates);
   const price = priceStatus(m.price?.blended_per_m ?? null);
   const missingCats = measuredAndMissing(m.cats).missing.length > 0;
@@ -127,14 +133,14 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             {
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Leaderboard", item: `${SITE.url}/leaderboard` },
+                { "@type": "ListItem", position: 1, name: "Ranking", item: `${SITE.url}/leaderboard` },
                 { "@type": "ListItem", position: 2, name: schemaName(m.name), item: `${SITE.url}/models/${m.slug}` },
               ],
             },
             {
               "@type": "Dataset",
               name: schemaName(m.name),
-              description: `Human-vote rankings, independent benchmark results and list price for ${schemaName(m.name)}.`,
+              description: `Public votes, independent tests, and list price for ${schemaName(m.name)}.`,
               url: `${SITE.url}/models/${m.slug}`,
               creator: { "@type": "Organization", name: "SIscope" },
               isBasedOn: [arenaSrc.home, epochSrc.home, orSrc.home],
@@ -146,7 +152,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
       />
       <div className="page-head">
         <div className="crumbs">
-          <Link href="/leaderboard">Leaderboard</Link> / {orgName(m.org)}
+          <Link href="/leaderboard">Ranking</Link> / {orgName(m.org)}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
           <Avatar org={m.org} size={48} />
@@ -162,8 +168,8 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
         <div className="kf" role="list" aria-label="Key facts">
           <div className="card stat lead" role="listitem">
             <div className="k">SIscope score</div>
-            <div className="v">{m.si != null ? <>{m.si.toFixed(0)}<small>/100{missingCats ? " provisional" : ""}</small></> : provisional != null ? <>{provisional.toFixed(0)}<small> provisional</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
-            <div className="d">{m.si != null ? `#${m.siRank} of ${ranked.length} scored models. Not an Arena rank.` : provisional != null ? `Provisional. ${Math.round(m.coverage * 100)}% of the weight is measured, under the ${COVERAGE_GATE * 100}% gate, so this is not in the main ranking.` : `${Math.round(m.coverage * 100)}% of the weight is measured. A score needs ${COVERAGE_GATE * 100}%.`}</div>
+            <div className="v">{m.si != null ? <>{formatScore(m.si)}{missingCats ? <small> provisional</small> : null}</> : provisional != null ? <>{formatScore(provisional)}<small> provisional</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
+            <div className="d">{m.si != null ? `${formatRank(m.siRank, ranked.length)}. Not an Arena rank.` : provisional != null ? `Provisional. ${Math.round(m.coverage * 100)}% of the weight is measured, under the ${COVERAGE_GATE * 100}% gate, so this is not in the main ranking.` : `${Math.round(m.coverage * 100)}% of the weight is measured. A score needs ${COVERAGE_GATE * 100}%.`}</div>
           </div>
           {(["text", "webdev"] as const).map((b) => {
             const a = m.arena[b];
@@ -177,18 +183,18 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           })}
           <div className="card stat" role="listitem">
             <div className="k">List price</div>
-            <div className="v">{price.kind === "unknown" ? <span className="nodata" style={{ fontSize: 17 }}>{price.short}</span> : m.price ? <>{fmtInOut(m.price.input_per_m, m.price.output_per_m)}</> : <>{price.short}<small>/1M</small></>}</div>
+            <div className="v">{price.kind === "unknown" ? <span className="nodata" style={{ fontSize: 17 }}>{price.short}</span> : <>{formatListPrice(m.price)}</>}</div>
             <div className="d">{m.price ? `Blended ${fmtPrice(m.price.blended_per_m)} per 1M at three input tokens per output token, from OpenRouter.` : "No public list price. That is unknown, not free."}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Context window</div>
-            <div className="v">{m.price?.context_length ? fmtCtx(m.price.context_length) : <span className="nodata" style={{ fontSize: 17 }}>No data yet</span>}</div>
+            <div className="v">{m.price?.context_length ? formatContext(m.price.context_length) : <span className="nodata" style={{ fontSize: 17 }}>{formatContext(null)}</span>}</div>
             <div className="d">{m.price?.context_length ? `${fmtInt(m.price.context_length)} tokens` : "Not on the OpenRouter listing"}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Weights</div>
-            <div className="v" style={{ color: m.open ? "var(--open-ink)" : undefined }}>{m.open ? "Open" : "Closed"}</div>
-            <div className="d" title={m.model_license}>{m.model_license}. {commercialLabel(m.model_license)}</div>
+            <div className="v" style={{ color: m.open ? "var(--open-ink)" : undefined }}>{weightClassLabel(weightClass(m.open, m.model_license))}</div>
+            <div className="d">{(() => { const line = commercialLine(m.open, m.model_license, m.org); const named = m.model_license && m.model_license !== "-" && m.model_license !== "Other" ? `${m.model_license}. ` : ""; return <>{named}{line.href ? <a href={line.href} rel="noopener">{line.text}</a> : line.text}</>; })()}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Categories measured</div>
@@ -197,10 +203,34 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           </div>
           <div className="card stat" role="listitem">
             <div className="k">{dates.arenaBoard ? "Arena board date" : dates.epochRuns.length ? "Epoch run" : "Price checked"}</div>
-            <div className="v" style={{ fontSize: 20, paddingBlock: 4 }}>{fmtDate(dates.arenaBoard ?? dates.epochRuns[0] ?? dates.priceAsOf)}</div>
+            <div className="v" style={{ fontSize: 20, paddingBlock: 4 }}>{formatAsOf(dates.arenaBoard ?? dates.epochRuns[0] ?? dates.priceAsOf)}</div>
             <div className="d">{dates.arenaBoard ? `Ranking published${dates.arenaFetched ? ` · fetched ${fmtDate(dates.arenaFetched)}` : ""}` : dates.epochRuns.length ? "When the test was run, not when we fetched it" : "OpenRouter list price"}</div>
           </div>
         </div>
+        <ScoreNote coverage={`${cov.n} of ${cov.total} categories measured.`} />
+        <section className="section">
+          <h2 className="h2">Where it fits</h2>
+          <div className="grid2" style={{ marginTop: 12 }}>
+            <div className="card" style={{ padding: 16 }}>
+              <h3 className="h2" style={{ fontSize: 18 }}>Strengths</h3>
+              {profile.strengths.length ? <ul>{profile.strengths.map((s) => <li key={s.label}>{s.label} {s.score}</li>)}</ul> : <p className="note">No measured category yet.</p>}
+              {profile.bestUses.length ? <p className="sub">Best uses: {profile.bestUses.join(", ")}.</p> : null}
+            </div>
+            <div className="card" style={{ padding: 16 }}>
+              <h3 className="h2" style={{ fontSize: 18 }}>Weaker measured uses</h3>
+              {profile.weaknesses.length ? <ul>{profile.weaknesses.map((s) => <li key={s.label}>{s.label} {s.score}</li>)}</ul> : <p className="note">Not enough measured categories to name a weaker use.</p>}
+              {profile.poorerUses.length ? <p className="sub">Poorer uses, among the categories we measured: {profile.poorerUses.join(", ")}.</p> : null}
+            </div>
+          </div>
+          <p className="note">Evidence depth: {profile.sources} source{profile.sources === 1 ? "" : "s"} and {profile.benchmarks} benchmark{profile.benchmarks === 1 ? "" : "s"} in the score. Last updated {formatAsOf(dates.arenaBoard ?? dates.epochRuns[0] ?? dates.priceAsOf ?? null)}. These lines use category percentiles only. A missing category is not a weakness and not a zero.</p>
+          {ownChanges.length > 0 && (
+            <ul>
+              {ownChanges.map((c, i) => (
+                <li key={i}>{c.text}{changeNatureLabel(c.kind) ? ` · ${changeNatureLabel(c.kind)}` : ""}</li>
+              ))}
+            </ul>
+          )}
+        </section>
         {(m.arena.vision || m.arena.agent || m.price?.modalities_in?.length) && (
           <p className="score-note">
             {m.arena.vision ? `Arena vision #${m.arena.vision.rank} of ${m.arena.vision.board_size}. ` : "No Arena vision result. "}
@@ -315,7 +345,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             {m.history.text && (
               <div className="card" style={{ padding: 20 }}>
                 <h2 className="h2">Chat votes over time</h2>
-                <p className="sub">Vote score, then place on the Arena text board. {m.history.text.length} updates on file.</p>
+                <p className="sub">Vote score, then place on the Arena text board. {m.history.text.length} updates on file. A move on this chart is a performance change. A model appearing for the first time is a data-coverage change.</p>
                 <HistoryChart points={m.history.text} color={color} wide={!m.history.webdev} />
                 <RankChart points={m.history.text} color={color} label="Arena text place" />
                 <p className="note"><a className="link" href={ARENA_BOARD_URL.text} rel="noopener">Text arena on Arena ↗</a></p>
