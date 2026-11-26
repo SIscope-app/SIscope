@@ -14,10 +14,17 @@ test("CDT uses the 11:00 UTC cron", () => {
   assert.equal(shouldRunScheduled({ chicagoHour: "06", utcOffset: "-0500", schedule: "0 12 * * *" }), false);
 });
 
-test("a delayed runner still runs in the 7 AM hour, once", () => {
+test("a delayed runner still runs through the 8 AM hour, once", () => {
   assert.equal(shouldRunScheduled({ chicagoHour: "07", utcOffset: "-0600", schedule: "0 12 * * *" }), true);
+  assert.equal(shouldRunScheduled({ chicagoHour: "08", utcOffset: "-0600", schedule: "0 12 * * *" }), true);
   assert.equal(shouldRunScheduled({ chicagoHour: "07", utcOffset: "-0600", schedule: "0 11 * * *" }), false);
-  assert.equal(shouldRunScheduled({ chicagoHour: "08", utcOffset: "-0600", schedule: "0 12 * * *" }), false);
+  assert.equal(shouldRunScheduled({ chicagoHour: "09", utcOffset: "-0600", schedule: "0 12 * * *" }), false);
+});
+
+test("the afternoon fallback runs only when today has not succeeded", () => {
+  assert.equal(shouldRunScheduled({ chicagoHour: "12", utcOffset: "-0600", schedule: "0 18 * * *", refreshedToday: false }), true);
+  assert.equal(shouldRunScheduled({ chicagoHour: "13", utcOffset: "-0500", schedule: "0 18 * * *", refreshedToday: false }), true);
+  assert.equal(shouldRunScheduled({ chicagoHour: "12", utcOffset: "-0600", schedule: "0 18 * * *", refreshedToday: true }), false);
 });
 
 test("weekends are not excluded", () => {

@@ -83,6 +83,10 @@ if got != cfg:
     print("CLOUDFLARE_ACCOUNT_ID does not match account_id in wrangler.jsonc. Refusing to deploy.")
     sys.exit(1)
 PY
+  if ! npx wrangler whoami; then
+    echo "Cloudflare token check failed (wrangler whoami). No deployment was attempted."
+    return 1
+  fi
 }
 
 assert_worker_size() {
@@ -293,6 +297,40 @@ report_failure() {
   fi
 }
 
+ISSUE_LABEL="siscope-refresh"
+
+refresh_issue_number() {
+  gh issue list --label "$ISSUE_LABEL" --state open --limit 1 --json number --jq '.[0].number // empty' 2>/dev/null || true
+}
+
+file_refresh_issue() {
+  if [ "${GITHUB_ACTIONS:-}" != "true" ] || [ -z "${GITHUB_TOKEN:-}${GH_TOKEN:-}" ]; then
+    return 0
+  fi
+  local step="$1" excerpt num body
+  excerpt="$(tail -n 60 "${LOG:-/dev/null}" 2>/dev/null || true)"
+  body="$(printf 'The daily data refresh failed.\n\n- Failed during: %s\n- Run: %s/%s/actions/runs/%s\n\n```\n%s\n```\n' \
+    "$step" "${GITHUB_SERVER_URL:-https://github.com}" "${GITHUB_REPOSITORY:-}" "${GITHUB_RUN_ID:-}" "$excerpt")"
+  num="$(refresh_issue_number)"
+  if [ -n "$num" ]; then
+    gh issue comment "$num" --body "$body" || echo "Could not update the refresh issue."
+    return 0
+  fi
+  gh label create "$ISSUE_LABEL" --description "Daily data refresh failure" --color "B60205" >/dev/null 2>&1 || true
+  gh issue create --title "Data refresh failed" --label "$ISSUE_LABEL" --body "$body" || echo "Could not open a refresh issue."
+}
+
+close_refresh_issue() {
+  if [ "${GITHUB_ACTIONS:-}" != "true" ] || [ -z "${GITHUB_TOKEN:-}${GH_TOKEN:-}" ]; then
+    return 0
+  fi
+  local num
+  num="$(refresh_issue_number)"
+  if [ -n "$num" ]; then
+    gh issue close "$num" --reason completed --comment "The next data refresh succeeded. The live checks passed." || echo "Could not close the refresh issue."
+  fi
+}
+
 print_success() {
   echo
   echo "Done in $(( $(date +%s) - START ))s."
@@ -313,6 +351,7 @@ PY
       echo "Live checks passed, so this deployment advances the public success time."
     } >> "$GITHUB_STEP_SUMMARY"
   fi
+  close_refresh_issue || true
 }
 
 die() {
@@ -322,11 +361,19 @@ die() {
 
 on_exit() {
   local code=$?
+  # A deploy that never passed the live checks is rolled back, including a crash
+  # between upload and the check. A verified deploy is left in place.
+  if [ "${DEPLOYED:-0}" = 1 ] && [ "${VERIFY_OK:-0}" != 1 ] && [ "${ROLLED_BACK:-0}" != 1 ]; then
+    if rollback_deploy; then
+      ROLLED_BACK=1
+    fi
+  fi
   if [ "${STAMPED:-0}" = 1 ] && [ "${STAMP_KEPT:-0}" != 1 ]; then
     restore_publish || true
   fi
   if [ "$code" != 0 ]; then
     report_failure "${FAIL_STEP:-refresh}"
+    file_refresh_issue "${FAIL_STEP:-refresh}" || true
   fi
 }
 

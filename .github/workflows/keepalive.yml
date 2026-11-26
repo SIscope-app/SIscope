@@ -1,0 +1,47 @@
+# GitHub turns scheduled workflows off after 60 days without a commit.
+# The daily data commit is the normal activity. This monthly job re-enables
+# the refresh workflow and, if the repo has been idle, pushes an empty commit.
+name: Keep scheduled workflows enabled
+
+on:
+  schedule:
+    - cron: "0 15 1 * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: true
+
+      - name: Re-enable the daily refresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/data-refresh.yml/enable"
+          gh api -X PUT "repos/${GITHUB_REPOSITORY}/actions/workflows/keepalive.yml/enable"
+
+      - name: Commit only if the repo has been idle
+        run: |
+          set -euo pipefail
+          last="$(git log -1 --format=%ct)"
+          now="$(date +%s)"
+          idle=$(( (now - last) / 86400 ))
+          echo "Last commit was ${idle} days ago."
+          if [ "$idle" -lt 40 ]; then
+            echo "A recent commit already keeps schedules enabled."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --allow-empty -m "Keep scheduled workflows enabled [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
