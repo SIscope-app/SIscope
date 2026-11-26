@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { fmtDate, fmtDateTime } from "./format";
-import { freshnessNote, mayAdvanceSuccess, sourceShortLabel, updatedLabel } from "./freshness";
+import { freshnessNote, mayAdvanceSuccess, sourceAgeDays, sourceShortLabel, staleSources, updatedLabel } from "./freshness";
 
 test("a success stamp formats as UTC and stays distinct from a source as-of date", () => {
   const stamp = "2026-11-17T01:00:00Z";
@@ -14,6 +14,21 @@ test("a success stamp formats as UTC and stays distinct from a source as-of date
   assert.equal(asOf, "Nov 9, 2026");
   assert.equal(asOf.includes("UTC"), false);
   assert.notEqual(asOf, shown);
+});
+
+test("a source is late only after its usual gap plus a week", () => {
+  const now = new Date("2026-11-26T18:00:00Z");
+  const sources = [
+    { id: "arena", name: "Arena" },
+    { id: "epoch", name: "Epoch AI" },
+    { id: "openrouter", name: "OpenRouter prices" },
+  ];
+  const asOf = (id: string) => (id === "epoch" ? "2026-11-16" : "2026-11-10");
+  assert.ok((sourceAgeDays("2026-11-10", now) ?? 0) > 8);
+  assert.deepEqual(staleSources(sources, asOf, now), ["Arena", "OpenRouter prices"]);
+  const quiet = freshnessNote("2026-11-15T12:38:47Z", "2026-11-11", ["Arena"]);
+  assert.match(quiet.short, /Arena late/);
+  assert.match(quiet.detail, /more than a week/);
 });
 
 test("a failed fetch, build, deploy, or live check does not advance the success time", () => {
@@ -62,6 +77,8 @@ test("the header date is the Chicago success day, and sources stay attributed", 
   assert.doesNotMatch(home, /Data as of \$\{fmtDate\(lastDate\)\}/);
   assert.match(workflow, /cron: "0 11 \* \* \*"/);
   assert.match(workflow, /cron: "0 12 \* \* \*"/);
+  assert.match(workflow, /cron: "0 18 \* \* \*"/);
+  assert.match(workflow, /issues: write/);
   assert.match(workflow, /workflow_dispatch:/);
   assert.match(workflow, /cancel-in-progress: false/);
   assert.match(workflow, /timeout-minutes: 45/);

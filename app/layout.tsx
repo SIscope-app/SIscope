@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { BottomNav, Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { CHANGES, PUBLISH, ensureData } from "@/lib/data";
-import { freshnessNote } from "@/lib/freshness";
+import { CHANGES, PUBLISH, SOURCES, ensureData } from "@/lib/data";
+import { freshnessNote, staleSources } from "@/lib/freshness";
 import { lastRankChange } from "@/lib/home-layout";
 import { SITE, og } from "@/lib/site";
 
@@ -42,7 +42,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="sr-only focus:not-sr-only">
           Skip to content
         </a>
-        <Header updated={freshnessNote(PUBLISH.last_success_at, lastRankChange(CHANGES.changes))} updatedAt={PUBLISH.last_success_at} />
+        <Header updated={freshnessNote(PUBLISH.last_success_at, lastRankChange(CHANGES.changes), staleSources(SOURCES.sources, (id) => SOURCES.sources.find((s) => s.id === id)?.as_of, new Date()))} updatedAt={PUBLISH.last_success_at} />
         <main id="main">{children}</main>
         <Footer />
         <BottomNav />

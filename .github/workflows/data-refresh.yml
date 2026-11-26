@@ -14,10 +14,13 @@ on:
     # 11:00 UTC is 6:00 AM CDT. 12:00 UTC is 6:00 AM CST. The gate runs only the matching slot.
     - cron: "0 11 * * *"
     - cron: "0 12 * * *"
+    # Afternoon fallback. The gate runs it only when today's refresh has not succeeded.
+    - cron: "0 18 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: siscope-data-refresh
@@ -29,12 +32,12 @@ jobs:
     timeout-minutes: 45
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: true
 
       - name: Node.js 22
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: "22"
           cache: npm
@@ -46,6 +49,7 @@ jobs:
           set -euo pipefail
           export CHICAGO_HOUR="$(TZ=America/Chicago date +%H)"
           export CHICAGO_OFFSET="$(TZ=America/Chicago date +%z)"
+          export CHICAGO_DATE="$(TZ=America/Chicago date +%F)"
           export GITHUB_EVENT_SCHEDULE="${{ github.event.schedule }}"
           export GITHUB_EVENT_NAME=schedule
           echo "America/Chicago hour ${CHICAGO_HOUR} offset ${CHICAGO_OFFSET} cron [${GITHUB_EVENT_SCHEDULE}]"
@@ -71,7 +75,7 @@ jobs:
 
       - name: Python
         if: steps.gate.outputs.run != 'false'
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: "3.12"
           cache: pip
@@ -94,5 +98,6 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GITHUB_TOKEN: ${{ github.token }}
           WRANGLER_SEND_METRICS: "false"
         run: npm run data:refresh
