@@ -42,7 +42,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="sr-only focus:not-sr-only">
           Skip to content
         </a>
-        <Header updated={freshnessNote(PUBLISH.last_success_at, lastRankChange(CHANGES.changes), staleSources(SOURCES.sources, (id) => SOURCES.sources.find((s) => s.id === id)?.as_of, new Date()))} updatedAt={PUBLISH.last_success_at} />
+        <Header updated={freshnessNote(PUBLISH.last_success_at, lastRankChange(CHANGES.changes), staleSources(SOURCES.sources, (id) => SOURCES.sources.find((s) => s.id === id)?.as_of, new Date(PUBLISH.last_success_at)))} updatedAt={PUBLISH.last_success_at} />
         <main id="main">{children}</main>
         <Footer />
         <BottomNav />
