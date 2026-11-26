@@ -6,6 +6,7 @@ import { Logo } from "./Logo";
 import { QuickSearch } from "./Search";
 
 const LINKS = [
+  { href: "/state-of-ai", label: "State" },
   { href: "/leaderboard", label: "Ranking" },
   { href: "/compare", label: "Compare" },
   { href: "/best", label: "Best for" },
@@ -14,6 +15,7 @@ const LINKS = [
 ];
 // The mobile menu also carries the reference pages.
 const MORE = [
+  { href: "/benchmarks", label: "How to read benchmarks" },
   { href: "/methodology", label: "How we score" },
   { href: "/about", label: "About" },
 ];

@@ -17,6 +17,7 @@ import { CopyButton } from "@/components/CopyButton";
 import { dateFacts, dateSentence, measuredAndMissing, priceStatus, scoreFootnote, settingLabel, verdictParagraph } from "@/lib/present";
 import { COVERAGE_GATE } from "@/lib/score";
 import { measuredScore, provisionalScore } from "@/lib/trust";
+import { modelSummary } from "@/lib/state";
 import { SITE, og } from "@/lib/site";
 
 // This route has to read the slug before it can render. Opt out of the dev-only instant-navigation notice.
@@ -31,10 +32,16 @@ export async function generateMetadata({ params }: PageProps<"/models/[slug]">):
   const { slug } = await params;
   const m = modelBySlug(slug);
   if (!m) return { title: "Model not found", robots: { index: false, follow: true } };
-  const bits = [m.si != null ? `SIscope score ${m.si.toFixed(0)}/100` : null, m.price ? fmtInOut(m.price.input_per_m, m.price.output_per_m) : null].filter(Boolean).join(", ");
+  const summary = modelSummary({
+    siRank: m.siRank,
+    cats: m.cats,
+    comp: m.comp,
+    price: m.price ? { blended_per_m: m.price.blended_per_m, input_per_m: m.price.input_per_m, output_per_m: m.price.output_per_m, as_of: m.price.as_of } : null,
+    open: m.open,
+  });
   return {
     title: m.name,
-    description: `${m.name} by ${orgName(m.org)}. ${bits ? bits + ". " : ""}Arena ranks, written-test scores and the OpenRouter list price.`,
+    description: `${m.name} by ${orgName(m.org)}. ${summary}`,
     alternates: { canonical: `/models/${m.slug}` }, openGraph: og(`/models/${m.slug}`),
   };
 }
@@ -87,6 +94,13 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
   const when = dateSentence(dates);
   const price = priceStatus(m.price?.blended_per_m ?? null);
   const missingCats = measuredAndMissing(m.cats).missing.length > 0;
+  const summary = modelSummary({
+    siRank: m.siRank,
+    cats: m.cats,
+    comp: m.comp,
+    price: m.price ? { blended_per_m: m.price.blended_per_m, input_per_m: m.price.input_per_m, output_per_m: m.price.output_per_m, as_of: m.price.as_of } : null,
+    open: m.open,
+  });
   const verdict = verdictParagraph({
     name: settingLabel(m.base, m.variant),
     si: m.si,
@@ -136,7 +150,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
               <span>{m.base}</span>
               {m.variant ? <span className="setting">{m.variant}</span> : <span className="setting">Default</span>}
             </h1>
-            <p className="sub" style={{ marginTop: 6 }}>This page is one setting. Other settings of {m.base} are scored on their own.</p>
+            <p className="sub" style={{ marginTop: 6 }}>{summary}</p>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", marginTop: 6, color: "var(--muted)", fontSize: 15 }}>
               {orgName(m.org)} <OpenTag open={m.open} showClosed /> <span className="chip">{m.model_license}</span>
             </div>
