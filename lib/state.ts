@@ -51,7 +51,7 @@ export type StateReport = {
 
 const JOBS: CategoryId[] = ["coding", "agents", "reasoning", "math", "chat"];
 
-function measured(m: StateModel, id: CategoryId): boolean {
+function measured(m: Pick<StateModel, "comp">, id: CategoryId): boolean {
   const cat = CATEGORIES.find((c) => c.id === id);
   return !!cat && cat.components.some((k) => typeof m.comp[k.id] === "number");
 }
