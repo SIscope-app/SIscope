@@ -3,9 +3,9 @@ import test from "node:test";
 import { buildDecisions } from "./decisions";
 import { fmtPrice, fmtPriceExact } from "./format";
 import { changeRangeLabel, lastRankChange, materialChanges, priceChangeCopy, visibleChangeCount } from "./home-layout";
+import { fixtureArena, fixtureModel, fixturePrice } from "./fixture-model";
 import { shownGap } from "./format";
 import { LIVE_TASKS, TASKS } from "./tasks";
-import { modelBySlug } from "./data";
 
 test("change grids hide a remainder so every row is full", () => {
   assert.equal(visibleChangeCount(9, 4), 8);
@@ -83,18 +83,41 @@ test("the homepage job grid leaves unmeasured categories for the methodology pag
 });
 
 test("homepage glances stay short and keep SIscope separate from Arena", () => {
-  const d = buildDecisions();
-  const overall = modelBySlug(d.overall.slug)!;
-  assert.match(d.overall.glance, new RegExp(`#${overall.siRank} of \\d+`));
-  assert.match(d.overall.glance, /Arena text #|no Arena text rank/);
+  const overall = fixtureModel({
+    slug: "overall-high",
+    base: "Overall",
+    variant: "High",
+    si: 96,
+    siRank: 1,
+    cats: { coding: 70 },
+    arena: { text: fixtureArena(27) },
+    price: fixturePrice(8),
+  });
+  const coding = fixtureModel({
+    slug: "coder-max",
+    base: "Coder",
+    variant: "Max",
+    si: 90,
+    siRank: 4,
+    cats: { coding: 99 },
+    arena: { webdev: fixtureArena(3) },
+    price: fixturePrice(6),
+  });
+  const value = fixtureModel({
+    slug: "value-pro",
+    base: "Value",
+    si: 82,
+    siRank: 8,
+    cats: { coding: 40 },
+    price: fixturePrice(0.54),
+  });
+  const pool = [overall, coding, value];
+  const d = buildDecisions(pool, pool);
+  assert.equal(d.overall.glance, "#1 of 3 · Arena text #27");
   assert.ok(d.overall.glance.length < 48);
+  assert.equal(d.coding.glance, "WebDev #3 · not overall");
   assert.ok(d.coding.glance.length < 48);
-  const coding = modelBySlug(d.coding.slug);
-  if (coding?.arena.webdev) assert.match(d.coding.glance, /WebDev #/);
-  if (coding && coding.siRank !== 1) assert.match(d.coding.glance, /not overall/);
-  if (d.value) {
-    assert.match(d.value.glance, /under \$1\/1M/);
-    assert.ok(d.value.glance.length < 48);
-    assert.doesNotMatch(d.value.reason, /\$\d+\.\d{3}/);
-  }
+  assert.equal(d.value?.glance, "Top score under $1/1M");
+  assert.ok((d.value?.glance.length ?? 0) < 48);
+  assert.doesNotMatch(d.value?.reason ?? "", /\$\d+\.\d{3}/);
 });

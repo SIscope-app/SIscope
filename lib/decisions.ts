@@ -93,10 +93,10 @@ function codingEvidence(m: Enriched): { built: string[]; absent: string[] } {
   return { built, absent };
 }
 
-export function buildDecisions(ranked = siRanked()): Decisions {
+export function buildDecisions(ranked: Enriched[] = siRanked(), pool: Enriched[] = allModels()): Decisions {
   const overallM = ranked[0];
   const codingTask = TASKS.find((t) => t.slug === "coding")!;
-  const codingM = taskRanking(codingTask)[0].m;
+  const codingM = taskRanking(codingTask, pool)[0].m;
   const valueM = bestValue(ranked, [overallM.base]);
   const openM = ranked.find((m) => m.open) ?? overallM;
   const n = ranked.length;
@@ -150,6 +150,6 @@ export function buildDecisions(ranked = siRanked()): Decisions {
     compareSlugs,
     compareHref: `/compare?m=${compareSlugs.join(",")}`,
     rankedCount: n,
-    trackedCount: allModels().length,
+    trackedCount: pool.length,
   };
 }

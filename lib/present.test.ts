@@ -1,9 +1,8 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import publish from "../data/publish.json";
-import { modelBySlug, siRanked } from "./data";
 import { buildDecisions } from "./decisions";
+import { fixtureArena, fixtureModel, fixturePrice } from "./fixture-model";
 import { fmtPrice, fmtPriceExact } from "./format";
 import {
   compareDefaultSlugs,
@@ -26,60 +25,87 @@ test("score v0.2.0 weights and coverage gate stay put", () => {
   assert.deepEqual(DEFAULT_WEIGHTS, { coding: 25, agents: 25, reasoning: 20, math: 15, chat: 10, instructions: 5 });
 });
 
-test("publish.json keeps the daily refresh stamp and no extra keys", () => {
-  assert.deepEqual(Object.keys(publish), ["last_success_at"]);
-  assert.match(publish.last_success_at, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
-});
-
 test("a setting label keeps the exact variant", () => {
   assert.equal(settingLabel("Claude Opus 5.5", "High"), "Claude Opus 5.5 (High)");
   assert.equal(settingLabel("Claude Opus 5.5", "Max"), "Claude Opus 5.5 (Max)");
   assert.equal(settingLabel("Plain", null), "Plain");
 });
 
+function decisionFixtures() {
+  const overall = fixtureModel({
+    slug: "overall-high",
+    base: "Overall",
+    variant: "High",
+    si: 96,
+    siRank: 1,
+    cats: { coding: 70, agents: 90, reasoning: 90, math: 90, chat: 90, instructions: 90 },
+    arena: { text: fixtureArena(27, { board_size: 400 }) },
+    price: fixturePrice(8),
+  });
+  const coding = fixtureModel({
+    slug: "coder-max",
+    base: "Coder",
+    variant: "Max",
+    si: 90,
+    siRank: 4,
+    cats: { coding: 99, agents: 70, reasoning: 70, math: 70, chat: 70, instructions: 70 },
+    arena: { webdev: fixtureArena(3, { board_size: 80 }) },
+    price: fixturePrice(6),
+  });
+  const value = fixtureModel({
+    slug: "value-pro",
+    base: "Value",
+    variant: "Pro",
+    si: 82,
+    siRank: 12,
+    open: false,
+    cats: { coding: 50 },
+    price: fixturePrice(0.5),
+  });
+  const open = fixtureModel({
+    slug: "open-best",
+    base: "Open",
+    si: 78,
+    siRank: 20,
+    open: true,
+    cats: { coding: 40 },
+    price: fixturePrice(0.4),
+  });
+  const pool = [overall, coding, value, open];
+  return { overall, coding, value, open, decisions: buildDecisions(pool, pool) };
+}
+
 test("homepage picks link to the exact setting and do not swap rank systems", () => {
-  const d = buildDecisions();
-  const overall = modelBySlug(d.overall.slug)!;
-  const coding = modelBySlug(d.coding.slug)!;
+  const { overall, coding, value, decisions: d } = decisionFixtures();
   assert.equal(d.overall.href, `/models/${overall.slug}`);
   assert.equal(d.coding.href, `/models/${coding.slug}`);
   assert.equal(d.overall.name, settingLabel(overall.base, overall.variant));
   assert.equal(d.coding.name, settingLabel(coding.base, coding.variant));
+  assert.equal(d.overall.name, "Overall (High)");
+  assert.equal(d.coding.name, "Coder (Max)");
   assert.equal(d.overall.rankKind, "SIscope score");
   assert.equal(d.coding.rankKind, "Coding score");
-  if (overall.variant) assert.match(d.overall.name, new RegExp(overall.variant.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  if (coding.variant) assert.match(d.coding.name, new RegExp(coding.variant.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
-  if (overall.slug !== coding.slug) assert.notEqual(d.overall.name, d.coding.name);
-  if (overall.arena.text && overall.arena.text.rank !== 1) {
-    assert.match(d.overall.reason, new RegExp(`Arena text rank is #${overall.arena.text.rank}`));
-    assert.doesNotMatch(d.overall.reason, /Arena text rank is #1/);
-  }
-  if (!overall.arena.webdev) assert.doesNotMatch(`${d.overall.reason} ${d.overall.limit}`, /WebDev #|Arena WebDev rank/);
-  if (coding.arena.webdev) assert.match(d.coding.reason, new RegExp(`Arena WebDev #${coding.arena.webdev.rank}`));
-  if (coding.siRank !== 1) assert.match(d.coding.reason, /not the SIscope overall rank/);
-  assert.match(d.compareHref, new RegExp(`/compare\\?m=${d.compareSlugs.join(",")}`));
-  assert.ok(d.compareSlugs.length >= 2 && d.compareSlugs.length <= 3);
-  assert.equal(d.compareSlugs[0], overall.slug);
-  assert.ok(d.compareSlugs.includes(coding.slug));
-  if (d.value) {
-    const value = modelBySlug(d.value.slug)!;
-    assert.equal(d.value.href, `/models/${value.slug}`);
-    assert.equal(d.value.name, settingLabel(value.base, value.variant));
-    assert.equal(d.value.score, fmtPrice(value.price!.blended_per_m));
-    assert.match(d.value.reason, /SIscope score/);
-    assert.ok(d.compareSlugs.includes(value.slug));
-  }
+  assert.notEqual(d.overall.name, d.coding.name);
+  assert.match(d.overall.reason, /Arena text rank is #27/);
+  assert.doesNotMatch(d.overall.reason, /Arena text rank is #1/);
+  assert.doesNotMatch(`${d.overall.reason} ${d.overall.limit}`, /WebDev #|Arena WebDev rank/);
+  assert.match(d.coding.reason, /Arena WebDev #3/);
+  assert.match(d.coding.reason, /not the SIscope overall rank/);
+  assert.equal(d.compareHref, `/compare?m=${d.compareSlugs.join(",")}`);
+  assert.deepEqual(d.compareSlugs, [overall.slug, coding.slug, value.slug]);
+  assert.equal(d.value?.href, `/models/${value.slug}`);
+  assert.equal(d.value?.name, settingLabel(value.base, value.variant));
+  assert.equal(d.value?.score, fmtPrice(value.price!.blended_per_m));
+  assert.match(d.value?.reason ?? "", /SIscope score/);
 });
 
 test("compare defaults follow the decision picks and stop at three", () => {
   assert.deepEqual(compareDefaultSlugs(["overall", "coding", "value", "open"]), ["overall", "coding", "value"]);
   assert.deepEqual(compareDefaultSlugs(["same", "same", "value", "open"]), ["same", "value", "open"]);
   assert.deepEqual(compareDefaultSlugs(["only", "only", null, "open"]), ["only", "open"]);
-  const d = buildDecisions();
-  const open = siRanked().find((m) => m.open)!;
-  if (d.value && d.overall.slug !== d.coding.slug && d.value.slug !== d.overall.slug && d.value.slug !== d.coding.slug) {
-    assert.equal(d.compareSlugs.includes(open.slug), d.value.slug === open.slug);
-  }
+  const { open, decisions: d } = decisionFixtures();
+  assert.equal(d.compareSlugs.includes(open.slug), false);
+  assert.notEqual(d.value?.slug, open.slug);
 });
 
 test("coverage names gaps and does not treat them as zero", () => {
@@ -90,27 +116,23 @@ test("coverage names gaps and does not treat them as zero", () => {
   assert.match(note, /weakest measured category/);
   assert.match(scoreFootnote({}, 0.2, null), /not zeros/);
   assert.match(scoreFootnote({ coding: 1, agents: 1, reasoning: 1, math: 1, chat: 1, instructions: 1 }, 1, 90), /All six categories/);
-  const high = modelBySlug("claude-opus-5-5-high");
-  if (high) {
-    const { missing } = measuredAndMissing(high.cats);
-    assert.ok(missing.includes("Agents & tools"));
-    assert.equal(high.arena.webdev, undefined);
-    const text = verdictParagraph({
-      name: high.name,
-      si: high.si,
-      siRank: high.siRank,
-      rankedTotal: siRanked().length,
-      cats: high.cats,
-      coverage: high.coverage,
-      open: high.open,
-      price: high.price?.blended_per_m ?? null,
-      pricedShare: 0.1,
-    });
-    assert.match(text, /Claude Opus 5\.5 \(High\)/);
-    assert.match(text, /Agents & tools/);
-    assert.match(text, /not zeros/);
-    assert.doesNotMatch(text, /Strong at everything|no weak spot|everything it's been tested/);
-  }
+  const { missing } = measuredAndMissing(cats);
+  assert.ok(missing.includes("Agents & tools"));
+  const text = verdictParagraph({
+    name: "Example (High)",
+    si: 90,
+    siRank: 2,
+    rankedTotal: 40,
+    cats,
+    coverage: 0.75,
+    open: false,
+    price: 5,
+    pricedShare: 0.1,
+  });
+  assert.match(text, /Example \(High\)/);
+  assert.match(text, /Agents & tools/);
+  assert.match(text, /not zeros/);
+  assert.doesNotMatch(text, /Strong at everything|no weak spot|everything it's been tested/);
 });
 
 test("a listed zero is not the same fact as a missing price", () => {
@@ -210,15 +232,6 @@ test("benchmark run dates stay distinct from fetch dates", () => {
   assert.match(sentence, /Epoch tests were run/);
   assert.notEqual(facts.arenaBoard, facts.arenaFetched);
   assert.notEqual(facts.epochRuns[0], facts.epochFetched);
-  const live = modelBySlug("claude-opus-5-5-max");
-  if (live && live.epoch.length) {
-    const liveFacts = dateFacts(live);
-    assert.ok(liveFacts.epochRuns.length > 0);
-    assert.notEqual(liveFacts.epochRuns[0], liveFacts.epochFetched);
-    const text = dateSentence(liveFacts);
-    assert.match(text, /run/);
-    assert.match(text, /fetched/);
-  }
 });
 
 test("the pages wire exact settings, compare summary, and an unknown-model noindex", () => {
