@@ -116,7 +116,7 @@ function whyLine(row: AdviseRow, use: UseId, metric: number): string {
   const lead = use === "lowest-cost" ? `${price} is the lowest list price in this list` : `${job} picks ${row.name} at ${formatScore(metric)}`;
   const strong = top ? ` Strongest measured category: ${top.label} ${top.score}.` : "";
   const weak = bottom ? ` Weakest measured category: ${bottom.label} ${bottom.score}.` : "";
-  return `${lead}.${strong}${weak} ${price}. The SIscope Score is a percentile-based composite, not a percentage. A missing category is not zero.`;
+  return `${lead}.${strong}${weak} ${price}.`;
 }
 
 export function advise(rows: AdviseRow[], query: { use: UseId; quality: number }): AdviseResult {

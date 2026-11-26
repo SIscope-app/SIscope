@@ -172,6 +172,10 @@ export function HomeShell({
         <SectionHead id="task-h" title="Pick by the job" sub="The leading model for each job, and the leading open-weight option." more={{ href: "/best", label: "All jobs" }} />
         {tasks}
       </section>
+      <div className="home-more">
+        <input id="home-more" className="home-more-check" type="checkbox" />
+        <label className="home-more-label" htmlFor="home-more">Price chart and recent changes</label>
+        <div className="home-more-body">
       <section className="section wrap" aria-labelledby="chg-h">
         <SectionHead id="chg-h" title="Since the last update" sub={changesSub} />
         {changes}
@@ -212,6 +216,8 @@ export function HomeShell({
           {gap}
         </div>
       </section>
+        </div>
+      </div>
     </>
   );
 }
