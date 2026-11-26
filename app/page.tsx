@@ -109,8 +109,8 @@ export default async function Home() {
         ))}
         <Link href="/state-of-ai" className="glance-more">State of AI</Link>
       </nav>
-      <h1 className="h1 hero-h1">Start with one of three models</h1>
-      <p className="lede hero-lede">Each card is one setting. The score and the Arena rank are different numbers.</p>
+      <h1 className="h1 hero-h1">Which model should you use?</h1>
+      <p className="lede hero-lede">Hundreds of models. Start with three settings from public votes, written tests, and list prices. The method is published. The score and the Arena rank are different numbers.</p>
       <ScoreNote coverage={`${picks.rankedCount} models have a listed score.`} />
       <div className="decisions">
         <Decision card={picks.overall} />
@@ -119,7 +119,7 @@ export default async function Home() {
       </div>
       <div className="decide-actions">
         <Link className="btn primary" href={picks.compareHref}>Compare these three</Link>
-        <Link className="btn" href="/pick">Which model do you need?</Link>
+        <Link className="btn" href="/pick">Pick for a job</Link>
       </div>
       <div className="budgets">
         <span className="budgets-l">Highest score under a cap</span>

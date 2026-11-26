@@ -1,9 +1,9 @@
 export const SITE = {
   name: "SIscope",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://siscope.app",
-  tagline: "An independent ranking of AI models.",
+  tagline: "An independent way to choose a model.",
   description:
-    "Compare AI models by score, Arena rank, written tests and list price. No account. Unmeasured results are shown as unmeasured, never as zero.",
+    "Hundreds of AI models. SIscope picks from public votes, written tests, and list prices. The method is published. A missing result is never a zero.",
 };
 
 /** Static image written by scripts/build-og.tsx. Pair and model pages have their own file. */

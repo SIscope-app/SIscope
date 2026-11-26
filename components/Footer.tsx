@@ -14,7 +14,7 @@ export function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: 10, fontWeight: 750, fontSize: 18, color: "var(--text)" }}>
               <LogoMark size={28} /> SIscope
             </div>
-            <p style={{ margin: "10px 0 0" }}>An independent ranking of AI models. No account. No paid placement.</p>
+            <p style={{ margin: "10px 0 0" }}>An independent way to choose a model. Public data. The method is published. No account. No paid placement.</p>
             <p style={{ margin: "8px 0 0" }}>
               <Link href="/methodology">Score v{SCORE_VERSION}</Link> · <Link href="/state-of-ai">State of AI</Link> · <Link href="/benchmarks">How to read benchmarks</Link> · <Link href="/about">About</Link> ·{" "}
               <Link href="/changes">What changed</Link> · <a href="/feed.xml">Feed</a> ·{" "}

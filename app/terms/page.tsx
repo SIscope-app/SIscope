@@ -15,7 +15,7 @@ export default function Page() {
       <div className="page-head">
         <div className="eyebrow">Terms</div>
         <h1 className="h1" style={{ marginTop: 8 }}>Terms</h1>
-        <p className="lede">SIscope is a free independent ranking. It is not a model maker and not a broker.</p>
+        <p className="lede">SIscope is a free, independent way to choose a model. It is not a model maker and not a broker.</p>
       </div>
       <section className="prose">
         <p>You may read the site and download the snapshot. Credit SIscope and the upstream sources named on each page and in the <Link href="/developers">API notes</Link>. A missing result is unmeasured. Do not republish it as a zero or as a score we did not compute.</p>

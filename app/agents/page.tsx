@@ -13,8 +13,8 @@ function olderThan90(date: string): boolean {
 }
 
 export const metadata: Metadata = {
-  title: "Agent results",
-  description: "Which models finish multi-step work. Arena agent sessions, plus the same models run inside several agent setups.",
+  title: "Agents",
+  description: "Which models finish multi-step work. The Arena Agent board and the Open Agent Leaderboard are kept apart, each with its date.",
   alternates: { canonical: "/agents" }, openGraph: og("/agents"),
 };
 
@@ -70,7 +70,7 @@ export default async function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">Agents</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>Models that finish multi-step work</h1>
+        <h1 className="h1" style={{ marginTop: 8 }}>Which models finish multi-step work</h1>
         <p className="lede">Two boards, kept apart. They measure different work and are not directly comparable. A file older than {STALE_AFTER_DAYS} days is marked old.</p>
       </div>
 

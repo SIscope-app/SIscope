@@ -133,14 +133,14 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             {
               "@type": "BreadcrumbList",
               itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Leaderboard", item: `${SITE.url}/leaderboard` },
+                { "@type": "ListItem", position: 1, name: "Ranking", item: `${SITE.url}/leaderboard` },
                 { "@type": "ListItem", position: 2, name: schemaName(m.name), item: `${SITE.url}/models/${m.slug}` },
               ],
             },
             {
               "@type": "Dataset",
               name: schemaName(m.name),
-              description: `Human-vote rankings, independent benchmark results and list price for ${schemaName(m.name)}.`,
+              description: `Public votes, independent tests, and list price for ${schemaName(m.name)}.`,
               url: `${SITE.url}/models/${m.slug}`,
               creator: { "@type": "Organization", name: "SIscope" },
               isBasedOn: [arenaSrc.home, epochSrc.home, orSrc.home],
@@ -152,7 +152,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
       />
       <div className="page-head">
         <div className="crumbs">
-          <Link href="/leaderboard">Leaderboard</Link> / {orgName(m.org)}
+          <Link href="/leaderboard">Ranking</Link> / {orgName(m.org)}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
           <Avatar org={m.org} size={48} />

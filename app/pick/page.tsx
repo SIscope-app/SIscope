@@ -6,8 +6,8 @@ import { headlineEligible } from "@/lib/score";
 import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Which model do you need?",
-  description: "Pick a job, a budget, and whether the weights must be open. SIscope returns one model and two alternatives from the current snapshot.",
+  title: "Pick a model",
+  description: "One recommendation for the job, plus a cheaper option, an open-weight option, and the runner-up. The choice stays in the link.",
   alternates: { canonical: "/pick" },
   openGraph: og("/pick"),
 };
@@ -30,9 +30,9 @@ export default async function Page() {
   return (
     <div className="wrap">
       <div className="page-head">
-        <div className="eyebrow">Picker</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>Which model do you need?</h1>
-        <p className="lede">Choose a job, a budget cap, and open weights if you need them. The answer is computed in your browser from this snapshot. Nothing is sent anywhere.</p>
+        <div className="eyebrow">Pick</div>
+        <h1 className="h1" style={{ marginTop: 8 }}>Pick a model for the job</h1>
+        <p className="lede">Choose the job and how much cost matters. One recommendation from this snapshot, with the reason. Nothing is sent anywhere.</p>
       </div>
       <Suspense fallback={<p className="note">Loading the picker.</p>}>
         <Picker models={models} />

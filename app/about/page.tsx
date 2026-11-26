@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "SIscope ranks AI models from public votes, written tests and list prices. No account and no paid placement.",
+  description: "SIscope is an independent way to choose a model from public votes, written tests, and list prices. No account and no paid placement.",
   alternates: { canonical: "/about" }, openGraph: og("/about"),
 };
 
@@ -13,8 +13,8 @@ export default function Page() {
     <div className="wrap">
       <div className="page-head">
         <div className="eyebrow">About</div>
-        <h1 className="h1" style={{ marginTop: 8 }}>An independent project by the SIscope team</h1>
-        <p className="lede">SIscope shows which setting leads, on which job, and what the public list price is.</p>
+        <h1 className="h1" style={{ marginTop: 8 }}>An independent way to choose a model</h1>
+        <p className="lede">Public votes, written tests, and list prices. The method is published. No account and no paid placement.</p>
       </div>
       <div className="prose">
         <h2>What you can do here</h2>

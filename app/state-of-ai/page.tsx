@@ -10,7 +10,7 @@ import { og } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "The state of AI",
-  description: "Who leads, the open-weight gap, the cheapest model near the top, and what moved this month. Updated from the same snapshot as the ranking.",
+  description: "Who leads, the open-weight gap, and what moved. Computed from the same snapshot as the pick.",
   alternates: { canonical: "/state-of-ai" },
   openGraph: og("/state-of-ai"),
 };
@@ -41,9 +41,9 @@ export default async function Page() {
         }}
       />
       <div className="page-head">
-        <div className="eyebrow">The state of AI, updated daily</div>
+        <div className="eyebrow">From the same snapshot</div>
         <h1 className="h1" style={{ marginTop: 8 }}>The state of AI</h1>
-        <p className="lede">Every figure is computed from this snapshot. A missing series is left out. <Link href="/benchmarks">How to read a benchmark</Link></p>
+        <p className="lede">Who leads, and what moved, from the same public data as the pick. A missing series is left out. <Link href="/benchmarks">How to read a benchmark</Link></p>
       </div>
 
       <section className="section" style={{ marginTop: 8 }}>
