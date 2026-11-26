@@ -17,23 +17,23 @@
     "test": "export SISCOPE_DISK=1; node --test scripts/schedule-gate.test.mjs scripts/check-snapshot.test.mjs && tsx --test lib/freshness.test.ts lib/present.test.ts lib/home-layout.test.ts lib/advice.test.ts lib/names.test.ts lib/trust.test.ts lib/license.test.ts lib/picker.test.ts lib/matchups.test.ts lib/bundle.test.ts lib/score.test.ts lib/rank-regression.test.ts lib/state.test.ts lib/decision.test.ts && python3 -m unittest discover -s data-pipeline -p 'test_*.py' && bash scripts/data-refresh.test.sh && bash scripts/source-refresh.test.sh && node scripts/check-snapshot.mjs && tsx scripts/build-api.ts && node scripts/check-generated-api.mjs"
   },
   "dependencies": {
-    "next": "16.4.5",
+    "next": "16.4.6",
     "qrcode": "^1.5.4",
-    "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   },
   "devDependencies": {
-    "@opennextjs/cloudflare": "^1.20.16",
+    "@opennextjs/cloudflare": "^1.20.18",
     "@tailwindcss/turbopack": "^4",
-    "@types/node": "^20",
+    "@types/node": "^26",
     "@types/qrcode": "^1.5.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.4.5",
+    "eslint": "^10",
+    "eslint-config-next": "16.4.6",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "^5",
-    "wrangler": "^4.157.0"
+    "typescript": "^7",
+    "wrangler": "^4.166.0"
   }
 }
