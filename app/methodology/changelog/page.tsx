@@ -21,6 +21,8 @@ export default function Page() {
       </div>
       <section className="prose">
         <h2>v{SCORE_VERSION}</h2>
+        <p>{fmtDate(SCORE_DATE)}. A measured Arena or Epoch result older than 90 days is averaged halfway toward the reference 25th percentile. A missing test still counts at that percentile, not as zero, and the category weights are unchanged. Arena and Epoch in this snapshot are inside 90 days, so ranks do not move for staleness. The Open Agent Leaderboard is not part of the Agents score. The methodology page now lists each source&apos;s share of the score when every test is present. Arena is about 68% because it feeds more than the chat category.</p>
+        <h2>v0.3.0</h2>
         <p>{fmtDate(SCORE_DATE)}. Percentiles are standing against the Arena agent cohort on every board, not against each board&apos;s own population. A missing category counts at the reference 25th percentile, is labelled provisional, and cannot raise a rank. A category average fills a missing test at that same percentile, so fewer sources cannot raise it. Homepage, picker, Best-for, and best-open picks need every category measured or two independent sources. An OpenRouter price matches the Arena date to the dated model id or the listing&apos;s created date. Duplicate Epoch runs keep the latest run and its mean score. A score is shown when measured categories cover at least {Math.round(COVERAGE_GATE * 100)}% of the weight.</p>
         <h2>v0.2.0</h2>
         <p>3 Nov 2026. Missing categories counted at the model&apos;s weakest measured category. Epoch results attached only to an exact setting match. MATH level 5, FrontierMath Tier 4, Chess Puzzles, and MirrorCode are shown on model pages and are not in the score.</p>

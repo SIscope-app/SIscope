@@ -18,7 +18,8 @@ export function Footer() {
             <p style={{ margin: "8px 0 0" }}>
               <Link href="/methodology">Score v{SCORE_VERSION}</Link> · <Link href="/state-of-ai">State of AI</Link> · <Link href="/benchmarks">How to read benchmarks</Link> · <Link href="/about">About</Link> ·{" "}
               <Link href="/changes">What changed</Link> · <a href="/feed.xml">Feed</a> ·{" "}
-              <Link href="/developers">API</Link> · <a href="https://github.com/SIscope-app/SIscope">GitHub</a>
+              <Link href="/developers">API</Link> · <a href="https://github.com/SIscope-app/SIscope">GitHub</a> ·{" "}
+              <a href="https://github.com/SIscope-app/SIscope/issues/new">Report a data error</a>
             </p>
             <p style={{ margin: "8px 0 0" }}>
               <Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link>
@@ -29,7 +30,7 @@ export function Footer() {
               ["/leaderboard", "Full ranking"],
               ["/compare", "Compare"],
               ["/best", "Best for"],
-              ["/tools/cost", "Monthly cost"],
+              ["/tools/cost", "Cost"],
               ["/best/coding", "Coding"],
               ["/best/open", "Open weights"],
               ["/best/cheap", "Under $1"],

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Avatar, OpenTag, VariantChip } from "./Avatar";
+import { Avatar, OpenTag } from "./Avatar";
 
 export type RowItem = { slug: string; name: string; base: string; variant: string | null; org: string; open: boolean; value: number; display: string; extra?: React.ReactNode };
 
@@ -27,10 +27,7 @@ export function BarRows({ items, floor = 0, ceil, startRank = 1, ranked = true }
             <span className="row-main">
               <span className="nm">
                 <Avatar org={it.org} />
-                <span className="n" title={it.name}>
-                  {it.base}
-                </span>
-                <VariantChip v={it.variant} />
+                <span className="n">{it.name}</span>
                 <OpenTag open={it.open} />
                 {it.extra}
               </span>
@@ -50,10 +47,7 @@ export function ModelLine({ m, size = 24 }: { m: { name: string; base: string; v
   return (
     <span className="nm">
       <Avatar org={m.org} size={size} />
-      <span className="n" title={m.name}>
-        {m.base}
-      </span>
-      <VariantChip v={m.variant} />
+      <span className="n">{m.name}</span>
       <OpenTag open={m.open} />
     </span>
   );

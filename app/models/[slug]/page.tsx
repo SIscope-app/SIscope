@@ -7,7 +7,7 @@ import { CoverageDots, coverageOf, coverageText } from "@/components/Coverage";
 import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
 import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
-import { EPOCH_BENCHMARKS, allModels, ensureData, modelBySlug, siRanked, sourceById } from "@/lib/data";
+import { EPOCH_BENCHMARKS, allModels, currentStaleSources, ensureData, modelBySlug, siRanked, sourceById, textMargins } from "@/lib/data";
 import { fmtCtx, fmtDate, fmtInOut, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
 import { commercialLabel } from "@/lib/license";
 import { schemaName } from "@/lib/names";
@@ -15,8 +15,8 @@ import { orgName } from "@/lib/orgs";
 import { suggestions } from "@/lib/advice";
 import { CopyButton } from "@/components/CopyButton";
 import { dateFacts, dateSentence, measuredAndMissing, priceStatus, scoreFootnote, settingLabel, verdictParagraph } from "@/lib/present";
-import { COVERAGE_GATE } from "@/lib/score";
-import { measuredScore, provisionalScore } from "@/lib/trust";
+import { CATEGORIES, COVERAGE_GATE, type CategoryId } from "@/lib/score";
+import { categoryInputDates, measuredScore, provisionalScore } from "@/lib/trust";
 import { modelSummary } from "@/lib/state";
 import { SITE, og } from "@/lib/site";
 
@@ -94,6 +94,11 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
   const when = dateSentence(dates);
   const price = priceStatus(m.price?.blended_per_m ?? null);
   const missingCats = measuredAndMissing(m.cats).missing.length > 0;
+  const textMargin = textMargins().get(m.slug);
+  const inputDates = categoryInputDates(m);
+  const staleSources = currentStaleSources();
+  const staleCats = CATEGORIES.filter((c) => c.components.some((k) => typeof m.comp[k.id] === "number" && staleSources.has(k.source))).map((c) => c.id);
+  const asOf = Object.fromEntries(CATEGORIES.map((c) => [c.id, inputDates[c.id] ? fmtDate(inputDates[c.id]!, { year: false }) : ""])) as Partial<Record<CategoryId, string>>;
   const summary = modelSummary({
     siRank: m.siRank,
     cats: m.cats,
@@ -146,13 +151,11 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
         <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
           <Avatar org={m.org} size={48} />
           <div style={{ minWidth: 0 }}>
-            <h1 className="h1 model-title" style={{ margin: 0 }}>
-              <span>{m.base}</span>
-              {m.variant ? <span className="setting">{m.variant}</span> : <span className="setting">Default</span>}
-            </h1>
+            <h1 className="h1 model-title" style={{ margin: 0 }}>{m.name}</h1>
             <p className="sub" style={{ marginTop: 6 }}>{summary}</p>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", marginTop: 6, color: "var(--muted)", fontSize: 15 }}>
-              {orgName(m.org)} <OpenTag open={m.open} showClosed /> <span className="chip">{m.model_license}</span>
+              {orgName(m.org)} <OpenTag open={m.open} showClosed /> <span className="chip">{m.model_license}</span>{" "}
+              <a href="https://github.com/SIscope-app/SIscope/issues/new">Report a data error</a>
             </div>
           </div>
         </div>
@@ -167,8 +170,8 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
             return (
               <div key={b} className="card stat" role="listitem">
                 <div className="k">{b === "text" ? "Arena text rank" : "Arena WebDev rank"}</div>
-                <div className="v">{a ? `#${a.rank}` : <span className="nodata" style={{ fontSize: 17 }}>Not on board</span>}</div>
-                <div className="d">{a ? `of ${a.board_size} · vote score ${Math.round(a.rating!)}` : "Not on this board. That is not a zero."}</div>
+                <div className="v">{a ? `#${b === "text" && textMargin && textMargin.to !== textMargin.from ? `${textMargin.from}–${textMargin.to}` : a.rank}` : <span className="nodata" style={{ fontSize: 17 }}>Not on board</span>}</div>
+                <div className="d">{a ? `of ${a.board_size}${b === "text" && textMargin?.tied ? " · tied within margin" : ""} · vote score ${Math.round(a.rating!)}` : "Not on this board. That is not a zero."}</div>
               </div>
             );
           })}
@@ -293,7 +296,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           <div className="card" style={{ padding: 20 }}>
             <h2 className="h2">Score by category</h2>
             <p className="sub" style={{ marginBottom: 10 }}>90 means better than about 90% of the reference cohort: models on the Arena agent board, not the whole board.</p>
-            <CatBars cats={m.cats} open={m.open} comp={m.comp} imputed={measured.score != null ? measured.imputed : []} />
+            <CatBars cats={m.cats} open={m.open} comp={m.comp} imputed={measured.score != null ? measured.imputed : []} asOf={asOf} stale={staleCats} />
             <p className="note">
               <Link className="link" href="/methodology">What goes into each category</Link> ·{" "}
               {rival && (

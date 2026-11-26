@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { buildDecisions } from "./decisions";
 import { fixtureArena, fixtureModel, fixturePrice } from "./fixture-model";
-import { fmtInOut, fmtPrice, fmtPriceExact } from "./format";
+import { fmtPrice, fmtPriceExact } from "./format";
 import {
   compareDefaultSlugs,
   compareSummary,
@@ -29,8 +29,8 @@ const eligibleComp = {
   "arena.text.instruction_following": 70,
 };
 
-test("score v0.3.0 weights and coverage gate stay put", () => {
-  assert.equal(SCORE_VERSION, "0.3.0");
+test("score v0.3.1 keeps the v0.3.0 weights and coverage gate", () => {
+  assert.equal(SCORE_VERSION, "0.3.1");
   assert.equal(COVERAGE_GATE, 0.7);
   assert.deepEqual(DEFAULT_WEIGHTS, { coding: 25, agents: 25, reasoning: 20, math: 15, chat: 10, instructions: 5 });
 });
@@ -89,28 +89,43 @@ function decisionFixtures() {
   return { overall, coding, value, open, decisions: buildDecisions(pool, pool) };
 }
 
-test("homepage picks link to the exact setting and do not swap rank systems", () => {
-  const { overall, coding, value, decisions: d } = decisionFixtures();
+test("homepage picks are three distinct non-empty settings", () => {
+  const { overall, value, open, decisions: d } = decisionFixtures();
   assert.equal(d.overall.href, `/models/${overall.slug}`);
-  assert.equal(d.coding.href, `/models/${coding.slug}`);
-  assert.equal(d.overall.name, settingLabel(overall.base, overall.variant));
-  assert.equal(d.coding.name, settingLabel(coding.base, coding.variant));
+  assert.equal(d.open.href, `/models/${open.slug}`);
+  assert.equal(d.value.href, `/models/${value.slug}`);
   assert.equal(d.overall.name, "Overall (High)");
-  assert.equal(d.coding.name, "Coder (Max)");
+  assert.equal(d.open.name, settingLabel(open.base, open.variant));
+  assert.equal(d.value.name, settingLabel(value.base, value.variant));
   assert.equal(d.overall.rankKind, "SIscope score");
-  assert.equal(d.coding.rankKind, "Coding score");
-  assert.notEqual(d.overall.name, d.coding.name);
+  assert.equal(d.open.rankKind, "SIscope score");
+  assert.equal(d.value.rankKind, "SIscope score");
+  assert.equal(d.value.score, value.si!.toFixed(0));
   assert.match(d.overall.reason, /Arena text rank is #27/);
   assert.doesNotMatch(d.overall.reason, /Arena text rank is #1/);
-  assert.doesNotMatch(`${d.overall.reason} ${d.overall.limit}`, /WebDev #|Arena WebDev rank/);
-  assert.match(d.coding.reason, /Arena WebDev #3/);
-  assert.match(d.coding.reason, /not the SIscope overall rank/);
-  assert.equal(d.compareHref, `/compare?m=${d.compareSlugs.join(",")}`);
-  assert.deepEqual(d.compareSlugs, [overall.slug, coding.slug, value.slug]);
-  assert.equal(d.value?.href, `/models/${value.slug}`);
-  assert.equal(d.value?.name, settingLabel(value.base, value.variant));
-  assert.equal(d.value?.score, fmtInOut(value.price!.input_per_m, value.price!.output_per_m));
-  assert.match(d.value?.reason ?? "", /SIscope score/);
+  assert.match(d.value.reason, /SIscope score/);
+  assert.match(d.value.glance, /Under \$1\/1M/);
+  const slugs = [d.overall.slug, d.open.slug, d.value.slug];
+  assert.equal(new Set(slugs).size, 3);
+  for (const card of [d.overall, d.open, d.value]) {
+    assert.ok(card.slug);
+    assert.ok(card.name);
+    assert.ok(card.score);
+  }
+  assert.deepEqual(d.compareSlugs, slugs);
+});
+
+test("an empty value card falls back to the next stated cap", () => {
+  const overall = fixtureModel({ slug: "overall", base: "Overall", si: 96, siRank: 1, price: fixturePrice(8), comp: eligibleComp, open: false });
+  const pricey = fixtureModel({ slug: "pricey", base: "Pricey", si: 90, siRank: 2, price: fixturePrice(12), comp: eligibleComp, open: false });
+  const open = fixtureModel({ slug: "open-mid", base: "Open", si: 70, siRank: 3, price: fixturePrice(4), comp: eligibleComp, open: true });
+  const value = fixtureModel({ slug: "value-3", base: "Value", si: 66, siRank: 4, price: fixturePrice(2.4), comp: eligibleComp, open: false });
+  const d = buildDecisions([overall, pricey, open, value], [overall, pricey, open, value]);
+  assert.equal(d.value.slug, value.slug);
+  assert.match(d.value.kicker, /Under \$3\/1M/);
+  assert.match(d.value.reason, /Nothing scored 75/);
+  assert.equal(new Set([d.overall.slug, d.open.slug, d.value.slug]).size, 3);
+  for (const card of [d.overall, d.open, d.value]) assert.ok(card.score);
 });
 
 test("compare defaults follow the decision picks and stop at three", () => {
@@ -118,8 +133,8 @@ test("compare defaults follow the decision picks and stop at three", () => {
   assert.deepEqual(compareDefaultSlugs(["same", "same", "value", "open"]), ["same", "value", "open"]);
   assert.deepEqual(compareDefaultSlugs(["only", "only", null, "open"]), ["only", "open"]);
   const { open, decisions: d } = decisionFixtures();
-  assert.equal(d.compareSlugs.includes(open.slug), false);
-  assert.notEqual(d.value?.slug, open.slug);
+  assert.equal(d.compareSlugs.includes(open.slug), true);
+  assert.notEqual(d.value.slug, open.slug);
 });
 
 test("coverage names gaps and does not treat them as zero", () => {

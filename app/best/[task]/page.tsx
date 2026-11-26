@@ -2,7 +2,7 @@ import { og } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Avatar, OpenTag, VariantChip } from "@/components/Avatar";
+import { Avatar, OpenTag } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { BarRows } from "@/components/rows";
@@ -101,8 +101,7 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
                   <>
                     <Link href={`/models/${m.slug}`} className="nm" style={{ fontSize: 18, fontWeight: 680 }}>
                       <Avatar org={m.org} size={28} />
-                      <span className="n" title={m.name}>{m.base}</span>
-                      <VariantChip v={m.variant} />
+                      <span className="n">{m.name}</span>
                       <OpenTag open={m.open} />
                     </Link>
                     <div style={{ color: "var(--muted)", fontSize: 14 }}>
@@ -134,7 +133,7 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
             <div className="card lb">
               <BarRows items={top.map(({ m, v }) => ({ slug: m.slug, name: m.name, base: m.base, variant: m.variant, org: m.org, open: m.open, value: v, display: disp(v) }))} floor={floor} />
             </div>
-            <p className="note">Based on {t.sourceNote} Bars start at {floor}. {r.length} models have data for this task.{t.slug === "open" ? " This page ranks open models by the full SIscope score. A job page’s open pick uses that job, and the Arena gap on Trends uses text votes only." : ""}</p>
+            <p className="note">Based on {t.sourceNote} {floor === 0 ? "The bar axis starts at 0." : `The bar axis starts at ${floor}, not 0.`} {r.length} models have data for this task.</p>
           </section>
         </>
       )}

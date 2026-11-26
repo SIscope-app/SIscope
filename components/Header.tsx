@@ -10,13 +10,14 @@ const LINKS = [
   { href: "/leaderboard", label: "Ranking" },
   { href: "/compare", label: "Compare" },
   { href: "/best", label: "Best for" },
+  { href: "/pick", label: "Pick a model" },
   { href: "/tools/cost", label: "Cost" },
   { href: "/agents", label: "Agents" },
+  { href: "/methodology", label: "Methodology" },
 ];
-// The mobile menu also carries the reference pages.
+// The mobile menu also carries the reference pages. The bottom tab bar stays at five items.
 const MORE = [
   { href: "/benchmarks", label: "How to read benchmarks" },
-  { href: "/methodology", label: "How we score" },
   { href: "/about", label: "About" },
 ];
 
@@ -103,9 +104,15 @@ export function Header({ updated, updatedAt }: { updated: { short: string; detai
           ))}
         </nav>
         <div style={{ flex: 1 }} />
-        <a className="updated" href="#sources" title={updated.detail}>
-          <time dateTime={updatedAt}>{updated.short}</time>
-        </a>
+        <details className="updated-pop">
+          <summary className="updated">
+            <time dateTime={updatedAt}>{updated.short}</time>
+          </summary>
+          <div className="updated-panel">
+            <p>{updated.detail}</p>
+            <a href="#sources">Source dates</a>
+          </div>
+        </details>
         <QuickSearch />
         <ThemeToggle />
         <button className="iconbtn mobile-menu" aria-label="Menu" aria-expanded={open} onClick={() => setOpen((o) => !o)}>

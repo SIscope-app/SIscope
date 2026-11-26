@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { composite, COVERAGE_GATE } from "./score";
-import { categorySources, measuredScore, provisionalScore, tieWithPrevious } from "./trust";
+import { arenaTextMargins, categorySources, measuredScore, provisionalScore, tieWithPrevious } from "./trust";
 
 test("the floor formula matches the official score above the gate and stays blank below it", () => {
   const full = { coding: 80, agents: 70, reasoning: 60, math: 50, chat: 90, instructions: 40 };
@@ -30,6 +30,19 @@ test("a category built from one input is marked single source", () => {
   assert.equal(both.n, 2);
   assert.equal(both.only, null);
   assert.equal(categorySources({ "arena.agent": 10 }, "agents").n, 1);
+});
+
+test("Arena intervals produce a rank range and a near-tie label", () => {
+  const margins = arenaTextMargins([
+    { slug: "a", rank: 1, rating: 1500, lo: 1490, hi: 1510 },
+    { slug: "b", rank: 2, rating: 1495, lo: 1480, hi: 1505 },
+    { slug: "c", rank: 3, rating: 1400, lo: 1390, hi: 1410 },
+  ]);
+  assert.equal(margins.get("a")?.tied, true);
+  assert.ok((margins.get("a")?.to ?? 0) > (margins.get("a")?.from ?? 0));
+  assert.equal(margins.get("c")?.tied, false);
+  assert.equal(margins.get("c")?.from, 3);
+  assert.equal(margins.get("c")?.to, 3);
 });
 
 test("ties use the displayed score, and Arena ranges only when the scores are close", () => {

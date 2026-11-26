@@ -3,7 +3,7 @@ import { ChangeBoard } from "@/components/ChangeBoard";
 import { HomeShell } from "@/components/HomeShell";
 import { budgetPicks } from "@/lib/advice";
 import { coverageOf } from "@/components/Coverage";
-import { Avatar, VariantChip } from "@/components/Avatar";
+import { Avatar } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import type { TopItem } from "@/components/HomeShell";
@@ -43,7 +43,7 @@ function Decision({ card }: { card: DecisionCard }) {
     <article className={`card decide ${card.kind === "overall" ? "decide-lead" : ""}`}>
       <div className="decide-top">
         <h2 className="decide-k">
-          <Icon name={card.kind === "coding" ? "code" : card.kind === "value" ? "value" : "star"} /> {card.kicker}
+          <Icon name={card.kind === "open" ? "open" : card.kind === "value" ? "value" : "star"} /> {card.kicker}
         </h2>
         <details className="why">
           <summary>Why</summary>
@@ -54,8 +54,7 @@ function Decision({ card }: { card: DecisionCard }) {
         </details>
       </div>
       <Link href={card.href} className="decide-name">
-        <span>{card.base}</span>
-        {card.variant ? <span className="setting">{card.variant}</span> : null}
+        <span>{card.name}</span>
       </Link>
       <div className="decide-mid">
         <p className="decide-org">
@@ -78,8 +77,8 @@ export default async function Home() {
   await ensureData();
   const ranked = siRanked();
   const picks = buildDecisions(ranked);
-  const scatter: ScatterPt[] = ranked
-    .filter((m) => m.price && m.price.blended_per_m > 0)
+  const priced = ranked.filter((m) => m.price && m.price.blended_per_m > 0);
+  const scatter: ScatterPt[] = priced
     .slice(0, 80)
     .map((m) => ({ slug: m.slug, name: m.name, base: m.base, variant: m.variant, org: m.org, open: m.open, x: m.price!.blended_per_m, y: m.si!, xin: m.price!.input_per_m, xout: m.price!.output_per_m }));
 
@@ -117,18 +116,8 @@ export default async function Home() {
       </p>
       <div className="decisions">
         <Decision card={picks.overall} />
-        <Decision card={picks.coding} />
-        {picks.value ? (
-          <Decision card={picks.value} />
-        ) : (
-          <article className="card decide">
-            <h2 className="decide-k">
-              <Icon name="value" /> Best value
-            </h2>
-            <p className="decide-why">Nothing scored 75 or higher is listed at $1 or less per 1M tokens.</p>
-            <Link className="more" href="/best/cheap">See lower list prices</Link>
-          </article>
-        )}
+        <Decision card={picks.open} />
+        <Decision card={picks.value} />
       </div>
       <div className="decide-actions">
         <Link className="btn primary" href={picks.compareHref}>Compare these three</Link>
@@ -149,9 +138,8 @@ export default async function Home() {
 
   const quiet = (
     <p className="quiet-stats">
-      <Link href={picks.open.href}>Highest open-weight score: {picks.open.name}</Link>
-      <span>Pages pick different open models because each one uses its own measure. This line is the full score. A job page uses that job. The Arena gap uses text votes only.</span>
       <a href="#gap-h">Open vs closed {gapNow} pts{gapDelta === 0 ? "" : `, ${Math.abs(gapDelta)} ${gapDelta > 0 ? "wider" : "narrower"} than ${fmtDate(g0.d, { year: false })}`}</a>
+      <span>Rounded closed Arena text rating minus the rounded open rating, same day.</span>
       <span>{picks.rankedCount} scored · {picks.trackedCount} tracked · Arena history through {fmtDate(lastDate)}</span>
     </p>
   );
@@ -170,7 +158,7 @@ export default async function Home() {
   const gapCard = (
     <div className="card" style={{ padding: 20, display: "flex", flexDirection: "column", gap: 8 }}>
       <h2 className="h2" id="gap-h">Open weights versus closed</h2>
-      <p className="sub" style={{ marginTop: 0 }}>Arena text only. {Math.round(g1.closed)} closed, {Math.round(g1.open)} open.</p>
+      <p className="sub" style={{ marginTop: 0 }}>Rounded closed Arena text rating minus the rounded open rating. {Math.round(g1.closed)} closed, {Math.round(g1.open)} open.</p>
       <div className="big" style={{ margin: "4px 0" }}>
         <b>{gapNow} pts</b>
         <span>{gapThen} pts on {fmtDate(g0.d, { year: false })}</span>
@@ -255,12 +243,10 @@ export default async function Home() {
               <>
                 <span className="nm" style={{ fontSize: 15 }}>
                   <Avatar org={w.org} size={20} />
-                  <span className="n" title={w.name}>{w.base}</span>
-                  <VariantChip v={w.variant} />
+                  <span className="n">{w.name}</span>
                 </span>
-                <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? fmtInOut(w.price.input_per_m, w.price.output_per_m) : "Top open-weight pick") : o ? <>Best open: {o.base}{o.variant ? ` (${o.variant})` : ""}</> : "No open model with data yet"}</span>
-                {t.slug === "open" ? <span className="alt">This tile uses the full score. A job tile uses that job, and the Arena gap uses text votes only.</span> : null}
-                {t.slug === "agents" ? <span className="alt">Driven by the Arena Agent board, {fmtDate(AGENTS.arena_agent.publish_date, { year: false })}. The Open Agent Leaderboard file is {fmtDate(AGENTS.exgentic.dataset_last_modified, { year: false })} and is a separate table.</span> : null}
+                <span className="alt">SIscope {w.si!.toFixed(0)}{t.slug === "cheap" && w.price ? ` · ${fmtInOut(w.price.input_per_m, w.price.output_per_m)}` : o ? ` · Best open: ${o.name}` : ""}</span>
+                {t.slug === "agents" ? <span className="alt">Arena Agent board, {fmtDate(AGENTS.arena_agent.publish_date, { year: false })}. The Open Agent Leaderboard ({fmtDate(AGENTS.exgentic.dataset_last_modified, { year: false })}) is not in this score.</span> : null}
               </>
             ) : (
               <span className="nodata">No result yet</span>
@@ -282,7 +268,7 @@ export default async function Home() {
           description: SITE.description,
         }}
       />
-      <HomeShell hero={hero} taskChips={taskChips} quiet={quiet} gap={gapCard} changes={changes} changesSub={changeRangeLabel(shownChanges, (d) => fmtDate(d, { year: false }))} tasks={tasks} scatter={scatter} top={top} />
+      <HomeShell hero={hero} taskChips={taskChips} quiet={quiet} gap={gapCard} changes={changes} changesSub={changeRangeLabel(shownChanges, (d) => fmtDate(d, { year: false }))} tasks={tasks} scatter={scatter} scored={ranked.length} priced={priced.length} top={top} />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Enriched } from "@/lib/data";
 import { orgName } from "@/lib/orgs";
-import { Avatar, OpenTag, VariantChip } from "./Avatar";
+import { Avatar, OpenTag } from "./Avatar";
 import { MiniBars, Sparkline } from "./charts";
 import { Icon, type IconName } from "./Icons";
 
@@ -12,13 +12,10 @@ export function PickCard({ icon, label, m, big, bigLabel, visual, visualNote, wh
         <Icon name={icon} /> {label}
       </span>
       <div style={{ minWidth: 0 }}>
-        <div className="mname" title={m.name}>
-          {m.base}
-        </div>
+        <div className="mname">{m.name}</div>
         <div className="prov" style={{ marginTop: 4 }}>
           <Avatar org={m.org} size={20} />
           <span style={{ whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{orgName(m.org)}</span>
-          <VariantChip v={m.variant} />
           <OpenTag open={m.open} />
         </div>
       </div>

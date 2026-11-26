@@ -5,7 +5,7 @@ import type { Slim } from "@/lib/data";
 import { CATEGORIES, DEFAULT_WEIGHTS, composite, weightsFromQuery, weightsToQuery, type CategoryId } from "@/lib/score";
 import { orgName } from "@/lib/orgs";
 import { fmtCtx, fmtInOut, fmtPrice } from "@/lib/format";
-import { Avatar, OpenTag, VariantChip } from "./Avatar";
+import { Avatar, OpenTag } from "./Avatar";
 import { FilterSeg } from "./HomeShell";
 import { Icon } from "./Icons";
 import { CoverageDots, coverageOf } from "./Coverage";
@@ -352,8 +352,7 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
             <span className="row-main">
               <span className="nm">
                 <Avatar org={m.org} />
-                <span className="n" title={m.name}>{m.base}</span>
-                <VariantChip v={m.variant} />
+                <span className="n">{m.name}</span>
                 <OpenTag open={m.open} />
               </span>
               <span className="lb-metrics">
@@ -362,8 +361,8 @@ export function Leaderboard({ models, orgs }: { models: Slim[]; orgs: { id: stri
                 </span>
                 <CoverageDots cats={m.cats} label />
                 {sort === "si" && m.si == null && m.provisional != null ? <span className="soon">Provisional</span> : null}
-                <span className="lb-extra tnum" title={m.textRank == null ? "Not on the Arena text board. That is not a last-place rank." : "Place on the Arena text board"}>
-                  {m.textRank != null ? `Text #${m.textRank}` : "No text rank"}
+                <span className="lb-extra tnum">
+                  {m.textRank != null ? `Text #${m.textSpan ?? m.textRank}${m.textTied ? " · tied within margin" : ""}` : "No text rank"}
                 </span>
                 <span className="lb-extra tnum" title={m.ctx == null ? "No context length on the OpenRouter listing." : "Most tokens one request can hold, from OpenRouter"}>
                   {m.ctx != null ? fmtCtx(m.ctx) : "No context"}
