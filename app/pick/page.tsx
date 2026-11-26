@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Picker } from "@/components/Picker";
 import { allModels, ensureData } from "@/lib/data";
+import { headlineEligible } from "@/lib/score";
 import { og } from "@/lib/site";
 import { LIVE_TASKS } from "@/lib/tasks";
 
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default async function Page() {
   await ensureData();
   const models = allModels()
-    .filter((m) => m.si != null || LIVE_TASKS.some((t) => t.get(m) != null))
+    .filter((m) => headlineEligible(m.comp) && (m.si != null || LIVE_TASKS.some((t) => t.get(m) != null)))
     .map((m) => ({
       slug: m.slug,
       name: m.name,
@@ -23,6 +24,8 @@ export default async function Page() {
       open: m.open,
       si: m.si,
       price: m.price?.blended_per_m ?? null,
+      priceIn: m.price?.input_per_m ?? null,
+      priceOut: m.price?.output_per_m ?? null,
       tasks: Object.fromEntries(LIVE_TASKS.map((t) => [t.slug, t.get(m)])),
     }));
   return (

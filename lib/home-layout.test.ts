@@ -38,9 +38,8 @@ test("prices keep cents, including trailing zeros", () => {
 test("a new OpenRouter listing is a blended price, not a made-up percent", () => {
   const fresh = priceChangeCopy("$0.1 in, $0.5 out per 1M tokens on OpenRouter");
   assert.equal(fresh.mode, "new");
-  assert.equal(fresh.headline, "$0.20 /1M");
-  assert.match(fresh.detail, /\$0\.10 in/);
-  assert.match(fresh.detail, /\$0\.50 out/);
+  assert.equal(fresh.headline, "$0.10 in / $0.50 out");
+  assert.match(fresh.detail, /\$0\.20 \/1M/);
   assert.match(fresh.detail, /new list price/);
   assert.doesNotMatch(`${fresh.headline} ${fresh.detail}`, /%|→/);
   const cut = priceChangeCopy("from $8 to $4 per 1M");
@@ -49,7 +48,8 @@ test("a new OpenRouter listing is a blended price, not a made-up percent", () =>
   assert.match(cut.detail, /down/);
   assert.match(cut.detail, /-50%/);
   const prose = priceChangeCopy("$0.5437 in, $1.2505 out per 1M tokens on OpenRouter");
-  assert.equal(prose.detail, "$0.54 in · $1.25 out · new list price");
+  assert.equal(prose.headline, "$0.54 in / $1.25 out");
+  assert.match(prose.detail, /\$0\.72 \/1M/);
   assert.doesNotMatch(`${prose.headline} ${prose.detail}`, /\d\.\d{3}/);
 });
 
@@ -92,6 +92,7 @@ test("homepage glances stay short and keep SIscope separate from Arena", () => {
     cats: { coding: 70 },
     arena: { text: fixtureArena(27) },
     price: fixturePrice(8),
+    comp: { "arena.text": 80, "arena.agent": 60, "arena.webdev": 50, "arena.text.coding": 50, "arena.text.math": 50, "arena.text.hard_prompts": 50, "arena.text.instruction_following": 50 },
   });
   const coding = fixtureModel({
     slug: "coder-max",
@@ -102,6 +103,7 @@ test("homepage glances stay short and keep SIscope separate from Arena", () => {
     cats: { coding: 99 },
     arena: { webdev: fixtureArena(3) },
     price: fixturePrice(6),
+    comp: { "arena.text": 70, "arena.webdev": 90, "arena.agent": 60, "arena.text.coding": 90, "arena.text.math": 50, "arena.text.hard_prompts": 50, "arena.text.instruction_following": 50 },
   });
   const value = fixtureModel({
     slug: "value-pro",
@@ -110,6 +112,7 @@ test("homepage glances stay short and keep SIscope separate from Arena", () => {
     siRank: 8,
     cats: { coding: 40 },
     price: fixturePrice(0.54),
+    comp: { "arena.text": 60, "arena.webdev": 40, "arena.agent": 40, "arena.text.coding": 40, "arena.text.math": 40, "arena.text.hard_prompts": 40, "arena.text.instruction_following": 40 },
   });
   const pool = [overall, coding, value];
   const d = buildDecisions(pool, pool);

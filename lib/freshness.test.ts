@@ -5,10 +5,11 @@ import { fmtDate, fmtDateTime } from "./format";
 import { freshnessNote, mayAdvanceSuccess, sourceShortLabel, updatedLabel } from "./freshness";
 
 test("a success stamp formats as UTC and stays distinct from a source as-of date", () => {
-  const stamp = "2026-11-10T03:47:54Z";
-  const shown = fmtDateTime(stamp);
-  assert.match(shown, /UTC$/);
-  assert.match(shown, /Nov 10, 2026/);
+  const stamp = "2026-11-17T01:00:00Z";
+  assert.equal(fmtDateTime(stamp), "Nov 16, 7:00 PM CT");
+  const shown = fmtDateTime("2026-11-10T03:47:54Z");
+  assert.equal(shown, "Nov 9, 9:47 PM CT");
+  assert.doesNotMatch(shown, /UTC/);
   const asOf = fmtDate("2026-11-09");
   assert.equal(asOf, "Nov 9, 2026");
   assert.equal(asOf.includes("UTC"), false);

@@ -8,13 +8,13 @@ import { ARENA_BOARD_URL, epochBenchUrl, openrouterUrl } from "@/lib/links";
 import { CatBars } from "@/components/CatBars";
 import { JsonLd } from "@/components/JsonLd";
 import { EPOCH_BENCHMARKS, allModels, ensureData, modelBySlug, siRanked, sourceById } from "@/lib/data";
-import { fmtCtx, fmtDate, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
+import { fmtCtx, fmtDate, fmtInOut, fmtInt, fmtPrice, fmtPriceExact } from "@/lib/format";
 import { commercialLabel } from "@/lib/license";
 import { schemaName } from "@/lib/names";
 import { orgName } from "@/lib/orgs";
 import { suggestions } from "@/lib/advice";
 import { CopyButton } from "@/components/CopyButton";
-import { dateFacts, dateSentence, priceStatus, scoreFootnote, settingLabel, verdictParagraph } from "@/lib/present";
+import { dateFacts, dateSentence, measuredAndMissing, priceStatus, scoreFootnote, settingLabel, verdictParagraph } from "@/lib/present";
 import { COVERAGE_GATE } from "@/lib/score";
 import { measuredScore, provisionalScore } from "@/lib/trust";
 import { SITE, og } from "@/lib/site";
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PageProps<"/models/[slug]">):
   const { slug } = await params;
   const m = modelBySlug(slug);
   if (!m) return { title: "Model not found", robots: { index: false, follow: true } };
-  const bits = [m.si != null ? `SIscope score ${m.si.toFixed(0)}/100` : null, m.price ? `${fmtPrice(m.price.blended_per_m)} per 1M tokens` : null].filter(Boolean).join(", ");
+  const bits = [m.si != null ? `SIscope score ${m.si.toFixed(0)}/100` : null, m.price ? fmtInOut(m.price.input_per_m, m.price.output_per_m) : null].filter(Boolean).join(", ");
   return {
     title: m.name,
     description: `${m.name} by ${orgName(m.org)}. ${bits ? bits + ". " : ""}Arena ranks, written-test scores and the OpenRouter list price.`,
@@ -86,6 +86,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
   const dates = dateFacts(m);
   const when = dateSentence(dates);
   const price = priceStatus(m.price?.blended_per_m ?? null);
+  const missingCats = measuredAndMissing(m.cats).missing.length > 0;
   const verdict = verdictParagraph({
     name: settingLabel(m.base, m.variant),
     si: m.si,
@@ -144,7 +145,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
         <div className="kf" role="list" aria-label="Key facts">
           <div className="card stat lead" role="listitem">
             <div className="k">SIscope score</div>
-            <div className="v">{m.si != null ? <>{m.si.toFixed(0)}<small>/100</small></> : provisional != null ? <>{provisional.toFixed(0)}<small> provisional</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
+            <div className="v">{m.si != null ? <>{m.si.toFixed(0)}<small>/100{missingCats ? " provisional" : ""}</small></> : provisional != null ? <>{provisional.toFixed(0)}<small> provisional</small></> : <span className="nodata" style={{ fontSize: 17 }}>No score yet</span>}</div>
             <div className="d">{m.si != null ? `#${m.siRank} of ${ranked.length} scored models. Not an Arena rank.` : provisional != null ? `Provisional. ${Math.round(m.coverage * 100)}% of the weight is measured, under the ${COVERAGE_GATE * 100}% gate, so this is not in the main ranking.` : `${Math.round(m.coverage * 100)}% of the weight is measured. A score needs ${COVERAGE_GATE * 100}%.`}</div>
           </div>
           {(["text", "webdev"] as const).map((b) => {
@@ -159,8 +160,8 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           })}
           <div className="card stat" role="listitem">
             <div className="k">List price</div>
-            <div className="v">{price.kind === "unknown" ? <span className="nodata" style={{ fontSize: 17 }}>{price.short}</span> : <>{price.short}<small>/1M</small></>}</div>
-            <div className="d">{m.price ? `${fmtPrice(m.price.input_per_m)} in · ${fmtPrice(m.price.output_per_m)} out. Three input tokens per output token, from OpenRouter.` : "No public list price. That is unknown, not free."}</div>
+            <div className="v">{price.kind === "unknown" ? <span className="nodata" style={{ fontSize: 17 }}>{price.short}</span> : m.price ? <>{fmtInOut(m.price.input_per_m, m.price.output_per_m)}</> : <>{price.short}<small>/1M</small></>}</div>
+            <div className="d">{m.price ? `Blended ${fmtPrice(m.price.blended_per_m)} per 1M at three input tokens per output token, from OpenRouter.` : "No public list price. That is unknown, not free."}</div>
           </div>
           <div className="card stat" role="listitem">
             <div className="k">Context window</div>
@@ -277,7 +278,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
           </div>
           <div className="card" style={{ padding: 20 }}>
             <h2 className="h2">Score by category</h2>
-            <p className="sub" style={{ marginBottom: 10 }}>90 means better than about 90% of models measured on that category.</p>
+            <p className="sub" style={{ marginBottom: 10 }}>90 means better than about 90% of the reference cohort: models on the Arena agent board, not the whole board.</p>
             <CatBars cats={m.cats} open={m.open} comp={m.comp} imputed={measured.score != null ? measured.imputed : []} />
             <p className="note">
               <Link className="link" href="/methodology">What goes into each category</Link> ·{" "}
@@ -336,7 +337,7 @@ export default async function ModelPage({ params }: PageProps<"/models/[slug]">)
                   </span>
                   <div style={{ fontSize: 13.5, color: "var(--muted)" }}>{b?.description}{b?.in_score === false ? " Shown here. Not part of the SIscope score." : ""}</div>
                   <div style={{ fontSize: 13, color: "var(--faint)" }}>
-                    {e.pct != null && e.tested_models ? `Better than ${Math.round(e.pct)}% of ${e.tested_models} tested models. ` : ""}
+                    {e.pct != null ? `Better than ${Math.round(e.pct)}% of the reference cohort. ` : ""}
                     {e.approx ? `Tested with a different setting (${e.tested_as}). ` : ""}
                     {e.release_date ? `Epoch lists the version as released ${fmtDate(e.release_date)}. ` : ""}
                     {e.run_date ? `Run ${fmtDate(e.run_date)}.` : "Run date not published."} Fetched {fmtDate(e.fetched_at)}.

@@ -4,8 +4,9 @@
  */
 import { allModels, siRanked, type Enriched } from "./data";
 import { measuredAndMissing, settingLabel, compareDefaultSlugs } from "./present";
-import { fmtDate, fmtPrice } from "./format";
+import { fmtDate, fmtInOut, fmtPrice } from "./format";
 import { CHEAP_MAX, VALUE_MIN_SI, TASKS, bestValue, taskRanking } from "./tasks";
+import { headlineEligible } from "./score";
 import { categorySources } from "./trust";
 
 export type DecisionCard = {
@@ -94,11 +95,13 @@ function codingEvidence(m: Enriched): { built: string[]; absent: string[] } {
 }
 
 export function buildDecisions(ranked: Enriched[] = siRanked(), pool: Enriched[] = allModels()): Decisions {
-  const overallM = ranked[0];
+  const eligible = ranked.filter((m) => headlineEligible(m.comp));
+  const eligiblePool = pool.filter((m) => headlineEligible(m.comp));
+  const overallM = (eligible[0] ?? ranked[0]);
   const codingTask = TASKS.find((t) => t.slug === "coding")!;
-  const codingM = taskRanking(codingTask, pool)[0].m;
-  const valueM = bestValue(ranked, [overallM.base]);
-  const openM = ranked.find((m) => m.open) ?? overallM;
+  const codingM = taskRanking(codingTask, eligiblePool.length ? eligiblePool : pool)[0].m;
+  const valueM = bestValue(eligible.length ? eligible : ranked, [overallM.base]);
+  const openM = (eligible.length ? eligible : ranked).find((m) => m.open) ?? overallM;
   const n = ranked.length;
 
   const overallBits = [`SIscope overall ${overallM.si!.toFixed(0)}/100, #${overallM.siRank} of ${n} scored models.`];
@@ -121,8 +124,8 @@ export function buildDecisions(ranked: Enriched[] = siRanked(), pool: Enriched[]
       valueM,
       "Strong score under $1",
       "List price",
-      fmtPrice(valueM.price.blended_per_m),
-      "/1M",
+      fmtInOut(valueM.price.input_per_m, valueM.price.output_per_m),
+      "",
       `Top score under $${CHEAP_MAX}/1M`,
       `Highest SIscope score (${valueM.si!.toFixed(0)}) among models listed at or under $${CHEAP_MAX} per 1M tokens with a score of at least ${VALUE_MIN_SI}.${same ? ` This is the same setting as ${same}.` : ""} Listed at ${fmtPrice(valueM.price.blended_per_m)} per 1M.${vs}`,
       gapLimit(valueM),

@@ -21,7 +21,9 @@ export default function Page() {
       </div>
       <section className="prose">
         <h2>v{SCORE_VERSION}</h2>
-        <p>{fmtDate(SCORE_DATE)}. Missing categories count at the model’s weakest measured category instead of being skipped. Epoch results attach only to an exact setting match. A score is shown when measured categories cover at least {Math.round(COVERAGE_GATE * 100)}% of the weight. MATH level 5, FrontierMath Tier 4, Chess Puzzles, and MirrorCode are shown on model pages and are not in this version.</p>
+        <p>{fmtDate(SCORE_DATE)}. Percentiles are standing against the Arena agent cohort on every board, not against each board&apos;s own population. A missing category counts at the reference 25th percentile, is labelled provisional, and cannot raise a rank. A category average fills a missing test at that same percentile, so fewer sources cannot raise it. Homepage, picker, Best-for, and best-open picks need every category measured or two independent sources. An OpenRouter price matches the Arena date to the dated model id or the listing&apos;s created date. Duplicate Epoch runs keep the latest run and its mean score. A score is shown when measured categories cover at least {Math.round(COVERAGE_GATE * 100)}% of the weight.</p>
+        <h2>v0.2.0</h2>
+        <p>3 Nov 2026. Missing categories counted at the model&apos;s weakest measured category. Epoch results attached only to an exact setting match. MATH level 5, FrontierMath Tier 4, Chess Puzzles, and MirrorCode are shown on model pages and are not in the score.</p>
         <h2>v0.1.0</h2>
         <p>3 Nov 2026. First public version. Six categories, Arena and Epoch AI inputs, and the {Math.round(COVERAGE_GATE * 100)}% coverage rule.</p>
         <h2>Site updates that did not change the score</h2>

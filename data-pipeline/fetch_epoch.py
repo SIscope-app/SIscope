@@ -44,8 +44,10 @@ def main():
         for _, r in df.iterrows():
             if pd.isna(r["Model version"]):
                 continue
-            score = r.get("Best score (across scorers)", r.get("mean_score"))
-            if pd.isna(score):
+            mean = r.get("mean_score")
+            best = r.get("Best score (across scorers)")
+            score = mean if not pd.isna(mean) else best
+            if score is None or pd.isna(score):
                 continue
             released = r.get("Release date")
             out["results"].append({
@@ -53,6 +55,7 @@ def main():
                 "model_version": str(r["Model version"]).strip(),
                 "org": None if pd.isna(r.get("Organization")) else str(r["Organization"]),
                 "score": round(float(score), 4),
+                "mean_score": None if pd.isna(mean) else round(float(mean), 4),
                 "stderr": None if pd.isna(r.get("stderr")) else round(float(r["stderr"]), 4),
                 "run_date": None if pd.isna(r.get("Started at")) else str(r["Started at"])[:10],
                 "release_date": None if pd.isna(released) or str(released).strip() == "" else str(released)[:10],

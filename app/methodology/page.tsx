@@ -54,20 +54,20 @@ export default async function Page() {
       <section className="section prose">
         <h2>How a score is built</h2>
         <p>
-          <b>1. Everything becomes a percentile.</b> For each test, we rank every model that took it and turn its place into a number from 0 to 100: &quot;better than X% of the models that took this test&quot;. This puts chess-style vote ratings and percent-correct test scores on the same scale.
+          <b>1. Everything becomes a percentile against one reference cohort.</b> The cohort is the models on the Arena agent board, the small frontier set. On every board, a percentile is the share of that cohort with a lower raw result, not the share of the board&apos;s own population. Arena text has hundreds of older models, so a percentile of that whole board made almost every recent model look like a 90. The agent board did not. One cohort puts those numbers on the same scale.
         </p>
         <p>
-          <b>2. Categories average their tests.</b> A category score is the plain average of whichever of its tests the model has. We never show a number for a test a model didn&apos;t take.
+          <b>2. Categories average every test they track.</b> A missing test inside a category counts at the reference 25th percentile before the average. A model with one high result does not outrank a model that has that result and another. We still never show a made-up number for a test the model did not take.
         </p>
         <p>
-          <b>3. The overall score is a weighted average of categories</b>, using the weights above. We only show it when the categories with data carry at least {Math.round(COVERAGE_GATE * 100)}% of the total weight. Otherwise you&apos;ll see &quot;no score yet&quot;. Today {n} models pass. If a model is missing a category, that category counts at the model&apos;s own weakest measured category, so a gap in the data can never push a model up the ranking.
+          <b>3. The overall score is a weighted average of categories</b>, using the weights above. We only show it when the categories with data carry at least {Math.round(COVERAGE_GATE * 100)}% of the total weight. Otherwise you&apos;ll see &quot;no score yet&quot;. Today {n} models pass. A missing category counts at the reference 25th percentile and the score is labelled provisional. The fill cannot raise the model. Homepage picks, the picker, Best-for tiles, and the best open model need every category measured, or at least two independent sources.
         </p>
         <p>
           <b>4. Your weights, your ranking.</b> On the <Link href="/leaderboard">leaderboard</Link> you can change the weights. That re-ranks models in your browser only, and the link keeps your settings.
         </p>
         <h2>Matching models across sources</h2>
         <p>
-          Arena lists each model with its reasoning setting (for example &quot;High&quot; or &quot;Max&quot;), and we treat each one as its own entry. An Epoch AI result is attached only when it is clearly the same model and the same setting: same reasoning level, same thinking budget, and the same dated snapshot. If Epoch tested a different setting or snapshot, we leave it out rather than guess. A list price attaches only to the same snapshot. It applies to every reasoning setting of that model, because providers charge the same per token; higher settings just use more tokens.
+          Arena lists each model with its reasoning setting (for example &quot;High&quot; or &quot;Max&quot;), and we treat each one as its own entry. An Epoch AI result is attached only when it is clearly the same model and the same setting: same reasoning level, same thinking budget, and the same dated snapshot. If Epoch published more than one run, we keep the latest run and its mean score. If Epoch tested a different setting or snapshot, we leave it out rather than guess. A list price attaches only when the Arena date matches the OpenRouter id suffix or that listing&apos;s created date. An undated Arena name does not take a dated listing, and a version such as 4.20 is not read as a date. The matched price applies to every reasoning setting of that snapshot, because providers charge the same per token; higher settings just use more tokens. The figure on the page is input and output per 1M tokens. The blended price, three input tokens per output token, stays in the detail and in the budget filters.
         </p>
         <p>
           A SIscope rank and an Arena rank answer different questions. SIscope overall is the weighted score of the categories we measured. Arena text, WebDev and agent are separate vote boards. One setting can lead the SIscope score while another setting of the same model leads WebDev, and neither result is wrong. The board date is when Arena published that ranking. The fetch date is when we copied the dataset. An Epoch run date is when that test was executed. Those are not the same day.
@@ -160,7 +160,10 @@ export default async function Page() {
             <b>Site update</b> (3 Nov 2026): Compare up to four models, leaderboard filters and shareable weight presets, coverage badges, rank-over-time charts, a cost calculator and links from numbers to their sources. Scores did not change.
           </li>
           <li>
-            <b>v{SCORE_VERSION}</b> ({fmtDate(SCORE_DATE)}): missing categories now count at the model&apos;s weakest measured category instead of being skipped, and Epoch results attach only to an exact setting match.
+            <b>v{SCORE_VERSION}</b> ({fmtDate(SCORE_DATE)}): percentiles use the Arena agent cohort on every board. A missing category, and a missing test inside a category, counts at the reference 25th percentile and is labelled provisional. Headline picks need full coverage or two independent sources. Prices match a dated OpenRouter id or created date, and the main price is input and output.
+          </li>
+          <li>
+            <b>v0.2.0</b> (3 Nov 2026): missing categories counted at the model&apos;s weakest measured category, and Epoch results attached only to an exact setting match.
           </li>
           <li>
             <b>v0.1.0</b> (3 Nov 2026): first public version. Six categories, Arena + Epoch AI inputs, {Math.round(COVERAGE_GATE * 100)}% coverage rule.

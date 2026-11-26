@@ -1,17 +1,19 @@
 /**
- * SIscope score v0.2.0, pure functions shared by server and browser.
+ * SIscope score v0.3.0, pure functions shared by server and browser.
  *
- * Every component is a percentile: "better than X% of the models that took
- * this test". A category score is the mean of its available components.
- * The overall score is the weighted mean of available categories, shown only
- * when the categories with data carry at least COVERAGE_GATE of the weight.
- * A missing category is counted at the model's own lowest measured category
- * (a conservative floor, never an outside number), so gaps can't raise a score.
+ * Every component is a percentile against one reference cohort (models with an
+ * Arena agent result), not against each board's own population. A category
+ * score fills any missing test in that category at the reference 25th
+ * percentile before averaging, so fewer sources cannot raise it. The overall
+ * score does the same for a missing category. That fill is provisional: it
+ * keeps a gap from helping the model, and it is labelled as such.
  */
 
-export const SCORE_VERSION = "0.2.0";
-export const SCORE_DATE = "2026-11-03";
+export const SCORE_VERSION = "0.3.0";
+export const SCORE_DATE = "2026-11-26";
 export const COVERAGE_GATE = 0.7;
+/** Reference-cohort percentile used wherever a measured result is missing. */
+export const MISSING_PERCENTILE = 25;
 
 export type CategoryId = "coding" | "agents" | "reasoning" | "math" | "chat" | "instructions";
 
@@ -94,16 +96,74 @@ export const DEFAULT_WEIGHTS: Record<CategoryId, number> = Object.fromEntries(
 export type Components = Record<string, number>; // component id -> percentile 0-100
 export type CategoryScores = Partial<Record<CategoryId, number>>;
 
+/** Share of `reference` values strictly below `value`, on a 0–100 scale. */
+export function percentileAgainst(value: number, reference: number[]): number | null {
+  const vals = reference.filter((v) => Number.isFinite(v));
+  if (vals.length < 2 || !Number.isFinite(value)) return null;
+  const below = vals.reduce((n, v) => n + (v < value ? 1 : 0), 0);
+  return Math.min(100, Math.round((1000 * below) / (vals.length - 1)) / 10);
+}
+
+/**
+ * Percentiles for every model. `cohort[i]` is true when that model is in the
+ * reference cohort. A field uses the cohort's values when at least two cohort
+ * models have it, and every model with the field otherwise.
+ */
+export function referencePercentiles(raws: Components[], cohort: boolean[]): { comps: Components[]; basis: Record<string, number> } {
+  const ref: Record<string, number[]> = {};
+  const all: Record<string, number[]> = {};
+  raws.forEach((raw, i) => {
+    for (const [key, value] of Object.entries(raw)) {
+      if (!Number.isFinite(value)) continue;
+      (all[key] ??= []).push(value);
+      if (cohort[i]) (ref[key] ??= []).push(value);
+    }
+  });
+  const basis: Record<string, number> = {};
+  const pool: Record<string, number[]> = {};
+  for (const key of Object.keys(all)) {
+    const use = (ref[key]?.length ?? 0) >= 2 ? ref[key] : all[key];
+    pool[key] = use;
+    basis[key] = use.length;
+  }
+  const comps = raws.map((raw) => {
+    const out: Components = {};
+    for (const [key, value] of Object.entries(raw)) {
+      const pct = percentileAgainst(value, pool[key] ?? []);
+      if (pct != null) out[key] = pct;
+    }
+    return out;
+  });
+  return { comps, basis };
+}
+
 export function categoryScores(comp: Components): CategoryScores {
   const out: CategoryScores = {};
   for (const c of CATEGORIES) {
     const vals = c.components.map((k) => comp[k.id]).filter((v): v is number => typeof v === "number");
-    if (vals.length) out[c.id] = vals.reduce((a, b) => a + b, 0) / vals.length;
+    if (!vals.length) continue;
+    const missing = c.components.length - vals.length;
+    const sum = vals.reduce((a, b) => a + b, 0) + missing * MISSING_PERCENTILE;
+    out[c.id] = sum / c.components.length;
   }
   return out;
 }
 
-export type Composite = { score: number | null; coverage: number; categories: CategoryScores };
+/** A headline pick needs every category measured, or two independent sources. */
+export function headlineEligible(comp: Components): boolean {
+  const full = CATEGORIES.every((c) => c.components.some((k) => typeof comp[k.id] === "number"));
+  if (full) return true;
+  let sources = 0;
+  if (comp["arena.text"] != null || Object.keys(comp).some((k) => k.startsWith("arena.text."))) sources += 1;
+  if (comp["arena.webdev"] != null) sources += 1;
+  if (comp["arena.vision"] != null) sources += 1;
+  if (comp["arena.agent"] != null) sources += 1;
+  const epochInScore = new Set(CATEGORIES.flatMap((c) => c.components.map((k) => k.id)).filter((id) => id.startsWith("epoch.")));
+  if (Object.keys(comp).some((k) => epochInScore.has(k))) sources += 1;
+  return sources >= 2;
+}
+
+export type Composite = { score: number | null; coverage: number; categories: CategoryScores; provisional: boolean };
 
 export function composite(cats: CategoryScores, weights: Record<CategoryId, number> = DEFAULT_WEIGHTS): Composite {
   let total = 0,
@@ -119,12 +179,10 @@ export function composite(cats: CategoryScores, weights: Record<CategoryId, numb
     }
   }
   const coverage = total > 0 ? covered / total : 0;
-  if (!(coverage >= COVERAGE_GATE && covered > 0)) return { score: null, coverage, categories: cats };
-  // A missing category counts at the model's own weakest measured category (among weighted ones),
-  // so a gap in the data can never lift a model above what its measured results support.
-  const measured = CATEGORIES.filter((c) => (weights[c.id] ?? 0) > 0 && typeof cats[c.id] === "number").map((c) => cats[c.id]!);
-  const floor = Math.min(...measured);
-  return { score: (sum + (total - covered) * floor) / total, coverage, categories: cats };
+  const provisional = covered < total;
+  if (!(coverage >= COVERAGE_GATE && covered > 0)) return { score: null, coverage, categories: cats, provisional };
+  // A missing category counts at the reference 25th percentile, never at the model's own score.
+  return { score: (sum + (total - covered) * MISSING_PERCENTILE) / total, coverage, categories: cats, provisional };
 }
 
 export function weightsToQuery(w: Record<CategoryId, number>): string {

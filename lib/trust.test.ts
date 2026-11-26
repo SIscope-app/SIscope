@@ -16,9 +16,9 @@ test("the floor formula matches the official score above the gate and stays blan
   const low = measuredScore(thin);
   assert.equal(low.official, null);
   assert.ok(low.coverage < COVERAGE_GATE);
-  assert.equal(low.score, 80);
+  assert.equal(low.score, 38.75);
   assert.ok(low.imputed.includes("agents"));
-  assert.equal(provisionalScore(thin), 80);
+  assert.equal(provisionalScore(thin), 38.75);
   assert.equal(composite(thin).score, null);
 });
 
@@ -47,7 +47,7 @@ test("settings that share a base link, and a thin setting can show a provisional
   const xhigh = { slug: "example-xhigh", base: "Example", si: 70, cats: { coding: 70, agents: 70, reasoning: 70, math: 70, chat: 70, instructions: 70 } };
   assert.equal(max.base, xhigh.base);
   assert.equal(max.si, null);
-  assert.equal(provisionalScore(max.cats), 80);
+  assert.equal(provisionalScore(max.cats), 38.75);
   assert.equal(provisionalScore(xhigh.cats), null);
   const siblings = [max, xhigh].filter((m) => m.base === max.base).map((m) => m.slug);
   assert.deepEqual(siblings, ["example-max", "example-xhigh"]);

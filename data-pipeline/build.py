@@ -14,7 +14,8 @@ import collections
 import datetime as dt
 import re
 
-from epoch_match import accept, arena_dates, dates_agree, pick_latest
+from epoch_match import accept, pick_latest
+from price_match import match_price
 from common import EFFORTS, assert_no_blocked, base_key, effort_of, now_iso, read_json, slugify, split_name, write_json
 
 LADDER = ["none", "minimal", "low", "medium", "high", "xhigh", "max"]
@@ -58,17 +59,22 @@ def epoch_key(v):
     return base_key(v), eff
 
 
-def pct_map(rows, key):
-    """Percentile (0-100): share of other models on the same board with a lower score."""
-    vals = [r[key] for r in rows if r.get(key) is not None]
-    n = len(vals)
+def pct_map(rows, key, cohort=None):
+    """Percentile against the reference cohort (Arena agent models), not the whole board.
+
+    Falls back to everyone with a value when fewer than two cohort models have this field.
+    """
+    ref = [r[key] for r in rows if r.get(key) is not None and (cohort is None or r["name"] in cohort)]
+    if len(ref) < 2:
+        ref = [r[key] for r in rows if r.get(key) is not None]
+    n = len(ref)
     out = {}
     for r in rows:
         v = r.get(key)
         if v is None or n < 2:
             continue
-        below = sum(1 for x in vals if x < v)
-        out[r["name"]] = round(100 * below / (n - 1), 1)
+        below = sum(1 for x in ref if x < v)
+        out[r["name"]] = min(100.0, round(100 * below / (n - 1), 1))
     return out
 
 
@@ -116,12 +122,13 @@ def main():
         return {r["name"]: r for r in A[board][cat]["rows"]}
 
     pcts = {}
-    pcts["text"] = pct_map(A["text"]["overall"]["rows"], "rating")
-    pcts["webdev"] = pct_map(A["webdev"]["overall"]["rows"], "rating")
-    pcts["vision"] = pct_map(A["vision"]["overall"]["rows"], "rating")
-    pcts["agent"] = pct_map(A["agent"]["overall"]["rows"], "score")
+    cohort = {r["name"] for r in A["agent"]["overall"]["rows"]}
+    pcts["text"] = pct_map(A["text"]["overall"]["rows"], "rating", cohort)
+    pcts["webdev"] = pct_map(A["webdev"]["overall"]["rows"], "rating", cohort)
+    pcts["vision"] = pct_map(A["vision"]["overall"]["rows"], "rating", cohort)
+    pcts["agent"] = pct_map(A["agent"]["overall"]["rows"], "score", cohort)
     for c in TEXT_CATS:
-        pcts["text_" + c] = pct_map(A["text"][c]["rows"], "rating")
+        pcts["text_" + c] = pct_map(A["text"][c]["rows"], "rating", cohort)
     rows = {b: board_rows(b) for b in ["text", "webdev", "vision", "agent"]}
     catrows = {c: board_rows("text", c) for c in TEXT_CATS}
 
@@ -131,10 +138,7 @@ def main():
         k, eff = epoch_key(r["model_version"])
         E[k][r["benchmark"]].append((eff, r))
 
-    # price index (prefer shortest id per key, i.e. the main endpoint, not a dated snapshot)
-    P = {}
-    for r in sorted(prices["models"], key=lambda x: len(x["id"])):
-        P.setdefault(base_key(r["name"]), r)
+    # prices are chosen per Arena snapshot in match_price, not one id per family
 
     hist_text = arena["history"]["text"]["series"]
     hist_web = arena["history"]["webdev"]["series"]
@@ -142,10 +146,6 @@ def main():
     stats = collections.Counter()
     rejected = []
     siblings = collections.Counter(base_key(mm["base"]) for mm in reg.values())
-    _sd = collections.defaultdict(set)
-    for mm in reg.values():
-        _sd[base_key(mm["base"])].add(frozenset(arena_dates(mm["name"])))
-    snap_dates = {kk: len(v) for kk, v in _sd.items()}
     price_rejected = []
     for name, m in reg.items():
         arena_block = {}
@@ -179,24 +179,11 @@ def main():
             ep.append({"benchmark": bench, "score": pick["score"], "stderr": pick["stderr"], "tested_as": pick["model_version"],
                        "approx": False, "run_date": pick["run_date"], "release_date": pick.get("release_date"), "log_url": pick["log_url"], **epoch_src})
             stats["epoch_matched"] += 1
-        # price
-        pr = P.get(k)
+        # price: Arena date suffix matches the OpenRouter dated id or its created date
+        pr = match_price(m["name"], prices["models"])
         price = None
-        if pr:
-            # snapshot check: a price only attaches to the same dated snapshot. A dated Arena entry may use the
-            # undated (current) endpoint only when Arena lists a single snapshot of this model.
-            od = arena_dates(pr["id"].split("/")[-1].replace("-", " ")) | arena_dates(pr["name"])
-            ad = arena_dates(m["name"])
-            why = None
-            if od and ad and not dates_agree(ad, od):
-                why = "different snapshot date"
-            elif od and not ad:
-                why = "price is for a dated snapshot; Arena entry is undated"
-            elif ad and not od and snap_dates[k] > 1:
-                why = "Arena lists several snapshots; price endpoint is undated"
-            if why:
-                price_rejected.append({"model": m["name"], "openrouter_id": pr["id"], "reason": why})
-                pr = None
+        if pr is None and any(base_key(r.get("name") or "") == k or base_key(r["id"]) == k for r in prices["models"]):
+            price_rejected.append({"model": m["name"], "openrouter_id": None, "reason": "no dated price match"})
         if pr:
             blended = round((3 * pr["input_per_m"] + pr["output_per_m"]) / 4, 4)
             price = {"openrouter_id": pr["id"], "input_per_m": pr["input_per_m"], "output_per_m": pr["output_per_m"],
@@ -217,12 +204,13 @@ def main():
     # epoch benchmark percentiles among matched registry models (per benchmark)
     for bench in epoch["benchmarks"]:
         vals = [(mm["name"], e["score"]) for mm in models for e in mm["epoch"] if e["benchmark"] == bench]
-        allscores = [r["score"] for r in epoch["results"] if r["benchmark"] == bench]
+        cohort_scores = [e["score"] for mm in models if mm["arena"].get("agent") for e in mm["epoch"] if e["benchmark"] == bench]
+        allscores = cohort_scores if len(cohort_scores) >= 2 else [r["score"] for r in epoch["results"] if r["benchmark"] == bench]
         n = len(allscores)
         for mm in models:
             for e in mm["epoch"]:
                 if e["benchmark"] == bench:
-                    e["pct"] = round(100 * sum(1 for x in allscores if x < e["score"]) / max(n - 1, 1), 1)
+                    e["pct"] = min(100.0, round(100 * sum(1 for x in allscores if x < e["score"]) / (n - 1), 1)) if n >= 2 else None
                     e["tested_models"] = n
 
     # value percentile (score per dollar) is computed client-side from price + text rating
