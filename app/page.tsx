@@ -8,7 +8,7 @@ import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import type { TopItem } from "@/components/HomeShell";
 import type { ScatterPt } from "@/components/Scatter";
-import { AGENTS, CHANGES, ensureData, siRanked, type Enriched } from "@/lib/data";
+import { AGENTS, allModels, CHANGES, ensureData, siRanked, textPublishDate, type Enriched } from "@/lib/data";
 import { headlineEligible } from "@/lib/score";
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
 import { fmtDate, fmtInOut, shownGap } from "@/lib/format";
@@ -16,6 +16,7 @@ import { changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-l
 import { orgName } from "@/lib/orgs";
 import { CATEGORIES, COVERAGE_GATE } from "@/lib/score";
 import { LIVE_TASKS, taskRanking } from "@/lib/tasks";
+import { buildState, toStateModel } from "@/lib/state";
 import { SITE, og } from "@/lib/site";
 
 export const metadata = { alternates: { canonical: "/" }, openGraph: og("/") };
@@ -97,8 +98,18 @@ export default async function Home() {
   const gapThen = shownGap(g0.closed, g0.open);
   const gapDelta = gapNow - gapThen;
 
+  const glance = buildState(allModels().map(toStateModel), gap, textPublishDate() || lastDate, orgName).glance;
   const hero = (
     <>
+      <nav className="glance" aria-label="At a glance">
+        {glance.map((item) => (
+          <Link key={item.id} href={item.href} className="glance-item">
+            <span className="glance-k">{item.kicker}</span>
+            <span className="glance-v">{item.title}</span>
+          </Link>
+        ))}
+        <Link href="/state-of-ai" className="glance-more">State of AI</Link>
+      </nav>
       <h1 className="h1 hero-h1">Start with one of three models</h1>
       <p className="lede hero-lede">Each card is one setting. The score and the Arena rank are different numbers.</p>
       <p className="score-note">

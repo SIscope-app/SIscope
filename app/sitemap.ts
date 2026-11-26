@@ -20,6 +20,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     u("/best", 0.8),
     ...TASKS.map((t) => u(`/best/${t.slug}`, 0.8)),
     u("/agents", 0.7),
+    u("/state-of-ai", 0.8),
+    u("/benchmarks", 0.5),
     u("/methodology", 0.5),
     u("/methodology/changelog", 0.3),
     u("/trends", 0.5),
