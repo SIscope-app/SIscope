@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-17T00:59:55Z",
- "count": 254,
+ "built_at": "2026-11-26T04:50:41Z",
+ "count": 256,
  "rows": [
   {
    "model": "Claude 3.5 Sonnet (20240620)",
@@ -1236,6 +1236,18 @@
    "model": "Gemini 3.6 Flash (High)",
    "benchmark": "gpqa_diamond",
    "epoch_version": "gemini-3.6-flash_minimal",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 4 Hydrogen (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-4-hydrogen_xhigh",
+   "reason": "different effort"
+  },
+  {
+   "model": "Gemini 4 Neon (High)",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "gemini-4-neon_xhigh",
    "reason": "different effort"
   },
   {

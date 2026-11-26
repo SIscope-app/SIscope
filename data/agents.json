@@ -1,797 +1,845 @@
 {
- "built_at": "2026-11-17T00:59:55Z",
+ "built_at": "2026-11-26T04:50:41Z",
  "arena_agent": {
-  "publish_date": "2026-11-15",
+  "publish_date": "2026-11-22",
   "rows": [
    {
     "name": "Claude Fable 5.2 (Max)",
     "org": "anthropic",
     "model_license": "Proprietary",
     "rank": 1,
-    "date": "2026-11-15",
-    "score": 0.2861,
-    "lo": 0.2489,
-    "hi": 0.3233,
-    "sessions": 10406,
-    "cost_per_task_p50": 9.019
+    "date": "2026-11-22",
+    "score": 0.2744,
+    "lo": 0.2444,
+    "hi": 0.3044,
+    "sessions": 12418,
+    "cost_per_task_p50": 9.148
    },
    {
     "name": "Claude Opus 5.5 (Max)",
     "org": "anthropic",
     "model_license": "Proprietary",
     "rank": 2,
-    "date": "2026-11-15",
-    "score": 0.1819,
-    "lo": 0.1617,
-    "hi": 0.2022,
-    "sessions": 14649,
-    "cost_per_task_p50": 5.651
+    "date": "2026-11-22",
+    "score": 0.1912,
+    "lo": 0.1705,
+    "hi": 0.2118,
+    "sessions": 15162,
+    "cost_per_task_p50": 5.794
+   },
+   {
+    "name": "Gemini 4 Neon (High)",
+    "org": "google",
+    "model_license": "Proprietary",
+    "rank": 3,
+    "date": "2026-11-22",
+    "score": 0.1829,
+    "lo": 0.1578,
+    "hi": 0.2079,
+    "sessions": 5666,
+    "cost_per_task_p50": 2.484
    },
    {
     "name": "Gemini 4 Carbon (High)",
     "org": "google",
     "model_license": "Proprietary",
-    "rank": 3,
-    "date": "2026-11-15",
-    "score": 0.1645,
-    "lo": 0.1577,
-    "hi": 0.1712,
-    "sessions": 64218,
-    "cost_per_task_p50": 1.354
+    "rank": 4,
+    "date": "2026-11-22",
+    "score": 0.1613,
+    "lo": 0.1544,
+    "hi": 0.1682,
+    "sessions": 63893,
+    "cost_per_task_p50": 1.353
    },
    {
     "name": "Claude Sonnet 5.5 (Max)",
     "org": "anthropic",
     "model_license": "Proprietary",
-    "rank": 4,
-    "date": "2026-11-15",
-    "score": 0.1529,
-    "lo": 0.1239,
-    "hi": 0.1818,
-    "sessions": 8805,
-    "cost_per_task_p50": 3.462
-   },
-   {
-    "name": "Gemini 4 Hydrogen (High)",
-    "org": "google",
-    "model_license": "Proprietary",
     "rank": 5,
-    "date": "2026-11-15",
-    "score": 0.1491,
-    "lo": 0.1302,
-    "hi": 0.1679,
-    "sessions": 8639,
-    "cost_per_task_p50": 1.525
-   },
-   {
-    "name": "Claude Fable 5.1 (Max)",
-    "org": "anthropic",
-    "model_license": "Proprietary",
-    "rank": 6,
-    "date": "2026-11-15",
-    "score": 0.141,
-    "lo": 0.1202,
-    "hi": 0.1618,
-    "sessions": 17488,
-    "cost_per_task_p50": 7.832
+    "date": "2026-11-22",
+    "score": 0.1521,
+    "lo": 0.1231,
+    "hi": 0.1811,
+    "sessions": 8956,
+    "cost_per_task_p50": 3.949
    },
    {
     "name": "GPT-6 Astra (Max)",
     "org": "openai",
     "model_license": "Proprietary",
+    "rank": 6,
+    "date": "2026-11-22",
+    "score": 0.1464,
+    "lo": 0.126,
+    "hi": 0.1669,
+    "sessions": 15915,
+    "cost_per_task_p50": 4.768
+   },
+   {
+    "name": "GPT-6.2 Astra (Max)",
+    "org": "openai",
+    "model_license": "Proprietary",
     "rank": 7,
-    "date": "2026-11-15",
+    "date": "2026-11-22",
     "score": 0.1391,
-    "lo": 0.1188,
-    "hi": 0.1594,
-    "sessions": 15699,
-    "cost_per_task_p50": 5.284
+    "lo": 0.1101,
+    "hi": 0.1682,
+    "sessions": 8205,
+    "cost_per_task_p50": 3.343
    },
    {
     "name": "Claude Opus 5.5 (High)",
     "org": "anthropic",
     "model_license": "Proprietary",
     "rank": 8,
-    "date": "2026-11-15",
-    "score": 0.1335,
-    "lo": 0.1232,
-    "hi": 0.1439,
-    "sessions": 24277,
-    "cost_per_task_p50": 2.122
+    "date": "2026-11-22",
+    "score": 0.1386,
+    "lo": 0.1279,
+    "hi": 0.1493,
+    "sessions": 24506,
+    "cost_per_task_p50": 1.934
+   },
+   {
+    "name": "Gemini 4 Hydrogen (High)",
+    "org": "google",
+    "model_license": "Proprietary",
+    "rank": 9,
+    "date": "2026-11-22",
+    "score": 0.1359,
+    "lo": 0.1183,
+    "hi": 0.1535,
+    "sessions": 9102,
+    "cost_per_task_p50": 1.497
+   },
+   {
+    "name": "Claude Fable 5.1 (Max)",
+    "org": "anthropic",
+    "model_license": "Proprietary",
+    "rank": 10,
+    "date": "2026-11-22",
+    "score": 0.1315,
+    "lo": 0.1106,
+    "hi": 0.1523,
+    "sessions": 17579,
+    "cost_per_task_p50": 7.262
+   },
+   {
+    "name": "GPT-6.2 Sol (Max)",
+    "org": "openai",
+    "model_license": "Proprietary",
+    "rank": 11,
+    "date": "2026-11-22",
+    "score": 0.1128,
+    "lo": 0.0871,
+    "hi": 0.1384,
+    "sessions": 8903,
+    "cost_per_task_p50": 1.019
    },
    {
     "name": "GPT-6.1 Sol (Max)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 9,
-    "date": "2026-11-15",
-    "score": 0.1178,
-    "lo": 0.1065,
-    "hi": 0.129,
-    "sessions": 30951,
-    "cost_per_task_p50": 0.985
+    "rank": 12,
+    "date": "2026-11-22",
+    "score": 0.1102,
+    "lo": 0.0988,
+    "hi": 0.1216,
+    "sessions": 31849,
+    "cost_per_task_p50": 0.989
    },
    {
     "name": "GPT-6.1 Terra (Max)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 10,
-    "date": "2026-11-15",
-    "score": 0.1134,
-    "lo": 0.101,
-    "hi": 0.1257,
-    "sessions": 25986,
-    "cost_per_task_p50": 0.872
+    "rank": 13,
+    "date": "2026-11-22",
+    "score": 0.1045,
+    "lo": 0.0931,
+    "hi": 0.1158,
+    "sessions": 29694,
+    "cost_per_task_p50": 0.827
    },
    {
     "name": "Gemini 4 Argon (High)",
     "org": "google",
     "model_license": "Proprietary",
-    "rank": 11,
-    "date": "2026-11-15",
-    "score": 0.1,
-    "lo": 0.0911,
-    "hi": 0.1089,
-    "sessions": 54375,
-    "cost_per_task_p50": 0.699
+    "rank": 14,
+    "date": "2026-11-22",
+    "score": 0.1025,
+    "lo": 0.093,
+    "hi": 0.1121,
+    "sessions": 56168,
+    "cost_per_task_p50": 0.785
    },
    {
     "name": "GPT-6.1 Sol (Medium)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 12,
-    "date": "2026-11-15",
-    "score": 0.0804,
-    "lo": 0.07,
-    "hi": 0.0908,
-    "sessions": 22501,
-    "cost_per_task_p50": 0.373
+    "rank": 15,
+    "date": "2026-11-22",
+    "score": 0.0821,
+    "lo": 0.0723,
+    "hi": 0.092,
+    "sessions": 24276,
+    "cost_per_task_p50": 0.379
    },
    {
     "name": "Muse Wonder Full (Max)",
     "org": "meta",
     "model_license": "Proprietary",
-    "rank": 13,
-    "date": "2026-11-15",
-    "score": 0.08,
-    "lo": 0.0706,
-    "hi": 0.0894,
-    "sessions": 32136,
+    "rank": 16,
+    "date": "2026-11-22",
+    "score": 0.0804,
+    "lo": 0.071,
+    "hi": 0.0898,
+    "sessions": 31843,
     "cost_per_task_p50": null
-   },
-   {
-    "name": "Qwen4-Max (xHigh)",
-    "org": "alibaba",
-    "model_license": "Proprietary",
-    "rank": 14,
-    "date": "2026-11-15",
-    "score": 0.0746,
-    "lo": 0.0612,
-    "hi": 0.088,
-    "sessions": 14727,
-    "cost_per_task_p50": 1.473
    },
    {
     "name": "Claude Sonnet 5.5 (High)",
     "org": "anthropic",
     "model_license": "Proprietary",
-    "rank": 15,
-    "date": "2026-11-15",
-    "score": 0.0718,
-    "lo": 0.0526,
-    "hi": 0.0911,
-    "sessions": 11174,
-    "cost_per_task_p50": 0.877
+    "rank": 17,
+    "date": "2026-11-22",
+    "score": 0.0787,
+    "lo": 0.0591,
+    "hi": 0.0984,
+    "sessions": 11378,
+    "cost_per_task_p50": 0.753
+   },
+   {
+    "name": "Qwen4-Max (xHigh)",
+    "org": "alibaba",
+    "model_license": "Proprietary",
+    "rank": 18,
+    "date": "2026-11-22",
+    "score": 0.073,
+    "lo": 0.0595,
+    "hi": 0.0865,
+    "sessions": 14517,
+    "cost_per_task_p50": 1.154
    },
    {
     "name": "GPT-6 Sol (Max)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 16,
-    "date": "2026-11-15",
-    "score": 0.0625,
-    "lo": 0.0469,
-    "hi": 0.0782,
-    "sessions": 13147,
-    "cost_per_task_p50": 1.85
-   },
-   {
-    "name": "Claude Fable 5 (High)",
-    "org": "anthropic",
-    "model_license": "Proprietary",
-    "rank": 17,
-    "date": "2026-11-15",
-    "score": 0.0622,
-    "lo": 0.0505,
-    "hi": 0.0739,
-    "sessions": 51090,
-    "cost_per_task_p50": 3.333
+    "rank": 19,
+    "date": "2026-11-22",
+    "score": 0.0646,
+    "lo": 0.049,
+    "hi": 0.0802,
+    "sessions": 13628,
+    "cost_per_task_p50": 1.747
    },
    {
     "name": "Claude Opus 5 (Max)",
     "org": "anthropic",
     "model_license": "Proprietary",
-    "rank": 18,
-    "date": "2026-11-15",
-    "score": 0.0618,
-    "lo": 0.0488,
-    "hi": 0.0749,
-    "sessions": 31933,
-    "cost_per_task_p50": 4.503
+    "rank": 20,
+    "date": "2026-11-22",
+    "score": 0.0617,
+    "lo": 0.0486,
+    "hi": 0.0748,
+    "sessions": 32098,
+    "cost_per_task_p50": 4.357
    },
    {
     "name": "Hy4",
     "org": "tencent",
     "model_license": "Proprietary",
-    "rank": 19,
-    "date": "2026-11-15",
-    "score": 0.0567,
-    "lo": 0.0441,
-    "hi": 0.0692,
-    "sessions": 23160,
-    "cost_per_task_p50": 0.572
+    "rank": 21,
+    "date": "2026-11-22",
+    "score": 0.0609,
+    "lo": 0.0489,
+    "hi": 0.0729,
+    "sessions": 27270,
+    "cost_per_task_p50": 0.447
+   },
+   {
+    "name": "Claude Fable 5 (High)",
+    "org": "anthropic",
+    "model_license": "Proprietary",
+    "rank": 22,
+    "date": "2026-11-22",
+    "score": 0.0609,
+    "lo": 0.0486,
+    "hi": 0.0731,
+    "sessions": 51261,
+    "cost_per_task_p50": 3.568
    },
    {
     "name": "GPT-6.1 Terra (Medium)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 20,
-    "date": "2026-11-15",
-    "score": 0.0444,
-    "lo": 0.0382,
-    "hi": 0.0506,
-    "sessions": 44754,
-    "cost_per_task_p50": 0.159
+    "rank": 23,
+    "date": "2026-11-22",
+    "score": 0.0447,
+    "lo": 0.0392,
+    "hi": 0.0501,
+    "sessions": 61983,
+    "cost_per_task_p50": 0.149
    },
    {
     "name": "Kimi K3.1 Pro (Max)",
     "org": "moonshot",
     "model_license": "Kimi K3.1 Pro License",
-    "rank": 21,
-    "date": "2026-11-15",
-    "score": 0.0395,
-    "lo": 0.0283,
-    "hi": 0.0506,
-    "sessions": 22291,
-    "cost_per_task_p50": 1.158
+    "rank": 24,
+    "date": "2026-11-22",
+    "score": 0.0392,
+    "lo": 0.0279,
+    "hi": 0.0505,
+    "sessions": 22066,
+    "cost_per_task_p50": null
    },
    {
     "name": "GPT-5.6 Sol (xHigh)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 22,
-    "date": "2026-11-15",
-    "score": 0.0372,
-    "lo": 0.026,
-    "hi": 0.0485,
-    "sessions": 45352,
-    "cost_per_task_p50": 1.588
-   },
-   {
-    "name": "Inkling 2 Small",
-    "org": "thinky",
-    "model_license": "Apache 2.0",
-    "rank": 23,
-    "date": "2026-11-15",
-    "score": 0.0251,
-    "lo": 0.0122,
-    "hi": 0.038,
-    "sessions": 13976,
-    "cost_per_task_p50": 0.256
-   },
-   {
-    "name": "Grok 4.7 (xHigh)",
-    "org": "xai",
-    "model_license": "Proprietary",
-    "rank": 24,
-    "date": "2026-11-15",
-    "score": 0.0178,
-    "lo": 0.0028,
-    "hi": 0.0328,
-    "sessions": 18982,
-    "cost_per_task_p50": 3.201
-   },
-   {
-    "name": "Muse Ember (Max)",
-    "org": "meta",
-    "model_license": "Proprietary",
     "rank": 25,
-    "date": "2026-11-15",
-    "score": 0.0173,
-    "lo": 0.0023,
-    "hi": 0.0322,
-    "sessions": 15313,
-    "cost_per_task_p50": 0.02
-   },
-   {
-    "name": "MiMo-V2.6-Pro",
-    "org": "xiaomi",
-    "model_license": "MIT",
-    "rank": 26,
-    "date": "2026-11-15",
-    "score": 0.015,
-    "lo": 0.0059,
-    "hi": 0.0241,
-    "sessions": 51200,
-    "cost_per_task_p50": 0.16
+    "date": "2026-11-22",
+    "score": 0.0345,
+    "lo": 0.0235,
+    "hi": 0.0455,
+    "sessions": 45541,
+    "cost_per_task_p50": 1.309
    },
    {
     "name": "Gemini 3.8 Flash (High)",
     "org": "google",
     "model_license": "Proprietary",
+    "rank": 26,
+    "date": "2026-11-22",
+    "score": 0.0154,
+    "lo": 0.0061,
+    "hi": 0.0248,
+    "sessions": 52613,
+    "cost_per_task_p50": 0.717
+   },
+   {
+    "name": "Inkling 2 Small",
+    "org": "thinky",
+    "model_license": "Apache 2.0",
     "rank": 27,
-    "date": "2026-11-15",
-    "score": 0.0144,
-    "lo": 0.0057,
-    "hi": 0.023,
-    "sessions": 52602,
-    "cost_per_task_p50": 0.757
+    "date": "2026-11-22",
+    "score": 0.0136,
+    "lo": 0.005,
+    "hi": 0.0223,
+    "sessions": 30707,
+    "cost_per_task_p50": 0.213
+   },
+   {
+    "name": "Grok 4.7 (xHigh)",
+    "org": "xai",
+    "model_license": "Proprietary",
+    "rank": 28,
+    "date": "2026-11-22",
+    "score": 0.0128,
+    "lo": -0.0025,
+    "hi": 0.0282,
+    "sessions": 19157,
+    "cost_per_task_p50": 2.882
    },
    {
     "name": "Muse Spark 1.3 (Max)",
     "org": "meta",
     "model_license": "Proprietary",
-    "rank": 28,
-    "date": "2026-11-15",
-    "score": 0.012,
-    "lo": 0.0033,
-    "hi": 0.0207,
-    "sessions": 80777,
-    "cost_per_task_p50": 0.465
+    "rank": 29,
+    "date": "2026-11-22",
+    "score": 0.0128,
+    "lo": 0.0038,
+    "hi": 0.0218,
+    "sessions": 81191,
+    "cost_per_task_p50": 0.443
    },
    {
-    "name": "Claude Sonnet 5 (High)",
-    "org": "anthropic",
-    "model_license": "Proprietary",
-    "rank": 29,
-    "date": "2026-11-15",
-    "score": 0.0114,
-    "lo": -0.0005,
-    "hi": 0.0234,
-    "sessions": 41762,
-    "cost_per_task_p50": 0.87
+    "name": "MiMo-V2.6-Pro",
+    "org": "xiaomi",
+    "model_license": "MIT",
+    "rank": 30,
+    "date": "2026-11-22",
+    "score": 0.0105,
+    "lo": 0.0016,
+    "hi": 0.0194,
+    "sessions": 54071,
+    "cost_per_task_p50": 0.161
    },
    {
     "name": "DeepSeek-V4.1-Flash-20261017 (Max)",
     "org": "deepseek",
     "model_license": "MIT",
-    "rank": 30,
-    "date": "2026-11-15",
-    "score": 0.0113,
-    "lo": 0.0062,
-    "hi": 0.0164,
-    "sessions": 89101,
+    "rank": 31,
+    "date": "2026-11-22",
+    "score": 0.0068,
+    "lo": 0.002,
+    "hi": 0.0116,
+    "sessions": 105824,
     "cost_per_task_p50": 0.141
+   },
+   {
+    "name": "Claude Sonnet 5 (High)",
+    "org": "anthropic",
+    "model_license": "Proprietary",
+    "rank": 32,
+    "date": "2026-11-22",
+    "score": 0.0065,
+    "lo": -0.0059,
+    "hi": 0.0189,
+    "sessions": 42002,
+    "cost_per_task_p50": 1.002
    },
    {
     "name": "Muse Wonder (Max)",
     "org": "meta",
     "model_license": "Proprietary",
-    "rank": 31,
-    "date": "2026-11-15",
-    "score": 0.0095,
-    "lo": -0.0034,
-    "hi": 0.0223,
-    "sessions": 14677,
-    "cost_per_task_p50": 1.155
+    "rank": 33,
+    "date": "2026-11-22",
+    "score": 0.0036,
+    "lo": -0.0089,
+    "hi": 0.016,
+    "sessions": 15801,
+    "cost_per_task_p50": 1.088
    },
    {
     "name": "GPT-6 Luna (Max)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 32,
-    "date": "2026-11-15",
-    "score": 0.0079,
-    "lo": 0.0032,
-    "hi": 0.0125,
-    "sessions": 232894,
-    "cost_per_task_p50": 0.083
+    "rank": 34,
+    "date": "2026-11-22",
+    "score": 0.0033,
+    "lo": -0.0015,
+    "hi": 0.008,
+    "sessions": 241060,
+    "cost_per_task_p50": 0.079
    },
    {
     "name": "GLM-5.3 (Max)",
     "org": "zai",
     "model_license": "MIT",
-    "rank": 33,
-    "date": "2026-11-15",
-    "score": 0.0003,
-    "lo": -0.0082,
-    "hi": 0.0088,
-    "sessions": 95300,
-    "cost_per_task_p50": 0.86
+    "rank": 35,
+    "date": "2026-11-22",
+    "score": 0.0019,
+    "lo": -0.0068,
+    "hi": 0.0107,
+    "sessions": 94985,
+    "cost_per_task_p50": 0.865
    },
    {
     "name": "Kimi K3 (Max)",
     "org": "moonshot",
     "model_license": "Kimi K3 license",
-    "rank": 34,
-    "date": "2026-11-15",
-    "score": -0.0024,
-    "lo": -0.0086,
-    "hi": 0.0038,
-    "sessions": 160399,
-    "cost_per_task_p50": 0.889
-   },
-   {
-    "name": "Hy4 preview",
-    "org": "tencent",
-    "model_license": "Apache 2.0",
-    "rank": 35,
-    "date": "2026-11-15",
-    "score": -0.0026,
-    "lo": -0.0098,
-    "hi": 0.0047,
-    "sessions": 103478,
-    "cost_per_task_p50": 0.426
-   },
-   {
-    "name": "Claude Haiku 5.5 (High)",
-    "org": "anthropic",
-    "model_license": "Proprietary",
     "rank": 36,
-    "date": "2026-11-15",
-    "score": -0.0037,
-    "lo": -0.0138,
-    "hi": 0.0064,
-    "sessions": 32455,
-    "cost_per_task_p50": 0.085
+    "date": "2026-11-22",
+    "score": -0.0015,
+    "lo": -0.008,
+    "hi": 0.0051,
+    "sessions": 160609,
+    "cost_per_task_p50": 1.044
    },
    {
     "name": "GLM-5.2 (Max)",
     "org": "zai",
     "model_license": "MIT",
     "rank": 37,
-    "date": "2026-11-15",
-    "score": -0.0049,
-    "lo": -0.0129,
-    "hi": 0.0032,
-    "sessions": 99070,
-    "cost_per_task_p50": 0.86
+    "date": "2026-11-22",
+    "score": -0.0036,
+    "lo": -0.0121,
+    "hi": 0.0049,
+    "sessions": 99487,
+    "cost_per_task_p50": 0.947
    },
    {
-    "name": "MiMo-V2.6-Flash",
-    "org": "xiaomi",
-    "model_license": "MIT",
-    "rank": 38,
-    "date": "2026-11-15",
-    "score": -0.0064,
-    "lo": -0.0165,
-    "hi": 0.0037,
-    "sessions": 34655,
-    "cost_per_task_p50": 0.075
-   },
-   {
-    "name": "Qwen3.8-Max",
-    "org": "alibaba",
+    "name": "Claude Haiku 5.5 (High)",
+    "org": "anthropic",
     "model_license": "Proprietary",
+    "rank": 38,
+    "date": "2026-11-22",
+    "score": -0.0042,
+    "lo": -0.0148,
+    "hi": 0.0063,
+    "sessions": 33466,
+    "cost_per_task_p50": 0.101
+   },
+   {
+    "name": "Hy4 preview",
+    "org": "tencent",
+    "model_license": "Apache 2.0",
     "rank": 39,
-    "date": "2026-11-15",
-    "score": -0.0087,
-    "lo": -0.0156,
-    "hi": -0.0019,
-    "sessions": 81275,
-    "cost_per_task_p50": 1.236
+    "date": "2026-11-22",
+    "score": -0.0047,
+    "lo": -0.0121,
+    "hi": 0.0027,
+    "sessions": 104463,
+    "cost_per_task_p50": 0.414
    },
    {
     "name": "Grok 4.6 (xHigh)",
     "org": "xai",
     "model_license": "Proprietary",
     "rank": 40,
-    "date": "2026-11-15",
-    "score": -0.0092,
-    "lo": -0.0219,
-    "hi": 0.0034,
-    "sessions": 30240,
-    "cost_per_task_p50": 1.326
+    "date": "2026-11-22",
+    "score": -0.0051,
+    "lo": -0.0184,
+    "hi": 0.0083,
+    "sessions": 30295,
+    "cost_per_task_p50": 1.551
+   },
+   {
+    "name": "Qwen3.8-Max",
+    "org": "alibaba",
+    "model_license": "Proprietary",
+    "rank": 41,
+    "date": "2026-11-22",
+    "score": -0.0099,
+    "lo": -0.0171,
+    "hi": -0.0028,
+    "sessions": 82490,
+    "cost_per_task_p50": 1.191
+   },
+   {
+    "name": "Muse Ember (Max)",
+    "org": "meta",
+    "model_license": "Proprietary",
+    "rank": 42,
+    "date": "2026-11-22",
+    "score": -0.0104,
+    "lo": -0.028,
+    "hi": 0.0071,
+    "sessions": 59883,
+    "cost_per_task_p50": 0.021
+   },
+   {
+    "name": "MiMo-V2.6-Flash",
+    "org": "xiaomi",
+    "model_license": "MIT",
+    "rank": 43,
+    "date": "2026-11-22",
+    "score": -0.0191,
+    "lo": -0.0299,
+    "hi": -0.0084,
+    "sessions": 38375,
+    "cost_per_task_p50": 0.077
    },
    {
     "name": "GPT-5.6 Terra (xHigh)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 41,
-    "date": "2026-11-15",
-    "score": -0.0272,
-    "lo": -0.0353,
-    "hi": -0.0191,
-    "sessions": 44389,
-    "cost_per_task_p50": 0.627
+    "rank": 44,
+    "date": "2026-11-22",
+    "score": -0.0259,
+    "lo": -0.0344,
+    "hi": -0.0174,
+    "sessions": 44529,
+    "cost_per_task_p50": 0.529
    },
    {
     "name": "GPT-6 Luna (Medium)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 42,
-    "date": "2026-11-15",
-    "score": -0.0289,
-    "lo": -0.0335,
-    "hi": -0.0243,
-    "sessions": 87928,
-    "cost_per_task_p50": 0.025
+    "rank": 45,
+    "date": "2026-11-22",
+    "score": -0.0307,
+    "lo": -0.0351,
+    "hi": -0.0264,
+    "sessions": 106241,
+    "cost_per_task_p50": 0.024
    },
    {
     "name": "Gemini 3.7 Flash (High)",
     "org": "google",
     "model_license": "Proprietary",
-    "rank": 43,
-    "date": "2026-11-15",
-    "score": -0.0306,
-    "lo": -0.0398,
-    "hi": -0.0215,
-    "sessions": 63159,
-    "cost_per_task_p50": 0.489
-   },
-   {
-    "name": "MiniMax-M3.1-Flash",
-    "org": "minimax",
-    "model_license": "MiniMax Community License",
-    "rank": 44,
-    "date": "2026-11-15",
-    "score": -0.0352,
-    "lo": -0.0499,
-    "hi": -0.0206,
-    "sessions": 14005,
-    "cost_per_task_p50": 0.211
+    "rank": 46,
+    "date": "2026-11-22",
+    "score": -0.0313,
+    "lo": -0.0408,
+    "hi": -0.0217,
+    "sessions": 63064,
+    "cost_per_task_p50": 0.492
    },
    {
     "name": "GLM-5.3-Flash",
     "org": "zai",
     "model_license": "MIT",
-    "rank": 45,
-    "date": "2026-11-15",
-    "score": -0.037,
-    "lo": -0.0442,
-    "hi": -0.0297,
-    "sessions": 95623,
-    "cost_per_task_p50": 0.143
+    "rank": 47,
+    "date": "2026-11-22",
+    "score": -0.0378,
+    "lo": -0.0454,
+    "hi": -0.0302,
+    "sessions": 96058,
+    "cost_per_task_p50": 0.142
    },
    {
-    "name": "Step 5 Preview",
-    "org": "stepfun",
-    "model_license": "Proprietary",
-    "rank": 46,
-    "date": "2026-11-15",
-    "score": -0.0465,
-    "lo": -0.0607,
-    "hi": -0.0322,
-    "sessions": 17254,
-    "cost_per_task_p50": 0.705
+    "name": "MiniMax-M3.1-Flash",
+    "org": "minimax",
+    "model_license": "MiniMax Community License",
+    "rank": 48,
+    "date": "2026-11-22",
+    "score": -0.0397,
+    "lo": -0.054,
+    "hi": -0.0254,
+    "sessions": 15352,
+    "cost_per_task_p50": 0.204
    },
    {
     "name": "Qwen3.8-Flash-Next",
     "org": "alibaba",
     "model_license": "qwen-community-1.0",
-    "rank": 47,
-    "date": "2026-11-15",
-    "score": -0.0518,
-    "lo": -0.0595,
-    "hi": -0.044,
-    "sessions": 110520,
-    "cost_per_task_p50": 0.226
+    "rank": 49,
+    "date": "2026-11-22",
+    "score": -0.0468,
+    "lo": -0.0546,
+    "hi": -0.039,
+    "sessions": 111527,
+    "cost_per_task_p50": 0.218
+   },
+   {
+    "name": "Step 5 Preview",
+    "org": "stepfun",
+    "model_license": "Proprietary",
+    "rank": 50,
+    "date": "2026-11-22",
+    "score": -0.0515,
+    "lo": -0.0656,
+    "hi": -0.0374,
+    "sessions": 17259,
+    "cost_per_task_p50": 0.588
    },
    {
     "name": "Qwen3.8-27B",
     "org": "alibaba",
     "model_license": "Apache 2.0",
-    "rank": 48,
-    "date": "2026-11-15",
-    "score": -0.0563,
+    "rank": 51,
+    "date": "2026-11-22",
+    "score": -0.0553,
     "lo": -0.0653,
-    "hi": -0.0473,
-    "sessions": 63929,
-    "cost_per_task_p50": 0.386
+    "hi": -0.0452,
+    "sessions": 63899,
+    "cost_per_task_p50": 0.43
    },
    {
     "name": "Gemini 3.1 Pro Preview",
     "org": "google",
     "model_license": "Proprietary",
-    "rank": 49,
-    "date": "2026-11-15",
-    "score": -0.0564,
-    "lo": -0.0733,
-    "hi": -0.0394,
-    "sessions": 87365,
-    "cost_per_task_p50": 0.592
+    "rank": 52,
+    "date": "2026-11-22",
+    "score": -0.0561,
+    "lo": -0.0737,
+    "hi": -0.0386,
+    "sessions": 87227,
+    "cost_per_task_p50": 0.673
    },
    {
     "name": "Mistral Large 4",
     "org": "mistral",
     "model_license": "Modified MIT",
-    "rank": 50,
-    "date": "2026-11-15",
-    "score": -0.0681,
-    "lo": -0.0884,
-    "hi": -0.0479,
-    "sessions": 5699,
-    "cost_per_task_p50": 0.319
+    "rank": 53,
+    "date": "2026-11-22",
+    "score": -0.0624,
+    "lo": -0.0823,
+    "hi": -0.0424,
+    "sessions": 5992,
+    "cost_per_task_p50": 0.277
    },
    {
     "name": "GPT-6 Luna (Low)",
     "org": "openai",
     "model_license": "Proprietary",
-    "rank": 51,
-    "date": "2026-11-15",
-    "score": -0.0718,
-    "lo": -0.0786,
-    "hi": -0.0649,
-    "sessions": 46352,
-    "cost_per_task_p50": 0.01
+    "rank": 54,
+    "date": "2026-11-22",
+    "score": -0.0664,
+    "lo": -0.0732,
+    "hi": -0.0596,
+    "sessions": 51297,
+    "cost_per_task_p50": 0.009
    },
    {
-    "name": "Beam 1.0 501B A23B",
-    "org": "reflection",
+    "name": "Inkling 2 Mini",
+    "org": "thinky",
     "model_license": "Apache 2.0",
-    "rank": 52,
-    "date": "2026-11-15",
-    "score": -0.074,
-    "lo": -0.1027,
-    "hi": -0.0453,
-    "sessions": 12245,
-    "cost_per_task_p50": null
+    "rank": 55,
+    "date": "2026-11-22",
+    "score": -0.0774,
+    "lo": -0.1051,
+    "hi": -0.0497,
+    "sessions": 3648,
+    "cost_per_task_p50": 0.142
    },
    {
     "name": "Qwen3.7-Max",
     "org": "alibaba",
     "model_license": "Proprietary",
-    "rank": 53,
-    "date": "2026-11-15",
-    "score": -0.0801,
-    "lo": -0.093,
-    "hi": -0.0671,
-    "sessions": 43119,
-    "cost_per_task_p50": 0.278
+    "rank": 56,
+    "date": "2026-11-22",
+    "score": -0.085,
+    "lo": -0.0986,
+    "hi": -0.0714,
+    "sessions": 43222,
+    "cost_per_task_p50": 0.243
    },
    {
     "name": "Hy3",
     "org": "tencent",
     "model_license": "Apache 2.0",
-    "rank": 54,
-    "date": "2026-11-15",
+    "rank": 57,
+    "date": "2026-11-22",
     "score": -0.087,
-    "lo": -0.1018,
-    "hi": -0.0722,
-    "sessions": 32755,
-    "cost_per_task_p50": 0.083
+    "lo": -0.1026,
+    "hi": -0.0714,
+    "sessions": 32957,
+    "cost_per_task_p50": 0.078
+   },
+   {
+    "name": "Muse Spark 1.2 (xHigh)",
+    "org": "meta",
+    "model_license": "Proprietary",
+    "rank": 58,
+    "date": "2026-11-22",
+    "score": -0.0876,
+    "lo": -0.0971,
+    "hi": -0.0781,
+    "sessions": 54727,
+    "cost_per_task_p50": 0.423
    },
    {
     "name": "Muse Spark 1.1",
     "org": "meta",
     "model_license": "Proprietary",
-    "rank": 55,
-    "date": "2026-11-15",
-    "score": -0.0901,
-    "lo": -0.0968,
-    "hi": -0.0834,
-    "sessions": 148466,
+    "rank": 59,
+    "date": "2026-11-22",
+    "score": -0.0908,
+    "lo": -0.0976,
+    "hi": -0.084,
+    "sessions": 147656,
     "cost_per_task_p50": null
    },
    {
     "name": "Qwen3.7-Plus",
     "org": "alibaba",
     "model_license": "Proprietary",
-    "rank": 56,
-    "date": "2026-11-15",
-    "score": -0.0902,
-    "lo": -0.1057,
-    "hi": -0.0746,
-    "sessions": 24646,
-    "cost_per_task_p50": 0.174
+    "rank": 60,
+    "date": "2026-11-22",
+    "score": -0.0919,
+    "lo": -0.1085,
+    "hi": -0.0753,
+    "sessions": 24830,
+    "cost_per_task_p50": 0.184
    },
    {
-    "name": "Muse Spark 1.2 (xHigh)",
-    "org": "meta",
-    "model_license": "Proprietary",
-    "rank": 57,
-    "date": "2026-11-15",
-    "score": -0.0908,
-    "lo": -0.0996,
-    "hi": -0.0819,
-    "sessions": 54668,
-    "cost_per_task_p50": 0.412
+    "name": "Beam 1.0 501B A23B",
+    "org": "reflection",
+    "model_license": "Apache 2.0",
+    "rank": 61,
+    "date": "2026-11-22",
+    "score": -0.0954,
+    "lo": -0.126,
+    "hi": -0.0648,
+    "sessions": 12254,
+    "cost_per_task_p50": null
    },
    {
     "name": "MiniMax-M3",
     "org": "minimax",
     "model_license": "MiniMax Community License",
-    "rank": 58,
-    "date": "2026-11-15",
-    "score": -0.1118,
-    "lo": -0.1237,
-    "hi": -0.1,
-    "sessions": 44375,
-    "cost_per_task_p50": 0.379
+    "rank": 62,
+    "date": "2026-11-22",
+    "score": -0.1045,
+    "lo": -0.1165,
+    "hi": -0.0925,
+    "sessions": 44533,
+    "cost_per_task_p50": 0.383
    },
    {
     "name": "Spark-X2.6",
     "org": "synlan",
     "model_license": "Proprietary",
-    "rank": 59,
-    "date": "2026-11-15",
-    "score": -0.1225,
-    "lo": -0.1352,
-    "hi": -0.1099,
-    "sessions": 13808,
-    "cost_per_task_p50": 0.083
+    "rank": 63,
+    "date": "2026-11-22",
+    "score": -0.1234,
+    "lo": -0.1347,
+    "hi": -0.1121,
+    "sessions": 17526,
+    "cost_per_task_p50": 0.078
    },
    {
     "name": "Mistral Medium 3.5",
     "org": "mistral",
     "model_license": "Modified MIT",
-    "rank": 60,
-    "date": "2026-11-15",
-    "score": -0.1447,
-    "lo": -0.163,
-    "hi": -0.1264,
-    "sessions": 13880,
-    "cost_per_task_p50": 0.296
+    "rank": 64,
+    "date": "2026-11-22",
+    "score": -0.1432,
+    "lo": -0.1608,
+    "hi": -0.1256,
+    "sessions": 13876,
+    "cost_per_task_p50": 0.297
    },
    {
     "name": "Nemotron 3 Ultra",
     "org": "nvidia",
     "model_license": "OpenMDW-1.1",
-    "rank": 61,
-    "date": "2026-11-15",
-    "score": -0.164,
-    "lo": -0.1961,
-    "hi": -0.132,
-    "sessions": 13757,
-    "cost_per_task_p50": 0.126
+    "rank": 65,
+    "date": "2026-11-22",
+    "score": -0.1656,
+    "lo": -0.1985,
+    "hi": -0.1327,
+    "sessions": 13873,
+    "cost_per_task_p50": 0.136
    },
    {
     "name": "NVIDIA-Nemotron-3.5-Super-VL-120B-A12B (NVFP4)",
     "org": "nvidia",
     "model_license": "OpenMDW-1.1",
-    "rank": 62,
-    "date": "2026-11-15",
-    "score": -0.1673,
-    "lo": -0.1747,
-    "hi": -0.1599,
-    "sessions": 35763,
+    "rank": 66,
+    "date": "2026-11-22",
+    "score": -0.1769,
+    "lo": -0.1855,
+    "hi": -0.1684,
+    "sessions": 44409,
     "cost_per_task_p50": null
-   },
-   {
-    "name": "Inkling",
-    "org": "thinky",
-    "model_license": "Apache 2.0",
-    "rank": 63,
-    "date": "2026-11-15",
-    "score": -0.1828,
-    "lo": -0.1984,
-    "hi": -0.1671,
-    "sessions": 43869,
-    "cost_per_task_p50": 0.3
    },
    {
     "name": "Inkling-Small",
     "org": "thinky",
     "model_license": "Apache 2.0",
-    "rank": 64,
-    "date": "2026-11-15",
-    "score": -0.187,
-    "lo": -0.207,
-    "hi": -0.1671,
-    "sessions": 14710,
-    "cost_per_task_p50": 0.163
+    "rank": 67,
+    "date": "2026-11-22",
+    "score": -0.1817,
+    "lo": -0.2021,
+    "hi": -0.1613,
+    "sessions": 14689,
+    "cost_per_task_p50": 0.119
+   },
+   {
+    "name": "Inkling",
+    "org": "thinky",
+    "model_license": "Apache 2.0",
+    "rank": 68,
+    "date": "2026-11-22",
+    "score": -0.1854,
+    "lo": -0.2015,
+    "hi": -0.1693,
+    "sessions": 43699,
+    "cost_per_task_p50": 0.205
    },
    {
     "name": "Solar Pro 4",
     "org": "upstage",
     "model_license": "Proprietary",
-    "rank": 65,
-    "date": "2026-11-15",
-    "score": -0.2393,
-    "lo": -0.2613,
-    "hi": -0.2172,
-    "sessions": 11073,
-    "cost_per_task_p50": 0.041
+    "rank": 69,
+    "date": "2026-11-22",
+    "score": -0.2405,
+    "lo": -0.2641,
+    "hi": -0.2169,
+    "sessions": 11183,
+    "cost_per_task_p50": 0.046
    }
   ],
   "source": "arena",
   "license": "CC-BY-4.0",
-  "fetched_at": "2026-11-17T00:59:51Z"
+  "fetched_at": "2026-11-26T04:50:37Z"
  },
  "exgentic": {
   "source": "exgentic",
   "license": "CDLA-Permissive-2.0",
-  "fetched_at": "2026-11-17T00:59:55Z",
+  "fetched_at": "2026-11-26T04:50:41Z",
   "dataset_last_modified": "2026-05-20T09:35:37.000Z",
   "rows": [
    {
@@ -807,7 +855,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -822,7 +870,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -837,7 +885,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -852,7 +900,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -867,7 +915,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -882,7 +930,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -897,7 +945,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -912,7 +960,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -927,7 +975,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -942,7 +990,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -957,7 +1005,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -972,7 +1020,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -987,7 +1035,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1002,7 +1050,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1017,7 +1065,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1032,7 +1080,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1047,7 +1095,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1062,7 +1110,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1077,7 +1125,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1092,7 +1140,7 @@
     "sessions": 51,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1107,7 +1155,7 @@
     "sessions": 97,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1122,7 +1170,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1137,7 +1185,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1152,7 +1200,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1167,7 +1215,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1182,7 +1230,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1197,7 +1245,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1212,7 +1260,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1227,7 +1275,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "claude_code",
@@ -1242,7 +1290,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1257,7 +1305,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1272,7 +1320,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1287,7 +1335,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1302,7 +1350,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1317,7 +1365,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1332,7 +1380,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1347,7 +1395,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1362,7 +1410,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1377,7 +1425,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1392,7 +1440,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1407,7 +1455,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1422,7 +1470,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1437,7 +1485,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1452,7 +1500,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1467,7 +1515,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1482,7 +1530,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1497,7 +1545,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1512,7 +1560,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1527,7 +1575,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1542,7 +1590,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1557,7 +1605,7 @@
     "sessions": 83,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1572,7 +1620,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1587,7 +1635,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1602,7 +1650,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1617,7 +1665,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1632,7 +1680,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1647,7 +1695,7 @@
     "sessions": 94,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1662,7 +1710,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1677,7 +1725,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "openai_solo",
@@ -1692,7 +1740,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1707,7 +1755,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1722,7 +1770,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1737,7 +1785,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1752,7 +1800,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1767,7 +1815,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1782,7 +1830,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1797,7 +1845,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1812,7 +1860,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1827,7 +1875,7 @@
     "sessions": 93,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1842,7 +1890,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1857,7 +1905,7 @@
     "sessions": 98,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1872,7 +1920,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1887,7 +1935,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1902,7 +1950,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1917,7 +1965,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1932,7 +1980,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1947,7 +1995,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1962,7 +2010,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1977,7 +2025,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -1992,7 +2040,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2007,7 +2055,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2022,7 +2070,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2037,7 +2085,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2052,7 +2100,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2067,7 +2115,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2082,7 +2130,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2097,7 +2145,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2112,7 +2160,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2127,7 +2175,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "smolagents_code",
@@ -2142,7 +2190,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2157,7 +2205,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2172,7 +2220,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2187,7 +2235,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2202,7 +2250,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2217,7 +2265,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2232,7 +2280,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2247,7 +2295,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2262,7 +2310,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2277,7 +2325,7 @@
     "sessions": 98,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2292,7 +2340,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2307,7 +2355,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2322,7 +2370,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2337,7 +2385,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2352,7 +2400,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2367,7 +2415,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2382,7 +2430,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2397,7 +2445,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2412,7 +2460,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2427,7 +2475,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2442,7 +2490,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2457,7 +2505,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2472,7 +2520,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2487,7 +2535,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2502,7 +2550,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2517,7 +2565,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2532,7 +2580,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2547,7 +2595,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2562,7 +2610,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2577,7 +2625,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling",
@@ -2592,7 +2640,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2607,7 +2655,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2622,7 +2670,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2637,7 +2685,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2652,7 +2700,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2667,7 +2715,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2682,7 +2730,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2697,7 +2745,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2712,7 +2760,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2727,7 +2775,7 @@
     "sessions": 98,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2742,7 +2790,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2757,7 +2805,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2772,7 +2820,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2787,7 +2835,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2802,7 +2850,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2817,7 +2865,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2832,7 +2880,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2847,7 +2895,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2862,7 +2910,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2877,7 +2925,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2892,7 +2940,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2907,7 +2955,7 @@
     "sessions": 99,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2922,7 +2970,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2937,7 +2985,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2952,7 +3000,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2967,7 +3015,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2982,7 +3030,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -2997,7 +3045,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -3012,7 +3060,7 @@
     "sessions": 50,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -3027,7 +3075,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    },
    {
     "agent": "tool_calling_with_shortlisting",
@@ -3042,7 +3090,7 @@
     "sessions": 100,
     "source": "exgentic",
     "license": "CDLA-Permissive-2.0",
-    "fetched_at": "2026-11-17T00:59:55Z"
+    "fetched_at": "2026-11-26T04:50:41Z"
    }
   ]
  }
