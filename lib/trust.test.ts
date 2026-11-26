@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { allModels, modelBySlug } from "./data";
 import { composite, COVERAGE_GATE } from "./score";
 import { categorySources, measuredScore, provisionalScore, tieWithPrevious } from "./trust";
 
@@ -43,15 +42,13 @@ test("ties use the displayed score, and Arena ranges only when the scores are cl
   assert.deepEqual(marks, [null, "score", null, "arena"]);
 });
 
-test("Claude Fable 5.2 settings link to each other and can show a provisional score", () => {
-  const max = modelBySlug("claude-fable-5-2-max");
-  const xhigh = modelBySlug("claude-fable-5-2-xhigh");
-  assert.ok(max && xhigh);
-  assert.equal(max!.base, xhigh!.base);
-  assert.equal(max!.si, null);
-  const prov = provisionalScore(max!.cats);
-  if (prov != null) assert.ok(prov > 0 && prov <= 100);
-  const siblings = allModels().filter((m) => m.base === max!.base).map((m) => m.slug);
-  assert.ok(siblings.includes("claude-fable-5-2-max"));
-  assert.ok(siblings.includes("claude-fable-5-2-xhigh"));
+test("settings that share a base link, and a thin setting can show a provisional score", () => {
+  const max = { slug: "example-max", base: "Example", si: null as number | null, cats: { coding: 80 } };
+  const xhigh = { slug: "example-xhigh", base: "Example", si: 70, cats: { coding: 70, agents: 70, reasoning: 70, math: 70, chat: 70, instructions: 70 } };
+  assert.equal(max.base, xhigh.base);
+  assert.equal(max.si, null);
+  assert.equal(provisionalScore(max.cats), 80);
+  assert.equal(provisionalScore(xhigh.cats), null);
+  const siblings = [max, xhigh].filter((m) => m.base === max.base).map((m) => m.slug);
+  assert.deepEqual(siblings, ["example-max", "example-xhigh"]);
 });

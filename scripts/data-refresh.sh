@@ -379,6 +379,7 @@ main() {
 
   echo
   echo "== $(date -u '+%H:%M:%S UTC') 2/5 Summary versus the last committed snapshot"
+  node scripts/check-snapshot.mjs || die "snapshot sanity"
   python3 scripts/data-summary.py | tee "$LOGDIR/last-summary.txt" || die "summary"
 
   echo

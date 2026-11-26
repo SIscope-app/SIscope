@@ -52,4 +52,6 @@ set -e
 [ "$(git -C "$repo" rev-list --count HEAD)" = 1 ] || fail "refused commit still created a snapshot"
 [ -z "$(git -C "$repo" diff --cached --name-only)" ] || fail "refused commit left files staged"
 
+grep -q 'check-snapshot.mjs' "$ROOT/scripts/data-refresh.sh" || fail "refresh must sanity-check the snapshot before deploy"
+
 echo "data-refresh guards passed"

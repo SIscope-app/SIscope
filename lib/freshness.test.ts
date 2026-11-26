@@ -1,25 +1,18 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import publish from "../data/publish.json";
-import sources from "../data/sources.json";
 import { fmtDate, fmtDateTime } from "./format";
 import { freshnessNote, mayAdvanceSuccess, sourceShortLabel, updatedLabel } from "./freshness";
-import models from "../data/models.json";
-import slugs from "../data/slugs.json";
 
-test("the public success time is a UTC stamp, separate from source as-of dates", () => {
-  assert.match(publish.last_success_at, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
-  const shown = fmtDateTime(publish.last_success_at);
+test("a success stamp formats as UTC and stays distinct from a source as-of date", () => {
+  const stamp = "2026-11-10T03:47:54Z";
+  const shown = fmtDateTime(stamp);
   assert.match(shown, /UTC$/);
-  assert.match(shown, /2026/);
-  assert.ok(sources.sources.length >= 4);
-  for (const s of sources.sources) {
-    assert.ok(s.as_of);
-    assert.notEqual(s.as_of, publish.last_success_at);
-    assert.notEqual(fmtDate(s.as_of), "n/a");
-    assert.equal(fmtDate(s.as_of).includes("UTC"), false);
-  }
+  assert.match(shown, /Nov 10, 2026/);
+  const asOf = fmtDate("2026-11-09");
+  assert.equal(asOf, "Nov 9, 2026");
+  assert.equal(asOf.includes("UTC"), false);
+  assert.notEqual(asOf, shown);
 });
 
 test("a failed fetch, build, deploy, or live check does not advance the success time", () => {
@@ -37,11 +30,6 @@ test("source labels stay on the ids already in the snapshot", () => {
   assert.equal(sourceShortLabel("openrouter", "OpenRouter models API"), "OpenRouter prices");
   assert.equal(sourceShortLabel("exgentic", "Open Agent Leaderboard results (Exgentic)"), "Open Agent Leaderboard");
   assert.equal(sourceShortLabel("other", "Full name"), "Full name");
-});
-
-test("Artificial Analysis stays blocked and is not a source", () => {
-  assert.ok(sources.blocked.some((b) => b.name === "Artificial Analysis"));
-  assert.equal(sources.sources.some((s) => /artificial analysis/i.test(s.name)), false);
 });
 
 test("the header date is the Chicago success day, and sources stay attributed", () => {
@@ -69,8 +57,7 @@ test("the header date is the Chicago success day, and sources stay attributed", 
   assert.match(home, /Arena history through/);
   assert.match(proxy, /status: 404/);
   assert.match(refresh, /HTTP 200 on the public pages/);
-  const fromModels = (models as { models: { slug: string }[] }).models.map((m) => m.slug).sort();
-  assert.deepEqual([...slugs].sort(), fromModels);
+  assert.match(refresh, /check-snapshot\.mjs/);
   assert.doesNotMatch(home, /Data as of \$\{fmtDate\(lastDate\)\}/);
   assert.match(workflow, /cron: "0 11 \* \* \*"/);
   assert.match(workflow, /cron: "0 12 \* \* \*"/);
