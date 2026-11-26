@@ -2,8 +2,15 @@ import { og } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BarRows } from "@/components/rows";
-import { AGENTS, allModels, ensureData, sourceById } from "@/lib/data";
+import { AGENTS, allModels, builtAt, ensureData, sourceById } from "@/lib/data";
 import { fmtDate, fmtInt } from "@/lib/format";
+import { STALE_AFTER_DAYS } from "@/lib/score";
+
+function olderThan90(date: string): boolean {
+  const now = Date.parse(builtAt());
+  const then = Date.parse(date.length <= 10 ? `${date}T00:00:00Z` : date);
+  return Number.isFinite(now) && Number.isFinite(then) && now - then > STALE_AFTER_DAYS * 86400000;
+}
 
 export const metadata: Metadata = {
   title: "Agent results",
@@ -64,14 +71,14 @@ export default async function Page() {
       <div className="page-head">
         <div className="eyebrow">Agents</div>
         <h1 className="h1" style={{ marginTop: 8 }}>Models that finish multi-step work</h1>
-        <p className="lede">The score on the tile is the Arena Agent board ({fmtDate(AGENTS.arena_agent.publish_date)}). The grid further down is the Open Agent Leaderboard, a different file dated {fmtDate(AGENTS.exgentic.dataset_last_modified)}.</p>
+        <p className="lede">Two boards, kept apart. They measure different work and are not directly comparable. A file older than {STALE_AFTER_DAYS} days is marked old.</p>
       </div>
 
       <section className="section" style={{ marginTop: 10 }}>
         <div className="sh">
           <div>
-            <h2 className="h2">Top 20 on Arena agents</h2>
-            <p className="sub">Scored from {fmtInt(aa.rows.reduce((a, r) => a + (r.sessions ?? 0), 0))} real agent sessions. Score: Agent Arena&apos;s rating from user signals, shown as a percentage like on Arena (higher is better). Updated {fmtDate(aa.publish_date)}.</p>
+            <h2 className="h2">Arena Agent board</h2>
+            <p className="sub">What it measures: real multi-step agent sessions, scored from user signals on Arena. This is not the SIscope Score. Date: {fmtDate(aa.publish_date)}.{olderThan90(aa.publish_date) ? " Old: this file is more than 90 days before the snapshot." : ""} {fmtInt(aa.rows.reduce((a, r) => a + (r.sessions ?? 0), 0))} sessions in the file.</p>
           </div>
           <Link className="more" href="/best/agents">Best for agents →</Link>
         </div>
@@ -86,9 +93,9 @@ export default async function Page() {
       <section className="section">
         <div className="sh">
           <div>
-            <h2 className="h2">Same model, different setups</h2>
+            <h2 className="h2">Open Agent Leaderboard</h2>
             <p className="sub">
-              Exgentic Open Agent Leaderboard: the same 5 models run inside 5 agent setups on AppWorld, BrowseComp+, SWE-bench and Tau² (each counts a quarter). Share of tasks solved.
+              What it measures: the same models run inside several agent setups on AppWorld, BrowseComp+, SWE-bench and Tau². The cell is the share of tasks solved. Date: {fmtDate(ex.dataset_last_modified)}.{olderThan90(ex.dataset_last_modified) ? " Old: this file is more than 90 days before the snapshot." : ""} Not the same scale as the Arena Agent board above, so the two lists are not directly comparable.
             </p>
           </div>
         </div>

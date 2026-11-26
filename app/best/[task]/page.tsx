@@ -6,15 +6,40 @@ import { Avatar, OpenTag } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { BarRows } from "@/components/rows";
-import { fmtInOut } from "@/lib/format";
+import { fmtDate } from "@/lib/format";
+import { formatListPrice, formatScore } from "@/lib/facts";
 import { orgName } from "@/lib/orgs";
 import { headlineEligible } from "@/lib/score";
 import { TASKS, taskBySlug, taskRanking, CHEAP_MAX } from "@/lib/tasks";
-import { AGENTS, ensureData, textPublishDate } from "@/lib/data";
+import { AGENTS, ensureData, siRanked, textPublishDate } from "@/lib/data";
+import { ScoreNote } from "@/components/ScoreNote";
+import { bandLeaders, paretoFrontier } from "@/lib/value";
 import { categorySources } from "@/lib/trust";
-import { fmtDate } from "@/lib/format";
 
 export const instant = false;
+
+function ValueBands() {
+  const rows = siRanked()
+    .filter((m) => m.price && m.price.blended_per_m > 0 && m.si != null)
+    .map((m) => ({ slug: m.slug, name: m.name, si: m.si!, price: m.price!.blended_per_m }));
+  const frontier = paretoFrontier(rows);
+  const bands = bandLeaders(rows);
+  return (
+    <section className="section">
+      <h2 className="h2">Best score in each price band</h2>
+      <p className="sub">Blended list price, three input tokens per output token. A model is on the frontier when no other model is both cheaper and higher scoring. The band leader is the highest SIscope Score at or under that cap.</p>
+      <ul>
+        {bands.map((b) => (
+          <li key={b.cap}>
+            <Link href={`/models/${b.model.slug}`}>Under ${b.cap < 1 ? b.cap.toFixed(2) : b.cap}/1M: {b.model.name}</Link>
+            {` · score ${formatScore(b.model.si)} · $${b.model.price.toFixed(2)} blended`}
+          </li>
+        ))}
+      </ul>
+      <p className="note">{frontier.length} models sit on the frontier in this snapshot. A missing price is left off. It is not treated as free.</p>
+    </section>
+  );
+}
 
 export function generateStaticParams() {
   return TASKS.map((t) => ({ task: t.slug }));
@@ -105,8 +130,8 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
                       <OpenTag open={m.open} />
                     </Link>
                     <div style={{ color: "var(--muted)", fontSize: 14 }}>
-                      {t.metric}: <b style={{ color: "var(--text)" }}>{disp(t.get(m)!)}</b>
-                      {m.price ? ` · ${fmtInOut(m.price.input_per_m, m.price.output_per_m)}` : " · No list price (not free)"}
+                      {t.metric}: <b style={{ color: "var(--text)" }}>{t.metric.startsWith("SIscope") ? formatScore(m.si) : disp(t.get(m)!)}</b>
+                      {` · ${formatListPrice(m.price)}`}
                     </div>
                     <div style={{ color: "var(--faint)", fontSize: 12.5 }}>
                       {t.slug === "agents"
@@ -134,6 +159,10 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
               <BarRows items={top.map(({ m, v }) => ({ slug: m.slug, name: m.name, base: m.base, variant: m.variant, org: m.org, open: m.open, value: v, display: disp(v) }))} floor={floor} />
             </div>
             <p className="note">Based on {t.sourceNote} {floor === 0 ? "The bar axis starts at 0." : `The bar axis starts at ${floor}, not 0.`} {r.length} models have data for this task.</p>
+            {t.metric.startsWith("SIscope") ? <ScoreNote /> : null}
+            {t.slug === "cheap" && (
+              <ValueBands />
+            )}
           </section>
         </>
       )}

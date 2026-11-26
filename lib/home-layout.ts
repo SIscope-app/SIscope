@@ -72,6 +72,22 @@ export function lastRankChange(changes: { kind: string; date: string }[]): strin
   return dates.at(-1) ?? null;
 }
 
+/** A board move is performance. A first appearance is coverage. A price listing is neither. */
+export function changeNature(kind: string): "performance" | "coverage" | "price" | null {
+  if (kind === "new_entry") return "coverage";
+  if (kind === "up" || kind === "down" || kind === "new_leader" || kind === "holds_leader") return "performance";
+  if (kind === "price_new" || kind === "price_cut" || kind === "gap") return "price";
+  return null;
+}
+
+export function changeNatureLabel(kind: string): string | null {
+  const nature = changeNature(kind);
+  if (nature === "performance") return "Performance change";
+  if (nature === "coverage") return "Data-coverage change";
+  if (nature === "price") return "Price change";
+  return null;
+}
+
 export function changeRangeLabel(changes: { date: string }[], fmt: (iso: string) => string): string {
   const span = changeSpan(changes);
   if (!span) return "No updates in this snapshot.";
