@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { EpochBenchmark, Model } from "./types";
 import { prettyName, prettyParts } from "./names";
-import { categoryScores, composite, type CategoryScores, type Components } from "./score";
+import { categoryScores, composite, referencePercentiles, type CategoryScores, type Components } from "./score";
 import { provisionalScore } from "./trust";
 
 /**
@@ -172,16 +172,40 @@ export function sourceById(id: string) {
   return SOURCES.sources.find((s) => s.id === id)!;
 }
 
-export function components(m: Model): Components {
+/** Raw board values. Percentiles are applied later against the reference cohort. */
+export function rawComponents(m: Model): Components {
   const c: Components = {};
   const a = m.arena;
-  if (a.text?.pct != null) c["arena.text"] = a.text.pct;
-  if (a.webdev?.pct != null) c["arena.webdev"] = a.webdev.pct;
-  if (a.agent?.pct != null) c["arena.agent"] = a.agent.pct;
-  if (a.vision?.pct != null) c["arena.vision"] = a.vision.pct;
-  for (const [k, v] of Object.entries(a.text_categories?.cats ?? {})) if (v.pct != null) c[`arena.text.${k}`] = v.pct;
-  for (const e of m.epoch) if (e.pct != null) c[`epoch.${e.benchmark}`] = e.pct;
+  if (a.text?.rating != null) c["arena.text"] = a.text.rating;
+  if (a.webdev?.rating != null) c["arena.webdev"] = a.webdev.rating;
+  if (a.vision?.rating != null) c["arena.vision"] = a.vision.rating;
+  if (a.agent?.score != null) c["arena.agent"] = a.agent.score;
+  for (const [k, v] of Object.entries(a.text_categories?.cats ?? {})) if (v.rating != null) c[`arena.text.${k}`] = v.rating;
+  for (const e of m.epoch) if (e.score != null) c[`epoch.${e.benchmark}`] = e.score;
   return c;
+}
+
+function stampPercentiles(m: NamedModel, comp: Components, basis: Record<string, number>): NamedModel {
+  const arena = { ...m.arena };
+  const block = <T extends { pct: number | null }>(value: T | undefined, key: string): T | undefined =>
+    value && comp[key] != null ? { ...value, pct: comp[key] } : value;
+  arena.text = block(arena.text, "arena.text");
+  arena.webdev = block(arena.webdev, "arena.webdev");
+  arena.vision = block(arena.vision, "arena.vision");
+  arena.agent = block(arena.agent, "arena.agent");
+  if (arena.text_categories) {
+    const cats: NonNullable<Model["arena"]["text_categories"]>["cats"] = {};
+    for (const [key, value] of Object.entries(arena.text_categories.cats)) {
+      const pct = comp[`arena.text.${key}`];
+      cats[key] = pct == null ? value : { ...value, pct };
+    }
+    arena.text_categories = { ...arena.text_categories, cats };
+  }
+  const epoch = m.epoch.map((row) => {
+    const key = `epoch.${row.benchmark}`;
+    return comp[key] == null ? row : { ...row, pct: comp[key], tested_models: basis[key] ?? row.tested_models };
+  });
+  return { ...m, arena, epoch };
 }
 
 export type Enriched = Model & {
@@ -196,11 +220,14 @@ export type Enriched = Model & {
 let _cache: Enriched[] | null = null;
 export function allModels(): Enriched[] {
   if (_cache) return _cache;
-  const list = snapshot().raw.models.map((m) => {
-    const comp = components(m);
+  const models = snapshot().raw.models;
+  const raws = models.map(rawComponents);
+  const { comps, basis } = referencePercentiles(raws, raws.map((raw) => typeof raw["arena.agent"] === "number"));
+  const list = models.map((m, i) => {
+    const comp = comps[i];
     const cats = categoryScores(comp);
     const c = composite(cats);
-    return { ...m, comp, cats, si: c.score, coverage: c.coverage, siRank: null as number | null };
+    return { ...stampPercentiles(m, comp, basis), comp, cats, si: c.score, coverage: c.coverage, siRank: null as number | null };
   });
   const ranked = list.filter((m) => m.si != null).sort((a, b) => b.si! - a.si!);
   ranked.forEach((m, i) => (m.siRank = i + 1));

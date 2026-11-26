@@ -6,8 +6,9 @@ import { Avatar, OpenTag, VariantChip } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
 import { JsonLd } from "@/components/JsonLd";
 import { BarRows } from "@/components/rows";
-import { fmtPrice } from "@/lib/format";
+import { fmtInOut } from "@/lib/format";
 import { orgName } from "@/lib/orgs";
+import { headlineEligible } from "@/lib/score";
 import { TASKS, taskBySlug, taskRanking, CHEAP_MAX } from "@/lib/tasks";
 import { AGENTS, ensureData, textPublishDate } from "@/lib/data";
 import { categorySources } from "@/lib/trust";
@@ -38,9 +39,11 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
   const t = taskBySlug(task);
   if (!t) notFound();
   const r = taskRanking(t);
-  const top = r.slice(0, 10);
-  const w = top[0]?.m;
-  const bestOpen = r.find((x) => x.m.open && x.m !== w)?.m;
+  const eligible = r.filter((x) => headlineEligible(x.m.comp));
+  const ordered = [...eligible, ...r.filter((x) => !headlineEligible(x.m.comp))];
+  const top = ordered.slice(0, 10);
+  const w = eligible[0]?.m;
+  const bestOpen = eligible.find((x) => x.m.open && x.m !== w)?.m;
   const bestCheap = r.find((x) => x.m.price && x.m.price.blended_per_m <= CHEAP_MAX && x.m !== w)?.m;
   const disp = (v: number) => (t.scale === "elo" ? Math.round(v).toString() : v.toFixed(0));
   const vals = top.map((x) => x.v);
@@ -104,7 +107,7 @@ export default async function Page({ params }: PageProps<"/best/[task]">) {
                     </Link>
                     <div style={{ color: "var(--muted)", fontSize: 14 }}>
                       {t.metric}: <b style={{ color: "var(--text)" }}>{disp(t.get(m)!)}</b>
-                      {m.price ? ` · ${fmtPrice(m.price.blended_per_m)} blended per 1M tokens${m.price.blended_per_m === 0 ? " (listed at $0, not unknown)" : ""}` : " · No list price (not free)"}
+                      {m.price ? ` · ${fmtInOut(m.price.input_per_m, m.price.output_per_m)}` : " · No list price (not free)"}
                     </div>
                     <div style={{ color: "var(--faint)", fontSize: 12.5 }}>
                       {t.slug === "agents"

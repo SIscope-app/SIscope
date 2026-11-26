@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CopyButton } from "@/components/CopyButton";
 import { ensureData, modelBySlug, siRanked } from "@/lib/data";
-import { fmtPrice } from "@/lib/format";
+import { fmtInOut } from "@/lib/format";
 import { matchupByKey, popularMatchups } from "@/lib/matchups";
 import { compareSummary } from "@/lib/present";
 import { SITE, og } from "@/lib/site";
@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: Promise<{ pair: string 
   const card = (m: typeof a) => (
     <article className="card" style={{ padding: 18 }}>
       <Link href={`/models/${m.slug}`} className="decide-name">{m.name}</Link>
-      <p className="sub">{m.si == null ? "No SIscope score yet." : `SIscope score ${m.si.toFixed(0)}.`} {m.price ? `${fmtPrice(m.price.blended_per_m)} per 1M.` : "No list price."}</p>
+      <p className="sub">{m.si == null ? "No SIscope score yet." : `SIscope score ${m.si.toFixed(0)}.`} {m.price ? `${fmtInOut(m.price.input_per_m, m.price.output_per_m)}.` : "No list price."}</p>
     </article>
   );
   return (

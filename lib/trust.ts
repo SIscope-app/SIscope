@@ -2,7 +2,7 @@
  * Labels around the existing score. The coverage gate, weights, and composite() stay as they are.
  * A provisional number uses the same floor formula and is never written back into the ranking.
  */
-import { CATEGORIES, COVERAGE_GATE, composite, DEFAULT_WEIGHTS, type CategoryId, type CategoryScores, type Components } from "./score";
+import { CATEGORIES, COVERAGE_GATE, composite, DEFAULT_WEIGHTS, MISSING_PERCENTILE, type CategoryId, type CategoryScores, type Components } from "./score";
 
 export type Measured = {
   /** Same floor formula as the official score, including models under the coverage gate. */
@@ -34,8 +34,7 @@ export function measuredScore(cats: CategoryScores, weights: Record<CategoryId, 
   }
   const coverage = total > 0 ? covered / total : 0;
   if (!measured.length) return { score: null, coverage, imputed: [], official: official.score };
-  const floor = Math.min(...measured);
-  const score = (sum + (total - covered) * floor) / total;
+  const score = (sum + (total - covered) * MISSING_PERCENTILE) / total;
   return { score, coverage, imputed, official: official.score };
 }
 

@@ -41,8 +41,8 @@ export function priceChangeCopy(sub: string): PriceChangeCopy {
     const blended = (input * 3 + output) / 4;
     return {
       mode: "new",
-      headline: `${fmtPrice(blended)} /1M`,
-      detail: `${fmtPrice(input)} in · ${fmtPrice(output)} out · new list price`,
+      headline: `${fmtPrice(input)} in / ${fmtPrice(output)} out`,
+      detail: `${fmtPrice(blended)} /1M blended · new list price`,
     };
   }
   return { mode: "new", headline: "New list price", detail: sub };

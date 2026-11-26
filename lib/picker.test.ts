@@ -4,10 +4,11 @@ import { fixtureModel, fixturePrice } from "./fixture-model";
 import { recommend } from "./picker";
 
 test("the picker stays inside the budget and the open-weight rule", () => {
+  const comp = { "arena.text": 80, "arena.webdev": 70 };
   const models = [
-    fixtureModel({ slug: "closed", base: "Closed", si: 90, open: false, price: fixturePrice(2) }),
-    fixtureModel({ slug: "open-cheap", base: "Open", si: 80, open: true, price: fixturePrice(0.4) }),
-    fixtureModel({ slug: "open-pricey", base: "Open Pricey", si: 88, open: true, price: fixturePrice(5) }),
+    fixtureModel({ slug: "closed", base: "Closed", si: 90, open: false, price: fixturePrice(2), comp }),
+    fixtureModel({ slug: "open-cheap", base: "Open", si: 80, open: true, price: fixturePrice(0.4), comp }),
+    fixtureModel({ slug: "open-pricey", base: "Open Pricey", si: 88, open: true, price: fixturePrice(5), comp }),
   ];
   const open = recommend(models, { task: "overall", maxPrice: 1, openOnly: true });
   assert.equal(open.primary?.slug, "open-cheap");

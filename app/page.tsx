@@ -9,8 +9,9 @@ import { JsonLd } from "@/components/JsonLd";
 import type { TopItem } from "@/components/HomeShell";
 import type { ScatterPt } from "@/components/Scatter";
 import { AGENTS, CHANGES, ensureData, siRanked, type Enriched } from "@/lib/data";
+import { headlineEligible } from "@/lib/score";
 import { buildDecisions, type DecisionCard } from "@/lib/decisions";
-import { fmtDate, fmtPrice, shownGap } from "@/lib/format";
+import { fmtDate, fmtInOut, shownGap } from "@/lib/format";
 import { changeRangeLabel, materialChanges, priceChangeCopy } from "@/lib/home-layout";
 import { orgName } from "@/lib/orgs";
 import { CATEGORIES, COVERAGE_GATE } from "@/lib/score";
@@ -29,7 +30,7 @@ function row(m: Enriched): TopItem {
     org: m.org,
     open: m.open,
     si: m.si!,
-    price: m.price ? fmtPrice(m.price.blended_per_m) : null,
+    price: m.price ? fmtInOut(m.price.input_per_m, m.price.output_per_m) : null,
     measured: `${c.n}/${c.total} measured`,
     lo: m.arena.text?.lo ?? null,
     hi: m.arena.text?.hi ?? null,
@@ -224,8 +225,9 @@ export default async function Home() {
     <div className="tasks">
         {LIVE_TASKS.map((t) => {
         const r = taskRanking(t);
-        const w = r[0]?.m;
-        const o = r.find((x) => x.m.open && x.m !== w)?.m;
+        const eligible = r.filter((x) => headlineEligible(x.m.comp));
+        const w = eligible[0]?.m;
+        const o = eligible.find((x) => x.m.open && x.m !== w)?.m;
         return (
           <Link key={t.slug} href={`/best/${t.slug}`} className="card task">
             <span className="tl">
@@ -245,7 +247,7 @@ export default async function Home() {
                   <span className="n" title={w.name}>{w.base}</span>
                   <VariantChip v={w.variant} />
                 </span>
-                <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? `${fmtPrice(w.price.blended_per_m)} per 1M tokens` : "Top open-weight pick") : o ? <>Best open: {o.base}{o.variant ? ` (${o.variant})` : ""}</> : "No open model with data yet"}</span>
+                <span className="alt">{t.slug === "open" || t.slug === "cheap" ? (t.slug === "cheap" && w.price ? fmtInOut(w.price.input_per_m, w.price.output_per_m) : "Top open-weight pick") : o ? <>Best open: {o.base}{o.variant ? ` (${o.variant})` : ""}</> : "No open model with data yet"}</span>
                 {t.slug === "open" ? <span className="alt">This tile uses the full score. A job tile uses that job, and the Arena gap uses text votes only.</span> : null}
                 {t.slug === "agents" ? <span className="alt">Driven by the Arena Agent board, {fmtDate(AGENTS.arena_agent.publish_date, { year: false })}. The Open Agent Leaderboard file is {fmtDate(AGENTS.exgentic.dataset_last_modified, { year: false })} and is a separate table.</span> : null}
               </>

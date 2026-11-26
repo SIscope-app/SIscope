@@ -5,14 +5,28 @@ export function fmtDate(s: string | null | undefined, opts: { year?: boolean } =
   return d.toLocaleDateString("en-US", { day: "numeric", month: "short", ...(opts.year ? { year: "numeric" } : {}), timeZone: "UTC" });
 }
 
-/** Full UTC time for the last successful site update. Source as-of dates use fmtDate. */
+/**
+ * A timestamp in US Central time. The zone is fixed so server and browser
+ * render the same string. Date-only source days stay on fmtDate.
+ */
 export function fmtDateTime(s: string | null | undefined): string {
   if (!s) return "n/a";
   const d = new Date(s.length === 10 ? s + "T12:00:00Z" : s);
   if (Number.isNaN(d.getTime())) return "n/a";
-  const date = d.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
-  const time = d.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: "UTC" });
-  return `${date}, ${time} UTC`;
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+    timeZone: "America/Chicago",
+    timeZoneName: "shortGeneric",
+  }).format(d);
+}
+
+/** The main list-price figure: input and output, not the blended mix. */
+export function fmtInOut(input: number, output: number): string {
+  return `${fmtPrice(input)} in / ${fmtPrice(output)} out`;
 }
 
 function dollar(v: number, body: string): string {

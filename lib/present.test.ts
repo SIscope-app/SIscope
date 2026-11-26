@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import test from "node:test";
 import { buildDecisions } from "./decisions";
 import { fixtureArena, fixtureModel, fixturePrice } from "./fixture-model";
-import { fmtPrice, fmtPriceExact } from "./format";
+import { fmtInOut, fmtPrice, fmtPriceExact } from "./format";
 import {
   compareDefaultSlugs,
   compareSummary,
@@ -19,8 +19,18 @@ import {
 } from "./present";
 import { CATEGORIES, COVERAGE_GATE, DEFAULT_WEIGHTS, SCORE_VERSION } from "./score";
 
-test("score v0.2.0 weights and coverage gate stay put", () => {
-  assert.equal(SCORE_VERSION, "0.2.0");
+const eligibleComp = {
+  "arena.text": 80,
+  "arena.webdev": 70,
+  "arena.agent": 60,
+  "arena.text.coding": 75,
+  "arena.text.math": 70,
+  "arena.text.hard_prompts": 70,
+  "arena.text.instruction_following": 70,
+};
+
+test("score v0.3.0 weights and coverage gate stay put", () => {
+  assert.equal(SCORE_VERSION, "0.3.0");
   assert.equal(COVERAGE_GATE, 0.7);
   assert.deepEqual(DEFAULT_WEIGHTS, { coding: 25, agents: 25, reasoning: 20, math: 15, chat: 10, instructions: 5 });
 });
@@ -41,6 +51,7 @@ function decisionFixtures() {
     cats: { coding: 70, agents: 90, reasoning: 90, math: 90, chat: 90, instructions: 90 },
     arena: { text: fixtureArena(27, { board_size: 400 }) },
     price: fixturePrice(8),
+    comp: eligibleComp,
   });
   const coding = fixtureModel({
     slug: "coder-max",
@@ -51,6 +62,7 @@ function decisionFixtures() {
     cats: { coding: 99, agents: 70, reasoning: 70, math: 70, chat: 70, instructions: 70 },
     arena: { webdev: fixtureArena(3, { board_size: 80 }) },
     price: fixturePrice(6),
+    comp: eligibleComp,
   });
   const value = fixtureModel({
     slug: "value-pro",
@@ -61,6 +73,7 @@ function decisionFixtures() {
     open: false,
     cats: { coding: 50 },
     price: fixturePrice(0.5),
+    comp: eligibleComp,
   });
   const open = fixtureModel({
     slug: "open-best",
@@ -70,6 +83,7 @@ function decisionFixtures() {
     open: true,
     cats: { coding: 40 },
     price: fixturePrice(0.4),
+    comp: eligibleComp,
   });
   const pool = [overall, coding, value, open];
   return { overall, coding, value, open, decisions: buildDecisions(pool, pool) };
@@ -95,7 +109,7 @@ test("homepage picks link to the exact setting and do not swap rank systems", ()
   assert.deepEqual(d.compareSlugs, [overall.slug, coding.slug, value.slug]);
   assert.equal(d.value?.href, `/models/${value.slug}`);
   assert.equal(d.value?.name, settingLabel(value.base, value.variant));
-  assert.equal(d.value?.score, fmtPrice(value.price!.blended_per_m));
+  assert.equal(d.value?.score, fmtInOut(value.price!.input_per_m, value.price!.output_per_m));
   assert.match(d.value?.reason ?? "", /SIscope score/);
 });
 
@@ -113,7 +127,8 @@ test("coverage names gaps and does not treat them as zero", () => {
   const note = scoreFootnote(cats, 0.75, 98);
   assert.match(note, /Not measured: Agents & tools/);
   assert.match(note, /not a zero/);
-  assert.match(note, /weakest measured category/);
+  assert.match(note, /reference 25th percentile/);
+  assert.match(note, /provisional/);
   assert.match(scoreFootnote({}, 0.2, null), /not zeros/);
   assert.match(scoreFootnote({ coding: 1, agents: 1, reasoning: 1, math: 1, chat: 1, instructions: 1 }, 1, 90), /All six categories/);
   const { missing } = measuredAndMissing(cats);

@@ -34,6 +34,14 @@ class EpochPickTest(unittest.TestCase):
         self.assertEqual(pick_latest([early, later_file_older_run])["score"], 0.7872)
         self.assertEqual(pick_latest([later_file_older_run, early])["score"], 0.7872)
 
+    def test_latest_run_uses_mean_score_not_the_best_score(self):
+        earlier = {"run_date": "2026-02-01", "score": 0.99, "mean_score": 0.9}
+        later = {"run_date": "2026-03-01", "score": 0.99, "mean_score": 0.4}
+        self.assertEqual(pick_latest([earlier, later])["mean_score"], 0.4)
+        self.assertEqual(pick_latest([later, earlier])["mean_score"], 0.4)
+        same_day_low = {"run_date": "2026-03-01", "score": 0.99, "mean_score": 0.2}
+        self.assertEqual(pick_latest([same_day_low, later])["mean_score"], 0.4)
+
 
 if __name__ == "__main__":
     unittest.main()

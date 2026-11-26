@@ -1,7 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { fmtPrice } from "@/lib/format";
+import { fmtInOut, fmtPrice } from "@/lib/format";
 import { LIVE_TASKS } from "@/lib/task-meta";
 
 type Row = {
@@ -12,6 +12,8 @@ type Row = {
   open: boolean;
   si: number | null;
   price: number | null;
+  priceIn: number | null;
+  priceOut: number | null;
   tasks: Record<string, number | null>;
 };
 
@@ -37,7 +39,7 @@ export function Picker({ models }: { models: Row[] }) {
   const metric = result.spec?.metric ?? "SIscope score";
   const show = (v: number) => (result.spec?.scale === "elo" ? String(Math.round(v)) : v.toFixed(0));
   const line = (row: { m: Row; v: number }, why: string) =>
-    `${why} ${metric} ${show(row.v)}, ${row.m.price == null ? "no list price" : `${fmtPrice(row.m.price)} per 1M`}, ${row.m.open ? "open weights" : "closed weights"}.`;
+    `${why} ${metric} ${show(row.v)}, ${row.m.priceIn != null && row.m.priceOut != null ? fmtInOut(row.m.priceIn, row.m.priceOut) : row.m.price == null ? "no list price" : `${fmtPrice(row.m.price)} per 1M`}, ${row.m.open ? "open weights" : "closed weights"}.`;
 
   return (
     <div className="card" style={{ padding: 20, display: "grid", gap: 16 }}>

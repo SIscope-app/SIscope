@@ -28,7 +28,7 @@ export function scoreFootnote(cats: CategoryScores, coverage: number, si: number
     return `No SIscope score yet: measured categories cover ${Math.round(coverage * 100)}% of the weight, and ${Math.round(COVERAGE_GATE * 100)}% is required. Missing results are not zeros.`;
   }
   if (!missing.length) return "All six categories have a measured result.";
-  return `Measured: ${measured.join(", ")}. Not measured: ${missing.join(", ")}. A missing result is not a zero. The missing weight counts as this model's weakest measured category, so the gap cannot raise the score.`;
+  return `Measured: ${measured.join(", ")}. Not measured: ${missing.join(", ")}. A missing result is not a zero. Each missing category counts at the reference 25th percentile, so the gap cannot raise the score. This score is provisional.`;
 }
 
 export type PriceStatus = { kind: "unknown" | "free" | "priced"; short: string; detail: string };

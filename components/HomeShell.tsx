@@ -56,7 +56,7 @@ function TopList({ items, ties }: { items: TopItem[]; ties: ReturnType<typeof ti
                     <span className={`bar ${it.open ? "open" : ""}`} style={{ width: `${w.toFixed(1)}%` }} />
                   </span>
                   <span className="sc" aria-label={`SIscope score ${it.si.toFixed(0)}`}>{it.si.toFixed(0)}</span>
-                  <span className={`t10-p ${it.price ? "" : "t10-unk"}`} title={it.price === "$0" ? "OpenRouter lists this at $0 per 1M tokens." : it.price ? `${it.price} per 1M tokens, blended` : "Not listed on OpenRouter. Unknown is not free."}>
+                  <span className={`t10-p ${it.price ? "" : "t10-unk"}`} title={it.price === "$0" ? "OpenRouter lists this at $0." : it.price ? it.price : "Not listed on OpenRouter. Unknown is not free."}>
                     {it.price ?? "No list price"}
                   </span>
                 </span>
