@@ -1,7 +1,7 @@
 import { categorySources } from "@/lib/trust";
 import { CATEGORIES, type CategoryId, type CategoryScores, type Components } from "@/lib/score";
 
-export function CatBars({ cats, open, comp, imputed = [] }: { cats: CategoryScores; open?: boolean; comp?: Components; imputed?: CategoryId[] }) {
+export function CatBars({ cats, open, comp, imputed = [], asOf = {}, stale = [] }: { cats: CategoryScores; open?: boolean; comp?: Components; imputed?: CategoryId[]; asOf?: Partial<Record<CategoryId, string>>; stale?: CategoryId[] }) {
   return (
     <div>
       {CATEGORIES.map((c) => {
@@ -23,6 +23,7 @@ export function CatBars({ cats, open, comp, imputed = [] }: { cats: CategoryScor
             )}
             <span className="v" title={single ? `Single source: ${sources!.only}` : v == null ? "No result yet. Not a zero." : undefined}>
               {v == null ? "n/a" : Math.round(v)}
+              {asOf[c.id] ? <span className="cov-n"> {asOf[c.id]}{stale.includes(c.id) ? " · downweighted" : ""}</span> : null}
               {single ? <span className="cov-n"> single source</span> : null}
             </span>
           </div>

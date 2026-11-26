@@ -118,9 +118,9 @@ test("homepage glances stay short and keep SIscope separate from Arena", () => {
   const d = buildDecisions(pool, pool);
   assert.equal(d.overall.glance, "#1 of 3 · Arena text #27");
   assert.ok(d.overall.glance.length < 48);
-  assert.equal(d.coding.glance, "WebDev #3 · not overall");
-  assert.ok(d.coding.glance.length < 48);
-  assert.equal(d.value?.glance, "Top score under $1/1M");
-  assert.ok((d.value?.glance.length ?? 0) < 48);
+  assert.ok(d.open.glance.length < 48);
+  assert.equal(d.value.glance, "Under $1/1M");
+  assert.ok(d.value.glance.length < 48);
+  assert.equal(new Set([d.overall.slug, d.open.slug, d.value.slug]).size, 3);
   assert.doesNotMatch(d.value?.reason ?? "", /\$\d+\.\d{3}/);
 });

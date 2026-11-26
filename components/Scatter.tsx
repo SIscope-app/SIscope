@@ -77,7 +77,7 @@ export function Scatter({ pts, filter, yLabel = "SIscope score" }: { pts: Scatte
           {narrow ? "Price per 1M tokens →" : "List price per 1M tokens (3 in : 1 out, log scale) →"}
         </text>
         <text transform={`translate(13 ${px((H - m.b + m.t) / 2)}) rotate(-90)`} textAnchor="middle" fill="var(--muted)" fontSize={13}>
-          Smarter →
+          {ymin > 0 ? `Smarter → (from ${ymin}, not 0)` : "Smarter →"}
         </text>
         <path d={fr.map((p, i) => (i ? "L" : "M") + lx(p.x) + " " + ly(p.y)).join(" ")} fill="none" stroke="var(--muted)" strokeWidth={2} strokeDasharray="5 4" opacity={0.75} />
         {pts.map((p) => {
@@ -114,7 +114,7 @@ export function Scatter({ pts, filter, yLabel = "SIscope score" }: { pts: Scatte
             const below = y < m.t + 24;
             return (
               <text key={"l" + p.slug} x={px(anchor === "end" ? x - 12 : x + 12)} y={px(below ? y + 18 : y - 10)} textAnchor={anchor} fill="var(--text)" fontSize={12.5} fontWeight={620} style={{ pointerEvents: "none", paintOrder: "stroke", stroke: "var(--card)", strokeWidth: 4 }}>
-                {labelSet.size > 0 && [...labelSet].filter((s) => pts.find((q) => q.slug === s)?.base === p.base).length > 1 && p.variant ? `${p.base} ${p.variant}` : p.base}
+                {p.name}
               </text>
             );
           })}

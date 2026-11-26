@@ -1,5 +1,5 @@
 /**
- * SIscope score v0.3.0, pure functions shared by server and browser.
+ * SIscope score v0.3.1, pure functions shared by server and browser.
  *
  * Every component is a percentile against one reference cohort (models with an
  * Arena agent result), not against each board's own population. A category
@@ -9,11 +9,19 @@
  * keeps a gap from helping the model, and it is labelled as such.
  */
 
-export const SCORE_VERSION = "0.3.0";
+export const SCORE_VERSION = "0.3.1";
 export const SCORE_DATE = "2026-11-26";
 export const COVERAGE_GATE = 0.7;
 /** Reference-cohort percentile used wherever a measured result is missing. */
 export const MISSING_PERCENTILE = 25;
+/** A scored source older than this, measured from the snapshot time, is stale. */
+export const STALE_AFTER_DAYS = 90;
+/**
+ * A stale measurement is blended this far toward MISSING_PERCENTILE.
+ * The rest of the blend is the measured percentile. A missing test stays at
+ * MISSING_PERCENTILE and is never treated as zero. Category weights do not change.
+ */
+export const STALE_BLEND = 0.5;
 
 export type CategoryId = "coding" | "agents" | "reasoning" | "math" | "chat" | "instructions";
 
@@ -137,16 +145,49 @@ export function referencePercentiles(raws: Components[], cohort: boolean[]): { c
   return { comps, basis };
 }
 
-export function categoryScores(comp: Components): CategoryScores {
+export function categoryScores(comp: Components, stale: ReadonlySet<string> = new Set()): CategoryScores {
   const out: CategoryScores = {};
   for (const c of CATEGORIES) {
-    const vals = c.components.map((k) => comp[k.id]).filter((v): v is number => typeof v === "number");
-    if (!vals.length) continue;
-    const missing = c.components.length - vals.length;
-    const sum = vals.reduce((a, b) => a + b, 0) + missing * MISSING_PERCENTILE;
+    const vals = c.components.map((k) => {
+      const v = comp[k.id];
+      if (typeof v !== "number") return null;
+      return stale.has(k.source) ? STALE_BLEND * v + (1 - STALE_BLEND) * MISSING_PERCENTILE : v;
+    });
+    const present = vals.filter((v): v is number => v != null);
+    if (!present.length) continue;
+    const missing = c.components.length - present.length;
+    const sum = present.reduce((a, b) => a + b, 0) + missing * MISSING_PERCENTILE;
     out[c.id] = sum / c.components.length;
   }
   return out;
+}
+
+/** Designed share of the overall score when every component in a category is present. */
+export function effectiveSourceShares(): { source: "arena" | "epoch"; percent: number }[] {
+  const totals = { arena: 0, epoch: 0 };
+  for (const c of CATEGORIES) {
+    const n = c.components.length;
+    for (const k of c.components) totals[k.source] += c.weight / n;
+  }
+  const sum = totals.arena + totals.epoch;
+  return [
+    { source: "arena", percent: (totals.arena / sum) * 100 },
+    { source: "epoch", percent: (totals.epoch / sum) * 100 },
+  ];
+}
+
+/** Arena and Epoch only. Other files, including the Open Agent Leaderboard, are not score inputs. */
+export function staleSourceIds(sources: { id: string; as_of: string }[], nowIso: string, days = STALE_AFTER_DAYS): Set<"arena" | "epoch"> {
+  const now = Date.parse(nowIso);
+  const stale = new Set<"arena" | "epoch">();
+  if (!Number.isFinite(now)) return stale;
+  for (const s of sources) {
+    if (s.id !== "arena" && s.id !== "epoch") continue;
+    const raw = s.as_of.length <= 10 ? `${s.as_of}T00:00:00Z` : s.as_of;
+    const t = Date.parse(raw);
+    if (Number.isFinite(t) && now - t > days * 86400000) stale.add(s.id);
+  }
+  return stale;
 }
 
 /** A headline pick needs every category measured, or two independent sources. */

@@ -2,8 +2,8 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { EpochBenchmark, Model } from "./types";
 import { prettyName, prettyParts } from "./names";
-import { categoryScores, composite, referencePercentiles, type CategoryScores, type Components } from "./score";
-import { provisionalScore } from "./trust";
+import { categoryScores, composite, referencePercentiles, staleSourceIds, type CategoryScores, type Components } from "./score";
+import { arenaTextMargins, provisionalScore, type TextMargin } from "./trust";
 
 /**
  * Read a snapshot file from disk. The JSON is not imported, so the Cloudflare
@@ -218,14 +218,34 @@ export type Enriched = Model & {
 };
 
 let _cache: Enriched[] | null = null;
+let _margins: Map<string, TextMargin> | null = null;
+
+/** Arena and Epoch sources older than 90 days before this snapshot. Exgentic is not a score input. */
+export function currentStaleSources(): Set<"arena" | "epoch"> {
+  const snap = snapshot();
+  return staleSourceIds(snap.sources.sources, snap.raw.built_at);
+}
+
+export function textMargins(): Map<string, TextMargin> {
+  if (_margins) return _margins;
+  const rows = allModels().flatMap((m) => {
+    const t = m.arena.text;
+    if (t?.rating == null || t.lo == null || t.hi == null) return [];
+    return [{ slug: m.slug, rank: t.rank, rating: t.rating, lo: t.lo, hi: t.hi }];
+  });
+  _margins = arenaTextMargins(rows);
+  return _margins;
+}
+
 export function allModels(): Enriched[] {
   if (_cache) return _cache;
   const models = snapshot().raw.models;
+  const stale = currentStaleSources();
   const raws = models.map(rawComponents);
   const { comps, basis } = referencePercentiles(raws, raws.map((raw) => typeof raw["arena.agent"] === "number"));
   const list = models.map((m, i) => {
     const comp = comps[i];
-    const cats = categoryScores(comp);
+    const cats = categoryScores(comp, stale);
     const c = composite(cats);
     return { ...stampPercentiles(m, comp, basis), comp, cats, si: c.score, coverage: c.coverage, siRank: null as number | null };
   });
@@ -287,6 +307,9 @@ export type Slim = {
   cats: CategoryScores;
   text: number | null;
   textRank: number | null;
+  /** Compact Arena text rank span, such as "17–22", when the interval covers more than one rank. */
+  textSpan?: string;
+  textTied?: boolean;
   webdev: number | null;
   vision: number | null;
   agent: number | null;
@@ -309,6 +332,7 @@ export type Slim = {
 };
 
 export function slim(m: Enriched): Slim {
+  const margin = textMargins().get(m.slug);
   return {
     slug: m.slug,
     name: m.name,
@@ -325,6 +349,8 @@ export function slim(m: Enriched): Slim {
     cats: Object.fromEntries(Object.entries(m.cats).map(([k, v]) => [k, Math.round((v as number) * 10) / 10])),
     text: m.arena.text?.rating ?? null,
     textRank: m.arena.text?.rank ?? null,
+    ...(margin && margin.to > margin.from ? { textSpan: `${margin.from}–${margin.to}` } : {}),
+    ...(margin?.tied ? { textTied: true } : {}),
     webdev: m.arena.webdev?.rating ?? null,
     vision: m.arena.vision?.rating ?? null,
     agent: m.arena.agent?.score ?? null,

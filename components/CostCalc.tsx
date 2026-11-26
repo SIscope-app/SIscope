@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Slim } from "@/lib/data";
 import { fmtPriceExact } from "@/lib/format";
 import { openrouterUrl } from "@/lib/links";
-import { Avatar, OpenTag, VariantChip } from "./Avatar";
+import { Avatar, OpenTag } from "./Avatar";
 import { ModelPicker } from "./ModelPicker";
 
 const VOLUMES = [
@@ -184,8 +184,7 @@ export function CostCalc({ models, defaults }: { models: Slim[]; defaults: strin
             <span style={{ minWidth: 0, display: "grid", gap: 3 }}>
               <Link href={`/models/${m.slug}`} className="nm">
                 <Avatar org={m.org} />
-                <span className="n" title={m.name}>{m.base}</span>
-                <VariantChip v={m.variant} />
+                <span className="n">{m.name}</span>
                 <OpenTag open={m.open} />
               </Link>
               <span style={{ fontSize: 12.5, color: "var(--faint)" }}>

@@ -4,8 +4,9 @@ import { Scatter } from "./ClientCharts";
 import type { ScatterPt } from "./Scatter";
 import Link from "next/link";
 import { SectionHead } from "./rows";
-import { tieTitle, tieWithPrevious } from "@/lib/trust";
-import { Avatar, OpenTag, VariantChip } from "./Avatar";
+import { tieWithPrevious } from "@/lib/trust";
+import { fmtPrice } from "@/lib/format";
+import { Avatar, OpenTag } from "./Avatar";
 
 type F = "all" | "open" | "closed";
 
@@ -24,6 +25,40 @@ export function FilterSeg({ value, onChange, size }: { value: F; onChange: (f: F
 export type TopItem = { slug: string; name: string; base: string; variant: string | null; org: string; open: boolean; si: number; price: string | null; measured: string; lo: number | null; hi: number | null };
 
 /** Compact top-10: rank, provider, name, score bar, score, blended price. */
+function chartNote(pts: ScatterPt[], scored: number, priced: number): string {
+  const ymin = pts.length ? Math.floor((Math.min(...pts.map((p) => p.y)) - 2) / 5) * 5 : 0;
+  const cap = pts.length < priced ? ` The chart keeps the ${pts.length} highest scores that have a list price.` : "";
+  return `Showing ${pts.length} of ${scored} scored models. ${priced} have a list price, so models without one are left off.${cap} The score axis starts at ${ymin}, not 0.`;
+}
+
+function ScoreTable({ pts }: { pts: ScatterPt[] }) {
+  return (
+    <div className="chart-fallback">
+      <table>
+        <caption>Same models as the chart</caption>
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Weights</th>
+            <th>Score</th>
+            <th>Price per 1M</th>
+          </tr>
+        </thead>
+        <tbody>
+          {pts.map((p) => (
+            <tr key={p.slug}>
+              <td><Link href={`/models/${p.slug}`}>{p.name}</Link></td>
+              <td>{p.open ? "Open" : "Closed"}</td>
+              <td className="tnum">{p.y.toFixed(0)}</td>
+              <td className="tnum">{fmtPrice(p.x)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function TopList({ items, ties }: { items: TopItem[]; ties: ReturnType<typeof tieWithPrevious> }) {
   const floor = 50;
   return (
@@ -31,7 +66,7 @@ function TopList({ items, ties }: { items: TopItem[]; ties: ReturnType<typeof ti
       <div className="t10-h" aria-hidden="true">
         <span>#</span>
         <span>Model</span>
-        <span className="t10-barh">SIscope score</span>
+        <span className="t10-barh">Score, bar from 50</span>
         <span />
         <span>$ / 1M</span>
       </div>
@@ -45,11 +80,10 @@ function TopList({ items, ties }: { items: TopItem[]; ties: ReturnType<typeof ti
                 <span className={`rk ${i === 0 ? "top" : ""}`}>{i + 1}</span>
                 <span className="nm">
                   <Avatar org={it.org} />
-                  <span className="n" title={it.name}>{it.base}</span>
-                  <VariantChip v={it.variant} />
+                  <span className="n">{it.name}</span>
                   <OpenTag open={it.open} />
                   <span className="cov-n">{it.measured}</span>
-                  {tie ? <span className="cov-n" title={tieTitle(tie) ?? undefined}>tied</span> : null}
+                  {tie ? <span className="cov-n">{tie === "arena" ? "tied within margin" : "tied"}</span> : null}
                 </span>
                 <span className="t10-track">
                   <span className="barw t10-bar" aria-hidden="true">
@@ -78,6 +112,8 @@ export function HomeShell({
   changesSub,
   tasks,
   scatter,
+  scored,
+  priced,
   top,
 }: {
   hero: React.ReactNode;
@@ -88,6 +124,8 @@ export function HomeShell({
   changesSub: string;
   tasks: React.ReactNode;
   scatter: ScatterPt[];
+  scored: number;
+  priced: number;
   top: TopItem[];
 }) {
   const [f, setF] = useState<F>("all");
@@ -168,9 +206,8 @@ export function HomeShell({
               </span>
             </div>
             <Scatter pts={scatter} filter={f} />
-            <p className="note">
-              Vertical axis: SIscope score. Horizontal axis: OpenRouter list price per 1M tokens, three input tokens for each output token. {scatter.length} models have both a score and a price.
-            </p>
+            <ScoreTable pts={scatter} />
+            <p className="note">{chartNote(scatter, scored, priced)} Diamond is open weights, circle is closed.</p>
           </div>
           {gap}
         </div>

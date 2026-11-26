@@ -13,7 +13,6 @@ export function Avatar({ org, size = 24 }: { org: string; size?: number }) {
         background: `color-mix(in srgb, ${color} 24%, var(--card))`,
         borderColor: `color-mix(in srgb, ${color} 62%, var(--line))`,
       }}
-      title={name}
     >
       <span aria-hidden="true">{orgInitial(org)}</span>
       <span className="sr-only">{name}</span>

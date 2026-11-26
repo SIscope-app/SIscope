@@ -1,7 +1,7 @@
 import { og } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Avatar, OpenTag, VariantChip } from "@/components/Avatar";
+import { Avatar, OpenTag } from "@/components/Avatar";
 import { Icon } from "@/components/Icons";
 import { ensureData } from "@/lib/data";
 import { TASKS, taskRanking } from "@/lib/tasks";
@@ -38,9 +38,9 @@ export default async function Page() {
                     <li key={m.slug} className="nm" style={{ fontSize: 14.5 }}>
                       <span className="tnum" style={{ color: i ? "var(--faint)" : "var(--accent)", width: 14, fontWeight: 700 }}>{i + 1}</span>
                       <Avatar org={m.org} size={20} />
-                      <span className="n" title={m.name}>{m.base}</span>
-                      <VariantChip v={m.variant} />
+                      <span className="n">{m.name}</span>
                       <OpenTag open={m.open} />
+                      {m.si != null ? <span className="tnum" style={{ color: "var(--muted)" }}>{m.si.toFixed(0)}</span> : null}
                     </li>
                   ))}
                 </ol>

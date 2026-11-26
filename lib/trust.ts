@@ -76,7 +76,55 @@ export function tieWithPrevious(rows: TieRow[]): TieKind[] {
 }
 
 export function tieTitle(kind: TieKind): string | null {
-  if (kind === "score") return "Effectively tied: the displayed scores round to the same number.";
-  if (kind === "arena") return "Effectively tied: Arena text ranges overlap and the scores are within a point.";
+  if (kind === "score") return "Tied: the displayed scores round to the same number.";
+  if (kind === "arena") return "Tied within margin: Arena ranges overlap.";
   return null;
+}
+
+export type TextMargin = { from: number; to: number; tied: boolean };
+
+/** Rank span of models whose Arena rating sits inside this model's interval, plus a near-tie when neighbors overlap. */
+export function arenaTextMargins(rows: { slug: string; rank: number; rating: number; lo: number; hi: number }[]): Map<string, TextMargin> {
+  const sorted = [...rows].sort((a, b) => a.rank - b.rank);
+  const out = new Map<string, TextMargin>();
+  const overlaps = (a: { lo: number; hi: number }, b: { lo: number; hi: number }) => a.lo <= b.hi && b.lo <= a.hi;
+  for (let i = 0; i < sorted.length; i++) {
+    const m = sorted[i];
+    const inside = sorted.filter((o) => o.rating >= m.lo && o.rating <= m.hi);
+    const ranks = [m.rank, ...inside.map((o) => o.rank)];
+    const prev = sorted[i - 1];
+    const next = sorted[i + 1];
+    out.set(m.slug, {
+      from: Math.min(...ranks),
+      to: Math.max(...ranks),
+      tied: (prev != null && overlaps(m, prev)) || (next != null && overlaps(m, next)),
+    });
+  }
+  return out;
+}
+
+/** Oldest measured input date for each category. Empty when that category has no dated result. */
+export function categoryInputDates(m: {
+  comp: Components;
+  arena: { text?: { date?: string }; webdev?: { date?: string }; agent?: { date?: string } };
+  epoch: { benchmark: string; run_date: string | null }[];
+}): Partial<Record<CategoryId, string>> {
+  const out: Partial<Record<CategoryId, string>> = {};
+  for (const c of CATEGORIES) {
+    const dates: string[] = [];
+    for (const k of c.components) {
+      if (typeof m.comp[k.id] !== "number") continue;
+      if (k.id === "arena.webdev" && m.arena.webdev?.date) dates.push(m.arena.webdev.date);
+      else if (k.id === "arena.agent" && m.arena.agent?.date) dates.push(m.arena.agent.date);
+      else if (k.id.startsWith("arena.text") && m.arena.text?.date) dates.push(m.arena.text.date);
+      else if (k.id.startsWith("epoch.")) {
+        const row = m.epoch.find((e) => `epoch.${e.benchmark}` === k.id);
+        if (row?.run_date) dates.push(row.run_date);
+      }
+    }
+    if (!dates.length) continue;
+    dates.sort();
+    out[c.id] = dates[0];
+  }
+  return out;
 }

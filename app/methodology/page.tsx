@@ -1,9 +1,9 @@
 import { og } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { EPOCH_BENCHMARKS, SOURCES, ensureData, siRanked } from "@/lib/data";
+import { EPOCH_BENCHMARKS, SOURCES, currentStaleSources, ensureData, siRanked } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
-import { CATEGORIES, COVERAGE_GATE, SCORE_DATE, SCORE_VERSION } from "@/lib/score";
+import { CATEGORIES, COVERAGE_GATE, SCORE_DATE, SCORE_VERSION, STALE_AFTER_DAYS, effectiveSourceShares } from "@/lib/score";
 
 export const metadata: Metadata = {
   title: "How the score is built",
@@ -14,6 +14,10 @@ export const metadata: Metadata = {
 export default async function Page() {
   await ensureData();
   const n = siRanked().length;
+  const shares = effectiveSourceShares();
+  const arenaShare = shares.find((s) => s.source === "arena")!.percent;
+  const epochShare = shares.find((s) => s.source === "epoch")!.percent;
+  const staleNow = [...currentStaleSources()];
   return (
     <div className="wrap">
       <div className="page-head">
@@ -49,6 +53,28 @@ export default async function Page() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="section prose">
+        <h2>What each source actually contributes</h2>
+        <p>
+          The {CATEGORIES.find((c) => c.id === "chat")?.weight}% next to chat is the chat category, not Arena&apos;s share of the score. Arena also feeds coding, agents, reasoning, math, and instructions. When every test in a category is present, this is each source&apos;s share of the final score. The category weights above are unchanged.
+        </p>
+        <table className="tbl">
+          <thead>
+            <tr><th>Source</th><th>Share of the score</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Arena</td><td className="tnum">{arenaShare.toFixed(1)}%</td></tr>
+            <tr><td>Epoch AI</td><td className="tnum">{epochShare.toFixed(1)}%</td></tr>
+          </tbody>
+        </table>
+        <p>
+          A measured result from Arena or Epoch older than {STALE_AFTER_DAYS} days is averaged halfway toward the reference 25th percentile before it enters its category. A missing test stays at that percentile. It is never treated as zero. {staleNow.length ? `Right now that applies to ${staleNow.join(" and ")}.` : "Arena and Epoch in this snapshot are inside 90 days, so the rule does not move current ranks."} The Open Agent Leaderboard is not an input to the Agents category. That category is the Arena Agent board.
+        </p>
+        <p>
+          Pages pick different open models because each one uses its own measure. The homepage open card is the full score. A job page uses that job. The Arena gap uses text votes only.
+        </p>
       </section>
 
       <section className="section prose">
