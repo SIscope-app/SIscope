@@ -1,5 +1,5 @@
 {
- "built_at": "2026-11-26T13:05:18Z",
+ "built_at": "2026-11-27T13:00:43Z",
  "week_to": "2026-11-22",
  "prev": "2026-11-19",
  "changes": [
@@ -85,7 +85,7 @@
    "board": "price",
    "model": "Inkling 2 Mini",
    "text": "Inkling 2 Mini gets a public price",
-   "sub": "$0.075 in, $0.3 out per 1M tokens on OpenRouter",
+   "sub": "$0.06 in, $0.24 out per 1M tokens on OpenRouter",
    "date": "2026-11-21",
    "org": "thinky",
    "slug": "inkling-2-mini",

@@ -1,6 +1,6 @@
 {
- "built_at": "2026-11-26T13:05:18Z",
- "count": 256,
+ "built_at": "2026-11-27T13:00:43Z",
+ "count": 257,
  "rows": [
   {
    "model": "Claude 3.5 Sonnet (20240620)",
@@ -1290,6 +1290,12 @@
    "model": "Inkling",
    "benchmark": "gpqa_diamond",
    "epoch_version": "Inkling_xhigh",
+   "reason": "Epoch ran a named effort; Arena entry has none"
+  },
+  {
+   "model": "Inkling 2 Mini",
+   "benchmark": "gpqa_diamond",
+   "epoch_version": "inkling-2-mini_xhigh",
    "reason": "Epoch ran a named effort; Arena entry has none"
   },
   {
